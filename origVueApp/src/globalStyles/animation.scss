@@ -1,0 +1,24 @@
+// if an animaiton crosses components and itS not clear where to put the whole group of styles, put them here
+
+:root {
+  --standard-transition-duration: 0.5s;
+}
+
+.card__container--front,
+.card-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  // does this transition need to go on parent?
+  transition: z-index, transform var(--standard-transition-duration);
+  transform-style: preserve-3d;
+  //40rem is test value based on nothing
+  perspective: 40rem;
+}
+
+// not bad but this should rotate the other way, too, considering
+.card__container--front {
+  &.rotated {
+    transform: rotateX(-180deg);
+    transition-delay: 0s;
+  }
+}

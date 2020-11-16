@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baseball Card Creator</title>
+  </head>
+  <body>
+    <style>
+      @font-face {
+        font-family: "VariableFont";
+        src: url("/fonts/Anybody-VF.woff2");
+      }
+
+      html {
+        font-family: "VariableFont", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+          "Helvetica", Arial, sans-serif;
+        font-display: swap;
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        --unit: 1.6rem;
+        --min-touch-target: 4.4rem;
+        --min-touch-target-half: 2.2rem;
+        --min-touch-target-height: 4.4rem;
+        --min-touch-target-height-half: 2.2rem;
+        --touch-target-large: 4.8rem;
+        --text-narrow: "wght" 450, "wdth" 90, "slnt" 0;
+        --text-narrower: "wght" 400, "wdth" 80, "slnt" 0;
+        --text-short-wide: "wght" 400, "wdth" 100, "slnt" 0;
+        --text-shortest-wide: "wght" 400, "wdth" 100, "slnt" 0;
+        --text-squeeze: "wght" 200, "wdth" 75, "slnt" 0;
+        --text-big-bold: "wght" 400, "wdth" 75, "slnt" 0;
+
+        --text-thin-wide: "wght" 266, "wdth" 100, "slnt" 0;
+        --logoborderradius: 50%;
+        --contrast-threshold-for-card: 0.4;
+        --contrast-threshold-for-controls: 0.9;
+        --border-threshold: 0.8;
+        --grey-for-controls: #c7c7c7;
+        --background-for-overlay: rgba(0, 0, 0, 0.75);
+        --background-for-overlay-controls: rgba(175, 175, 175, 0.95);
+        --imgEditControlsOffset: 0;
+      }
+      @media(min-width: 400px) {
+        html {
+        --imgEditControlsOffset: -4.8rem;
+        }
+      }
+        
+
+
+    </style>
+    <svg class="hidden--visually">
+      <defs>
+
+        <symbol id="iconplus">
+          <path d="M16 2 L16 30 M2 16 L30 16" />
+        </symbol>
+        <symbol id="iconminus">
+          <path d="M2 16 L30 16" />
+        </symbol>
+
+        <symbol id="iconorientationhorz">
+          <rect
+            x="4"
+            y="8"
+            width="24"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </symbol>
+
+        <symbol id="iconorientationvert">
+          <rect
+            x="8"
+            y="4"
+            width="16"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </symbol>
+
+        <symbol id="iconlayoutoneone">
+          <g>
+            <rect
+              x="6.4855"
+              y="2"
+              width="19"
+              height="28"
+              fill="none"
+              stroke="currentColor"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              d="M6.4855,26h19"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <path
+              d="M6.6217,6h19"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </g>
+        </symbol>
+        <symbol id="iconlayoutzerotwo">
+          <g>
+            <rect
+              x="6.4855"
+              y="2"
+              width="19"
+              height="28"
+              fill="none"
+              stroke="currentColor"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              d="M6.4855,24.0566h19"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </g>
+        </symbol>
+        <symbol id="iconlayouttwozero">
+          <g>
+            <rect
+              x="6.4855"
+              y="2"
+              width="19"
+              height="28"
+              fill="none"
+              stroke="currentColor"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              d="M25.4855,7.9434h-19"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </g>
+        </symbol>
+        <symbol id="iconportraitadd">
+          <rect
+            x="3.7677"
+            y="1.6712"
+            width="24.48"
+            height="28.729"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <path
+            stroke="none"
+            fill="currentColor"
+            d="M21.8082,20.3225c-2.1494-.4963-4.15-.9313-3.1813-2.7613,2.95-5.57.7819-8.5488-2.3326-8.5488-3.1764,0-5.29,3.0932-2.3326,8.5488.9981,1.8406-1.0782,2.2756-3.1814,2.7613C8.86,20.7662,8.7877,21.72,8.794,23.3875l.0025.625H23.7908l.0025-.6057C23.8008,21.7268,23.7358,20.7681,21.8082,20.3225Z"
+          />
+          <g>
+            <line
+              x1="20.1345"
+              y1="7.2858"
+              x2="25.64"
+              y2="7.2858"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <line
+              x1="22.8873"
+              y1="4.5331"
+              x2="22.8873"
+              y2="10.0386"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </g>
+          <rect
+            x="4.4837"
+            y="25.1122"
+            width="23.0479"
+            height="5.6723"
+            stroke="none"
+            fill="currentColor"
+          />
+        </symbol>
+        <symbol id="iconlogoadd">
+          <rect
+            x="3.7677"
+            y="1.6712"
+            width="24.48"
+            height="28.729"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <g>
+            <line
+              x1="20.1345"
+              y1="7.2858"
+              x2="25.64"
+              y2="7.2858"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <line
+              x1="22.8873"
+              y1="4.5331"
+              x2="22.8873"
+              y2="10.0386"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </g>
+          <rect
+            x="4.4837"
+            y="25.1122"
+            width="23.0479"
+            height="5.6723"
+            stroke="none"
+            fill="currentColor"
+          />
+        <path stroke="none" fill="currentColor"
+         d="M15.7656,16.7571c1.8038,0,3.8226,3.3166,4.134,4.7211s-.54,2.5616-1.8872,2.2274a16.5673,16.5673,0,0,0-2.2219-.6993,9.1361,9.1361,0,0,0-1.943.6781c-1.4392.4962-2.555-.6949-2.1721-2.2062C12.0947,19.8256,14.1021,16.7571,15.7656,16.7571Zm5.8462-2.3779c.6436.292.8824,1.5275.4843,2.8546-.3813,1.268-1.2621,2.0615-2.4679,1.5145-1.0459-.4751-1.1689-1.7214-.4842-2.8546C19.8341,14.7524,20.9678,14.0867,21.6118,14.3792Zm-11.8994.3824c-.5655.3949-.5741,1.6229.0444,2.8248.5915,1.1483,1.5779,1.7528,2.6369,1.0129.9187-.6419.8147-1.86-.0444-2.8248C11.4848,14.8033,10.2779,14.3668,9.7124,14.7616Zm8.4734-3.95c.7166.136,1.2572,1.3152,1.1819,2.7419-.0726,1.3634-.761,2.3736-2.1028,2.119-1.164-.22-1.5914-1.4392-1.1813-2.7413C16.4958,11.62,17.47,10.6759,18.1858,10.8118Zm-5.5765.0315c-.6869.2442-1.04,1.4928-.7459,2.8908.2811,1.3363,1.1169,2.2284,2.4034,1.7707,1.1158-.3965,1.3509-1.6667.7459-2.89C14.4033,11.3817,13.2961,10.599,12.6093,10.8433Z" fill-rule="evenodd"/>
+        </symbol>
+        <symbol id="iconlogotopleft">
+          <rect
+            x="3.9351"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="3.9351"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </symbol>
+        <symbol id="iconlogotopright">
+          <rect
+            x="3.9351"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="3.9351"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </symbol>
+        <symbol id="iconlogobotleft">
+          <rect
+            x="3.9351"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="3.9351"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </symbol>
+        <symbol id="iconlogobotright">
+          <rect
+            x="3.9351"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="4.0328"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="16.0649"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+          <rect
+            x="3.9351"
+            y="15.9672"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </symbol>
+        <filter id="faded">
+          <feColorMatrix
+            type="matrix"
+            values="1   0   0   0   0
+                    0   1   0   0   0
+                    0   0   1   0   0
+                    0   0   -2   1   0 "
+          />
+        </filter>
+        <filter id="vintage">
+          <feColorMatrix
+            type="matrix"
+            values="1 0 0 0 0
+                      -0.4 1.3 -0.4 0.2 -0.1
+                      0 0 1 0 0
+                      0 0 0 1 0 "
+          />
+        </filter>
+        <filter id='roughpaper' x='0%' y='0%' width='100%' height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency='0.04' result='noise' numOctaves="5" />
+          <feDiffuseLighting in='noise' lighting-color='white' surfaceScale='2'>
+            <feDistantLight azimuth='45' elevation='60' />
+          </feDiffuseLighting>
+        </filter>
+      </defs>
+    </svg>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

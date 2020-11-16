@@ -1,0 +1,23 @@
+.hidden--visually {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 1px !important;
+  height: 1px !important;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  border: 0;
+  white-space: nowrap;
+}
+
+.text-right {
+  text-align: right;
+}
+// for things like Legends
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}

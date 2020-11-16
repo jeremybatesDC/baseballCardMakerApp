@@ -1,0 +1,18 @@
+// omitting normal BEM dashes to make input based alue setting simpler
+.filter {
+  &bw {
+    filter: grayscale(1);
+  }
+  &sepia {
+    filter: sepia(100%);
+  }
+  &vintage {
+    filter: grayscale(45%) sepia(50%) brightness(110%) saturate(200%)
+      contrast(125%);
+    //filter: url(#vintage);
+  }
+
+  &faded {
+    filter: url(#faded);
+  }
+}

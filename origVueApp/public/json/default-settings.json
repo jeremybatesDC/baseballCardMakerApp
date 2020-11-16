@@ -1,0 +1,40 @@
+{
+  "playerPic": "/images/playerDefault.jpg",
+  "playerImageBleedOrBoxed": "relative",
+  "playerImageFilterEffect": "noFilterEffect",
+  "playerName": "Casey Charleston",
+  "playerPosition": "Dad, Pitcher",
+  "teamLogoURL": "/images/logoDefault.jpg",
+  "teamName": "Mudville Meteors",
+  "cardBackgroundColor": "#ffffff",
+  "cardBrightness": 1,
+  "cardSepia": 0,
+  "cardGrayScale": 0,
+  "cardLayout": "one-one",
+  "borderInner": {
+    "curve": 0,
+    "style": "solid",
+    "opacity": 1,
+    "color": "#000000",
+    "width": 3
+  },
+  "logo": {
+    "borderRadius": 50,
+    "position": "bottomRight"
+  },
+  "textLine1": {
+    "fontWght": 600,
+    "fontWidth": 90,
+    "fontSlant": 0
+  },
+  "textLine2": {
+    "fontWght": 200,
+    "fontWidth": 75,
+    "fontSlant": 0
+  },
+  "textPlayerPosition": {
+    "fontWght": 200,
+    "fontWidth": 75,
+    "fontSlant": -5
+  }
+}
