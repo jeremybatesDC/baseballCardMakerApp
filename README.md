@@ -2,6 +2,10 @@
 
 ## To Do
 
+really debating router. Really need undo? Back tho. populate some history? I think it adds quite a bit to project size, complexity. DonT spend too much time on this until I'm sure of best path forward. 
+
+
+
 consider multi-column ion pickr for years / stats or even higher level options https://ionicframework.com/docs/api/picker. Can be animated and shows many options all at once
 
 should i use ion back button? Isn't usng routes enough/better? Don't they automatically give user native expected back button functionality?
