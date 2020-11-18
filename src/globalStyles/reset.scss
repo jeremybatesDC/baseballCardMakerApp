@@ -1,0 +1,122 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: normal;
+}
+
+//root and body styles canT go in scoped
+//so either put those in sep style tag above, and leave below scoped
+//or just be clear donT use it
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+p {
+  margin: 0;
+}
+
+figure {
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  object-fit: cover;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  border: none;
+}
+
+legend {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+  // range here too?
+  &[type="text"],
+  &[type="email"],
+  &[type="tel"],
+  &[type="number"] {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+}
+
+textarea,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  word-break: break-word;
+}
+
+output {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+  padding: 0;
+  box-shadow: none;
+  touch-action: manipulation;
+}
