@@ -3,6 +3,10 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
+
+  --ion-font-family: 'VariableFont';
+  --ion-default-font: 'VariableFont';
+
   /** primary **/
   --ion-color-primary: #5260ff;
   --ion-color-primary-rgb: 82, 96, 255;
@@ -230,3 +234,4 @@ http://ionicframework.com/docs/theming/ */
     --ion-card-background: #1e1e1e;
   }
 }
+
