@@ -2,6 +2,10 @@
 
 ## To Do
 
+focus outline on text fields looks jumpy i'm sure integrating styling will help
+
+consider putting css vars back in index.html -- did it for a reason in the first place
+
 really debating router. Really need undo? Back tho. populate some history? I think it adds quite a bit to project size, complexity. DonT spend too much time on this until I'm sure of best path forward. 
 
 

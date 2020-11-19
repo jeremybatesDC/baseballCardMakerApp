@@ -6,10 +6,6 @@
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-    <ion-range min="-200" max="200" :value="textLineC.fontWght">
-        <!--<ion-label slot="start">-200</ion-label>
-        <ion-label slot="end">200</ion-label>-->
-      </ion-range>
 
 <div class="card-back" :data-card-back-orientation="backOrient">
       <article :data-gum="gumShowing" class="card-back__article">
@@ -29,13 +25,13 @@
 </template>
 
 <script lang="ts">
-import { /*IonInput,*/ IonPage, IonRange, IonToolbar, IonContent } from '@ionic/vue';
+import { /*IonInput,*/ IonPage, /*IonRange,*/ IonToolbar, IonContent } from '@ionic/vue';
 //import BackFooter from '../components/BackFooter.vue';
 
 
 export default  {
   name: 'Back',
-  components: { /*IonInput,*/ IonRange, IonToolbar, IonContent, IonPage, /*BackFooter*/ },
+  components: { /*IonInput,*/ /*IonRange,*/ IonToolbar, IonContent, IonPage, /*BackFooter*/ },
   data(){
     return {
        backOrient: "horizontal",
