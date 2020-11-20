@@ -20,7 +20,7 @@ import "./globalStyles/grid.scss";
 import "./globalStyles/inputs.scss";
 import "./globalStyles/filters.scss";
 
-import '@ionic/vue/css/structure.css';
+//import '@ionic/vue/css/structure.css';
 
 // import '@ionic/vue/css/typography.css';
 
