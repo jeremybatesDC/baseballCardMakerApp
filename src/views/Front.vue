@@ -407,7 +407,8 @@ export default {
 
 .row--middle--forDesign {
   display: flex;
-  position: var(--playerimagebleedorboxed);
+  //position: var(--playerimagebleedorboxed);
+  position: relative;
   flex-grow: 1;
   border-width: var(--borderinnerwidth);
   border-style: solid;
@@ -447,8 +448,11 @@ export default {
 .cf__h1,
 .cf__h2,
 .cf__h3 {
+  display:flex;
   input {
     &[type="text"] {
+      display:flex;
+      min-width: 0;
       font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
         "slnt" var(--fontslant);
     }
@@ -474,7 +478,7 @@ export default {
   font-size: 1.6rem;
   text-align: right;
   input {
-    text-align: inherit;
+    text-align: right;
   }
 }
 
@@ -496,11 +500,7 @@ export default {
   flex-grow: 1;
   position: relative;
   overflow: hidden;
-  //&::before {
-  //  content: "yo";
-  //  position: absolute;
-  //  z-index: -1;
-  //}
+  
 }
 
 .image--player {
@@ -510,13 +510,7 @@ export default {
   object-position: center;
   border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
   -webkit-tap-highlight-color: transparent;
-  // there is a way to make this accessible
-  //&:before {
-  //  content: "Add Image";
-  //  position: absolute;
-  //  top: 0;
-  //  left: 0;
-  //}
+ 
   &:not(.imagePlaceholder) {
  max-width: 100%;
   min-height: 100%;
