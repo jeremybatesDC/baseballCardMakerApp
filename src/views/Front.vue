@@ -3,6 +3,12 @@
     <ion-header>
       <ion-toolbar>
         front L2 controls
+        <label
+            class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
+          >
+            <span>Front Color</span>
+            <input class="colorPicker__input" type="color" v-model="cardDesign.bgcf" />
+          </label>
       </ion-toolbar>
     </ion-header>
     <ion-content>
@@ -238,7 +244,7 @@ export default {
       },
       cardDesign: {
         playerImageBleedOrBoxed: "relative",
-        cardBackgroundColor: "#ffffff",
+        bgcf: "#ffffff",
         cardLayout: "one-one",
         cardBrightness: 1,
         cardSepia: 0,
@@ -504,7 +510,6 @@ export default {
 }
 
 .image--player {
-  //background-color: var(--cardbackgroundcolor);
  
   object-fit: cover;
   object-position: center;
