@@ -5,7 +5,7 @@
         front L2 controls
       </ion-toolbar>
     </ion-header>
-    <ion-content :fullscreen="true">
+    <ion-content>
       <div
         class="cardFront__wrapper--outermost"
         :style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
@@ -73,6 +73,7 @@
           <label class="figure--player__label" for="inputTriggerFocusUI_0">
             <canvas id="canvasPlayer" class="image--player"></canvas>
             <img
+             width="328" height="416"
               loading="lazy"
               class="image--player imagePlaceholder"
               :src="images.playerPic"
@@ -297,8 +298,8 @@ export default {
   margin: 0 auto;
   //padding: 0 1.6rem;
   color: var(--calcColorFront);
-  background-color: var(--bgcf);
-  box-shadow: -1.6rem 0 var(--bgcf), 1.6rem 0 var(--bgcf);
+  background-color: var(--bgcf, red);
+  box-shadow: -1.6rem 0 var(--bgcf, red), 1.6rem 0 var(--bgcf, red);
   //border: 1px solid rgba(0, 0, 0, 0.3333);
   // may need this again...
   //overflow: hidden;
@@ -504,8 +505,7 @@ export default {
 
 .image--player {
   //background-color: var(--cardbackgroundcolor);
-  max-width: 100%;
-  min-height: 100%;
+ 
   object-fit: cover;
   object-position: center;
   border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
@@ -517,6 +517,10 @@ export default {
   //  top: 0;
   //  left: 0;
   //}
+  &:not(.imagePlaceholder) {
+ max-width: 100%;
+  min-height: 100%;
+  }
 }
 
 .playerImage__fieldset {
@@ -569,8 +573,8 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  //width: 100%;
+  //height: 100%;
   object-fit: cover;
 
   &.image--logo {

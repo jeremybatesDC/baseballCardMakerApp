@@ -2,6 +2,10 @@
 
 ## To Do
 
+input customization in shadow root and passed in as var of course --bar-height bar-background, etc
+
+need to sketch out image layout... it's off but how why without adding code randomonly -- also do i really need slot here?
+
 focus outline on text fields looks jumpy i'm sure integrating styling will help
 
 consider putting css vars back in index.html -- did it for a reason in the first place
