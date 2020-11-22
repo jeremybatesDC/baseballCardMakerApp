@@ -4,6 +4,8 @@
 
 input customization in shadow root and passed in as var of course --bar-height bar-background, etc
 
+tree shake ionic core css and js -- 
+
 need to sketch out image layout... it's off but how why without adding code randomonly -- also do i really need slot here?
 
 focus outline on text fields looks jumpy i'm sure integrating styling will help

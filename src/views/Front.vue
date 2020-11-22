@@ -2,12 +2,74 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        front L2 controls
         <label
-            class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
+        slot="secondary"
+            for="playerPic"
+            class="filePicker__label filePicker__label--addPic"
+            aria-label="Upload Image"
           >
-            <span>Front Color</span>
-            <input class="colorPicker__input" type="color" v-model="cardDesign.bgcf" />
+            <svg
+              viewBox="0 0 32 32"
+              width="32"
+              height="32"
+              fill="none"
+              stroke="currentcolor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <use xlink:href="#iconportraitadd"></use>
+            </svg>
+            <span> Add<br />Pic</span>
+            <input
+              id="playerPic"
+              ref="playerPic"
+              name="playerPic"
+              data-which-canvas="canvasPlayer"
+              data-canvas-width="640"
+              class="hidden--visually filePicker__input"
+              type="file"
+              accept="image/*"
+              @input="encodeImage"
+            />
+        </label>
+        <label
+        slot="secondary"
+          class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
+        >
+          <span>Front Color</span>
+          <input class="colorPicker__input" type="color" v-model="cardDesign.bgcf" />
+        </label>
+        <label
+        slot="secondary"
+            for="logoPic"
+            class="filePicker__label filePicker__label--addLogo"
+            aria-label="Upload Logo Image"
+          >
+            <svg
+              viewBox="0 0 32 32"
+              width="32"
+              height="32"
+              fill="none"
+              stroke="currentcolor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <use xlink:href="#iconlogoadd"></use>
+            </svg>
+            <span>Add<br />Logo</span>
+            <input
+              id="logoPic"
+              ref="logoPic"
+              name="logoPic"
+              data-which-canvas="canvasLogo"
+              data-canvas-width="144"
+              class="hidden--visually filePicker__input"
+              type="file"
+              accept="image/*"
+              @input="encodeImage"
+            />
           </label>
       </ion-toolbar>
     </ion-header>
