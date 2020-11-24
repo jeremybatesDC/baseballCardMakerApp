@@ -2,6 +2,10 @@
 
 ## To Do
 
+inputs seem to work so far at least on ios...
+
+test radio, toggle, custom stepper
+
 input customization in shadow root and passed in as var of course --bar-height bar-background, etc
 
 tree shake ionic core css and js -- 

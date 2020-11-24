@@ -1,9 +1,21 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
-        <label
-        slot="secondary"
+      <ion-toolbar color="primary">
+        <div class="row">
+          <label
+            slot="start"
+            class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
+          >
+            <span>Front Color</span>
+            <input
+              class="colorPicker__input"
+              type="color"
+              v-model="cardDesign.bgcf"
+            />
+          </label>
+          <label
+            slot="start"
             for="playerPic"
             class="filePicker__label filePicker__label--addPic"
             aria-label="Upload Image"
@@ -32,16 +44,10 @@
               accept="image/*"
               @input="encodeImage"
             />
-        </label>
-        <label
-        slot="secondary"
-          class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
-        >
-          <span>Front Color</span>
-          <input class="colorPicker__input" type="color" v-model="cardDesign.bgcf" />
-        </label>
-        <label
-        slot="secondary"
+          </label>
+
+          <label
+            slot="start"
             for="logoPic"
             class="filePicker__label filePicker__label--addLogo"
             aria-label="Upload Logo Image"
@@ -71,6 +77,60 @@
               @input="encodeImage"
             />
           </label>
+          <fieldset slot="start" class="radioBtns__fieldset">
+            <legend class="radioBtns__legend text-left">Layout</legend>
+            <div class="radioBtns__wrapper--inner">
+              <label class="radioBtns__label">
+                <input
+                  type="radio"
+                  class="radioBtns__input hidden--visually"
+                  v-model="cardDesign.cardLayout"
+                  value="one-one"
+                />
+                <span
+                  ><svg width="32" height="32" viewBox="0 0 32 32">
+                    <use xlink:href="#iconlayoutoneone"></use></svg
+                ></span>
+              </label>
+
+              <label class="radioBtns__label">
+                <input
+                  type="radio"
+                  class="radioBtns__input hidden--visually"
+                  v-model="cardDesign.cardLayout"
+                  value="zero-two"
+                />
+                <span
+                  ><svg viewBox="0 0 32 32" width="32" height="32">
+                    <use xlink:href="#iconlayoutzerotwo"></use></svg
+                ></span>
+              </label>
+
+              <label class="radioBtns__label">
+                <input
+                  type="radio"
+                  class="radioBtns__input hidden--visually"
+                  v-model="cardDesign.cardLayout"
+                  value="two-zero"
+                />
+                <span
+                  ><svg viewBox="0 0 32 32" width="32" height="32">
+                    <use xlink:href="#iconlayouttwozero"></use></svg
+                ></span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="row">
+          <label slot="start" class="rangeUI__label">
+            <span>Border Curve </span>
+            <ion-range
+              min="0"
+              max="24"
+              v-model.number="cardDesign.borderInnerCurve"
+            ></ion-range>
+          </label>
+        </div>
       </ion-toolbar>
     </ion-header>
     <ion-content>
@@ -138,32 +198,33 @@
             "
           >
             <figure class="figure--player">
-          <label class="figure--player__label" for="inputTriggerFocusUI_0">
-            <canvas id="canvasPlayer" class="image--player"></canvas>
-            <img
-             width="328" height="416"
-              loading="lazy"
-              class="image--player imagePlaceholder"
-              :src="images.playerPic"
-              alt="This default player looks great!"
-            />
-          </label>
-        </figure>
+              <label class="figure--player__label" for="inputTriggerFocusUI_0">
+                <canvas id="canvasPlayer" class="image--player"></canvas>
+                <img
+                  width="328"
+                  height="416"
+                  loading="lazy"
+                  class="image--player imagePlaceholder"
+                  :src="images.playerPic"
+                  alt="This default player looks great!"
+                />
+              </label>
+            </figure>
 
             <!-- make rounded corner optional -->
             <!-- using css filter drop shadow could work -->
             <figure
-          class="figure--logo"
-          v-show="cardDesign.logoPosition !== 'hideLogo'"
-        >
-          <canvas id="canvasLogo" class="image--logo"> </canvas>
-          <img
-            loading="lazy"
-            class="image--logo imagePlaceholder"
-            :src="images.logoPic"
-            alt="This default logo looks terrific!"
-          />
-        </figure>
+              class="figure--logo"
+              v-show="cardDesign.logoPosition !== 'hideLogo'"
+            >
+              <canvas id="canvasLogo" class="image--logo"> </canvas>
+              <img
+                loading="lazy"
+                class="image--logo imagePlaceholder"
+                :src="images.logoPic"
+                alt="This default logo looks terrific!"
+              />
+            </figure>
           </div>
 
           <div class="text__line--second row">
@@ -365,9 +426,9 @@ export default {
   height: 50.4rem;
   margin: 0 auto;
   //padding: 0 1.6rem;
-  color: var(--calcColorFront);
-  background-color: var(--bgcf, red);
-  box-shadow: -1.6rem 0 var(--bgcf, red), 1.6rem 0 var(--bgcf, red);
+  color: var(--calcColorFront, #000);
+  background-color: var(--bgcf, #fefefe);
+  box-shadow: -1.6rem 0 var(--bgcf, #fefefe), 1.6rem 0 var(--bgcf, #fefefe);
   //border: 1px solid rgba(0, 0, 0, 0.3333);
   // may need this again...
   //overflow: hidden;
@@ -516,10 +577,10 @@ export default {
 .cf__h1,
 .cf__h2,
 .cf__h3 {
-  display:flex;
+  display: flex;
   input {
     &[type="text"] {
-      display:flex;
+      display: flex;
       min-width: 0;
       font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
         "slnt" var(--fontslant);
@@ -568,19 +629,17 @@ export default {
   flex-grow: 1;
   position: relative;
   overflow: hidden;
-  
 }
 
 .image--player {
- 
   object-fit: cover;
   object-position: center;
   border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
   -webkit-tap-highlight-color: transparent;
- 
+
   &:not(.imagePlaceholder) {
- max-width: 100%;
-  min-height: 100%;
+    max-width: 100%;
+    min-height: 100%;
   }
 }
 
