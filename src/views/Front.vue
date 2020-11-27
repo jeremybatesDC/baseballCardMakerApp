@@ -362,7 +362,7 @@ export default {
   data() {
     return {
       images: {
-        playerPic: "/assets/images/LeroyColorGood.webp",
+        playerPic: "/assets/images/leroy.jpg",
         logoPic: "/assets/images/logo.svg",
       },
       cardDesign: {
@@ -584,6 +584,7 @@ export default {
       min-width: 0;
       font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
         "slnt" var(--fontslant);
+      padding: 0;
     }
   }
 
