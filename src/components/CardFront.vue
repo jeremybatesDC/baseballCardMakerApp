@@ -366,7 +366,7 @@ import {
 } from "@ionic/vue";
 
 export default {
-  name: "Front",
+  name: "CardFront",
   components: {
     IonInput,
     IonRange,

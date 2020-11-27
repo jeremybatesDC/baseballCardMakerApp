@@ -2,13 +2,17 @@
 
 ## To Do
 
+on larger screens, background could be a plastic sheet of cards
+
+leroy image on initial load seems to short and then resizes on refresh -- maybe there's too much going on between explicit width height, object fir and lazy load...
+
 inputs seem to work so far at least on ios...
 
 test radio, toggle, custom stepper
 
 input customization in shadow root and passed in as var of course --bar-height bar-background, etc
 
-tree shake ionic core css and js -- 
+tree shake ionic core css and js --
 
 need to sketch out image layout... it's off but how why without adding code randomonly -- also do i really need slot here?
 
@@ -16,9 +20,7 @@ focus outline on text fields looks jumpy i'm sure integrating styling will help
 
 consider putting css vars back in index.html -- did it for a reason in the first place
 
-really debating router. Really need undo? Back tho. populate some history? I think it adds quite a bit to project size, complexity. DonT spend too much time on this until I'm sure of best path forward. 
-
-
+really debating router. Really need undo? Back tho. populate some history? I think it adds quite a bit to project size, complexity. DonT spend too much time on this until I'm sure of best path forward.
 
 consider multi-column ion pickr for years / stats or even higher level options https://ionicframework.com/docs/api/picker. Can be animated and shows many options all at once
 
@@ -29,20 +31,19 @@ ios build failed could not find xcode project -- hmmmm
 
 for iOS i've installed AltStore and trusted developer and am running AltServer on machine connected to same wifi. Offers sideloading
 
-need to create an ipa file -- i think i can do this... 
+need to create an ipa file -- i think i can do this...
 
-keystore purpleMonkey 
+keystore purpleMonkey
 
 for app: ionic, as resistant as i am based on the arguably better practices of nativescript.
 but losing many hours to nativescript setup, whereas with ionic i got a running app instance from my phone in like 2 mins. So...
 
 need:
+
 - ios App development / Store certificate and a provisioning profile
 - android keystore file, key alias and key password
 
-the player image is missing from recent vercel deployments... 
-
-
+the player image is missing from recent vercel deployments...
 
 improve colorpicker a tad more on iOS - the issue i think is border on input type color --
 
