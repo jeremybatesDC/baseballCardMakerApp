@@ -1,14 +1,38 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-segment @ionChange="segmentChanged($event)">
+      <!--<ion-segment @ionChange="segmentChanged($event)" value="cardfront">
         <ion-segment-button value="cardfront">
           <ion-label>Card Front</ion-label>
         </ion-segment-button>
         <ion-segment-button value="cardback">
           <ion-label>Card Back</ion-label>
         </ion-segment-button>
-      </ion-segment>
+      </ion-segment>-->
+      <div class="tabsGood">
+        <div role="tablist" aria-label="Card Side">
+          <button
+            role="tab"
+            aria-selected="true"
+            aria-controls="panelCardFront"
+            id="triggerFront"
+            aria-label="Front"
+            @click="chngTbz"
+          >
+            Card Front
+          </button>
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="panelCardBack"
+            id="triggerBack"
+            aria-label="Back"
+            @click="chngTbz"
+          >
+            Card Back
+          </button>
+        </div>
+      </div>
       <ion-toolbar color="primary">
         <div class="row">
           <label
@@ -150,6 +174,24 @@
           class="card__container--front"
           :class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
         >
+          <div
+            id="panelCardFront"
+            role="tabpanel"
+            aria-labelledby="triggerFront"
+          >
+            <!--<CardFront />-->
+            front stuff
+          </div>
+          <div
+            id="panelCardBack"
+            role="tabpanel"
+            aria-labelledby="triggerBack"
+            hidden
+          >
+            <!--<CardBack :data-years="numOfYears" :data-stats="numOfStats" />-->
+            Back stuff
+          </div>
+
           <div class="text__line--first row">
             <h2 class="cf__h2" :style="cssTextLine1Props">
               <ion-input
@@ -362,7 +404,7 @@ import {
   IonRange,
   IonToolbar,
   IonContent,
-  IonSegmentButton,
+  //IonSegmentButton,
 } from "@ionic/vue";
 
 export default {
@@ -373,7 +415,7 @@ export default {
     IonToolbar,
     IonContent,
     IonPage,
-    IonSegmentButton,
+    //IonSegmentButton,
   },
   data() {
     return {
@@ -422,6 +464,18 @@ export default {
   methods: {
     segmentChanged(ev) {
       console.log("Segment changed", ev);
+    },
+    chngTbz(e) {
+      document.body
+        .querySelector('[aria-selected="true"]')
+        .setAttribute("aria-selected", false);
+      e.target.setAttribute("aria-selected", true);
+      document.body
+        .querySelector('[role="tabpanel"]:not([hidden])')
+        .setAttribute("hidden", true);
+      document
+        .getElementById(e.target.getAttribute("aria-controls"))
+        .removeAttribute("hidden");
     },
   },
   computed: {
@@ -721,6 +775,43 @@ export default {
 
   &.image--logo {
     box-shadow: inset 0 0 0 1.6rem var(--calcColorFront);
+  }
+}
+
+[role="tablist"] {
+  display: flex;
+  justify-content: space-between;
+  background-color: royalblue;
+}
+
+[role="tab"] {
+  font-size: 2rem;
+  line-height: 0.8;
+  font-variation-settings: var(--text-big-bold);
+  display: flex;
+
+  //flex-grow: 1;
+
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target-large);
+  height: var(--touch-target-large);
+  padding: 0;
+  text-transform: uppercase;
+  // in case ever have more than just 2 tabs
+  &:not(:first-child) {
+    //box-shadow: -1px 0 #000;
+    order: 99;
+  }
+  &[aria-selected="true"] {
+    background: royalblue;
+    color: #fff;
+    pointer-events: none;
+  }
+  &[aria-selected="false"] {
+    background: var(--grey-for-controls);
+    //color: #fff;
+    //pointer-events: none;
   }
 }
 </style>
