@@ -9,31 +9,32 @@
           <ion-label>Card Back</ion-label>
         </ion-segment-button>
       </ion-segment>-->
-      <div class="tabsGood">
-        <div role="tablist" aria-label="Card Side">
-          <button
-            role="tab"
-            aria-selected="true"
-            aria-controls="panelCardFront"
-            id="triggerFront"
-            aria-label="Front"
-            @click="chngTbz"
-          >
-            Card Front
-          </button>
-          <button
-            role="tab"
-            aria-selected="false"
-            aria-controls="panelCardBack"
-            id="triggerBack"
-            aria-label="Back"
-            @click="chngTbz"
-          >
-            Card Back
-          </button>
-        </div>
-      </div>
+
       <ion-toolbar color="primary">
+        <div class="tabsGood">
+          <div role="tablist" aria-label="Card Side">
+            <button
+              role="tab"
+              aria-selected="true"
+              aria-controls="panelCardFront"
+              id="triggerFront"
+              aria-label="Front"
+              @click="chngTbz"
+            >
+              Card Front
+            </button>
+            <button
+              role="tab"
+              aria-selected="false"
+              aria-controls="panelCardBack"
+              id="triggerBack"
+              aria-label="Back"
+              @click="chngTbz"
+            >
+              Card Back
+            </button>
+          </div>
+        </div>
         <div class="row">
           <label
             slot="start"
@@ -166,6 +167,20 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
+      <div id="panelCardFront" role="tabpanel" aria-labelledby="triggerFront">
+        <!--<CardFront />-->
+        front stuff
+      </div>
+      <div
+        id="panelCardBack"
+        role="tabpanel"
+        aria-labelledby="triggerBack"
+        hidden
+      >
+        <!--<CardBack :data-years="numOfYears" :data-stats="numOfStats" />-->
+        Back stuff
+      </div>
+
       <div
         class="cardFront__wrapper--outermost"
         :style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
@@ -174,24 +189,6 @@
           class="card__container--front"
           :class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
         >
-          <div
-            id="panelCardFront"
-            role="tabpanel"
-            aria-labelledby="triggerFront"
-          >
-            <!--<CardFront />-->
-            front stuff
-          </div>
-          <div
-            id="panelCardBack"
-            role="tabpanel"
-            aria-labelledby="triggerBack"
-            hidden
-          >
-            <!--<CardBack :data-years="numOfYears" :data-stats="numOfStats" />-->
-            Back stuff
-          </div>
-
           <div class="text__line--first row">
             <h2 class="cf__h2" :style="cssTextLine1Props">
               <ion-input
