@@ -1,15 +1,6 @@
 <template>
   <ion-page>
     <ion-header>
-      <!--<ion-segment @ionChange="segmentChanged($event)" value="cardfront">
-        <ion-segment-button value="cardfront">
-          <ion-label>Card Front</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="cardback">
-          <ion-label>Card Back</ion-label>
-        </ion-segment-button>
-      </ion-segment>-->
-
       <ion-toolbar color="primary">
         <div class="tabsGood">
           <div role="tablist" aria-label="Card Side">
@@ -552,7 +543,6 @@ import {
   IonRange,
   IonToolbar,
   IonContent,
-  //IonSegmentButton,
 } from "@ionic/vue";
 
 export default {
@@ -563,7 +553,6 @@ export default {
     IonToolbar,
     IonContent,
     IonPage,
-    //IonSegmentButton,
   },
   data() {
     return {
@@ -613,9 +602,6 @@ export default {
     };
   },
   methods: {
-    segmentChanged(ev) {
-      console.log("Segment changed", ev);
-    },
     chngTbz(e) {
       document.body
         .querySelector('[aria-selected="true"]')
