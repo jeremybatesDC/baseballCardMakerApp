@@ -23,6 +23,52 @@
             >
               Card Front
             </button>
+            <span class="showOnlyForSelectedTab">
+              <label
+                class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
+              >
+                <span>Front Color</span>
+                <input class="colorPicker__input" type="color" v-model="bgcf" />
+              </label>
+              <label
+                for="playerPic"
+                class="filePicker__label filePicker__label--addPic"
+                aria-label="Upload Image"
+              >
+                <svg
+                  viewBox="0 0 32 32"
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentcolor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                >
+                  <use xlink:href="#iconportraitadd"></use>
+                </svg>
+                <span> Add<br />Pic</span>
+              </label>
+              <label
+                for="logoPic"
+                class="filePicker__label filePicker__label--addLogo"
+                aria-label="Upload Logo Image"
+              >
+                <svg
+                  viewBox="0 0 32 32"
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentcolor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                >
+                  <use xlink:href="#iconlogoadd"></use>
+                </svg>
+                <span>Add<br />Logo</span>
+              </label>
+            </span>
             <button
               role="tab"
               aria-selected="false"
@@ -33,83 +79,131 @@
             >
               Card Back
             </button>
+            <span class="showOnlyForSelectedTab">
+              <fieldset class="step__fieldset">
+                <label for="hiddenNumInput" class="step__label"
+                  >Years: <span>{{ numOfYears }}</span></label
+                >
+                <div class="step__wrapper--inner">
+                  <button
+                    type="button"
+                    class="step__button"
+                    :data-u-cant-click-me="numOfYears < 1"
+                    data-minus-field="numOfYears"
+                    @click="minus1year"
+                  >
+                    <svg
+                      viewBox="0 0 32 32"
+                      width="12"
+                      height="12"
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="4"
+                    >
+                      <use xlink:href="#iconminus"></use>
+                    </svg>
+                  </button>
+                  <input
+                    id="hiddenYearsNumInput"
+                    type="number"
+                    class="hidden--visually"
+                    min="0"
+                    max="5"
+                  />
+                  <!--<output class="step__output">{{ numOfYears }}</output>-->
+                  <button
+                    type="button"
+                    class="step__button"
+                    :data-u-cant-click-me="numOfYears > 4"
+                    data-add-field="numOfYears"
+                    @click="add1year"
+                  >
+                    <svg
+                      viewBox="0 0 32 32"
+                      width="12"
+                      height="12"
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="4"
+                    >
+                      <use xlink:href="#iconplus"></use>
+                    </svg>
+                  </button>
+                </div>
+              </fieldset>
+              <fieldset class="step__fieldset">
+                <label for="hiddenStatsNumInput" class="step__label">
+                  Stats: <span>{{ numOfStats }}</span>
+                </label>
+                <div class="step__wrapper--inner">
+                  <button
+                    type="button"
+                    class="step__button"
+                    :data-u-cant-click-me="numOfStats < 1"
+                    data-minus-field="numOfStats"
+                    @click="minus1stat"
+                  >
+                    <svg
+                      viewBox="0 0 32 32"
+                      width="12"
+                      height="12"
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="4"
+                    >
+                      <use xlink:href="#iconminus"></use>
+                    </svg>
+                  </button>
+                  <input
+                    id="hiddenStatsNumInput"
+                    type="number"
+                    class="hidden--visually"
+                    min="0"
+                    max="5"
+                  />
+                  <!--<output class="step__output"></output>-->
+
+                  <button
+                    type="button"
+                    class="step__button"
+                    :data-u-cant-click-me="numOfStats > 4"
+                    data-add-field="numOfStats"
+                    @click="add1stat"
+                  >
+                    <svg
+                      viewBox="0 0 32 32"
+                      width="12"
+                      height="12"
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="4"
+                    >
+                      <use xlink:href="#iconplus"></use>
+                    </svg>
+                  </button>
+                </div>
+              </fieldset>
+              <label
+                class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
+              >
+                <span>Back Color</span>
+                <input
+                  class="colorPicker__input"
+                  type="color"
+                  v-model="bgcb"
+                /> </label
+            ></span>
           </div>
         </div>
         <div class="row">
-          <label
-            slot="start"
-            class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
-          >
-            <span>Front Color</span>
-            <input
-              class="colorPicker__input"
-              type="color"
-              v-model="cardDesign.bgcf"
-            />
-          </label>
-          <label
-            slot="start"
-            for="playerPic"
-            class="filePicker__label filePicker__label--addPic"
-            aria-label="Upload Image"
-          >
-            <svg
-              viewBox="0 0 32 32"
-              width="32"
-              height="32"
-              fill="none"
-              stroke="currentcolor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <use xlink:href="#iconportraitadd"></use>
-            </svg>
-            <span> Add<br />Pic</span>
-            <input
-              id="playerPic"
-              ref="playerPic"
-              name="playerPic"
-              data-which-canvas="canvasPlayer"
-              data-canvas-width="640"
-              class="hidden--visually filePicker__input"
-              type="file"
-              accept="image/*"
-              @input="encodeImage"
-            />
-          </label>
-
-          <label
-            slot="start"
-            for="logoPic"
-            class="filePicker__label filePicker__label--addLogo"
-            aria-label="Upload Logo Image"
-          >
-            <svg
-              viewBox="0 0 32 32"
-              width="32"
-              height="32"
-              fill="none"
-              stroke="currentcolor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            >
-              <use xlink:href="#iconlogoadd"></use>
-            </svg>
-            <span>Add<br />Logo</span>
-            <input
-              id="logoPic"
-              ref="logoPic"
-              name="logoPic"
-              data-which-canvas="canvasLogo"
-              data-canvas-width="144"
-              class="hidden--visually filePicker__input"
-              type="file"
-              accept="image/*"
-              @input="encodeImage"
-            />
-          </label>
           <fieldset slot="start" class="radioBtns__fieldset">
             <legend class="radioBtns__legend text-left">Layout</legend>
             <div class="radioBtns__wrapper--inner">
@@ -153,8 +247,6 @@
               </label>
             </div>
           </fieldset>
-        </div>
-        <div class="row">
           <label slot="start" class="rangeUI__label">
             <span>Border Curve </span>
             <ion-range
@@ -473,6 +565,26 @@ export default {
       document
         .getElementById(e.target.getAttribute("aria-controls"))
         .removeAttribute("hidden");
+    },
+    add1year(e) {
+      if (this.numOfYears < this.maxYears) {
+        return (this.numOfYears += 1);
+      }
+    },
+    minus1year(e) {
+      if (this.numOfYears > this.minYears) {
+        return (this.numOfYears -= 1);
+      }
+    },
+    add1stat(e) {
+      if (this.numOfStats < this.maxStats) {
+        return (this.numOfStats += 1);
+      }
+    },
+    minus1stat(e) {
+      if (this.numOfStats > this.minStats) {
+        return (this.numOfStats -= 1);
+      }
     },
   },
   computed: {
@@ -809,6 +921,22 @@ export default {
     background: var(--grey-for-controls);
     //color: #fff;
     //pointer-events: none;
+  }
+}
+
+.showOnlyForSelectedTab {
+  display: none;
+  align-items: center;
+  //flex-shrink: 0;
+  // after flex-grow 1 OR width 100% here, there is some gap thatS letting a tap click through and zoom on iOS... grrr
+  //flex-grow: 1;
+  //width: 100%;
+  background-color: royalblue;
+  [aria-selected="true"] + & {
+    display: flex;
+  }
+  &:last-of-type {
+    justify-content: flex-end;
   }
 }
 </style>
