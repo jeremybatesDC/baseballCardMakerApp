@@ -203,6 +203,10 @@
             ></span>
           </div>
         </div>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <div id="panelCardFront" role="tabpanel" aria-labelledby="triggerFront">
         <div class="row">
           <fieldset slot="start" class="radioBtns__fieldset">
             <legend class="radioBtns__legend text-left">Layout</legend>
@@ -256,12 +260,219 @@
             ></ion-range>
           </label>
         </div>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <div id="panelCardFront" role="tabpanel" aria-labelledby="triggerFront">
-        <!--<CardFront />-->
-        front stuff
+
+        <div
+          class="cardFront__wrapper--outermost"
+          :style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
+        >
+          <div
+            class="card__container--front"
+            :class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
+          >
+            <div class="text__line--first row">
+              <h2 class="cf__h2" :style="cssTextLine1Props">
+                <ion-input
+                  class=""
+                  v-model.trim="cardText.textLine1.teamName"
+                  type="text"
+                  placeholder
+                  maxlength="42"
+                  spellcheck="false"
+                ></ion-input>
+
+                <!-- hidden -->
+                <div data-soi class="soi--textSlider">
+                  <label class="rangeUI__label">
+                    <span
+                      >Weight:
+                      <output :value="cardText.textLine1.fontWght"></output
+                    ></span>
+                    <ion-range
+                      min="100"
+                      max="900"
+                      v-model.number="cardText.textLine1.fontWght"
+                    ></ion-range>
+                  </label>
+                  <label class="rangeUI__label">
+                    <span
+                      >Width:
+                      <output :value="cardText.textLine1.fontWidth"></output
+                    ></span>
+                    <ion-range
+                      min="75"
+                      max="150"
+                      v-model.number="cardText.textLine1.fontWidth"
+                    ></ion-range>
+                  </label>
+                  <label class="rangeUI__label">
+                    <span
+                      >Slant:
+                      <output :value="cardText.textLine1.fontSlant"></output
+                    ></span>
+                    <ion-range
+                      min="-10"
+                      max="0"
+                      v-model.number="cardText.textLine1.fontSlant"
+                    ></ion-range>
+                  </label>
+                </div>
+              </h2>
+            </div>
+
+            <div
+              :class="
+                `row--middle--forDesign row ${cardDesign.logoPosition} ${cardDesign.playerImageFilterEffect}`
+              "
+            >
+              <figure class="figure--player">
+                <label
+                  class="figure--player__label"
+                  for="inputTriggerFocusUI_0"
+                >
+                  <canvas id="canvasPlayer" class="image--player"></canvas>
+                  <img
+                    width="328"
+                    height="416"
+                    loading="lazy"
+                    class="image--player imagePlaceholder"
+                    :src="images.playerPic"
+                    alt="This default player looks great!"
+                  />
+                </label>
+              </figure>
+
+              <!-- make rounded corner optional -->
+              <!-- using css filter drop shadow could work -->
+              <figure
+                class="figure--logo"
+                v-show="cardDesign.logoPosition !== 'hideLogo'"
+              >
+                <canvas id="canvasLogo" class="image--logo"> </canvas>
+                <img
+                  loading="lazy"
+                  class="image--logo imagePlaceholder"
+                  :src="images.logoPic"
+                  alt="This default logo looks terrific!"
+                />
+              </figure>
+            </div>
+
+            <div class="text__line--second row">
+              <h1 :style="cssTextLine2Props" class="cf__h1">
+                <input
+                  class=""
+                  v-model.trim="cardText.textLine2.playerName"
+                  type="text"
+                  placeholder
+                  maxlength="48"
+                  spellcheck="false"
+                />
+                <div data-soi class="soi--textSlider" hidden>
+                  <label class="rangeUI__label">
+                    <span
+                      >Weight:
+                      <output :value="cardText.textLine2.fontWght"></output
+                    ></span>
+
+                    <input
+                      class="rangeUI__input"
+                      v-model.number="cardText.textLine2.fontWght"
+                      type="range"
+                      min="100"
+                      max="900"
+                    />
+                  </label>
+                  <label class="rangeUI__label">
+                    <span
+                      >Width:
+                      <output :value="cardText.textLine2.fontWidth"></output
+                    ></span>
+                    <input
+                      class="rangeUI__input"
+                      v-model.number="cardText.textLine2.fontWidth"
+                      type="range"
+                      min="75"
+                      max="150"
+                    />
+                  </label>
+
+                  <label class="rangeUI__label">
+                    <span
+                      >Slant:
+                      <output :value="cardText.textLine2.fontSlant"></output
+                    ></span>
+                    <input
+                      class="rangeUI__input"
+                      v-model.number="cardText.textLine2.fontSlant"
+                      type="range"
+                      min="-10"
+                      max="0"
+                    />
+                  </label>
+                </div>
+              </h1>
+              <h3 :style="cssTextPlayerPositionProps" class="cf__h3">
+                <input
+                  class=""
+                  v-model.trim="cardText.textPlayerPosition.playerPosition"
+                  type="text"
+                  placeholder
+                  maxlength="48"
+                  spellcheck="false"
+                />
+                <div data-soi class="soi--textSlider" hidden>
+                  <label class="rangeUI__label">
+                    <span
+                      >Weight:
+                      <output
+                        :value="cardText.textPlayerPosition.fontWght"
+                      ></output
+                    ></span>
+
+                    <input
+                      class="rangeUI__input"
+                      v-model.number="cardText.textPlayerPosition.fontWght"
+                      type="range"
+                      min="100"
+                      max="900"
+                    />
+                  </label>
+                  <label class="rangeUI__label">
+                    <span
+                      >Width:
+                      <output
+                        :value="cardText.textPlayerPosition.fontWidth"
+                      ></output
+                    ></span>
+                    <input
+                      class="rangeUI__input"
+                      v-model.number="cardText.textPlayerPosition.fontWidth"
+                      type="range"
+                      min="75"
+                      max="150"
+                    />
+                  </label>
+
+                  <label class="rangeUI__label">
+                    <span
+                      >Slant:
+                      <output
+                        :value="cardText.textPlayerPosition.fontSlant"
+                      ></output
+                    ></span>
+                    <input
+                      class="rangeUI__input"
+                      v-model.number="cardText.textPlayerPosition.fontSlant"
+                      type="range"
+                      min="-10"
+                      max="0"
+                    />
+                  </label>
+                </div>
+              </h3>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         id="panelCardBack"
@@ -269,217 +480,65 @@
         aria-labelledby="triggerBack"
         hidden
       >
-        <!--<CardBack :data-years="numOfYears" :data-stats="numOfStats" />-->
-        Back stuff
-      </div>
-
-      <div
-        class="cardFront__wrapper--outermost"
-        :style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
-      >
-        <div
-          class="card__container--front"
-          :class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
-        >
-          <div class="text__line--first row">
-            <h2 class="cf__h2" :style="cssTextLine1Props">
-              <ion-input
-                class=""
-                v-model.trim="cardText.textLine1.teamName"
-                type="text"
-                placeholder
-                maxlength="42"
-                spellcheck="false"
-              ></ion-input>
-
-              <!-- hidden -->
-              <div data-soi class="soi--textSlider">
-                <label class="rangeUI__label">
-                  <span
-                    >Weight:
-                    <output :value="cardText.textLine1.fontWght"></output
-                  ></span>
-                  <ion-range
-                    min="100"
-                    max="900"
-                    v-model.number="cardText.textLine1.fontWght"
-                  ></ion-range>
-                </label>
-                <label class="rangeUI__label">
-                  <span
-                    >Width:
-                    <output :value="cardText.textLine1.fontWidth"></output
-                  ></span>
-                  <ion-range
-                    min="75"
-                    max="150"
-                    v-model.number="cardText.textLine1.fontWidth"
-                  ></ion-range>
-                </label>
-                <label class="rangeUI__label">
-                  <span
-                    >Slant:
-                    <output :value="cardText.textLine1.fontSlant"></output
-                  ></span>
-                  <ion-range
-                    min="-10"
-                    max="0"
-                    v-model.number="cardText.textLine1.fontSlant"
-                  ></ion-range>
-                </label>
-              </div>
-            </h2>
-          </div>
-
-          <div
-            :class="
-              `row--middle--forDesign row ${cardDesign.logoPosition} ${cardDesign.playerImageFilterEffect}`
-            "
-          >
-            <figure class="figure--player">
-              <label class="figure--player__label" for="inputTriggerFocusUI_0">
-                <canvas id="canvasPlayer" class="image--player"></canvas>
-                <img
-                  width="328"
-                  height="416"
-                  loading="lazy"
-                  class="image--player imagePlaceholder"
-                  :src="images.playerPic"
-                  alt="This default player looks great!"
+        <div class="row space-around height--100">
+          <fieldset class="radioBtns__fieldset">
+            <legend class="radioBtns__legend text-left">Orientation</legend>
+            <div class="radioBtns__wrapper--inner">
+              <label class="radioBtns__label">
+                <input
+                  type="radio"
+                  class="radioBtns__input hidden--visually"
+                  name=""
+                  v-model="backOrient"
+                  value="horizontal"
                 />
+                <span
+                  ><svg width="32" height="32" viewBox="0 0 32 32">
+                    <use xlink:href="#iconorientationhorz"></use></svg
+                ></span>
               </label>
-            </figure>
 
-            <!-- make rounded corner optional -->
-            <!-- using css filter drop shadow could work -->
-            <figure
-              class="figure--logo"
-              v-show="cardDesign.logoPosition !== 'hideLogo'"
-            >
-              <canvas id="canvasLogo" class="image--logo"> </canvas>
-              <img
-                loading="lazy"
-                class="image--logo imagePlaceholder"
-                :src="images.logoPic"
-                alt="This default logo looks terrific!"
-              />
-            </figure>
-          </div>
+              <label class="radioBtns__label">
+                <input
+                  type="radio"
+                  class="radioBtns__input hidden--visually"
+                  name=""
+                  v-model="backOrient"
+                  value="vertical"
+                />
+                <span
+                  ><svg width="32" height="32" viewBox="0 0 32 32">
+                    <use xlink:href="#iconorientationvert"></use></svg
+                ></span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="radioBtns__fieldset">
+            <legend class="radioBtns__legend text-left">Gum Stain</legend>
+            <div class="radioBtns__wrapper--inner">
+              <label class="radioBtns__label">
+                <input
+                  type="radio"
+                  class="radioBtns__input hidden--visually"
+                  name="gumradio"
+                  v-model="gumShowing"
+                  value="gumShowing"
+                />
+                <span>Show</span>
+              </label>
 
-          <div class="text__line--second row">
-            <h1 :style="cssTextLine2Props" class="cf__h1">
-              <input
-                class=""
-                v-model.trim="cardText.textLine2.playerName"
-                type="text"
-                placeholder
-                maxlength="48"
-                spellcheck="false"
-              />
-              <div data-soi class="soi--textSlider" hidden>
-                <label class="rangeUI__label">
-                  <span
-                    >Weight:
-                    <output :value="cardText.textLine2.fontWght"></output
-                  ></span>
-
-                  <input
-                    class="rangeUI__input"
-                    v-model.number="cardText.textLine2.fontWght"
-                    type="range"
-                    min="100"
-                    max="900"
-                  />
-                </label>
-                <label class="rangeUI__label">
-                  <span
-                    >Width:
-                    <output :value="cardText.textLine2.fontWidth"></output
-                  ></span>
-                  <input
-                    class="rangeUI__input"
-                    v-model.number="cardText.textLine2.fontWidth"
-                    type="range"
-                    min="75"
-                    max="150"
-                  />
-                </label>
-
-                <label class="rangeUI__label">
-                  <span
-                    >Slant:
-                    <output :value="cardText.textLine2.fontSlant"></output
-                  ></span>
-                  <input
-                    class="rangeUI__input"
-                    v-model.number="cardText.textLine2.fontSlant"
-                    type="range"
-                    min="-10"
-                    max="0"
-                  />
-                </label>
-              </div>
-            </h1>
-            <h3 :style="cssTextPlayerPositionProps" class="cf__h3">
-              <input
-                class=""
-                v-model.trim="cardText.textPlayerPosition.playerPosition"
-                type="text"
-                placeholder
-                maxlength="48"
-                spellcheck="false"
-              />
-              <div data-soi class="soi--textSlider" hidden>
-                <label class="rangeUI__label">
-                  <span
-                    >Weight:
-                    <output
-                      :value="cardText.textPlayerPosition.fontWght"
-                    ></output
-                  ></span>
-
-                  <input
-                    class="rangeUI__input"
-                    v-model.number="cardText.textPlayerPosition.fontWght"
-                    type="range"
-                    min="100"
-                    max="900"
-                  />
-                </label>
-                <label class="rangeUI__label">
-                  <span
-                    >Width:
-                    <output
-                      :value="cardText.textPlayerPosition.fontWidth"
-                    ></output
-                  ></span>
-                  <input
-                    class="rangeUI__input"
-                    v-model.number="cardText.textPlayerPosition.fontWidth"
-                    type="range"
-                    min="75"
-                    max="150"
-                  />
-                </label>
-
-                <label class="rangeUI__label">
-                  <span
-                    >Slant:
-                    <output
-                      :value="cardText.textPlayerPosition.fontSlant"
-                    ></output
-                  ></span>
-                  <input
-                    class="rangeUI__input"
-                    v-model.number="cardText.textPlayerPosition.fontSlant"
-                    type="range"
-                    min="-10"
-                    max="0"
-                  />
-                </label>
-              </div>
-            </h3>
-          </div>
+              <label class="radioBtns__label">
+                <input
+                  type="radio"
+                  class="radioBtns__input hidden--visually"
+                  name="gumradio"
+                  v-model="gumShowing"
+                  value="gumHidden"
+                />
+                <span>Hide</span>
+              </label>
+            </div>
+          </fieldset>
         </div>
       </div>
     </ion-content>
@@ -548,6 +607,9 @@ export default {
           fontSlant: -5,
         },
       },
+      backOrient: "horizontal",
+      backgroundColor: "#9a8b7c",
+      gumShowing: "gumShowing",
     };
   },
   methods: {
@@ -630,6 +692,7 @@ export default {
   // i donT like this but...
   .rangeUI__label {
     margin-left: 1.6rem;
+    flex-grow: 1;
   }
 }
 
