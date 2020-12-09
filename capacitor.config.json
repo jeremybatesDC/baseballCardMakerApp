@@ -1,5 +1,5 @@
 {
-  "appId": "baseballcardmaker",
+  "appId": "baseball.card.maker",
   "appName": "BaseballCardMaker",
   "bundledWebRuntime": false,
   "npmClient": "npm",
