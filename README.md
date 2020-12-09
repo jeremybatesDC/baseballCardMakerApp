@@ -2,6 +2,7 @@
 
 ## To Do
 
+at present changing layout impacts image zoom/fir
 file upload buttons need their associated inputs in place (i may have snipped them), and handlers
 
 on larger screens, background could be a plastic sheet of cards
