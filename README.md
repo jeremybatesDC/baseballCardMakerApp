@@ -2,6 +2,8 @@
 
 ## To Do
 
+file upload buttons need their associated inputs in place (i may have snipped them), and handlers
+
 on larger screens, background could be a plastic sheet of cards
 
 leroy image on initial load seems to short and then resizes on refresh -- maybe there's too much going on between explicit width height, object fir and lazy load...

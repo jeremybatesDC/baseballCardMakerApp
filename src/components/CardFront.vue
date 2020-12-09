@@ -245,6 +245,7 @@
           <label slot="start" class="rangeUI__label">
             <span>Border Curve </span>
             <ion-range
+              data-input="range"
               min="0"
               max="24"
               v-model.number="cardDesign.borderInnerCurve"
@@ -927,8 +928,8 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  //width: 100%;
-  //height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 
   &.image--logo {
@@ -971,6 +972,11 @@ export default {
     //color: #fff;
     //pointer-events: none;
   }
+}
+
+[data-input="range"] {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .showOnlyForSelectedTab {
