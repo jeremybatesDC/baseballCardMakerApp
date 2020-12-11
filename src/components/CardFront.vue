@@ -1,5 +1,28 @@
 <template>
 	<ion-page :style="[colorContrastVarsFront, colorContrastVarsBack]" data-page>
+		<input
+			id="playerPic"
+			ref="playerPic"
+			name="playerPic"
+			data-which-canvas="canvasPlayer"
+			data-canvas-width="640"
+			class="hidden--visually filePicker__input"
+			type="file"
+			accept="image/*"
+			@input="encodeImage"
+		/>
+
+		<input
+			id="logoPic"
+			ref="logoPic"
+			name="logoPic"
+			data-which-canvas="canvasLogo"
+			data-canvas-width="144"
+			class="hidden--visually filePicker__input"
+			type="file"
+			accept="image/*"
+			@input="encodeImage"
+		/>
 		<ion-header>
 			<ion-toolbar color="primary">
 				<div class="tabsGood">
@@ -628,6 +651,36 @@ export default {
 				.getElementById(e.target.getAttribute("aria-controls"))
 				.removeAttribute("hidden");
 		},
+		async encodeImage(event) {
+			// maybe i should be using refs maybe here not IDs
+			const input = event.target;
+			const targetCanvas = document.getElementById(input.dataset.whichCanvas);
+			const ctx = targetCanvas.getContext("2d");
+			const reader = new FileReader();
+			const image = new Image();
+			const userFile = input.files[0];
+			// need print resolution, and 2x really seems to address quality issues
+			// can i use optional chaining // nullish coalscing or whatever i mean to say here?
+			if (input.files && userFile) {
+				reader.readAsDataURL(userFile);
+			}
+			reader.onload = async (event) => {
+				image.src = event.target.result;
+			};
+			image.onload = async (event) => {
+				const oc = document.createElement("canvas");
+				const octx = oc.getContext("2d");
+				targetCanvas.width = input.dataset.canvasWidth;
+				targetCanvas.height = targetCanvas.width * (image.height / image.width);
+				oc.width = targetCanvas.width;
+				oc.height = targetCanvas.height;
+				octx.drawImage(image, 0, 0, oc.width, oc.height);
+				ctx.drawImage(oc, 0, 0, oc.width, oc.height, 0, 0, oc.width, oc.height);
+
+				// refactor
+				targetCanvas.nextElementSibling.setAttribute("hidden", "true");
+			};
+		},
 		add1year(e) {
 			if (this.numOfYears < this.maxYears) {
 				return (this.numOfYears += 1);
@@ -655,6 +708,12 @@ export default {
 				"--fontwght": this.cardText.textLine1.fontWght,
 				"--fontwidth": this.cardText.textLine1.fontWidth,
 				"--fontslant": this.cardText.textLine1.fontSlant,
+			};
+		},
+		cssBorderInnerProps() {
+			return {
+				"--borderinnercurve": `${this.cardDesign.borderInnerCurve}px`,
+				"--borderinnerwidth": `${this.cardDesign.borderInnerWidth}px`,
 			};
 		},
 		// can we combine into single function? try composition API here
