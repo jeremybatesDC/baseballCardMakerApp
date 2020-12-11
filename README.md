@@ -2,6 +2,8 @@
 
 ## To Do
 
+definitely redo the color picker with vanialla colorful: https://web-padawan.github.io/vanilla-colorful/
+
 at present changing layout impacts image zoom/fir
 file upload buttons need their associated inputs in place (i may have snipped them), and handlers
 
