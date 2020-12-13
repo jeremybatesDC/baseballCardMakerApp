@@ -1,79 +1,79 @@
 input {
-  &[type="radio"],
-  &[type="checkbox"] {
-    width: var(--min-touch-target);
-    height: var(--min-touch-target);
-    //box-shadow: none;
-    //background: transparent;
-  }
-  &[type="file"] {
-    height: var(--min-touch-target);
-    font-size: 1.6rem;
-  }
+	&[type="radio"],
+	&[type="checkbox"] {
+		width: var(--min-touch-target);
+		height: var(--min-touch-target);
+		//box-shadow: none;
+		//background: transparent;
+	}
+	&[type="file"] {
+		height: var(--min-touch-target);
+		font-size: 1.6rem;
+	}
 
-  &[type="color"] {
-    //-webkit-appearance: none;
-    font-size: 1.6rem; // prevents ios zoom
-    display: flex;
+	&[type="color"] {
+		//-webkit-appearance: none;
+		font-size: 1.6rem; // prevents ios zoom
+		display: flex;
 
-    //border-radius: 50%;
-    //border: 1px solid transparent;
-    border: none;
-    overflow: hidden;
-  }
+		//border-radius: 50%;
+		//border: 1px solid transparent;
+		border: none;
+		overflow: hidden;
+	}
 
-  &[type="range"] {
-    display: flex;
-    -webkit-appearance: none;
-    background-color: #888888;
-    height: var(--min-touch-target);
-    border-radius: var(--min-touch-target-half);
-    //&:focus {
-    //outline: none;
-    //}
-    &::-webkit-slider-thumb {
-      //position: relative;
-      -webkit-appearance: none;
-      cursor: pointer;
-      background-color: royalblue;
-      width: var(--min-touch-target);
-      height: var(--min-touch-target);
-      border-radius: 50%;
+	&[type="range"] {
+		display: flex;
+		-webkit-appearance: none;
+		background-color: #888888;
+		height: var(--min-touch-target);
+		border-radius: var(--min-touch-target-half);
+		//&:focus {
+		//outline: none;
+		//}
+		&::-webkit-slider-thumb {
+			//position: relative;
+			-webkit-appearance: none;
+			cursor: pointer;
+			background-color: royalblue;
+			width: var(--min-touch-target);
+			height: var(--min-touch-target);
+			border-radius: 50%;
 
-      //z-index: 2;
-    }
-  }
+			//z-index: 2;
+		}
+	}
 
-  &[type="text"],
-  &[type="email"],
-  &[type="tel"] {
-    &:focus {
-      outline: 2px solid royalblue;
-    }
-  }
+	&[type="text"],
+	&[type="email"],
+	&[type="tel"] {
+		&:focus {
+			outline: 2px solid royalblue;
+		}
+	}
 }
 
 textarea {
-  &:focus {
-    outline: 2px solid royalblue;
-  }
+	&:focus {
+		outline: 2px solid royalblue;
+	}
 }
 
 select {
-  font-family: inherit;
-  font-size: 1.6rem;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  position: relative;
+	font-family: inherit;
+	font-size: 1.6rem;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	position: relative;
 
-  border-radius: 0;
-  box-shadow: none;
-  border: none;
-  &:after {
-    content: "yo";
-    position: absolute;
-  }
+	border-radius: 0;
+	box-shadow: none;
+	border: none;
+	&:after {
+		content: "yo";
+		position: absolute;
+	}
 }
 //
 //.select__label {
@@ -100,486 +100,490 @@ select {
 //  }
 //}
 
+.controls--l2 {
+	background-color: #ffffff;
+	padding: 0.4rem;
+}
+
 .rangeUI {
-  &__label {
-    font-size: 1.6rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    .controls--l2 & {
-      flex-grow: 1;
-      flex-basis: 33.3333%;
-      max-width: 20rem;
-    }
-    span {
-      display: flex;
-      line-height: 0.8;
-      text-transform: uppercase;
-      font-variation-settings: var(--text-narrow);
-      //padding-bottom: 0.4rem;
-    }
-    //output {
-    //}
-  }
-  &__input {
-    display: flex;
-    -webkit-appearance: none;
-    font-size: inherit;
-    background-color: #888888;
-    height: var(--min-touch-target-height);
-    border-radius: var(--min-touch-target-half);
-    &::-webkit-slider-thumb {
-      //position: relative;
-      -webkit-appearance: none;
-      cursor: pointer;
-      background-color: royalblue;
-      width: var(--min-touch-target);
-      height: var(--min-touch-target);
-      border-radius: 50%;
-      //z-index: 2;
-    }
-    //&--vertical {
-    //  transform: rotate(-90deg);
-    //}
-  }
+	&__label {
+		font-size: 1.6rem;
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		.controls--l2 & {
+			flex-grow: 1;
+			flex-basis: 33.3333%;
+			max-width: 20rem;
+			color: #000;
+		}
+		span {
+			display: flex;
+			line-height: 0.8;
+			text-transform: uppercase;
+			font-variation-settings: var(--text-narrow);
+			//padding-bottom: 0.4rem;
+		}
+		//output {
+		//}
+	}
+	&__input {
+		display: flex;
+		-webkit-appearance: none;
+		font-size: inherit;
+		background-color: #888888;
+		height: var(--min-touch-target-height);
+		border-radius: var(--min-touch-target-half);
+		&::-webkit-slider-thumb {
+			//position: relative;
+			-webkit-appearance: none;
+			cursor: pointer;
+			background-color: royalblue;
+			width: var(--min-touch-target);
+			height: var(--min-touch-target);
+			border-radius: 50%;
+			//z-index: 2;
+		}
+		//&--vertical {
+		//  transform: rotate(-90deg);
+		//}
+	}
 }
 
 // color picker UI
 .colorPicker {
-  &__label {
-    display: flex;
-    font-size: 1.6rem;
-    font-variation-settings: var(--text-short-wide);
-    //flex-direction: column;
-    width: var(--min-touch-target);
-    height: var(--min-touch-target);
-    //background-color: var(--backgroundcolorback);
-    align-items: center;
-    text-align: center;
-    text-transform: uppercase;
-    position: relative;
+	&__label {
+		display: flex;
+		font-size: 1.6rem;
+		font-variation-settings: var(--text-short-wide);
+		//flex-direction: column;
+		width: var(--min-touch-target);
+		height: var(--min-touch-target);
+		//background-color: var(--backgroundcolorback);
+		align-items: center;
+		text-align: center;
+		text-transform: uppercase;
+		position: relative;
 
-    &--front {
-      color: var(--calcColorFront);
-      //margin-left: 1rem;
-    }
-    &--back {
-      color: var(--calcColorBack);
-      //margin-right: 1rem;
-    }
+		&--front {
+			color: var(--calcColorFront);
+			//margin-left: 1rem;
+		}
+		&--back {
+			color: var(--calcColorBack);
+			//margin-right: 1rem;
+		}
 
-    span {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      // width 100% was contributing to CLS i think
-      width: var(--min-touch-target);
-      line-height: 0.9;
-      padding: 0;
-      color: inherit;
-      transform: translateY(-50%);
-      font-variation-settings: var(--text-squeeze);
-    }
-  }
+		span {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			// width 100% was contributing to CLS i think
+			width: var(--min-touch-target);
+			line-height: 0.9;
+			padding: 0;
+			color: inherit;
+			transform: translateY(-50%);
+			font-variation-settings: var(--text-squeeze);
+		}
+	}
 
-  &__input {
-    width: var(--min-touch-target);
-    height: var(--min-touch-target);
-    background-color: inherit;
-  }
-  // arbitarary right now
+	&__input {
+		width: var(--min-touch-target);
+		height: var(--min-touch-target);
+		background-color: inherit;
+	}
+	// arbitarary right now
 
-  //&__helperText {
-  //  max-width: 32ch;
-  //}
+	//&__helperText {
+	//  max-width: 32ch;
+	//}
 }
 
 .radioBtns {
-  &__fieldset {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    background-color: var(--background-for-overlay-controls);
-    // need to set this here otherwise itS going to inherit the coor change from the card itseld (oops, my bad)
+	&__fieldset {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
 
-    color: #000;
-    .controls--l2 & {
-      background-color: transparent;
-    }
-    .playerImage__controls & {
-      max-width: var(--touch-target-large);
-      padding-top: 0.4rem;
-      text-align: center;
-      overflow: hidden;
-    }
-  }
-  &__legend {
-    line-height: 0.8;
+		// need to set this here otherwise itS going to inherit the coor change from the card itseld (oops, my bad)
 
-    font-variation-settings: var(--text-narrow);
-    .playerImage__controls & {
-      // unfortch display contents here makes this click throguh able... and closes the quasi modal
-      // display: contents;
+		color: #000;
+		.controls--l2 & {
+			width: 50%;
+		}
+		.playerImage__controls & {
+			max-width: var(--touch-target-large);
+			padding-top: 0.4rem;
+			text-align: center;
+			overflow: hidden;
+		}
+	}
+	&__legend {
+		font-size: 1.6rem;
+		line-height: 0.8;
 
-      padding-top: 0.4rem;
-      background-color: var(--background-for-overlay-controls);
-      width: 100%;
+		font-variation-settings: var(--text-narrow);
+		//color: royalblue;
+		.playerImage__controls & {
+			// unfortch display contents here makes this click throguh able... and closes the quasi modal
+			// display: contents;
 
-      text-align: center;
-    }
+			padding-top: 0.4rem;
+			background-color: var(--background-for-overlay-controls);
+			width: 100%;
 
-    text-transform: uppercase;
-  }
-  &__wrapper {
-    &--inner {
-      background-color: var(--background-for-overlay-controls);
-      .playerImage__controls & {
-        padding-top: 0.4rem;
-      }
-    }
-    &--each {
-      display: flex;
-      &:last-of-type {
-        flex-direction: row-reverse;
-      }
-    }
-  }
-  &__label {
-    display: inline-flex;
-    width: var(--min-touch-target);
-    height: var(--min-touch-target);
-    padding: 0;
-    .controls--l2 & {
-      font-size: 1.6rem;
-      padding: 0;
-    }
+			text-align: center;
+		}
 
-    //cheat
-    &.radioBtns__label.radioBtns__label {
-      padding: 0;
-    }
+		text-transform: uppercase;
+	}
+	&__wrapper {
+		&--inner {
+			//background-color: var(--background-for-overlay-controls);
+			.playerImage__controls & {
+				padding-top: 0.4rem;
+			}
+		}
+		&--each {
+			display: flex;
+			&:last-of-type {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+	&__label {
+		display: inline-flex;
+		width: var(--min-touch-target);
+		height: var(--min-touch-target);
+		padding: 0;
+		.controls--l2 & {
+			font-size: 1.6rem;
+			padding: 0;
+			background: var(--background-for-overlay-controls);
+		}
 
-    &:not(:first-of-type) {
-      .cardFront__controls & {
-        box-shadow: -1px 0 rgba(0, 0, 0, 0.1);
-      }
-    }
+		&:not(:first-of-type) {
+			.cardFront__controls & {
+				box-shadow: -1px 0 rgba(0, 0, 0, 0.1);
+			}
+		}
 
-    .playerImage__controls & {
-      width: var(--touch-target-large);
-      height: var(--touch-target-large);
-      box-shadow: 0 -1px rgba(0, 0, 0, 0.1);
-    }
-  }
-  &__input {
-    + span {
-      display: flex;
-      flex-grow: 1;
-      justify-content: center;
-      align-items: center;
-      text-transform: uppercase;
-      font-variation-settings: var(--text-narrower);
-    }
-    &:checked {
-      + span {
-        color: #fff;
-        background-color: royalblue;
-      }
-    }
-  }
+		.playerImage__controls & {
+			width: var(--touch-target-large);
+			height: var(--touch-target-large);
+			box-shadow: 0 -1px rgba(0, 0, 0, 0.1);
+		}
+	}
+	&__input {
+		+ span {
+			display: flex;
+			flex-grow: 1;
+			justify-content: center;
+			align-items: center;
+			text-transform: uppercase;
+			font-variation-settings: var(--text-narrower);
+		}
+		&:checked {
+			+ span {
+				color: #fff;
+				background-color: royalblue;
+			}
+		}
+	}
 }
 
 // FILE PICKER UI
 
 .filePicker {
-  &__form {
-    display: flex;
-    width: 100%;
-    height: var(--min-touch-target);
-    //padding: 0 6.4rem;
-    //background-color: var(--background-for-overlay-controls);
-  }
-  &__wrapper {
-    display: flex;
-    flex-grow: 1;
-    position: relative;
-    //padding: 0 0.8rem;
-    //border: 1px solid #000;
-    overflow: hidden;
-    align-items: center;
-    text-align: center;
-  }
+	&__form {
+		display: flex;
+		width: 100%;
+		height: var(--min-touch-target);
+		//padding: 0 6.4rem;
+		//background-color: var(--background-for-overlay-controls);
+	}
+	&__wrapper {
+		display: flex;
+		flex-grow: 1;
+		position: relative;
+		//padding: 0 0.8rem;
+		//border: 1px solid #000;
+		overflow: hidden;
+		align-items: center;
+		text-align: center;
+	}
 
-  &__fieldset {
-    display: flex;
+	&__fieldset {
+		display: flex;
 
-    width: 100%;
-    background-color: var(--background-for-overlay-controls);
-    padding: 0 0.8rem;
-    border: none;
-    &:not(:first-of-type) {
-      box-shadow: -1px 0 #666666;
-    }
+		width: 100%;
+		background-color: var(--background-for-overlay-controls);
+		padding: 0 0.8rem;
+		border: none;
+		&:not(:first-of-type) {
+			box-shadow: -1px 0 #666666;
+		}
 
-    // refactor in v2
-    &:first-of-type {
-      .filePicker__label {
-        align-items: flex-start;
-        span {
-          margin-left: -3.2rem;
-        }
-      }
-    }
-    &:last-of-type {
-      .filePicker__label {
-        align-items: flex-end;
-        span {
-          margin-right: -2.4rem;
-        }
-      }
-    }
-  }
-  &__legend {
-    display: flex;
-    font-variation-settings: var(--text-short-wide);
+		// refactor in v2
+		&:first-of-type {
+			.filePicker__label {
+				align-items: flex-start;
+				span {
+					margin-left: -3.2rem;
+				}
+			}
+		}
+		&:last-of-type {
+			.filePicker__label {
+				align-items: flex-end;
+				span {
+					margin-right: -2.4rem;
+				}
+			}
+		}
+	}
+	&__legend {
+		display: flex;
+		font-variation-settings: var(--text-short-wide);
 
-    text-transform: uppercase;
-  }
+		text-transform: uppercase;
+	}
 
-  &__input {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0.1;
-  }
-  &__label {
-    display: flex;
-    flex-direction: row;
-    //flex-grow: 1;
-    min-width: var(--touch-target-large);
-    height: var(--touch-target-large);
-    margin-left: 2rem;
-    text-transform: uppercase;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    //box-shadow: -1px 0 #fff, 1px 0 #fff;
-    cursor: pointer;
+	&__input {
+		display: flex;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		opacity: 0.1;
+	}
+	&__label {
+		display: flex;
+		flex-direction: row;
+		//flex-grow: 1;
+		min-width: var(--touch-target-large);
+		height: var(--touch-target-large);
+		margin-left: 2rem;
+		text-transform: uppercase;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+		//box-shadow: -1px 0 #fff, 1px 0 #fff;
+		cursor: pointer;
 
-    span {
-      font-variation-settings: var(--text-squeeze);
-      //text-align: center;
-    }
-    //* {
-    //  font-size: 1.6rem;
-    //}
-  }
-  &__icon {
-    font-size: 6rem;
-    display: flex;
-    position: absolute;
-    top: -1.25rem;
-    left: -0.5rem;
-    width: 100%;
-    height: 100%;
-    //transform: translate(-50%, -50%);
-    text-align: center;
-    font-style: normal;
-    z-index: -1;
-  }
+		span {
+			font-variation-settings: var(--text-squeeze);
+			//text-align: center;
+		}
+		* {
+			font-size: 1.6rem;
+		}
+	}
+	&__icon {
+		font-size: 6rem;
+		display: flex;
+		position: absolute;
+		top: -1.25rem;
+		left: -0.5rem;
+		width: 100%;
+		height: 100%;
+		//transform: translate(-50%, -50%);
+		text-align: center;
+		font-style: normal;
+		z-index: -1;
+	}
 }
 
 .step {
-  &__fieldset {
-    * {
-      font-size: 1.6rem;
-    }
-    font-size: 1.6rem;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    //flex-direction: column;
-    //background-color: rgba(200, 200, 200, 0.1);
-    position: relative;
-    height: var(--touch-target-large);
-    padding: 0.2rem 0;
-    //margin-right: 0.8rem;
+	&__fieldset {
+		* {
+			font-size: 1.6rem;
+		}
+		font-size: 1.6rem;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		//flex-direction: column;
+		//background-color: rgba(200, 200, 200, 0.1);
+		position: relative;
+		height: var(--touch-target-large);
+		padding: 0.2rem 0;
+		//margin-right: 0.8rem;
 
-    //border-left: 1px solid #fff;
-    color: #fff;
-    &:not(:first-child) {
-      //border-right: 1px solid #fff;
-    }
-  }
+		//border-left: 1px solid #fff;
+		color: #fff;
+		&:not(:first-child) {
+			//border-right: 1px solid #fff;
+		}
+	}
 
-  &__label {
-    font-size: 1.6rem;
-    font-variation-settings: var(--text-thin-wide);
-    position: absolute;
-    top: 0;
-    left: 0rem;
-    padding: 0.6rem 0 0.4rem 0;
-    width: 100%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.6666);
-    //background-color: royalblue;
-    text-transform: uppercase;
-    pointer-events: none;
-    span {
-      color: #fff;
-    }
-  }
-  &__wrapper--inner {
-    display: flex;
-    flex-grow: 1;
-    align-items: center;
-  }
+	&__label {
+		font-size: 1.6rem;
+		font-variation-settings: var(--text-thin-wide);
+		position: absolute;
+		top: 0;
+		left: 0rem;
+		padding: 0.6rem 0 0.4rem 0;
+		width: 100%;
+		text-align: center;
+		color: rgba(255, 255, 255, 0.6666);
+		//background-color: royalblue;
+		text-transform: uppercase;
+		pointer-events: none;
+		span {
+			color: #fff;
+		}
+	}
+	&__wrapper--inner {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+	}
 
-  //&__output {
-  //  pointer-events: none;
-  //}
-  &__button {
-    //display: flex;
-    position: relative;
-    font-size: 1.6rem;
-    color: inherit;
-    width: var(--min-touch-target);
-    height: var(--min-touch-target);
-    padding-top: 2rem;
-    //border: 2px solid #fff;
-    //background: rgba(255, 255, 255, 0.5);
-    //box-shadow: 1px 0 #fff;
-    &:first-child {
-      &:after {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: 0.8rem;
-        width: 1px;
-        height: 1.2rem;
-        background-color: rgba(200, 200, 200, 0.25);
-      }
-    }
-    svg {
-      stroke: rgba(255, 255, 255, 0.75);
-    }
-  }
-  // this is hidden
-  input[type="number"] {
-    //font-size: 1.6rem;
-  }
+	//&__output {
+	//  pointer-events: none;
+	//}
+	&__button {
+		//display: flex;
+		position: relative;
+		font-size: 1.6rem;
+		color: inherit;
+		width: var(--min-touch-target);
+		height: var(--min-touch-target);
+		padding-top: 2rem;
+		//border: 2px solid #fff;
+		//background: rgba(255, 255, 255, 0.5);
+		//box-shadow: 1px 0 #fff;
+		&:first-child {
+			&:after {
+				content: "";
+				position: absolute;
+				right: 0;
+				bottom: 0.8rem;
+				width: 1px;
+				height: 1.2rem;
+				background-color: rgba(200, 200, 200, 0.25);
+			}
+		}
+		svg {
+			stroke: rgba(255, 255, 255, 0.75);
+		}
+	}
+	// this is hidden
+	input[type="number"] {
+		//font-size: 1.6rem;
+	}
 }
 
 [data-soi] {
-  position: absolute;
-  display: flex;
-  flex-wrap: wrap;
-  //flex-direction: column;
-  //width: 100%;
-  top: 100%;
-  left: 0;
-  right: 0;
-  //background: rgba(0, 0, 0, 0.5);
-  //width: 100%;
-  padding: 0;
-  visibility: hidden;
-  overflow: visible;
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.6666);
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+	//flex-direction: column;
+	//width: 100%;
+	top: 100%;
+	left: 0;
+	right: 0;
+	//background: rgba(0, 0, 0, 0.5);
+	//width: 100%;
+	padding: 0;
+	visibility: hidden;
+	overflow: visible;
+	z-index: 2;
+	background-color: rgba(0, 0, 0, 0.6666);
 
-  label {
-    display: flex;
-    flex-wrap: wrap;
-    //flex-basis: 50%;
-    //width: 50%;
-    font-size: 1.6rem;
-    //padding: 1.6rem;
-    //color: #fff;
-    // keep padding on LABEL so thereS no gap in focus targets that will close quasi modal
-    &.rangeUI__label {
-      color: #fff;
-      width: 100%;
-      padding: 0.8rem 1.6rem;
-      &:first-child {
-        padding-top: 1.6rem;
-      }
-      &:last-of-type {
-        padding-bottom: 1.6rem;
-      }
-    }
-  }
+	label {
+		display: flex;
+		flex-wrap: wrap;
+		//flex-basis: 50%;
+		//width: 50%;
+		font-size: 1.6rem;
+		//padding: 1.6rem;
+		//color: #fff;
+		// keep padding on LABEL so thereS no gap in focus targets that will close quasi modal
+		&.rangeUI__label {
+			color: #fff;
+			width: 100%;
+			padding: 0.8rem 1.6rem;
+			&:first-child {
+				padding-top: 1.6rem;
+			}
+			&:last-of-type {
+				padding-bottom: 1.6rem;
+			}
+		}
+	}
 
-  // this should NOT have to be explicit -- missing a rul somewhere
+	// this should NOT have to be explicit -- missing a rul somewhere
 
-  &.playerImage__controls {
-    top: 0;
-    left: var(--imgEditControlsOffset);
-    right: var(--imgEditControlsOffset);
-    padding-top: 0;
-    flex-wrap: nowrap;
-    background-color: transparent;
-  }
+	&.playerImage__controls {
+		top: 0;
+		left: var(--imgEditControlsOffset);
+		right: var(--imgEditControlsOffset);
+		padding-top: 0;
+		flex-wrap: nowrap;
+		background-color: transparent;
+	}
 
-  .card-back & {
-    top: var(--min-touch-target);
-  }
+	.card-back & {
+		top: var(--min-touch-target);
+	}
 }
 
 .omniClose {
-  // this still flickers for some reason... need to think it through.. .
-  &__label {
-    display: none;
-    position: absolute;
-    top: var(--min-touch-target);
-    background: none;
-    opacity: 0;
+	// this still flickers for some reason... need to think it through.. .
+	&__label {
+		display: none;
+		position: absolute;
+		top: var(--min-touch-target);
+		background: none;
+		opacity: 0;
 
-    -webkit-tap-highlight-color: transparent;
-    &:hover,
-    &:active,
-    &:focus {
-      outline: none !important;
-    }
-    &--outside {
-      left: -100vw;
-      width: 300vw;
-      height: 300vh;
-      z-index: -1;
-    }
-    &--inside {
-      // the left and right and only needed to avoid the side menus... kinda hacky rreally. I'd like maybe to give those side menus a z-index maybe...
-      left: var(--min-touch-target);
-      right: var(--min-touch-target);
-      bottom: 0;
-      z-index: 0;
-    }
+		-webkit-tap-highlight-color: transparent;
+		&:hover,
+		&:active,
+		&:focus {
+			outline: none !important;
+		}
+		&--outside {
+			left: -100vw;
+			width: 300vw;
+			height: 300vh;
+			z-index: -1;
+		}
+		&--inside {
+			// the left and right and only needed to avoid the side menus... kinda hacky rreally. I'd like maybe to give those side menus a z-index maybe...
+			left: var(--min-touch-target);
+			right: var(--min-touch-target);
+			bottom: 0;
+			z-index: 0;
+		}
 
-    // boom baby
-  }
+		// boom baby
+	}
 }
 
 .checkbox--forReveal {
-  &:checked {
-    + [data-soi] {
-      visibility: visible;
-    }
-    ~ .omniClose {
-      &__label {
-        &--outside {
-          display: block;
-        }
-      }
-    }
-  }
+	&:checked {
+		+ [data-soi] {
+			visibility: visible;
+		}
+		~ .omniClose {
+			&__label {
+				&--outside {
+					display: block;
+				}
+			}
+		}
+	}
 }
 
 // but i need to disable the ENTER functionality too right?? so...
 [data-u-cant-click-me="true"] {
-  // pointer events none allows zoom
-  // pointer-events: none;
-  svg {
-    stroke: rgba(200, 200, 200, 0.5);
-  }
+	// pointer events none allows zoom
+	// pointer-events: none;
+	svg {
+		stroke: rgba(200, 200, 200, 0.5);
+	}
 }

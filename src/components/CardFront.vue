@@ -225,61 +225,62 @@
 		</ion-header>
 		<ion-content>
 			<div id="panelCardFront" role="tabpanel" aria-labelledby="triggerFront">
-				<div class="row">
-					<fieldset slot="start" class="radioBtns__fieldset">
-						<legend class="radioBtns__legend text-left">Layout</legend>
-						<div class="radioBtns__wrapper--inner">
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									v-model="cardDesign.cardLayout"
-									value="one-one"
-								/>
-								<span
-									><svg width="32" height="32" viewBox="0 0 32 32">
-										<use xlink:href="#iconlayoutoneone"></use></svg
-								></span>
-							</label>
+				<div class="controls--l2">
+					<div class="row">
+						<fieldset slot="start" class="radioBtns__fieldset">
+							<legend class="radioBtns__legend text-left">Layout</legend>
+							<div class="radioBtns__wrapper--inner">
+								<label class="radioBtns__label">
+									<input
+										type="radio"
+										class="radioBtns__input hidden--visually"
+										v-model="cardDesign.cardLayout"
+										value="one-one"
+									/>
+									<span
+										><svg width="32" height="32" viewBox="0 0 32 32">
+											<use xlink:href="#iconlayoutoneone"></use></svg
+									></span>
+								</label>
 
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									v-model="cardDesign.cardLayout"
-									value="zero-two"
-								/>
-								<span
-									><svg viewBox="0 0 32 32" width="32" height="32">
-										<use xlink:href="#iconlayoutzerotwo"></use></svg
-								></span>
-							</label>
+								<label class="radioBtns__label">
+									<input
+										type="radio"
+										class="radioBtns__input hidden--visually"
+										v-model="cardDesign.cardLayout"
+										value="zero-two"
+									/>
+									<span
+										><svg viewBox="0 0 32 32" width="32" height="32">
+											<use xlink:href="#iconlayoutzerotwo"></use></svg
+									></span>
+								</label>
 
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									v-model="cardDesign.cardLayout"
-									value="two-zero"
-								/>
-								<span
-									><svg viewBox="0 0 32 32" width="32" height="32">
-										<use xlink:href="#iconlayouttwozero"></use></svg
-								></span>
-							</label>
-						</div>
-					</fieldset>
-					<label slot="start" class="rangeUI__label">
-						<span>Border Curve </span>
-						<ion-range
-							data-input="range"
-							min="0"
-							max="24"
-							v-model.number="cardDesign.borderInnerCurve"
-						></ion-range>
-					</label>
+								<label class="radioBtns__label">
+									<input
+										type="radio"
+										class="radioBtns__input hidden--visually"
+										v-model="cardDesign.cardLayout"
+										value="two-zero"
+									/>
+									<span
+										><svg viewBox="0 0 32 32" width="32" height="32">
+											<use xlink:href="#iconlayouttwozero"></use></svg
+									></span>
+								</label>
+							</div>
+						</fieldset>
+						<label slot="start" class="rangeUI__label">
+							<span>Border Curve </span>
+							<ion-range
+								data-input="range"
+								min="0"
+								max="24"
+								v-model.number="cardDesign.borderInnerCurve"
+							></ion-range>
+						</label>
+					</div>
 				</div>
-
 				<div
 					class="cardFront__wrapper--outermost"
 					:style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
