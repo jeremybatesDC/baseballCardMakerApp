@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "Yo",
+  "appId": "baseball.card.maker",
+  "appName": "BaseballCardMaker",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",
