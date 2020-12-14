@@ -575,6 +575,7 @@ function hexToRGB(hex) {
 }
 
 import {
+	IonHeader,
 	IonInput,
 	IonPage,
 	IonRange,
@@ -585,12 +586,15 @@ import {
 export default {
 	name: "CardFront",
 	components: {
+		IonHeader,
 		IonInput,
 		IonRange,
 		IonToolbar,
 		IonContent,
 		IonPage,
 	},
+	//setup(){
+	//},
 	data() {
 		return {
 			images: {
@@ -702,6 +706,21 @@ export default {
 				return (this.numOfStats -= 1);
 			}
 		},
+		sendData() {
+			const endpointURL = "https://reqres.in/api/users";
+			const dataOpts = {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				// this refers to the data obj thanks to vue being sweet
+				body: JSON.stringify(this),
+			};
+
+			fetch(endpointURL, dataOpts)
+				.then((res) => res.json())
+				.then((res) => console.log(res));
+		},
 	},
 	computed: {
 		cssTextLine1Props() {
@@ -736,6 +755,9 @@ export default {
 				"--blueback": theRGB[2],
 			};
 		},
+	},
+	mounted() {
+		this.sendData();
 	},
 };
 </script>

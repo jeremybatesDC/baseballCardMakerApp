@@ -2,7 +2,7 @@
 
 ## To Do
 
-to remove router from dependencies must i drop ion page? hmmm...
+since main tagert is now apps, is the savings of Anybody worth more than some more perfect yet larger variable typeface (iuncluding ones previously used in this project)
 
 migrate the fetch api function(s) / with dummy endpoint
 
@@ -244,6 +244,16 @@ after editing career highlights, sometimes hard ot click table stats without tri
 ---
 
 ### Notes
+
+wrning not error:
+
+WARNING Compiled with 1 warnings 5:18:40 AM
+
+warning in ./node_modules/@ionic/vue/dist/index.js
+
+"export 'useRoute' was not found in 'vue-router'
+
+to remove router from dependencies must i drop ion page? hmmm...
 
 The Anybody font is a HUGE win. Credit goes to etceteratype and to the github commit's of sursly (https://github.com/sursly). Saved 881kb and now my overall proj is down to like 230 kb before images, or down to 120kbb bortli before images...
 
