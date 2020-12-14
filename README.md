@@ -2,6 +2,8 @@
 
 ## To Do
 
+to remove router from dependencies must i drop ion page? hmmm...
+
 migrate the fetch api function(s) / with dummy endpoint
 
 definitely redo the color picker with vanialla colorful: https://web-padawan.github.io/vanilla-colorful/
