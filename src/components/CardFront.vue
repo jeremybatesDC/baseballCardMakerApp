@@ -772,6 +772,13 @@ export default {
 	);
 }
 
+[data-input="range"] {
+	--bar-background: royalblue;
+	--knob-background: royalblue;
+}
+
+// end vars
+
 .card__container--front {
 	position: relative;
 	display: flex;
