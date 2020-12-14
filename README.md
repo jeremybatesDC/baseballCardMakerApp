@@ -2,6 +2,8 @@
 
 ## To Do
 
+migrate the fetch api function(s) / with dummy endpoint
+
 definitely redo the color picker with vanialla colorful: https://web-padawan.github.io/vanilla-colorful/
 
 at present changing layout impacts image zoom/fir
