@@ -561,6 +561,29 @@
 					</fieldset>
 				</div>
 			</div>
+			<div class="parent">
+				<label
+					><strong>Click or Drag!</strong> Fires a click when the mouse button
+					is released before a <code>mousemove</code> event, otherwise a drag
+					event is fired. No extra configuration is necessary.</label
+				>
+				<div class="wrapper">
+					<div id="sortable" class="container">
+						<div>
+							Clicking on these elements triggers a regular
+							<code>click</code> event you can listen to.
+						</div>
+						<div>Try dragging or clicking on this element.</div>
+						<div>Note how you can click normally?</div>
+						<div>Drags don't trigger click events.</div>
+						<div>Clicks don't end up in a drag, either.</div>
+						<div>
+							This is useful if you have elements that can be both clicked or
+							dragged.
+						</div>
+					</div>
+				</div>
+			</div>
 		</ion-content>
 	</ion-page>
 </template>
@@ -583,9 +606,12 @@ import {
 	IonContent,
 } from "@ionic/vue";
 
+import Dragula from "dragula";
+
 export default {
 	name: "CardFront",
 	components: {
+		//dragula,
 		IonHeader,
 		IonInput,
 		IonRange,
@@ -758,6 +784,8 @@ export default {
 	},
 	mounted() {
 		this.sendData();
+		Dragula([document.querySelector(".parent")]);
+		console.log(Dragula);
 	},
 };
 </script>
