@@ -2,6 +2,8 @@
 
 ## To Do
 
+async await-ify the fetch
+
 since main tagert is now apps, is the savings of Anybody worth more than some more perfect yet larger variable typeface (iuncluding ones previously used in this project)
 
 migrate the fetch api function(s) / with dummy endpoint

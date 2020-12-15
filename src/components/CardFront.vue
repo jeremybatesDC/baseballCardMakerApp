@@ -706,7 +706,7 @@ export default {
 				return (this.numOfStats -= 1);
 			}
 		},
-		sendData() {
+		async sendData() {
 			const endpointURL = "https://reqres.in/api/users";
 			const dataOpts = {
 				method: "POST",
