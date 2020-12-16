@@ -2,11 +2,15 @@
 
 ## To Do
 
+it's row middle for design that changes heoght --
+
+from 416(good) to to 434 (bad)
+at present changing layout impacts image zoom/fir
+which should it be 504 or 520? 504 is correct
+
 dropzones work but need to set to 50%
 dragging logo works -- simplest to create drop zones? Maybe
 and is this Vue safe??? Sketch this out? dropzones should be quartered -- quadrant -- 4 and you only have to cross threshold for logo to be snapped into correct location
-
-width of inputs on ios (visible in just reg safari)
 
 async await-ify the fetch
 
@@ -15,9 +19,6 @@ since main tagert is now apps, is the savings of Anybody worth more than some mo
 migrate the fetch api function(s) / with dummy endpoint
 
 definitely redo the color picker with vanialla colorful: https://web-padawan.github.io/vanilla-colorful/
-
-at present changing layout impacts image zoom/fir
-file upload buttons need their associated inputs in place (i may have snipped them), and handlers
 
 on larger screens, background could be a plastic sheet of cards
 

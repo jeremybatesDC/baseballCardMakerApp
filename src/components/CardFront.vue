@@ -344,14 +344,16 @@
 								`row--middle--forDesign row ${cardDesign.logoPosition} ${cardDesign.playerImageFilterEffect}`
 							"
 						>
-							<div id="dztl" class="dz dropzone--logo top left">XXXXXXX</div>
-							<div id="dztr" class="dz dropzone--logo top right">XXXXXXX</div>
-							<div id="dzbl" class="dz dropzone--logo bottom left">XXXXXXX</div>
+							<div id="dztl" class="dz dropzone--logo top left"></div>
+							<div id="dztr" class="dz dropzone--logo top right"></div>
+							<div id="dzbl" class="dz dropzone--logo bottom left"></div>
 
 							<!-- adding HIDDEN HERE rather than comment out an id a script is looking for -->
-							<div hidden id="dzbr" class="dz dropzone--logo bottom right">
-								XXXXXXX
-							</div>
+							<div
+								hidden
+								id="dzbr"
+								class="dz dropzone--logo bottom right"
+							></div>
 
 							<figure class="figure--player">
 								<label
@@ -376,13 +378,8 @@
 								class="dz figure--logo"
 								v-show="cardDesign.logoPosition !== 'hideLogo'"
 							>
-								<canvas id="canvasLogo" class="image--logo"> </canvas>
-								<img
-									loading="lazy"
-									class="image--logo imagePlaceholder"
-									:src="images.logoPic"
-									alt="This default logo looks terrific!"
-								/>
+								<canvas id="canvasLogo" class="image--logo logo--default">
+								</canvas>
 							</figure>
 						</div>
 
@@ -695,7 +692,8 @@ export default {
 				ctx.drawImage(oc, 0, 0, oc.width, oc.height, 0, 0, oc.width, oc.height);
 
 				// refactor
-				targetCanvas.nextElementSibling.setAttribute("hidden", "true");
+				targetCanvas.classList.remove("logo--default");
+				//targetCanvas.nextElementSibling.setAttribute("hidden", "true");
 			};
 		},
 		add1year(e) {
@@ -810,6 +808,8 @@ export default {
 				-10000000%
 		)
 	);
+
+	--logo-default: `/assets/images/logo.svg`;
 }
 
 [data-input="range"] {
@@ -985,7 +985,9 @@ export default {
 	input {
 		&[type="text"] {
 			display: flex;
+			// why this
 			min-width: 0;
+			width: 100%;
 			font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
 				"slnt" var(--fontslant);
 			color: var(--calcColorFront);
@@ -1093,6 +1095,14 @@ export default {
 			calc(var(--borderinnercurve) / 3.5)
 		);
 	}
+}
+
+.logo--default {
+	background-image: url(/assets/images/logo.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	box-shadow: inset 0 0 0 0.3rem var(--calcColorFront);
 }
 
 .imagePlaceholder {
