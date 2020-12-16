@@ -771,19 +771,9 @@ export default {
 	mounted() {
 		this.sendData();
 
-		//		const dropzones = document.querySelectorAll(".dropzone--logo");
-		//
-		//		dropzones.forEach((dz) => {
-		//			Dragula(dz);
-		//		});
+		const dropzones = [...document.querySelectorAll(".dz")];
 
-		Dragula([
-			document.getElementById("dztl"),
-			document.getElementById("dztr"),
-			document.getElementById("dzbl"),
-			document.getElementById("dzbr"),
-			document.querySelector(".figure--logo"),
-		]);
+		Dragula(dropzones);
 
 		console.log(Dragula);
 	},

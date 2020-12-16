@@ -2,6 +2,7 @@
 
 ## To Do
 
+dropzones work but need to set to 50%
 dragging logo works -- simplest to create drop zones? Maybe
 and is this Vue safe??? Sketch this out? dropzones should be quartered -- quadrant -- 4 and you only have to cross threshold for logo to be snapped into correct location
 
