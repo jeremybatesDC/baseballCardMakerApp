@@ -2,6 +2,11 @@
 
 ## To Do
 
+dragging logo works -- simplest to create drop zones? Maybe
+and is this Vue safe??? Sketch this out? dropzones should be quartered -- quadrant -- 4 and you only have to cross threshold for logo to be snapped into correct location
+
+width of inputs on ios (visible in just reg safari)
+
 async await-ify the fetch
 
 since main tagert is now apps, is the savings of Anybody worth more than some more perfect yet larger variable typeface (iuncluding ones previously used in this project)

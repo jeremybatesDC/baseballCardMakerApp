@@ -344,6 +344,15 @@
 								`row--middle--forDesign row ${cardDesign.logoPosition} ${cardDesign.playerImageFilterEffect}`
 							"
 						>
+							<div id="dztl" class="dz dropzone--logo top left">XXXXXXX</div>
+							<div id="dztr" class="dz dropzone--logo top right">XXXXXXX</div>
+							<div id="dzbl" class="dz dropzone--logo bottom left">XXXXXXX</div>
+
+							<!-- adding HIDDEN HERE rather than comment out an id a script is looking for -->
+							<div hidden id="dzbr" class="dz dropzone--logo bottom right">
+								XXXXXXX
+							</div>
+
 							<figure class="figure--player">
 								<label
 									class="figure--player__label"
@@ -364,7 +373,7 @@
 							<!-- make rounded corner optional -->
 							<!-- using css filter drop shadow could work -->
 							<figure
-								class="figure--logo"
+								class="dz figure--logo"
 								v-show="cardDesign.logoPosition !== 'hideLogo'"
 							>
 								<canvas id="canvasLogo" class="image--logo"> </canvas>
@@ -559,29 +568,6 @@
 							</label>
 						</div>
 					</fieldset>
-				</div>
-			</div>
-			<div class="parent">
-				<label
-					><strong>Click or Drag!</strong> Fires a click when the mouse button
-					is released before a <code>mousemove</code> event, otherwise a drag
-					event is fired. No extra configuration is necessary.</label
-				>
-				<div class="wrapper">
-					<div id="sortable" class="container">
-						<div>
-							Clicking on these elements triggers a regular
-							<code>click</code> event you can listen to.
-						</div>
-						<div>Try dragging or clicking on this element.</div>
-						<div>Note how you can click normally?</div>
-						<div>Drags don't trigger click events.</div>
-						<div>Clicks don't end up in a drag, either.</div>
-						<div>
-							This is useful if you have elements that can be both clicked or
-							dragged.
-						</div>
-					</div>
 				</div>
 			</div>
 		</ion-content>
@@ -784,7 +770,21 @@ export default {
 	},
 	mounted() {
 		this.sendData();
-		Dragula([document.querySelector(".parent")]);
+
+		//		const dropzones = document.querySelectorAll(".dropzone--logo");
+		//
+		//		dropzones.forEach((dz) => {
+		//			Dragula(dz);
+		//		});
+
+		Dragula([
+			document.getElementById("dztl"),
+			document.getElementById("dztr"),
+			document.getElementById("dzbl"),
+			document.getElementById("dzbr"),
+			document.querySelector(".figure--logo"),
+		]);
+
 		console.log(Dragula);
 	},
 };
@@ -1065,7 +1065,7 @@ export default {
 
 .figure--logo {
 	position: absolute;
-	pointer-events: none;
+	//pointer-events: none;
 	width: 7.2rem;
 	height: 7.2rem;
 }
@@ -1173,6 +1173,25 @@ export default {
 	}
 	&:last-of-type {
 		justify-content: flex-end;
+	}
+}
+
+.dropzone--logo {
+	position: absolute;
+	width: 7.2rem;
+	height: 7.2rem;
+	z-index: 2;
+	&.top {
+		top: 0;
+	}
+	&.right {
+		right: 0;
+	}
+	&.bottom {
+		bottom: 0;
+	}
+	&.left {
+		left: 0;
 	}
 }
 </style>
