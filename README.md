@@ -2,6 +2,12 @@
 
 ## To Do
 
+better maybe to write down layout & dimensions and re-write becasue the small thing i'm looking
+
+although culprit may be a combination of top padding and input height... still a refacotr, even with consistent explictness, might be less
+
+how to implement Hide logo? Maybe it's an option on click?
+
 it's row middle for design that changes heoght --
 
 from 416(good) to to 434 (bad)
