@@ -930,8 +930,8 @@ export default {
 }
 
 .row--middle--forDesign {
-	height: 41.6rem !important;
-	max-height: 41.6rem !important;
+	height: 41.6rem;
+	max-height: 41.6rem;
 	display: flex;
 	//position: var(--playerimagebleedorboxed);
 	position: relative;
