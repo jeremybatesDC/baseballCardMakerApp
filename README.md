@@ -2,6 +2,8 @@
 
 ## To Do
 
+is there layout topRight stuff i can comment out now that drag and drop is in place?
+
 better maybe to write down layout & dimensions and re-write becasue the small thing i'm looking
 
 although culprit may be a combination of top padding and input height... still a refacotr, even with consistent explictness, might be less

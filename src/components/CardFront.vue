@@ -348,12 +348,15 @@
 							<div id="dztr" class="dz dropzone--logo top right"></div>
 							<div id="dzbl" class="dz dropzone--logo bottom left"></div>
 
-							<!-- adding HIDDEN HERE rather than comment out an id a script is looking for -->
-							<div
-								hidden
-								id="dzbr"
-								class="dz dropzone--logo bottom right"
-							></div>
+							<div id="dzbr" class="dz dropzone--logo bottom right">
+								<figure
+									class=" figure--logo"
+									v-show="cardDesign.logoPosition !== 'hideLogo'"
+								>
+									<canvas id="canvasLogo" class="image--logo logo--default">
+									</canvas>
+								</figure>
+							</div>
 
 							<figure class="figure--player">
 								<label
@@ -364,26 +367,11 @@
 										id="canvasPlayer"
 										class="image--player player--default"
 									></canvas>
-									<!--<img
-										width="328"
-										height="416"
-										loading="lazy"
-										class="image--player imagePlaceholder"
-										:src="images.playerPic"
-										alt="This default player looks great!"
-									/>-->
 								</label>
 							</figure>
 
 							<!-- make rounded corner optional -->
 							<!-- using css filter drop shadow could work -->
-							<figure
-								class="dz figure--logo"
-								v-show="cardDesign.logoPosition !== 'hideLogo'"
-							>
-								<canvas id="canvasLogo" class="image--logo logo--default">
-								</canvas>
-							</figure>
 						</div>
 
 						<div class="text__line--second row">
@@ -886,7 +874,7 @@ export default {
 }
 .zero-two {
 	justify-content: flex-end;
-	padding-top: 1.6rem;
+	//padding-top: 1.6rem;
 	padding-bottom: 0;
 	input {
 		&[type="text"] {
@@ -915,7 +903,7 @@ export default {
 .two-zero {
 	justify-content: flex-start;
 	padding-top: 0;
-	padding-bottom: 1.6rem;
+	//padding-bottom: 1.6rem;
 	input {
 		&[type="text"] {
 			height: 2.4rem;
@@ -942,6 +930,8 @@ export default {
 }
 
 .row--middle--forDesign {
+	height: 41.6rem !important;
+	max-height: 41.6rem !important;
 	display: flex;
 	//position: var(--playerimagebleedorboxed);
 	position: relative;
@@ -1074,25 +1064,25 @@ export default {
 	border-radius: var(--logoborderradius);
 	-webkit-tap-highlight-color: transparent;
 
-	.topLeft & {
+	.top.left & {
 		transform: translate(
 			calc(var(--borderinnercurve) / -3.5),
 			calc(var(--borderinnercurve) / -3.5)
 		);
 	}
-	.topRight & {
+	.top.right & {
 		transform: translate(
 			calc(var(--borderinnercurve) / 3.5),
 			calc(var(--borderinnercurve) / -3.5)
 		);
 	}
-	.bottomLeft & {
+	.bottom.left & {
 		transform: translate(
 			calc(var(--borderinnercurve) / -3.5),
 			calc(var(--borderinnercurve) / 3.5)
 		);
 	}
-	.bottomRight & {
+	.bottom.right & {
 		transform: translate(
 			calc(var(--borderinnercurve) / 3.5),
 			calc(var(--borderinnercurve) / 3.5)
