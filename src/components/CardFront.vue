@@ -360,15 +360,18 @@
 									class="figure--player__label"
 									for="inputTriggerFocusUI_0"
 								>
-									<canvas id="canvasPlayer" class="image--player"></canvas>
-									<img
+									<canvas
+										id="canvasPlayer"
+										class="image--player player--default"
+									></canvas>
+									<!--<img
 										width="328"
 										height="416"
 										loading="lazy"
 										class="image--player imagePlaceholder"
 										:src="images.playerPic"
 										alt="This default player looks great!"
-									/>
+									/>-->
 								</label>
 							</figure>
 
@@ -692,7 +695,7 @@ export default {
 				ctx.drawImage(oc, 0, 0, oc.width, oc.height, 0, 0, oc.width, oc.height);
 
 				// refactor
-				targetCanvas.classList.remove("logo--default");
+				targetCanvas.classList.remove("logo--default", "player--default");
 				//targetCanvas.nextElementSibling.setAttribute("hidden", "true");
 			};
 		},
@@ -1103,6 +1106,13 @@ export default {
 	background-size: cover;
 	background-position: center center;
 	box-shadow: inset 0 0 0 0.3rem var(--calcColorFront);
+}
+
+.player--default {
+	background-image: url(/assets/images/leroy.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 }
 
 .imagePlaceholder {
