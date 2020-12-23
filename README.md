@@ -2,6 +2,15 @@
 
 ## To Do
 
+long press only for dragula? that's when it works best without intervention. Do I have browser level access to that event? i must...
+
+it's a bit fiddly adjusting font variations and text -- there is a focus within nconsistency perhaps.
+logo overlaps the focus ui
+
+height media queries so taller phones get bigger touch targets -- will help allow ficing the position i think/hope
+
+drag/drop scroll up down fix
+
 is there layout topRight stuff i can comment out now that drag and drop is in place?
 
 better maybe to write down layout & dimensions and re-write becasue the small thing i'm looking

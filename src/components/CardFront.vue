@@ -282,6 +282,7 @@
 					</div>
 				</div>
 				<div
+					slot="fixed"
 					class="cardFront__wrapper--outermost"
 					:style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
 				>
@@ -762,7 +763,10 @@ export default {
 
 		const dropzones = [...document.querySelectorAll(".dz")];
 
-		Dragula(dropzones);
+		Dragula(
+			dropzones
+			//, { slideFactorY: 1 }
+		);
 
 		console.log(Dragula);
 	},
@@ -801,6 +805,13 @@ export default {
 	);
 
 	--logo-default: `/assets/images/logo.svg`;
+}
+//
+.fixed--fullWidth {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 [data-input="range"] {
