@@ -65,7 +65,7 @@
 								>
 									<use xlink:href="#iconportraitadd"></use>
 								</svg>
-								<span> Add<br />Pic</span>
+								<span>Add Pic</span>
 							</label>
 							<label
 								for="logoPic"
@@ -84,7 +84,7 @@
 								>
 									<use xlink:href="#iconlogoadd"></use>
 								</svg>
-								<span>Add<br />Logo</span>
+								<span>Add Logo</span>
 							</label>
 						</span>
 						<button
@@ -372,6 +372,67 @@
 
 							<!-- make rounded corner optional -->
 							<!-- using css filter drop shadow could work -->
+							<ion-fab vertical="top" horizontal="end" slot="fixed">
+								<ion-fab-button name="imgFilters">Filters</ion-fab-button>
+
+								<ion-fab-list side="end">
+									<fieldset class="radioBtns__fieldset">
+										<legend class="radioBtns__legend hidden--visually">
+											Filters
+										</legend>
+										<div class="radioBtns__wrapper--inner">
+											<label class="radioBtns__label">
+												<input
+													type="radio"
+													class="radioBtns__input hidden--visually"
+													v-model="cardDesign.playerImageFilterEffect"
+													value="noFilterEffect"
+												/>
+												<span>None</span>
+											</label>
+
+											<label class="radioBtns__label">
+												<input
+													type="radio"
+													class="radioBtns__input hidden--visually"
+													v-model="cardDesign.playerImageFilterEffect"
+													value="filterbw"
+												/>
+												<span>1940s</span>
+											</label>
+
+											<label class="radioBtns__label">
+												<input
+													type="radio"
+													class="radioBtns__input hidden--visually"
+													v-model="cardDesign.playerImageFilterEffect"
+													value="filtersepia"
+												/>
+												<span>1950s</span>
+											</label>
+
+											<label class="radioBtns__label">
+												<input
+													type="radio"
+													class="radioBtns__input hidden--visually"
+													v-model="cardDesign.playerImageFilterEffect"
+													value="filtervintage"
+												/>
+												<span>1960s</span>
+											</label>
+											<label class="radioBtns__label">
+												<input
+													type="radio"
+													class="radioBtns__input hidden--visually"
+													v-model="cardDesign.playerImageFilterEffect"
+													value="filterfaded"
+												/>
+												<span>1970s</span>
+											</label>
+										</div>
+									</fieldset>
+								</ion-fab-list>
+							</ion-fab>
 						</div>
 
 						<div class="text__line--second row">
@@ -572,6 +633,9 @@ function hexToRGB(hex) {
 }
 
 import {
+	IonFab,
+	IonFabButton,
+	IonFabList,
 	IonHeader,
 	IonInput,
 	IonPage,
@@ -585,7 +649,10 @@ import Dragula from "dragula";
 export default {
 	name: "CardFront",
 	components: {
-		//dragula,
+		//Dragula,
+		IonFab,
+		IonFabButton,
+		IonFabList,
 		IonHeader,
 		IonInput,
 		IonRange,
@@ -762,9 +829,10 @@ export default {
 
 		const dropzones = [...document.querySelectorAll(".dz")];
 
+		// on desktop slidefactor works. Not on touch phone tho
 		Dragula(
 			dropzones
-			//, { slideFactorY: 1 }
+			//, { slideFactorX: 100, slideFactorY: 100 }
 		);
 
 		console.log(Dragula);
@@ -1136,7 +1204,7 @@ export default {
 
 [role="tab"] {
 	font-size: 2rem;
-	line-height: 0.8;
+	line-height: 0.85;
 	font-variation-settings: var(--text-big-bold);
 	display: flex;
 

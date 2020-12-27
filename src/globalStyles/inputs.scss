@@ -185,7 +185,7 @@ select {
 			padding: 0;
 			color: inherit;
 			transform: translateY(-50%);
-			font-variation-settings: var(--text-squeeze);
+			font-variation-settings: var(--text-big-bold);
 		}
 	}
 
@@ -364,6 +364,7 @@ select {
 		flex-direction: row;
 		//flex-grow: 1;
 		min-width: var(--touch-target-large);
+		max-width: 6.4rem;
 		height: var(--touch-target-large);
 		margin-left: 2rem;
 		text-transform: uppercase;
@@ -374,7 +375,8 @@ select {
 		cursor: pointer;
 
 		span {
-			font-variation-settings: var(--text-squeeze);
+			line-height: 0.9;
+			font-variation-settings: var(--text-narrower);
 			//text-align: center;
 		}
 		* {

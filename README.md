@@ -2,6 +2,37 @@
 
 ## To Do
 
+hard to access all text sliders when keyboard is open, and we do want the keyboard to open. So tighten up vertical spcing and text eac row on each layout
+
+logo hide feature.
+
+random thought that may not be useful -- consider logo as a floating action button. One prob though i could see would be to drag it while it's open. Might be weird in transit (though i can keep specific hidden during drag)
+
+FAB now centered in middle design row, which is where it needs for layout purposes.
+Just need to limit filters to canvas elements -- should be quick refactor
+
+filters: could make FAB transparent and covering all picture. Then
+
+icon turn back clock?
+
+- grain from https://codepen.io/stoumann/pen/MWeNmyb
+- or dust from https://yoksel.github.io/svg-filters/#/presets/dust
+- old times from https://kazzkiq.github.io/svg-color-filter/
+- slight pixel shift as in https://codepen.io/inegoita/pen/WNQJyro
+
+mutlicolumn select (or whichever the exact ionic comonent is, could be perfect for stat type/year (although))
+
+for year(s), could be multi-select: Multiple Selection hmmm
+
+what is best way tom implement filters?
+
+might be safer to use ionic vue's "Reorder" drag drop...
+maybe cobine with backdrop (even if transpparent) to prevent scroll while dragging
+
+ok on mobile safari, focusing input at bottom correctly scrolls down... Need more testing with native app maybe... need to sketch this out.
+
+Ideally, dragula wouldn't activate until that long press haptic -- it behaves correctly then...
+
 long press only for dragula? that's when it works best without intervention. Do I have browser level access to that event? i must...
 
 it's a bit fiddly adjusting font variations and text -- there is a focus within nconsistency perhaps.
