@@ -396,7 +396,7 @@
 													type="radio"
 													class="radioBtns__input hidden--visually"
 													v-model="cardDesign.playerImageFilterEffect"
-													value="filterbw"
+													value="filter1940s"
 												/>
 												<span>1940s</span>
 											</label>
@@ -406,7 +406,7 @@
 													type="radio"
 													class="radioBtns__input hidden--visually"
 													v-model="cardDesign.playerImageFilterEffect"
-													value="filtersepia"
+													value="filter1950s"
 												/>
 												<span>1950s</span>
 											</label>
@@ -416,7 +416,7 @@
 													type="radio"
 													class="radioBtns__input hidden--visually"
 													v-model="cardDesign.playerImageFilterEffect"
-													value="filtervintage"
+													value="filter1960s"
 												/>
 												<span>1960s</span>
 											</label>
@@ -425,7 +425,7 @@
 													type="radio"
 													class="radioBtns__input hidden--visually"
 													v-model="cardDesign.playerImageFilterEffect"
-													value="filterfaded"
+													value="filter1970s"
 												/>
 												<span>1970s</span>
 											</label>

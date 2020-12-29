@@ -180,23 +180,50 @@
 				<rect x="3.9351" y="15.9672" width="12" height="12" fill="none" stroke="currentColor" stroke-linejoin="round"
 					stroke-width="2" />
 			</symbol>
-			<filter id="faded">
-				<feColorMatrix type="matrix" values="1   0   0   0   0
-                    0   1   0   0   0
-                    0   0   1   0   0
-                    0   0   -2   1   0 " />
-			</filter>
-			<filter id="vintage">
-				<feColorMatrix type="matrix" values="1 0 0 0 0
-                      -0.4 1.3 -0.4 0.2 -0.1
-                      0 0 1 0 0
-                      0 0 0 1 0 " />
-			</filter>
+
 			<filter id='roughpaper' x='0%' y='0%' width='100%' height="100%">
 				<feTurbulence type="fractalNoise" baseFrequency='0.04' result='noise' numOctaves="5" />
 				<feDiffuseLighting in='noise' lighting-color='white' surfaceScale='2'>
 					<feDistantLight azimuth='45' elevation='60' />
 				</feDiffuseLighting>
+			</filter>
+
+			<filter id="grain">
+				<feTurbulence baseFrequency="0.60,0.90" result="colorNoise" />
+				<feColorMatrix in="colorNoise" type="matrix"
+					values=".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0" />
+				<feComposite operator="in" in2="SourceGraphic" result="monoNoise" />
+				<feBlend in="SourceGraphic" in2="monoNoise" mode="multiply" />
+			</filter>
+
+			<filter id="grainMost">
+				<feTurbulence baseFrequency="0.60,0.90" result="colorNoise" />
+				<feColorMatrix in="colorNoise" type="matrix"
+					values=".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0" />
+				<feComposite operator="in" in2="SourceGraphic" result="monoNoise" />
+				<feBlend in="SourceGraphic" in2="monoNoise" mode="color-burn" />
+			</filter>
+
+			<filter id="grainMore">
+				<feTurbulence baseFrequency="0.60,0.90" result="colorNoise" />
+				<feColorMatrix in="colorNoise" type="matrix"
+					values=".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0" />
+				<feComposite operator="in" in2="SourceGraphic" result="monoNoise" />
+				<feBlend in="SourceGraphic" in2="monoNoise" mode="darken" />
+			</filter>
+
+			<filter id="grainLeast">
+				<feTurbulence baseFrequency="0.60,0.90" result="colorNoise" />
+				<feColorMatrix in="colorNoise" type="matrix"
+					values=".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0" />
+				<feComposite operator="in" in2="SourceGraphic" result="monoNoise" />
+				<feBlend in="SourceGraphic" in2="monoNoise" mode="hard-light" />
+			</filter>
+
+			<filter id="posterize">
+				<feComponentTransfer>
+					<feFuncR type="discrete" tableValues="0 .05 .1 .15 .2 .25 .3 .35 .4 .45 .5 .55 .6 .65 .75 .8 .85 .9 .95 1" />
+				</feComponentTransfer>
 			</filter>
 		</defs>
 	</svg>

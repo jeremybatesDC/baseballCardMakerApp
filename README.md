@@ -2,6 +2,10 @@
 
 ## To Do
 
+can probably pass in belnd mode as argument to gain filterr so only need 1 filter... seems like a good Vueish task
+
+consider an additional poterization filter or two with more colors, represening printable gamut improvements
+
 hard to access all text sliders when keyboard is open, and we do want the keyboard to open. So tighten up vertical spcing and text eac row on each layout
 
 logo hide feature.
