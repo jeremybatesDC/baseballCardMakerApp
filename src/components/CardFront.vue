@@ -344,20 +344,6 @@
 								`row--middle--forDesign row ${cardDesign.logoPosition} ${cardDesign.playerImageFilterEffect}`
 							"
 						>
-							<div id="dztl" class="dz dropzone--logo top left"></div>
-							<div id="dztr" class="dz dropzone--logo top right"></div>
-							<div id="dzbl" class="dz dropzone--logo bottom left"></div>
-
-							<div id="dzbr" class="dz dropzone--logo bottom right">
-								<figure
-									class=" figure--logo"
-									v-show="cardDesign.logoPosition !== 'hideLogo'"
-								>
-									<canvas id="canvasLogo" class="image--logo logo--default">
-									</canvas>
-								</figure>
-							</div>
-
 							<figure class="figure--player">
 								<label
 									class="figure--player__label"
@@ -372,16 +358,32 @@
 
 							<!-- make rounded corner optional -->
 							<!-- using css filter drop shadow could work -->
-							<ion-fab vertical="top" horizontal="end" slot="fixed">
-								<ion-fab-button name="imgFilters">Filters</ion-fab-button>
+							<ion-fab
+								vertical="top"
+								horizontal="end"
+								slot="fixed"
+								class="margin--0 top--0 left--0 width--100 height--100"
+							>
+								<ion-fab-button
+									hidden
+									name="imgFilters"
+									class="fab__button--imgFilters"
+									>Filters</ion-fab-button
+								>
 
-								<ion-fab-list side="end">
-									<fieldset class="radioBtns__fieldset">
+								<ion-fab-list side="end" class="margin--0 height--100">
+									<fieldset
+										class="radioBtns__fieldset radioBtns__fieldset--decadeFilters"
+									>
 										<legend class="radioBtns__legend hidden--visually">
 											Filters
 										</legend>
-										<div class="radioBtns__wrapper--inner">
-											<label class="radioBtns__label">
+										<div
+											class="radioBtns__wrapper--inner radioBtns__wrapper--decadeFilters"
+										>
+											<label
+												class="radioBtns__label radioBtns__label--decadeFilters"
+											>
 												<input
 													type="radio"
 													class="radioBtns__input hidden--visually"
@@ -391,7 +393,9 @@
 												<span>None</span>
 											</label>
 
-											<label class="radioBtns__label">
+											<label
+												class="radioBtns__label radioBtns__label--decadeFilters"
+											>
 												<input
 													type="radio"
 													class="radioBtns__input hidden--visually"
@@ -401,7 +405,9 @@
 												<span>1940s</span>
 											</label>
 
-											<label class="radioBtns__label">
+											<label
+												class="radioBtns__label radioBtns__label--decadeFilters"
+											>
 												<input
 													type="radio"
 													class="radioBtns__input hidden--visually"
@@ -411,7 +417,9 @@
 												<span>1950s</span>
 											</label>
 
-											<label class="radioBtns__label">
+											<label
+												class="radioBtns__label radioBtns__label--decadeFilters"
+											>
 												<input
 													type="radio"
 													class="radioBtns__input hidden--visually"
@@ -420,7 +428,9 @@
 												/>
 												<span>1960s</span>
 											</label>
-											<label class="radioBtns__label">
+											<label
+												class="radioBtns__label radioBtns__label--decadeFilters"
+											>
 												<input
 													type="radio"
 													class="radioBtns__input hidden--visually"
@@ -433,6 +443,19 @@
 									</fieldset>
 								</ion-fab-list>
 							</ion-fab>
+							<div id="dztl" class="dz dropzone--logo top left"></div>
+							<div id="dztr" class="dz dropzone--logo top right"></div>
+							<div id="dzbl" class="dz dropzone--logo bottom left"></div>
+
+							<div id="dzbr" class="dz dropzone--logo bottom right">
+								<figure
+									class=" figure--logo"
+									v-show="cardDesign.logoPosition !== 'hideLogo'"
+								>
+									<canvas id="canvasLogo" class="image--logo logo--default">
+									</canvas>
+								</figure>
+							</div>
 						</div>
 
 						<div class="text__line--second row">
@@ -1254,11 +1277,35 @@ export default {
 	}
 }
 
+.fab__button--imgFilters {
+	--background: transparent;
+	--box-shadow: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	border-radius: 0;
+	// gross mix of ionic and my own styles ugh
+	&:not(.fab-button-close-active) {
+		opacity: 0;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		--background: transparent;
+		--box-shadow: none;
+		border: none;
+		border-radius: 0;
+	}
+}
+
 .dropzone--logo {
 	position: absolute;
 	width: 7.2rem;
 	height: 7.2rem;
-	z-index: 2;
+	z-index: 9999;
 	&.top {
 		top: 0;
 	}

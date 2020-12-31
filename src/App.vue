@@ -17,3 +17,11 @@ export default defineComponent({
 	},
 });
 </script>
+
+<style>
+#panelCardFront,
+#panelCardBack {
+	min-height: 100%;
+	background-size: cover;
+}
+</style>

@@ -2,6 +2,13 @@
 
 ## To Do
 
+shoebox (inside)
+
+subtle background pattern
+
+the fab button might not haev been a well thought out choice because i want clicking outside of the card itself to close -- wasnt this my focus within? Ugh.
+POPOVER might be a better choice...
+
 can probably pass in belnd mode as argument to gain filterr so only need 1 filter... seems like a good Vueish task
 
 consider an additional poterization filter or two with more colors, represening printable gamut improvements

@@ -264,6 +264,9 @@ select {
 			background: var(--background-for-overlay-controls);
 		}
 
+		&--decadeFilters {
+			display: flex;
+		}
 		&:not(:first-of-type) {
 			.cardFront__controls & {
 				box-shadow: -1px 0 rgba(0, 0, 0, 0.1);
