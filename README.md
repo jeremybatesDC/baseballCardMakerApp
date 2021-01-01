@@ -2,9 +2,11 @@
 
 ## To Do
 
-shoebox (inside)
+refactor/rename cardfront so CardBack is a proper sibling
 
-subtle background pattern
+beers and pot cards.
+
+standardize card alignment across tabs. Because layout is different, styles are different. Standardize in practical way. Consider flip.
 
 the fab button might not haev been a well thought out choice because i want clicking outside of the card itself to close -- wasnt this my focus within? Ugh.
 POPOVER might be a better choice...

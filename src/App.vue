@@ -18,10 +18,68 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="scss">
 #panelCardFront,
 #panelCardBack {
 	min-height: 100%;
 	background-size: cover;
+}
+
+[role="tablist"] {
+	display: flex;
+	justify-content: space-between;
+	background-color: royalblue;
+}
+
+[role="tab"] {
+	font-size: 2rem;
+	line-height: 0.85;
+	font-variation-settings: var(--text-big-bold);
+	display: flex;
+
+	//flex-grow: 1;
+
+	align-items: center;
+	justify-content: center;
+	width: var(--touch-target-large);
+	height: var(--touch-target-large);
+	padding: 0;
+	text-transform: uppercase;
+	// in case ever have more than just 2 tabs
+	&:not(:first-child) {
+		//box-shadow: -1px 0 #000;
+		order: 99;
+	}
+	&[aria-selected="true"] {
+		background: royalblue;
+		color: #fff;
+		pointer-events: none;
+	}
+	&[aria-selected="false"] {
+		background: var(--grey-for-controls);
+		//color: #fff;
+		//pointer-events: none;
+	}
+}
+
+[data-input="range"] {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.showOnlyForSelectedTab {
+	display: none;
+	align-items: center;
+	//flex-shrink: 0;
+	// after flex-grow 1 OR width 100% here, there is some gap thatS letting a tap click through and zoom on iOS... grrr
+	//flex-grow: 1;
+	//width: 100%;
+	background-color: royalblue;
+	[aria-selected="true"] + & {
+		display: flex;
+	}
+	&:last-of-type {
+		justify-content: flex-end;
+	}
 }
 </style>

@@ -216,7 +216,7 @@
 								<input
 									class="colorPicker__input"
 									type="color"
-									v-model="cardDesign.bgcb"
+									v-model="cardBackSettings.backgroundColor"
 								/> </label
 						></span>
 					</div>
@@ -581,66 +581,70 @@
 				aria-labelledby="triggerBack"
 				hidden
 			>
-				<div class="row space-around height--100">
-					<fieldset class="radioBtns__fieldset">
-						<legend class="radioBtns__legend text-left">Orientation</legend>
-						<div class="radioBtns__wrapper--inner">
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									name=""
-									v-model="backOrient"
-									value="horizontal"
-								/>
-								<span
-									><svg width="32" height="32" viewBox="0 0 32 32">
-										<use xlink:href="#iconorientationhorz"></use></svg
-								></span>
-							</label>
+				<div class="controls--l2">
+					<div class="row space-around height--100">
+						<fieldset class="radioBtns__fieldset">
+							<legend class="radioBtns__legend text-left">Orientation</legend>
+							<div class="radioBtns__wrapper--inner">
+								<label class="radioBtns__label">
+									<input
+										type="radio"
+										class="radioBtns__input hidden--visually"
+										name=""
+										v-model="cardBackSettings.backOrient"
+										value="horizontal"
+									/>
+									<span
+										><svg width="32" height="32" viewBox="0 0 32 32">
+											<use xlink:href="#iconorientationhorz"></use></svg
+									></span>
+								</label>
 
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									name=""
-									v-model="backOrient"
-									value="vertical"
-								/>
-								<span
-									><svg width="32" height="32" viewBox="0 0 32 32">
-										<use xlink:href="#iconorientationvert"></use></svg
-								></span>
-							</label>
-						</div>
-					</fieldset>
-					<fieldset class="radioBtns__fieldset">
-						<legend class="radioBtns__legend text-left">Gum Stain</legend>
-						<div class="radioBtns__wrapper--inner">
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									name="gumradio"
-									v-model="gumShowing"
-									value="gumShowing"
-								/>
-								<span>Show</span>
-							</label>
+								<label class="radioBtns__label">
+									<input
+										type="radio"
+										class="radioBtns__input hidden--visually"
+										name=""
+										v-model="cardBackSettings.backOrient"
+										value="vertical"
+									/>
+									<span
+										><svg width="32" height="32" viewBox="0 0 32 32">
+											<use xlink:href="#iconorientationvert"></use></svg
+									></span>
+								</label>
+							</div>
+						</fieldset>
+						<fieldset class="radioBtns__fieldset">
+							<legend class="radioBtns__legend text-left">Gum Stain</legend>
+							<div class="radioBtns__wrapper--inner">
+								<label class="radioBtns__label">
+									<input
+										type="radio"
+										class="radioBtns__input hidden--visually"
+										name="gumradio"
+										v-model="cardBackSettings.gumShowing"
+										value="gumShowing"
+									/>
+									<span>Show</span>
+								</label>
 
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									name="gumradio"
-									v-model="gumShowing"
-									value="gumHidden"
-								/>
-								<span>Hide</span>
-							</label>
-						</div>
-					</fieldset>
+								<label class="radioBtns__label">
+									<input
+										type="radio"
+										class="radioBtns__input hidden--visually"
+										name="gumradio"
+										v-model="cardBackSettings.gumShowing"
+										value="gumHidden"
+									/>
+									<span>Hide</span>
+								</label>
+							</div>
+						</fieldset>
+					</div>
 				</div>
+
+				<CardBack v-bind="cardBackSettings"></CardBack>
 			</div>
 		</ion-content>
 	</ion-page>
@@ -667,12 +671,15 @@ import {
 	IonContent,
 } from "@ionic/vue";
 
+import CardBack from "./CardBack";
+
 import Dragula from "dragula";
 
 export default {
 	name: "CardFront",
 	components: {
 		//Dragula,
+		CardBack,
 		IonFab,
 		IonFabButton,
 		IonFabList,
@@ -694,7 +701,6 @@ export default {
 			cardDesign: {
 				playerImageBleedOrBoxed: "relative",
 				bgcf: "#ffffff",
-				bgcb: "#9a8b7c",
 				cardLayout: "one-one",
 				cardBrightness: 1,
 				cardSepia: 0,
@@ -728,9 +734,11 @@ export default {
 					fontSlant: -5,
 				},
 			},
-			backOrient: "horizontal",
-			backgroundColor: "#9a8b7c",
-			gumShowing: "gumShowing",
+			cardBackSettings: {
+				backOrient: "horizontal",
+				backgroundColor: "#9a8b7c",
+				gumShowing: "gumShowing",
+			},
 		};
 	},
 	methods: {
@@ -838,7 +846,7 @@ export default {
 			};
 		},
 		colorContrastVarsBack() {
-			const theRGB = hexToRGB(this.cardDesign.bgcb);
+			const theRGB = hexToRGB(this.cardBackSettings.backgroundColor);
 			return {
 				"--bgcb": `rgb(${theRGB[0]},${theRGB[1]},${theRGB[2]})`,
 				"--redback": theRGB[0],
@@ -1216,64 +1224,6 @@ export default {
 
 	&.image--logo {
 		box-shadow: inset 0 0 0 1.6rem var(--calcColorFront);
-	}
-}
-
-[role="tablist"] {
-	display: flex;
-	justify-content: space-between;
-	background-color: royalblue;
-}
-
-[role="tab"] {
-	font-size: 2rem;
-	line-height: 0.85;
-	font-variation-settings: var(--text-big-bold);
-	display: flex;
-
-	//flex-grow: 1;
-
-	align-items: center;
-	justify-content: center;
-	width: var(--touch-target-large);
-	height: var(--touch-target-large);
-	padding: 0;
-	text-transform: uppercase;
-	// in case ever have more than just 2 tabs
-	&:not(:first-child) {
-		//box-shadow: -1px 0 #000;
-		order: 99;
-	}
-	&[aria-selected="true"] {
-		background: royalblue;
-		color: #fff;
-		pointer-events: none;
-	}
-	&[aria-selected="false"] {
-		background: var(--grey-for-controls);
-		//color: #fff;
-		//pointer-events: none;
-	}
-}
-
-[data-input="range"] {
-	padding-top: 0;
-	padding-bottom: 0;
-}
-
-.showOnlyForSelectedTab {
-	display: none;
-	align-items: center;
-	//flex-shrink: 0;
-	// after flex-grow 1 OR width 100% here, there is some gap thatS letting a tap click through and zoom on iOS... grrr
-	//flex-grow: 1;
-	//width: 100%;
-	background-color: royalblue;
-	[aria-selected="true"] + & {
-		display: flex;
-	}
-	&:last-of-type {
-		justify-content: flex-end;
 	}
 }
 
