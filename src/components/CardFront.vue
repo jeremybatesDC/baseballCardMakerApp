@@ -694,6 +694,12 @@ export default {
 	//},
 	data() {
 		return {
+			minYears: 0,
+			maxYears: 5,
+			minStats: 0,
+			maxStats: 5,
+			numOfYears: 5,
+			numOfStats: 5,
 			images: {
 				playerPic: "/assets/images/leroy.jpg",
 				logoPic: "/assets/images/logo.svg",
@@ -785,22 +791,23 @@ export default {
 				//targetCanvas.nextElementSibling.setAttribute("hidden", "true");
 			};
 		},
-		add1year(e) {
+		add1year() {
+			console.log("add1");
 			if (this.numOfYears < this.maxYears) {
 				return (this.numOfYears += 1);
 			}
 		},
-		minus1year(e) {
+		minus1year() {
 			if (this.numOfYears > this.minYears) {
 				return (this.numOfYears -= 1);
 			}
 		},
-		add1stat(e) {
+		add1stat() {
 			if (this.numOfStats < this.maxStats) {
 				return (this.numOfStats += 1);
 			}
 		},
-		minus1stat(e) {
+		minus1stat() {
 			if (this.numOfStats > this.minStats) {
 				return (this.numOfStats -= 1);
 			}

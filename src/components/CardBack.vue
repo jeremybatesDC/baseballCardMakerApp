@@ -2,12 +2,12 @@
 	<div class="cardBack__wrapper--outermost">
 		<div class="card-back" :data-card-back-orientation="backOrient">
 			<article :data-gum="gumShowing" class="card-back__article">
-				<!--<BackHeader />
-        <section class="card-back__section">
-          <TableStatsManual />
-          <AsideFacts />
-        </section>
-        <BackFooter />-->
+				<BackHeader />
+				<section class="card-back__section">
+					<TableStatsManual />
+					<AsideFacts />
+				</section>
+				<BackFooter />
 			</article>
 		</div>
 	</div>
@@ -18,18 +18,18 @@
 
 //import { set } from "idb-keyval";
 //import TextSlider from "./InputChildComponents/TextSlider.vue";
-//import TableStatsManual from "./InputChildComponents/TableStatsManual.vue";
-//import BackHeader from "./InputChildComponents/BackHeader.vue";
-//import BackFooter from "./InputChildComponents/BackFooter.vue";
-//import AsideFacts from "./InputChildComponents/AsideFacts.vue";
+import TableStatsManual from "./backcomponents/TableStatsManual.vue";
+import BackHeader from "./backcomponents/BackHeader.vue";
+import BackFooter from "./backcomponents/BackFooter.vue";
+import AsideFacts from "./backcomponents/AsideFacts.vue";
 
 export default {
 	components: {
 		//TextSlider,
-		//TableStatsManual,
-		//BackHeader,
-		//BackFooter,
-		//AsideFacts,
+		TableStatsManual,
+		BackHeader,
+		BackFooter,
+		AsideFacts,
 	},
 	props: ["gumShowing", "backOrient"],
 	//setup() {
