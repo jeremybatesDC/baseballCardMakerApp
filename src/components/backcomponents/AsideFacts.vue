@@ -189,23 +189,25 @@ export default {
 	//padding-top: 0.4rem;
 	font-variation-settings: var(--text-shortest-wide);
 
-	input {
+	input[type="text"] {
 		min-height: var(--headlineheight);
+		text-align: left;
 	}
 }
 
 // absolute needs to be on the text-area element to keep it from growing I have found
-.aside__textarea {
+[name="asideTextArea"] {
 	position: absolute;
 	top: 50%;
 	left: 0;
 	width: 100%;
 	height: var(--textareaheight);
-	//min-height: var(--min-touch-target);
+	min-height: var(--touch-target-large);
 	transform: translateY(-50%);
 	// padding here based on width helps avoid media queries
 	// can i do a min-max CLAMP here somewhere?
-	padding: var(--textareapadding);
+	margin: 0;
+	padding: 0;
 	//padding-bottom: 1.6rem;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -213,5 +215,12 @@ export default {
 	font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
 		"slnt" var(--fontslant);
 	line-height: 0.8;
+	.textarea-wrapper {
+		min-height: var(--textareaheight);
+	}
+	textarea[name="asideTextArea"] {
+		// brute force baby
+		padding: 0;
+	}
 }
 </style>

@@ -544,24 +544,18 @@ export default {
 				};
 			};
 
-			// keep integating -- yes, i could store as variable.
+			// only using one of 4 allowed args and confident can combine these ifs
 			// But i think this is an opportunity for a super slick single pass
 			// can this be simpler? Mark the column. Then maybe filter easy
-			// but iM going back to the model for this
 
 			const colArray = Object.keys(this.seasons).map((item, i) => {
 				return Number(this.seasons[`yr${i}`].stats[statCol]);
 			});
 
 			if (sumOrAvg === "sum") {
-				return (
-					// only using one of 4 allowed args and confident can combine these ifs
-					// and just do single pass
-					colArray.reduce(rdcrSum)
-				);
+				return colArray.reduce(rdcrSum);
 			} else if (sumOrAvg === "avg") {
 				const initialVals = { avg: 0, n: 0 };
-
 				return parseFloat(colArray.reduce(rdcrAvg, initialVals).avg).toFixed(1);
 			}
 		},

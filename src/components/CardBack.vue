@@ -68,9 +68,17 @@ export default {
 		flex-grow: 1;
 		align-items: stretch;
 		flex-direction: row;
-		flex-wrap: wrap-reverse;
+
 		padding: 0;
 		background: rgba(0, 0, 0, 0.1);
+
+		[data-card-back-orientation="horizontal"] & {
+			flex-wrap: nowrap;
+		}
+
+		[data-card-back-orientation="vertical"] & {
+			flex-wrap: wrap-reverse;
+		}
 	}
 	&__article {
 		display: flex;
