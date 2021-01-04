@@ -2,6 +2,18 @@
 
 ## To Do
 
+removing stat columns can be done super hackily by just hiding.
+
+but for chainging number of years, the tabulation for a column need to factor out the "removed" year.
+
+and remember, avoiding a loop within a loop could be important because time complexity. Seems so tempting but for now keeping rows distinct has its simpicity advantage.
+
+So, since this will prob need a function anyway, maybe show/hiding columns with css is too lazy. What happens to the model? Yeah, don't delete or clear field. Just use attributes somehow (disabled or something?).
+
+range -=- make circle target bigger (and still thinking through whther to have that circle be a baseball (could also be route-based, football, baketball, etc.))
+
+on ios the columns are chaing width based on input -- eitther that's a specific thing to address, or maybe something i just screwed up when making those into loops
+
 center Career Highlights aside headline when horiztontal nowrap. I think. Maybe always and this should just stretch so the cetering looks complete... so yeah maybe undo that left align
 
 refactor/rename cardfront so CardBack is a proper sibling

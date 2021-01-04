@@ -728,7 +728,7 @@ export default {
 					fontSlant: 0,
 				},
 				textLine2: {
-					playerName: "Leroy Casey",
+					playerName: "Casey LeRoy",
 					fontWght: 200,
 					fontWidth: 100,
 					fontSlant: 0,

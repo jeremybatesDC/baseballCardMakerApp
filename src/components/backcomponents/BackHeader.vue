@@ -102,7 +102,7 @@ export default {
 	data() {
 		return {
 			defaultFacts,
-			playerName: "Leroy Casey",
+			playerName: "Casey LeRoy",
 			textLineA: {
 				fontWght: 800,
 				fontWidth: 90,
