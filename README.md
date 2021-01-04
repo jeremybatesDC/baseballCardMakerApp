@@ -2,6 +2,8 @@
 
 ## To Do
 
+center Career Highlights aside headline when horiztontal nowrap. I think. Maybe always and this should just stretch so the cetering looks complete... so yeah maybe undo that left align
+
 refactor/rename cardfront so CardBack is a proper sibling
 
 beers and pot cards.

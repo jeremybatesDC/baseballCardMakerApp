@@ -5,44 +5,14 @@
 				<!--<caption>Career Stats</caption>-->
 				<thead>
 					<tr data-row="0">
-						<th scope="col" data-col="0">
+						<th
+							v-for="(value, name, index) in fields"
+							:key="name"
+							scope="col"
+							:data-col="index"
+						>
 							<label>
-								<input type="text" v-model.trim="fields.year" maxlength="9" />
-							</label>
-						</th>
-						<th scope="col" data-col="1">
-							<label>
-								<input
-									type="text"
-									v-model.trim="fields.homeCity"
-									data-col="1"
-									maxlength="9"
-								/>
-							</label>
-						</th>
-						<th scope="col" data-col="2">
-							<label>
-								<input type="text" v-model.trim="fields.field0" maxlength="9" />
-							</label>
-						</th>
-						<th scope="col" data-col="3">
-							<label>
-								<input type="text" v-model.trim="fields.field1" maxlength="9" />
-							</label>
-						</th>
-						<th scope="col" data-col="4">
-							<label>
-								<input type="text" v-model.trim="fields.field2" maxlength="9" />
-							</label>
-						</th>
-						<th scope="col" data-col="5">
-							<label>
-								<input type="text" v-model.trim="fields.field3" maxlength="9" />
-							</label>
-						</th>
-						<th scope="col" data-col="6">
-							<label>
-								<input type="text" v-model.trim="fields.field4" maxlength="9" />
+								<input v-model.trim="fields[name]" type="text" maxlength="9" />
 							</label>
 						</th>
 					</tr>
