@@ -38,52 +38,15 @@
 								maxlength="4"
 							/>
 						</td>
-						<td data-col="2">
+						<td
+							v-for="(value, name, index) in seasons.yr0.stats"
+							:key="name"
+							:data-col="index + 2"
+						>
 							<input
 								type="tel"
 								inputmode="decimal"
-								v-model.number="seasons.yr0.stats.stat0"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-
-						<td data-col="3">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr0.stats.stat1"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="4">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr0.stats.stat2"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="5">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr0.stats.stat3"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="6">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr0.stats.stat4"
+								v-model.number="seasons.yr0.stats[name]"
 								size="5"
 								maxlength="5"
 								placeholder="0"
@@ -111,52 +74,15 @@
 								maxlength="4"
 							/>
 						</td>
-						<td data-col="2">
+						<td
+							v-for="(value, name, index) in seasons.yr1.stats"
+							:key="name"
+							:data-col="index + 2"
+						>
 							<input
 								type="tel"
 								inputmode="decimal"
-								v-model.number="seasons.yr1.stats.stat0"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-
-						<td data-col="3">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr1.stats.stat1"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="4">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr1.stats.stat2"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="5">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr1.stats.stat3"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="6">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr1.stats.stat4"
+								v-model.number="seasons.yr1.stats[name]"
 								size="5"
 								maxlength="5"
 								placeholder="0"
@@ -184,52 +110,15 @@
 								maxlength="4"
 							/>
 						</td>
-						<td data-col="2">
+						<td
+							v-for="(value, name, index) in seasons.yr2.stats"
+							:key="name"
+							:data-col="index + 2"
+						>
 							<input
 								type="tel"
 								inputmode="decimal"
-								v-model.number="seasons.yr2.stats.stat0"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-
-						<td data-col="3">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr2.stats.stat1"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="4">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr2.stats.stat2"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="5">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr2.stats.stat3"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="6">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr2.stats.stat4"
+								v-model.number="seasons.yr2.stats[name]"
 								size="5"
 								maxlength="5"
 								placeholder="0"
@@ -257,52 +146,15 @@
 								maxlength="4"
 							/>
 						</td>
-						<td data-col="2">
+						<td
+							v-for="(value, name, index) in seasons.yr3.stats"
+							:key="name"
+							:data-col="index + 2"
+						>
 							<input
 								type="tel"
 								inputmode="decimal"
-								v-model.number="seasons.yr3.stats.stat0"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-
-						<td data-col="3">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr3.stats.stat1"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="4">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr3.stats.stat2"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="5">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr3.stats.stat3"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="6">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr3.stats.stat4"
+								v-model.number="seasons.yr3.stats[name]"
 								size="5"
 								maxlength="5"
 								placeholder="0"
@@ -330,52 +182,15 @@
 								maxlength="4"
 							/>
 						</td>
-						<td data-col="2">
+						<td
+							v-for="(value, name, index) in seasons.yr4.stats"
+							:key="name"
+							:data-col="index + 2"
+						>
 							<input
 								type="tel"
 								inputmode="decimal"
-								v-model.number="seasons.yr4.stats.stat0"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-
-						<td data-col="3">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr4.stats.stat1"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="4">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr4.stats.stat2"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="5">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr4.stats.stat3"
-								size="5"
-								maxlength="5"
-								placeholder="0"
-							/>
-						</td>
-						<td data-col="6">
-							<input
-								type="tel"
-								inputmode="decimal"
-								v-model.number="seasons.yr4.stats.stat4"
+								v-model.number="seasons.yr4.stats[name]"
 								size="5"
 								maxlength="5"
 								placeholder="0"
