@@ -18,7 +18,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr data-row="1">
+					<tr v-if="numOfYears > 0" data-row="1">
 						<!-- making first col a TH scope row -->
 						<th scope="row" data-col="0">
 							<input
@@ -53,7 +53,7 @@
 							/>
 						</td>
 					</tr>
-					<tr data-row="2">
+					<tr v-if="numOfYears > 1" data-row="2">
 						<th scope="row" data-col="0">
 							<input
 								type="tel"
@@ -89,7 +89,7 @@
 							/>
 						</td>
 					</tr>
-					<tr data-row="3">
+					<tr v-if="numOfYears > 2" data-row="3">
 						<th scope="row" data-col="0">
 							<input
 								type="tel"
@@ -125,7 +125,7 @@
 							/>
 						</td>
 					</tr>
-					<tr data-row="4">
+					<tr v-if="numOfYears > 3" data-row="4">
 						<th scope="row" data-col="0">
 							<input
 								type="tel"
@@ -161,7 +161,7 @@
 							/>
 						</td>
 					</tr>
-					<tr data-row="5">
+					<tr v-if="numOfYears > 4" data-row="5">
 						<th scope="row" data-col="0">
 							<input
 								type="tel"
@@ -316,6 +316,7 @@ export default {
 			},
 		};
 	},
+	props: ["numOfYears", "numOfStats"],
 
 	methods: {
 		tabulate(sumOrAvg, statCol) {

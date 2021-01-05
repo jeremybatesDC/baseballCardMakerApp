@@ -4,7 +4,7 @@
 			<article :data-gum="gumShowing" class="card-back__article">
 				<BackHeader />
 				<section class="card-back__section">
-					<TableStatsManual />
+					<TableStatsManual :numOfYears="numOfYears" :numOfStats="numOfStats" />
 					<AsideFacts />
 				</section>
 				<BackFooter />
@@ -31,7 +31,7 @@ export default {
 		BackFooter,
 		AsideFacts,
 	},
-	props: ["gumShowing", "backOrient"],
+	props: ["gumShowing", "backOrient", "numOfYears", "numOfStats"],
 	//setup() {
 	//  setFunc();
 	// return { setFunc };

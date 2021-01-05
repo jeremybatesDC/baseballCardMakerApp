@@ -2,6 +2,10 @@
 
 ## To Do
 
+need to re-tabulate after addition/removal of years
+
+i need to sketch out card back layouts simple, imperatiev -- right now, i'm kinda stuggling against my own code -- heh
+
 not really using define component... just using options api
 
 rows can be done with v-if. Hardcode max number.

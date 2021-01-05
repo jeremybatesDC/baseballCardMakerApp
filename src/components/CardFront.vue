@@ -644,7 +644,13 @@
 					</div>
 				</div>
 
-				<CardBack v-bind="cardBackSettings"></CardBack>
+				<CardBack
+					v-bind="cardBackSettings"
+					:numOfYears="numOfYears"
+					:numOfStats="numOfStats"
+					:data-years="numOfYears"
+					:data-stats="numOfStats"
+				></CardBack>
 			</div>
 		</ion-content>
 	</ion-page>
