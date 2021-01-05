@@ -15,6 +15,31 @@ export default defineComponent({
 		IonApp,
 		CardFront,
 	},
+	data() {
+		return {
+			meow: "mix",
+		};
+	},
+	methods: {
+		async sendData() {
+			const endpointURL = "https://reqres.in/api/users";
+			const dataOpts = {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				// this refers to the data obj thanks to vue being sweet
+				body: JSON.stringify(this),
+			};
+
+			fetch(endpointURL, dataOpts)
+				.then((res) => res.json())
+				.then((res) => console.log(res));
+		},
+	},
+	mounted() {
+		this.sendData();
+	},
 });
 </script>
 

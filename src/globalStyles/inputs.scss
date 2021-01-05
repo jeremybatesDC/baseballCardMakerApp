@@ -255,17 +255,20 @@ select {
 	}
 	&__label {
 		display: inline-flex;
+		font-size: 1.6rem;
 		width: var(--min-touch-target);
 		height: var(--min-touch-target);
+		background: var(--background-for-overlay-controls);
+
 		padding: 0;
 		.controls--l2 & {
-			font-size: 1.6rem;
 			padding: 0;
-			background: var(--background-for-overlay-controls);
 		}
 
 		&--decadeFilters {
 			display: flex;
+			box-shadow: 0 -1px rgba(0, 0, 0, 0.1);
+			text-transform: none;
 		}
 		&:not(:first-of-type) {
 			.cardFront__controls & {
@@ -276,7 +279,6 @@ select {
 		.playerImage__controls & {
 			width: var(--touch-target-large);
 			height: var(--touch-target-large);
-			box-shadow: 0 -1px rgba(0, 0, 0, 0.1);
 		}
 	}
 	&__input {

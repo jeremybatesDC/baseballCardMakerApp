@@ -2,6 +2,10 @@
 
 ## To Do
 
+not really using define component... just using options api
+
+rows can be done with v-if. Hardcode max number.
+
 removing stat columns can be done super hackily by just hiding.
 
 but for chainging number of years, the tabulation for a column need to factor out the "removed" year.
