@@ -6,11 +6,6 @@
 					<input type="text" v-model="asideHeadline" />
 				</h3>
 				<span class="aside__wrapper--inner">
-					<!-- 
-						debounce!!!
-
-					-->
-
 					<ion-textarea
 						autogrow="true"
 						:value="asideText"
@@ -190,6 +185,8 @@ export default {
 	font-variation-settings: var(--text-shortest-wide);
 
 	input[type="text"] {
+		// width here is needed prob becuase of nested absolute positioning
+		width: 100%;
 		min-height: var(--headlineheight);
 		text-align: left;
 	}

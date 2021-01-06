@@ -4,7 +4,7 @@
 			<article :data-gum="gumShowing" class="card-back__article">
 				<BackHeader />
 				<section class="card-back__section">
-					<TableStatsManual :numOfYears="numOfYears" :numOfStats="numOfStats" />
+					<TableStats :numOfYears="numOfYears" :numOfStats="numOfStats" />
 					<AsideFacts />
 				</section>
 				<BackFooter />
@@ -18,7 +18,7 @@
 
 //import { set } from "idb-keyval";
 //import TextSlider from "./InputChildComponents/TextSlider.vue";
-import TableStatsManual from "./backcomponents/TableStatsManual.vue";
+import TableStats from "./backcomponents/TableStats.vue";
 import BackHeader from "./backcomponents/BackHeader.vue";
 import BackFooter from "./backcomponents/BackFooter.vue";
 import AsideFacts from "./backcomponents/AsideFacts.vue";
@@ -26,7 +26,7 @@ import AsideFacts from "./backcomponents/AsideFacts.vue";
 export default {
 	components: {
 		//TextSlider,
-		TableStatsManual,
+		TableStats,
 		BackHeader,
 		BackFooter,
 		AsideFacts,

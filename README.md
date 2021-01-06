@@ -2,13 +2,15 @@
 
 ## To Do
 
+grain _could_ be a slider
+
+do i need to use ion page? eventually i will want routes but for now?
+
 need to re-tabulate after addition/removal of years
 
 i need to sketch out card back layouts simple, imperatiev -- right now, i'm kinda stuggling against my own code -- heh
 
 not really using define component... just using options api
-
-rows can be done with v-if. Hardcode max number.
 
 removing stat columns can be done super hackily by just hiding.
 

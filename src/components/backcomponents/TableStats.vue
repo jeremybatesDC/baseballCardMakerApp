@@ -378,6 +378,7 @@ tbody {
 	// this needs to be put in a variable duh
 	//width: 30rem;
 	min-width: 30rem;
+	margin: 0 auto;
 	padding: 0 1.6rem;
 	//padding-right: 1.6rem;
 }
