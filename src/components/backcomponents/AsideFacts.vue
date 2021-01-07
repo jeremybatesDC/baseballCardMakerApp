@@ -5,30 +5,15 @@
 				<h3 class="aside__h3">
 					<input type="text" v-model="asideHeadline" />
 				</h3>
-				<!-- autogrow="true" -->
 				<span class="aside__wrapper--inner">
-					<!--<ion-textarea
-						:value="asideText"
-						name="asideTextArea"
-						rows="3"
-						spellcheck="false"
-					></ion-textarea>-->
-					<!--<div
-						class="grow-wrap"
-						:data-replicated-value="this.dataReplicatedValue"
-					>
+					<div class="grow-wrap" :data-replicated-value="asideText">
 						<textarea
+							class="aside__textarea"
 							name="text"
 							id="text"
-							v-model="dataReplicatedValue"
+							v-model="asideText"
 						></textarea>
-					</div>-->
-					<textarea
-						class="aside__textarea"
-						rows="3"
-						v-model="asideText"
-						spellcheck="false"
-					></textarea>
+					</div>
 					<div data-soi class="soi--textSlider" hidden>
 						<label class="rangeUI__label">
 							<span>Weight: <output :value="textLineB.fontWght"></output></span>
@@ -238,34 +223,34 @@ export default {
 		padding: 0;
 	}
 }
-//
-//.grow-wrap {
-//	display: grid;
-//}
-//.grow-wrap::after {
-//	/* Note the weird space! Needed to preventy jumpy behavior */
-//	content: attr(data-replicated-value) " ";
-//
-//	/* This is how textarea text behaves */
-//	white-space: pre-wrap;
-//
-//	/* Hidden from view, clicks, and screen readers */
-//	visibility: hidden;
-//}
-//.grow-wrap > textarea {
-//	resize: none;
-//
-//	/* Firefox shows scrollbar on growth, you can hide like this. */
-//	overflow: hidden;
-//}
-//.grow-wrap > textarea,
-//.grow-wrap::after {
-//	/* Identical styling required!! */
-//	border: 1px solid black;
-//	padding: 0.5rem;
-//	font: inherit;
-//
-//	/* Place on top of each other */
-//	grid-area: 1 / 1 / 2 / 2;
-//}
+
+.grow-wrap {
+	display: grid;
+}
+.grow-wrap::after {
+	/* Note the weird space! Needed to preventy jumpy behavior */
+	content: attr(data-replicated-value) " ";
+
+	/* This is how textarea text behaves */
+	white-space: pre-wrap;
+
+	/* Hidden from view, clicks, and screen readers */
+	visibility: hidden;
+}
+.grow-wrap > textarea {
+	resize: none;
+
+	/* Firefox shows scrollbar on growth, you can hide like this. */
+	overflow: hidden;
+}
+.grow-wrap > textarea,
+.grow-wrap::after {
+	/* Identical styling required!! */
+	border: 1px solid black;
+	padding: 0.5rem;
+	font: inherit;
+
+	/* Place on top of each other */
+	grid-area: 1 / 1 / 2 / 2;
+}
 </style>
