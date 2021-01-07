@@ -2,6 +2,11 @@
 
 ## To Do
 
+autoresizing text area is swimming uphill against ionic it seems: https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/
+losing too much time on cool trick
+
+splash images inflated this project by 400%. improve asap
+
 android icons i think are default capacitor/ionic and need to be changed via command line:
 
 grain _could_ be a slider
