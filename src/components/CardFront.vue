@@ -1,5 +1,9 @@
 <template>
-	<ion-page :style="[colorContrastVarsFront, colorContrastVarsBack]" data-page>
+	<div
+		:style="[colorContrastVarsFront, colorContrastVarsBack]"
+		class="page__wrapper"
+		data-page
+	>
 		<input
 			id="playerPic"
 			ref="playerPic"
@@ -653,7 +657,7 @@
 				></CardBack>
 			</div>
 		</ion-content>
-	</ion-page>
+	</div>
 </template>
 
 <script>
@@ -671,7 +675,7 @@ import {
 	IonFabList,
 	IonHeader,
 	IonInput,
-	IonPage,
+	//IonPage,
 	IonRange,
 	IonToolbar,
 	IonContent,
@@ -694,7 +698,7 @@ export default {
 		IonRange,
 		IonToolbar,
 		IonContent,
-		IonPage,
+		//IonPage,
 	},
 	//setup(){
 	//},
@@ -916,6 +920,10 @@ export default {
 	);
 
 	--logo-default: `/assets/images/logo.svg`;
+}
+
+.page__wrapper {
+	min-height: 100%;
 }
 //
 //.fixed--fullWidth {

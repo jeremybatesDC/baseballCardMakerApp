@@ -2,6 +2,8 @@
 
 ## To Do
 
+android icons i think are default capacitor/ionic and need to be changed via command line:
+
 grain _could_ be a slider
 
 do i need to use ion page? eventually i will want routes but for now?

@@ -217,6 +217,7 @@ export default {
 	}
 	textarea[name="asideTextArea"] {
 		// brute force baby
+		height: 100%;
 		padding: 0;
 	}
 }
