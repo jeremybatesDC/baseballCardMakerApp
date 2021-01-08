@@ -6,14 +6,17 @@
 					<input type="text" v-model="asideHeadline" />
 				</h3>
 				<span class="aside__wrapper--inner">
-					<div class="grow-wrap" :data-replicated-value="asideText">
-						<textarea
-							class="aside__textarea"
-							name="text"
-							id="text"
-							v-model="asideText"
-						></textarea>
+					<div class="row align-center height--100">
+						<div class="col">
+							<div class="grow-wrap" :data-replicated-value="asideText">
+								<textarea
+									class="aside__textarea"
+									v-model="asideText"
+								></textarea>
+							</div>
+						</div>
 					</div>
+
 					<div data-soi class="soi--textSlider" hidden>
 						<label class="rangeUI__label">
 							<span>Weight: <output :value="textLineB.fontWght"></output></span>
@@ -136,7 +139,7 @@ export default {
 	display: block;
 	position: relative;
 
-	height: calc(100% - var(--headlineheight));
+	height: calc(100% - (2 * var(--headlineheight)));
 	[data-soi] {
 		position: absolute;
 		width: var(--widthforasidetextcontrols);
@@ -230,26 +233,22 @@ export default {
 .grow-wrap::after {
 	/* Note the weird space! Needed to preventy jumpy behavior */
 	content: attr(data-replicated-value) " ";
-
 	/* This is how textarea text behaves */
 	white-space: pre-wrap;
-
 	/* Hidden from view, clicks, and screen readers */
 	visibility: hidden;
 }
 .grow-wrap > textarea {
-	resize: none;
-
 	/* Firefox shows scrollbar on growth, you can hide like this. */
 	overflow: hidden;
 }
 .grow-wrap > textarea,
 .grow-wrap::after {
-	/* Identical styling required!! */
-	border: 1px solid black;
-	padding: 0.5rem;
-	font: inherit;
-
+	font-size: 1.6rem;
+	font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
+		"slnt" var(--fontslant);
+	line-height: 0.8;
+	padding: 0.8rem 0;
 	/* Place on top of each other */
 	grid-area: 1 / 1 / 2 / 2;
 }
