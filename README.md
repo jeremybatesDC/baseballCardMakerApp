@@ -2,8 +2,22 @@
 
 ## To Do
 
-autoresizing text area is swimming uphill against ionic it seems: https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/
-losing too much time on cool trick
+prune unused css vars, especially from index.html
+
+style aside text max-height by orieintation. Do it via a var scoped to horizontal.
+
+for aside textarea and footer textarea, can i make 280 chars work? That would allow tweets as content
+
+reconsider placeholder rather tahn content, you know? Less work for user.
+
+autogrow footerback text area too after front one is all complete max height wise and stuff
+
+universal tightening down to phone x? For landscape orientation that is
+
+async await for data call
+
+autoresizing text area is cool -- super sweet.
+Need to up font size to 16
 
 splash images inflated this project by 400%. improve asap
 

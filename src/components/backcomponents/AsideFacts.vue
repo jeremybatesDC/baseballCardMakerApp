@@ -12,6 +12,8 @@
 								<textarea
 									class="aside__textarea"
 									v-model="asideText"
+									maxlength="280"
+									spellcheck="false"
 								></textarea>
 							</div>
 						</div>
@@ -104,7 +106,7 @@ export default {
 	@media (min-width: 400px) {
 		--textareaheight: calc(100% - 6.4rem);
 		--textareapadding: 0 1rem;
-		--headlineheight: 3.6rem;
+		--headlineheight: 4rem;
 		--widthforasidetextcontrols: 100%;
 		--minwidthforasidetextcontrols: 32rem;
 		--asidetop: 0;
@@ -244,11 +246,12 @@ export default {
 }
 .grow-wrap > textarea,
 .grow-wrap::after {
+	word-break: break-word;
 	font-size: 1.6rem;
-	font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
-		"slnt" var(--fontslant);
+	font-variation-settings: var(--text-tight);
 	line-height: 0.8;
-	padding: 0.8rem 0;
+	max-height: 15.4rem;
+	padding: 0.8rem 0 0 0;
 	/* Place on top of each other */
 	grid-area: 1 / 1 / 2 / 2;
 }
