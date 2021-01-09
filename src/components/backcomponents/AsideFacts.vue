@@ -106,7 +106,7 @@ export default {
 	@media (min-width: 400px) {
 		--textareaheight: calc(100% - 6.4rem);
 		--textareapadding: 0 1rem;
-		--headlineheight: 4rem;
+		--headlineheight: 4.4rem;
 		--widthforasidetextcontrols: 100%;
 		--minwidthforasidetextcontrols: 32rem;
 		--asidetop: 0;

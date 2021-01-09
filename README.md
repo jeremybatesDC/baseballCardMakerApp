@@ -2,6 +2,12 @@
 
 ## To Do
 
+cyrrently on input event -- should it be only enter and paste? No maybe there's some other magic way to sneak in text...Lazy? Can I show user its not allowed?
+
+since i'm passing value through vue i should be able to do somehting to it indeed like with computed or a trim method or something
+
+should i consider disableing enter key? But wouldn't copy paste still do it? Yeah copy/paste does it anyway so...
+
 prune unused css vars, especially from index.html
 
 style aside text max-height by orieintation. Do it via a var scoped to horizontal.
