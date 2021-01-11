@@ -14,6 +14,8 @@
 									v-model="asideText"
 									maxlength="280"
 									spellcheck="false"
+									@keydown.enter.prevent
+									@paste="removeLineBreaks()"
 								></textarea>
 							</div>
 						</div>
@@ -77,6 +79,17 @@ export default {
 				fontSlant: 0,
 			},
 		};
+	},
+	methods: {
+		// might not actually want this to be async
+		async removeLineBreaks() {
+			setTimeout(() => {
+				let aText = this.asideText;
+				aText = aText.replace(/\r/g, "");
+				aText = aText.replace(/\n/g, "");
+				this.asideText = aText;
+			}, 1);
+		},
 	},
 	computed: {
 		textLineBProps() {

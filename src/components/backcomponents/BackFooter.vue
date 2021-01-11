@@ -1,13 +1,20 @@
 <template>
 	<footer class="cb__footer" :style="textLineCProps">
 		<span class="footTextWrap">
-			<textarea
-				class="cb__footer__textarea"
-				rows="2"
-				spellcheck="false"
-				v-model="footerText"
-				@input="removeLineBreaks()"
-			></textarea>
+			<div class="row align-center height--100">
+				<div class="col">
+					<div class="grow-wrap" :data-replicated-value="footerText">
+						<textarea
+							class="cb__footer__textarea"
+							v-model="footerText"
+							maxlength="280"
+							spellcheck="false"
+							@keydown.enter.prevent
+							@paste="removeLineBreaks()"
+						></textarea>
+					</div>
+				</div>
+			</div>
 		</span>
 		<div data-soi class="soi--textSlider" hidden>
 			<label class="rangeUI__label">
@@ -49,6 +56,8 @@
 <script>
 //import optsBack from "/json/default-settings-back.json";
 
+//import { nextTick } from "vue";
+
 export default {
 	data() {
 		return {
@@ -62,11 +71,14 @@ export default {
 		};
 	},
 	methods: {
-		removeLineBreaks() {
-			let fText = this.footerText;
-			fText = fText.replace(/\r/g, "");
-			fText = fText.replace(/\n/g, "");
-			this.footerText = fText;
+		// might not actually want this to be async
+		async removeLineBreaks() {
+			setTimeout(() => {
+				let fText = this.footerText;
+				fText = fText.replace(/\r/g, "");
+				fText = fText.replace(/\n/g, "");
+				this.footerText = fText;
+			}, 1);
 		},
 	},
 	computed: {
@@ -99,16 +111,43 @@ export default {
 }
 
 .cb__footer__textarea {
-	min-height: var(--min-touch-target);
+	//min-height: var(--min-touch-target);
 	font-variation-settings: var(--text-tight);
 	line-height: 0.8;
-	padding-top: 0.4rem;
+	//padding-top: 0.4rem;
 }
 
 .footTextWrap {
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	//padding: 0.8rem 0 0 0;
+}
+
+.grow-wrap {
+	display: grid;
+}
+.grow-wrap::after {
+	/* Note the weird space! Needed to preventy jumpy behavior */
+	content: attr(data-replicated-value) " ";
+	/* This is how textarea text behaves */
+	white-space: pre-wrap;
+	/* Hidden from view, clicks, and screen readers */
+	visibility: hidden;
+}
+.grow-wrap > textarea {
+	/* Firefox shows scrollbar on growth, you can hide like this. */
+	overflow: hidden;
+}
+.grow-wrap > textarea,
+.grow-wrap::after {
+	word-break: break-word;
+	font-size: 1.6rem;
+	font-variation-settings: var(--text-tight);
+	line-height: 0.8;
+	max-height: 8rem;
 	padding: 0.8rem 0 0 0;
+	/* Place on top of each other */
+	grid-area: 1 / 1 / 2 / 2;
 }
 </style>
