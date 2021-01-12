@@ -135,7 +135,10 @@ export default {
 	display: flex;
 	flex-grow: 1;
 	flex-basis: 25%;
-	min-height: 5.4rem;
+
+	[data-card-back-orientation="horizontal"] & {
+		min-height: 5.4rem;
+	}
 	input[type="text"] {
 		display: block;
 		font-size: 1.6rem;

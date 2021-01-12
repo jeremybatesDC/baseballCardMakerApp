@@ -74,10 +74,12 @@ export default {
 
 		[data-card-back-orientation="horizontal"] & {
 			flex-wrap: nowrap;
+			//align-items: stretch;
 		}
 
 		[data-card-back-orientation="vertical"] & {
 			flex-wrap: wrap-reverse;
+			//align-items: stretch;
 		}
 	}
 	&__article {

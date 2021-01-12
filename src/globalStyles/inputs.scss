@@ -103,8 +103,15 @@ select {
 
 .controls--l2 {
 	background-color: #ffffff;
-	padding: 0.8rem;
-	margin-bottom: 1.6rem;
+	padding: 0.8rem 0.4rem 0.4rem 0.4rem;
+}
+
+.l2--front {
+	margin-bottom: 0.8rem;
+}
+
+.l2--back {
+	margin-bottom: 2.4rem;
 }
 
 .rangeUI {

@@ -73,6 +73,12 @@ export default {
 	methods: {
 		// might not actually want this to be async
 		async removeLineBreaks() {
+			//this.$nextTick(() => {
+			//	let fText = this.footerText;
+			//	fText = fText.replace(/\r/g, "");
+			//	fText = fText.replace(/\n/g, "");
+			//	this.footerText = fText;
+			//});
 			setTimeout(() => {
 				let fText = this.footerText;
 				fText = fText.replace(/\r/g, "");

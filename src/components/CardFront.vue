@@ -225,7 +225,7 @@
 		</ion-header>
 		<ion-content>
 			<div id="panelCardFront" role="tabpanel" aria-labelledby="triggerFront">
-				<div class="controls--l2">
+				<div class="controls--l2 l2--front">
 					<div class="row">
 						<fieldset slot="start" class="radioBtns__fieldset">
 							<legend class="radioBtns__legend text-left">Layout</legend>
@@ -581,7 +581,7 @@
 				aria-labelledby="triggerBack"
 				hidden
 			>
-				<div class="controls--l2">
+				<div class="controls--l2 l2--back">
 					<div class="row space-around height--100">
 						<fieldset class="radioBtns__fieldset">
 							<legend class="radioBtns__legend text-left">Orientation</legend>

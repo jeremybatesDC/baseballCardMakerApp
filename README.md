@@ -2,21 +2,17 @@
 
 ## To Do
 
-also it flashes -- i can improve this AND move the function to a parent to be shared by children
+qhat does 0 seasons and 0 stats look like?
 
-setTimeout is working and my first couple attempts at using nexttick haven't succeeded... Improve space replacement and also worst case stop importing nexttick
+prevent click on logo so only long press works? Doesn't work. Oh well it was a bad idea anyway
 
-paste is actually working but it only applies to text that is already present... \*you can test this by pasting a coupe times -- you'll see previously pasted text gets its breaks removed
+also it flashes -- i can improve this AND move the function to a parent to be shared by children. setTimeout is working and my first couple attempts at using nexttick haven't succeeded... Improve space replacement and also worst case stop importing nexttick. paste is actually working but it only applies to text that is already present... \*you can test this by pasting a coupe times -- you'll see previously pasted text gets its breaks removed. works on paste -- but on paste, maybe returns should be made into spaces insread of ignored. cyrrently on input event -- should it be only enter and paste? No maybe there's some other magic way to sneak in text...Lazy? Can I show user its not allowed?
+since i'm passing value through vue i should be able to do somehting to it indeed like with computed or a trim method or something
+should i consider disableing enter key? But wouldn't copy paste still do it? Yeah copy/paste does it anyway so...
+
+--5
 
 use v-model.lazy where snesible (not point updating the model every character right?)
-
-works on paste -- but on paste, maybe returns should be made into spaces insread of ignored
-
-cyrrently on input event -- should it be only enter and paste? No maybe there's some other magic way to sneak in text...Lazy? Can I show user its not allowed?
-
-since i'm passing value through vue i should be able to do somehting to it indeed like with computed or a trim method or something
-
-should i consider disableing enter key? But wouldn't copy paste still do it? Yeah copy/paste does it anyway so...
 
 prune unused css vars, especially from index.html
 

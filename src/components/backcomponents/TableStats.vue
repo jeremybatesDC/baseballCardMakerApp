@@ -3,13 +3,14 @@
 		<form class="stats__form">
 			<table class="stats__table">
 				<!--<caption>Career Stats</caption>-->
-				<thead>
-					<tr data-row="0">
+				<thead class="thead--stats">
+					<tr data-row="0" class="thead__tr--stats">
 						<th
 							v-for="(value, name, index) in fields"
 							:key="name"
 							scope="col"
 							:data-col="index"
+							class="thead__th--stats"
 						>
 							<label>
 								<input v-model.trim="fields[name]" type="text" maxlength="9" />
@@ -17,7 +18,7 @@
 						</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody class="tbody--stats">
 					<tr v-if="numOfYears > 0" data-row="1">
 						<!-- making first col a TH scope row -->
 						<th scope="row" data-col="0">
@@ -198,7 +199,7 @@
 						</td>
 					</tr>
 				</tbody>
-				<tfoot>
+				<tfoot class="tfoot--stats">
 					<tr data-row="6">
 						<th scope="row" data-col="0">TOTALS</th>
 						<td data-col="1">&nbsp;</td>
@@ -358,29 +359,35 @@ export default {
 		--tableheight: 100%;
 	}
 }
-
-thead,
-tbody {
-	[data-col="0"] {
-		width: 4ch;
-	}
-	[data-col="1"] {
-		width: 4ch;
-		white-space: nowrap;
-		overflow: visible;
-	}
-}
+//
+//thead,
+//tbody {
+//	[data-col="0"] {
+//		width: 4ch;
+//	}
+//	[data-col="1"] {
+//		width: 4ch;
+//		white-space: nowrap;
+//		overflow: visible;
+//	}
+//}
 
 .stats__wrapper--outer {
 	display: flex;
 	flex-grow: 1;
-	align-items: center;
 	// this needs to be put in a variable duh
 	//width: 30rem;
 	min-width: 24rem;
 	margin: 0 auto;
 	padding: 0 1.6rem;
 	//padding-right: 1.6rem;
+	[data-card-back-orientation="horizontal"] & {
+		align-items: center;
+	}
+
+	[data-card-back-orientation="vertical"] & {
+		align-items: flex-start;
+	}
 }
 
 .stats__form {
@@ -405,28 +412,28 @@ tbody {
 	//overflow: hidden;
 }
 
-thead {
+.thead--stats {
 	background: rgba(0, 0, 0, 0.05);
-	//box-shadow: 0 1px #000;
-	th {
-		position: relative;
+}
+
+.thead__th--stats {
+	position: relative;
+	height: 2.4rem;
+	padding: 0;
+	vertical-align: middle;
+	label {
 		height: 2.4rem;
-		padding: 0;
-		vertical-align: middle;
-		label {
-			height: 2.4rem;
-			position: relative;
-		}
+		position: relative;
+	}
+	input {
+		height: 2.4rem;
+		//max-width: 4.5rem;
+		text-align: right;
+	}
+	&:first-child,
+	&:nth-child(2) {
 		input {
-			height: 2.4rem;
-			//max-width: 4.5rem;
-			text-align: right;
-		}
-		&:first-child,
-		&:nth-child(2) {
-			input {
-				text-align: left;
-			}
+			text-align: left;
 		}
 	}
 }
@@ -436,7 +443,7 @@ th {
 		display: flex;
 
 		input[type="text"] {
-			font-variation-settings: "wght" 300, "wdth" 75, "slnt" 0;
+			font-variation-settings: "wght" 400, "wdth" 75, "slnt" 0;
 			line-height: 1.1;
 			display: flex;
 			// removing this absolute positioinig has bad effects on iOS (didn't see in chrome dev tools)
@@ -448,7 +455,8 @@ th {
 		}
 	}
 }
-tbody {
+
+.tbody--stats {
 	//box-shadow: 0 1px #000;
 	font-variation-settings: "wght" 300, "wdth" 75, "slnt" 0;
 	background: rgba(255, 255, 255, 0.1);
@@ -480,8 +488,9 @@ tbody {
 		}
 	}
 }
-tfoot {
-	font-variation-settings: "wght" 300, "wdth" 75, "slnt" 0;
+
+.tfoot--stats {
+	font-variation-settings: "wght" 450, "wdth" 75, "slnt" 0;
 	background: rgba(0, 0, 0, 0.05);
 	td,
 	th {
