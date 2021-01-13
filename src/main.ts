@@ -19,6 +19,7 @@ import "./globalStyles/utilities.scss";
 import "./globalStyles/grid.scss";
 import "./globalStyles/inputs.scss";
 import "./globalStyles/filters.scss";
+import "./globalStyles/animation.scss";
 
 //import '@ionic/vue/css/structure.css';
 

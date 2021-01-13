@@ -223,8 +223,13 @@
 				</div>
 			</ion-toolbar>
 		</ion-header>
-		<ion-content>
-			<div id="panelCardFront" role="tabpanel" aria-labelledby="triggerFront">
+		<ion-content class="contentWrapper">
+			<div
+				id="panelCardFront"
+				role="tabpanel"
+				class="tabpanel--front"
+				aria-labelledby="triggerFront"
+			>
 				<div class="controls--l2 l2--front">
 					<div class="row">
 						<fieldset slot="start" class="radioBtns__fieldset">
@@ -578,6 +583,7 @@
 			<div
 				id="panelCardBack"
 				role="tabpanel"
+				class="tabpanel--back"
 				aria-labelledby="triggerBack"
 				hidden
 			>
@@ -762,9 +768,11 @@ export default {
 			document.body
 				.querySelector('[role="tabpanel"]:not([hidden])')
 				.setAttribute("hidden", true);
+			//.classList.add("rotated");
 			document
 				.getElementById(e.target.getAttribute("aria-controls"))
 				.removeAttribute("hidden");
+			//.classList.remove("rotated");
 		},
 		async encodeImage(event) {
 			// maybe i should be using refs maybe here not IDs

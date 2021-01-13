@@ -2,6 +2,11 @@
 
 ## To Do
 
+snimstion styles alraedy in place -- but hidden tho on tabs will have to be replaced pronto. It is a rewarding effect i think.
+rotation is cool and rewarding, but i don't want to get stuck on it right now i don't think
+
+char counter for textareas? Should be dead simple, even via focus psudeo element that gets its content from a data attr bound to that field's length
+
 qhat does 0 seasons and 0 stats look like?
 
 prevent click on logo so only long press works? Doesn't work. Oh well it was a bad idea anyway
