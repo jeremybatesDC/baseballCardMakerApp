@@ -231,12 +231,12 @@ select {
 		.controls--l2 & {
 			width: 50%;
 		}
-		.playerImage__controls & {
-			max-width: var(--touch-target-large);
-			padding-top: 0.4rem;
-			text-align: center;
-			overflow: hidden;
-		}
+		//.playerImage__controls & {
+		//	max-width: var(--touch-target-large);
+		//	padding-top: 0.4rem;
+		//	text-align: center;
+		//	overflow: hidden;
+		//}
 	}
 	&__legend {
 		font-size: 1.6rem;
@@ -244,25 +244,23 @@ select {
 
 		font-variation-settings: var(--text-narrow);
 		//color: royalblue;
-		.playerImage__controls & {
-			// unfortch display contents here makes this click throguh able... and closes the quasi modal
-			// display: contents;
+		text-transform: uppercase;
 
+		&--decadeFilters {
+			font-variation-settings: var(--text-narrower);
 			padding-top: 0.4rem;
 			background-color: var(--background-for-overlay-controls);
 			width: 100%;
 
 			text-align: center;
 		}
-
-		text-transform: uppercase;
 	}
 	&__wrapper {
 		&--inner {
 			//background-color: var(--background-for-overlay-controls);
-			.playerImage__controls & {
-				padding-top: 0.4rem;
-			}
+			//.playerImage__controls & {
+			//	padding-top: 0.4rem;
+			//}
 		}
 		&--each {
 			display: flex;
@@ -287,6 +285,9 @@ select {
 			display: flex;
 			box-shadow: 0 -1px rgba(0, 0, 0, 0.1);
 			text-transform: none;
+			.decadeFilters__span {
+				text-transform: none;
+			}
 		}
 		&:not(:first-of-type) {
 			.cardFront__controls & {
@@ -294,10 +295,10 @@ select {
 			}
 		}
 
-		.playerImage__controls & {
-			width: var(--touch-target-large);
-			height: var(--touch-target-large);
-		}
+		//.playerImage__controls & {
+		//	width: var(--touch-target-large);
+		//	height: var(--touch-target-large);
+		//}
 	}
 	&__input {
 		+ span {
@@ -477,8 +478,8 @@ select {
 		position: relative;
 		font-size: 1.6rem;
 		color: inherit;
-		width: var(--min-touch-target);
-		height: var(--min-touch-target);
+		width: 4rem;
+		height: 4rem;
 		padding-top: 2rem;
 		//border: 2px solid #fff;
 		//background: rgba(255, 255, 255, 0.5);
@@ -541,17 +542,6 @@ select {
 				padding-bottom: 1.6rem;
 			}
 		}
-	}
-
-	// this should NOT have to be explicit -- missing a rul somewhere
-
-	&.playerImage__controls {
-		top: 0;
-		left: var(--imgEditControlsOffset);
-		right: var(--imgEditControlsOffset);
-		padding-top: 0;
-		flex-wrap: nowrap;
-		background-color: transparent;
 	}
 
 	.card-back & {

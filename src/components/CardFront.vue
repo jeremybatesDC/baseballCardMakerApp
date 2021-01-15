@@ -382,7 +382,9 @@
 									<fieldset
 										class="radioBtns__fieldset radioBtns__fieldset--decadeFilters"
 									>
-										<legend class="radioBtns__legend hidden--visually">
+										<legend
+											class="radioBtns__legend radioBtns__legend--decadeFilters"
+										>
 											Filters
 										</legend>
 										<div
@@ -397,7 +399,7 @@
 													v-model="cardDesign.playerImageFilterEffect"
 													value="noFilterEffect"
 												/>
-												<span>None</span>
+												<span>NONE</span>
 											</label>
 
 											<label
@@ -409,7 +411,7 @@
 													v-model="cardDesign.playerImageFilterEffect"
 													value="filter1940s"
 												/>
-												<span>1940s</span>
+												<span class="decadeFilters__span">1940s</span>
 											</label>
 
 											<label
@@ -421,7 +423,7 @@
 													v-model="cardDesign.playerImageFilterEffect"
 													value="filter1950s"
 												/>
-												<span>1950s</span>
+												<span class="decadeFilters__span">1950s</span>
 											</label>
 
 											<label
@@ -433,7 +435,7 @@
 													v-model="cardDesign.playerImageFilterEffect"
 													value="filter1960s"
 												/>
-												<span>1960s</span>
+												<span class="decadeFilters__span">1960s</span>
 											</label>
 											<label
 												class="radioBtns__label radioBtns__label--decadeFilters"
@@ -444,7 +446,7 @@
 													v-model="cardDesign.playerImageFilterEffect"
 													value="filter1970s"
 												/>
-												<span>1970s</span>
+												<span class="decadeFilters__span">1970s</span>
 											</label>
 										</div>
 									</fieldset>

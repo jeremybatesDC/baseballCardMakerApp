@@ -53,6 +53,8 @@ export default defineComponent({
 [role="tablist"] {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	padding: 0 0.4rem;
 	background-color: royalblue;
 }
 

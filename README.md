@@ -2,6 +2,8 @@
 
 ## To Do
 
+again how do i represent landscape orientation card on tight portrait screen like iphone 5?
+
 snimstion styles alraedy in place -- but hidden tho on tabs will have to be replaced pronto. It is a rewarding effect i think.
 rotation is cool and rewarding, but i don't want to get stuck on it right now i don't think
 
@@ -84,10 +86,8 @@ logo hide feature.
 random thought that may not be useful -- consider logo as a floating action button. One prob though i could see would be to drag it while it's open. Might be weird in transit (though i can keep specific hidden during drag)
 
 FAB now centered in middle design row, which is where it needs for layout purposes.
-Just need to limit filters to canvas elements -- should be quick refactor
 
-filters: could make FAB transparent and covering all picture. Then
-
+filters:
 icon turn back clock?
 
 - grain from https://codepen.io/stoumann/pen/MWeNmyb
@@ -98,8 +98,6 @@ icon turn back clock?
 mutlicolumn select (or whichever the exact ionic comonent is, could be perfect for stat type/year (although))
 
 for year(s), could be multi-select: Multiple Selection hmmm
-
-what is best way tom implement filters?
 
 might be safer to use ionic vue's "Reorder" drag drop...
 maybe cobine with backdrop (even if transpparent) to prevent scroll while dragging
@@ -215,9 +213,6 @@ add pic images dont get tabbed
 focus styles on the cardfront/cardback buttons
 
 slight gap in image editing fielset legends
-
-work on filters -- for instances, faded doesnt do anything i don't think on a photo user uploads -- seems broken...
-and 1920 -- is that accurate? Can I offer at least 2 decacde filters? Maybe using more svgs than css filters, although...
 
 if overlay color picker with same texture it'll match: if top were 44 and L2 60 -- that saves lkike 18px and we're halfway there... But can't quite get all the way there, user may have to scroll anyway and effort to achieve questionable benefit for subset of users with tiny screens who resent scrolling? Not a good use of time... Scrolling is good and fine... Maybe sticky could be cool...
 
@@ -625,7 +620,6 @@ consider extending thead and tfoot (if possible) so there's no visual margin bet
   -- school photo option ( cash money )
   -- birth announcements
 
---> improve filters with before and after
 -- reduce CLS (see notes)
 
 --> and do i really need to be passing props the way I am in terms of binding :stlye? Well, for scoping reasons it makes sense, for instance with text fields that can be independtly named but we want json to be same. But for some universal variables at the card top, is that inline style actually required? Reactivity i believe is already being achieved.
@@ -711,8 +705,6 @@ some font options look kinda frail... plus grade and weight aren't orthogonal...
 
 --> can we move delete image(s) option to v2?
 
--> the buttons for filters could be previews of the larger image with th filters applied. That would be really cool and throetically not hard to do as long as it could be performant
-
 - for imperfections, look at the card condition rating service details
 
 -- could offer duotone filter
@@ -730,13 +722,6 @@ stats should allow year range like 1997-2009
 --> image editing controls (and others) could "take-over" the 1st & 2nd level control area (either via overlay or actual live region)
 
 --> ability to save card easily and load so you can make multiple without losing work
-
---> re-consider whther filters should be applied to logo and player images SEPARATELY, or together. TOGETHER I thinK for v1.
-
---> more CSS filters like Instagram: http://www.cssco.co/
-https://una.im/CSSgram/
-
---> texture paper: https://yoksel.github.io/svg-filters/#/presets/paper
 
 --> consider hashes/routes to preserve the Back-button functionality some users rely on to escape a menu.
 
