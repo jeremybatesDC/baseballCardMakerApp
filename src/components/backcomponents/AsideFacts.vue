@@ -17,6 +17,9 @@
 									@keydown.enter.prevent
 									@paste="removeLineBreaks()"
 								></textarea>
+								<output class="charCounter">{{
+									280 - asideText.length
+								}}</output>
 							</div>
 						</div>
 					</div>

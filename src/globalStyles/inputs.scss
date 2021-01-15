@@ -53,10 +53,20 @@ input {
 	}
 }
 
+.charCounter {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	visibility: hidden;
+}
+
 textarea {
 	font-size: 1.6rem;
 	&:focus {
 		outline: 2px solid royalblue;
+		+ .charCounter {
+			visibility: visible;
+		}
 	}
 }
 
