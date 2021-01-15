@@ -387,7 +387,7 @@ select {
 		flex-direction: row;
 		//flex-grow: 1;
 		min-width: var(--touch-target-large);
-		max-width: 6.4rem;
+
 		height: var(--touch-target-large);
 		margin-left: 2rem;
 		text-transform: uppercase;
@@ -400,6 +400,8 @@ select {
 		span {
 			line-height: 0.9;
 			font-variation-settings: var(--text-narrower);
+			max-width: 3.6rem;
+			//border-right: 1px solid #fff;
 			//text-align: center;
 		}
 		* {

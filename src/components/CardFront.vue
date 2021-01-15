@@ -65,7 +65,8 @@
 								>
 									<use xlink:href="#iconportraitadd"></use>
 								</svg>
-								<span>Add Pic</span>
+								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+								<span>Add <br />Pic</span>
 							</label>
 							<label
 								for="logoPic"
@@ -84,7 +85,8 @@
 								>
 									<use xlink:href="#iconlogoadd"></use>
 								</svg>
-								<span>Add Logo</span>
+								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+								<span>Add <br />Logo</span>
 							</label>
 						</span>
 						<button

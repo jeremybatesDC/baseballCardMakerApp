@@ -1,17 +1,25 @@
 // omitting normal BEM dashes to make input based alue setting simpler
 .filter {
 	&1940s {
-		filter: url("#grain") blur(0.6666px) brightness(1.2) grayscale(0.95)
-			saturate(1.5);
+		canvas {
+			filter: url("#grain") blur(0.6666px) brightness(1.2) grayscale(0.95)
+				saturate(1.5);
+		}
 	}
 	&1950s {
-		filter: url("#posterize") url("#grainMost") blur(0.5px) brightness(3)
-			saturate(1.1);
+		canvas {
+			filter: url("#posterize") url("#grainMost") blur(0.5px) brightness(3)
+				saturate(1.1);
+		}
 	}
 	&1960s {
-		filter: url("#grainMore") blur(0.25px) saturate(1.5);
+		canvas {
+			filter: url("#grainMore") blur(0.25px) saturate(1.5);
+		}
 	}
 	&1970s {
-		filter: url("#grainLeast") blur(0.125px) saturate(1.1);
+		canvas {
+			filter: url("#grainLeast") blur(0.125px) saturate(1.1);
+		}
 	}
 }
