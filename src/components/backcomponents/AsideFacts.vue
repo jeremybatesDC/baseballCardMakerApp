@@ -247,31 +247,4 @@ export default {
 		padding: 0;
 	}
 }
-
-.grow-wrap {
-	display: grid;
-}
-.grow-wrap::after {
-	/* Note the weird space! Needed to preventy jumpy behavior */
-	content: attr(data-replicated-value) " ";
-	/* This is how textarea text behaves */
-	white-space: pre-wrap;
-	/* Hidden from view, clicks, and screen readers */
-	visibility: hidden;
-}
-.grow-wrap > textarea {
-	/* Firefox shows scrollbar on growth, you can hide like this. */
-	overflow: hidden;
-}
-.grow-wrap > textarea,
-.grow-wrap::after {
-	word-break: break-word;
-	font-size: 1.6rem;
-	font-variation-settings: var(--text-tight);
-	line-height: 0.8;
-	max-height: 15.4rem;
-	padding: 0.8rem 0 0 0;
-	/* Place on top of each other */
-	grid-area: 1 / 1 / 2 / 2;
-}
 </style>

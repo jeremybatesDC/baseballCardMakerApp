@@ -109,4 +109,38 @@ export default defineComponent({
 		justify-content: flex-end;
 	}
 }
+
+.grow-wrap {
+	display: grid;
+	&:after {
+		/* Note the weird space! Needed to preventy jumpy behavior */
+		content: attr(data-replicated-value) " ";
+		/* This is how textarea text behaves */
+		white-space: pre-wrap;
+		/* Hidden from view, clicks, and screen readers */
+		visibility: hidden;
+	}
+	> textarea {
+		/* Firefox shows scrollbar on growth, you can hide like this. */
+		overflow: hidden;
+	}
+}
+
+.grow-wrap > textarea,
+.grow-wrap::after {
+	word-break: break-word;
+	font-size: 1.6rem;
+	font-variation-settings: var(--text-tight);
+	line-height: 0.8;
+	//max-height: 15.4rem;
+	padding: 0.8rem 0 0 0;
+	/* Place on top of each other */
+	grid-area: 1 / 1 / 2 / 2;
+	.aside__wrapper--inner & {
+		max-height: 15.4rem;
+	}
+	.footTextWrap & {
+		max-height: 8rem;
+	}
+}
 </style>
