@@ -299,53 +299,9 @@
 						:class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
 					>
 						<div class="text__line--first row">
-							<h2 class="cf__h2" :style="cssTextLine1Props">
-								<ion-input
-									class=""
-									v-model.trim="cardText.textLine1.teamName"
-									type="text"
-									placeholder
-									maxlength="42"
-									spellcheck="false"
-								></ion-input>
 
-								<!-- hidden -->
-								<div data-soi class="soi--textSlider">
-									<label class="rangeUI__label">
-										<span
-											>Weight:
-											<output :value="cardText.textLine1.fontWght"></output
-										></span>
-										<ion-range
-											min="100"
-											max="900"
-											v-model.number="cardText.textLine1.fontWght"
-										></ion-range>
-									</label>
-									<label class="rangeUI__label">
-										<span
-											>Width:
-											<output :value="cardText.textLine1.fontWidth"></output
-										></span>
-										<ion-range
-											min="75"
-											max="150"
-											v-model.number="cardText.textLine1.fontWidth"
-										></ion-range>
-									</label>
-									<label class="rangeUI__label">
-										<span
-											>Slant:
-											<output :value="cardText.textLine1.fontSlant"></output
-										></span>
-										<ion-range
-											min="-10"
-											max="0"
-											v-model.number="cardText.textLine1.fontSlant"
-										></ion-range>
-									</label>
-								</div>
-							</h2>
+							<LineA></LineA>
+
 						</div>
 
 						<div
@@ -470,118 +426,9 @@
 						</div>
 
 						<div class="text__line--second row">
-							<h1 :style="cssTextLine2Props" class="cf__h1">
-								<input
-									class=""
-									v-model.trim="cardText.textLine2.playerName"
-									type="text"
-									placeholder
-									maxlength="48"
-									spellcheck="false"
-								/>
-								<div data-soi class="soi--textSlider" hidden>
-									<label class="rangeUI__label">
-										<span
-											>Weight:
-											<output :value="cardText.textLine2.fontWght"></output
-										></span>
-
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textLine2.fontWght"
-											type="range"
-											min="100"
-											max="900"
-										/>
-									</label>
-									<label class="rangeUI__label">
-										<span
-											>Width:
-											<output :value="cardText.textLine2.fontWidth"></output
-										></span>
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textLine2.fontWidth"
-											type="range"
-											min="75"
-											max="150"
-										/>
-									</label>
-
-									<label class="rangeUI__label">
-										<span
-											>Slant:
-											<output :value="cardText.textLine2.fontSlant"></output
-										></span>
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textLine2.fontSlant"
-											type="range"
-											min="-10"
-											max="0"
-										/>
-									</label>
-								</div>
-							</h1>
-							<h3 :style="cssTextPlayerPositionProps" class="cf__h3">
-								<input
-									class=""
-									v-model.trim="cardText.textPlayerPosition.playerPosition"
-									type="text"
-									placeholder
-									maxlength="48"
-									spellcheck="false"
-								/>
-								<div data-soi class="soi--textSlider" hidden>
-									<label class="rangeUI__label">
-										<span
-											>Weight:
-											<output
-												:value="cardText.textPlayerPosition.fontWght"
-											></output
-										></span>
-
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textPlayerPosition.fontWght"
-											type="range"
-											min="100"
-											max="900"
-										/>
-									</label>
-									<label class="rangeUI__label">
-										<span
-											>Width:
-											<output
-												:value="cardText.textPlayerPosition.fontWidth"
-											></output
-										></span>
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textPlayerPosition.fontWidth"
-											type="range"
-											min="75"
-											max="150"
-										/>
-									</label>
-
-									<label class="rangeUI__label">
-										<span
-											>Slant:
-											<output
-												:value="cardText.textPlayerPosition.fontSlant"
-											></output
-										></span>
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textPlayerPosition.fontSlant"
-											type="range"
-											min="-10"
-											max="0"
-										/>
-									</label>
-								</div>
-							</h3>
+					<LineB></LineB>
+						<LineC></LineC>
+						
 						</div>
 					</div>
 				</div>
@@ -678,16 +525,21 @@ function hexToRGB(hex) {
 }
 
 import {
-	//IonFab,
-	//IonFabButton,
-	//IonFabList,
+	IonFab,
+	IonFabButton,
+	IonFabList,
 	IonHeader,
-	IonInput,
+	//IonInput,
 	IonPage,
 	IonRange,
 	IonToolbar,
 	IonContent,
 } from "@ionic/vue";
+
+import LineA from "./frontcomponents/LineA";
+import LineB from "./frontcomponents/LineB";
+import LineC from "./frontcomponents/LineC";
+
 
 import CardBack from "./CardBack";
 
@@ -701,15 +553,18 @@ export default {
 	components: {
 		//Dragula,
 		CardBack,
-		//IonFab,
-		//IonFabButton,
-		//IonFabList,
+		IonFab,
+		IonFabButton,
+		IonFabList,
 		IonHeader,
-		IonInput,
+		//IonInput,
 		IonRange,
 		IonToolbar,
 		IonContent,
 		IonPage,
+		LineA,
+		LineB,
+		LineC
 	},
 	//setup(){
 	//},
@@ -741,26 +596,7 @@ export default {
 					position: "bottomRight",
 				},
 			},
-			cardText: {
-				textLine1: {
-					teamName: "Mudville Madcats",
-					fontWght: 600,
-					fontWidth: 125,
-					fontSlant: 0,
-				},
-				textLine2: {
-					playerName: "Casey LeRoy",
-					fontWght: 200,
-					fontWidth: 100,
-					fontSlant: 0,
-				},
-				textPlayerPosition: {
-					playerPosition: "Dad, Pitcher",
-					fontWght: 200,
-					fontWidth: 100,
-					fontSlant: -5,
-				},
-			},
+		
 			cardBackSettings: {
 				backOrient: "horizontal",
 				backgroundColor: "#9a8b7c",
@@ -852,13 +688,6 @@ export default {
 		},
 	},
 	computed: {
-		cssTextLine1Props() {
-			return {
-				"--fontwght": this.cardText.textLine1.fontWght,
-				"--fontwidth": this.cardText.textLine1.fontWidth,
-				"--fontslant": this.cardText.textLine1.fontSlant,
-			};
-		},
 		cssBorderInnerProps() {
 			return {
 				"--borderinnercurve": `${this.cardDesign.borderInnerCurve}px`,
