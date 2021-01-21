@@ -110,6 +110,10 @@ export default defineComponent({
 	}
 }
 
+.card__container {
+	filter: drop-shadow(0 0 0.8rem rgba(0, 0, 0, 0.8));
+}
+
 .grow-wrap {
 	display: grid;
 	&:after {

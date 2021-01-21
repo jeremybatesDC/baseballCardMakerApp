@@ -1,6 +1,9 @@
 <template>
 	<div class="cardBack__wrapper--outermost">
-		<div class="card-back" :data-card-back-orientation="backOrient">
+		<div
+			class="card__container card-back"
+			:data-card-back-orientation="backOrient"
+		>
 			<article :data-gum="gumShowing" class="card-back__article">
 				<BackHeader />
 				<section class="card-back__section">

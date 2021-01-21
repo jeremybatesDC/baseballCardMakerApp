@@ -2,6 +2,10 @@
 
 ## To Do
 
+app itself could use darkmode -- wouldnt' be too cmplicated...
+
+on iphone 5 front almost fits -- need to reduce controls touch targets i think to 4rem. Again for iphone5, Shorten L1 (and L2) to 48px
+
 again how do i represent landscape orientation card on tight portrait screen like iphone 5?
 
 snimstion styles alraedy in place -- but hidden tho on tabs will have to be replaced pronto. It is a rewarding effect i think.
@@ -29,14 +33,9 @@ for aside textarea and footer textarea, can i make 280 chars work? That would al
 
 reconsider placeholder rather tahn content, you know? Less work for user.
 
-autogrow footerback text area too after front one is all complete max height wise and stuff
-
 universal tightening down to phone x? For landscape orientation that is
 
 async await for data call
-
-autoresizing text area is cool -- super sweet.
-Need to up font size to 16
 
 splash images inflated this project by 400%. improve asap
 
@@ -217,8 +216,6 @@ slight gap in image editing fielset legends
 if overlay color picker with same texture it'll match: if top were 44 and L2 60 -- that saves lkike 18px and we're halfway there... But can't quite get all the way there, user may have to scroll anyway and effort to achieve questionable benefit for subset of users with tiny screens who resent scrolling? Not a good use of time... Scrolling is good and fine... Maybe sticky could be cool...
 
 on iphone 5, for instance, any way we can ensure the bottommost text row shows? We're short like 48 px
-
-nov 6 demo 2 (if people are in good mood after election)
 
 be wary of current color on placeholder logo until you're ready to offer that deature to user (might not want to default to it since a user's logo may already have its own border) -- would be a good feature but v2? I really like the effect though. If...
 

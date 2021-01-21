@@ -235,7 +235,9 @@
 				<div class="controls--l2 l2--front">
 					<div class="row">
 						<fieldset slot="start" class="radioBtns__fieldset">
-							<legend class="radioBtns__legend text-left">Layout</legend>
+							<legend class="radioBtns__legend text-left text-vertical">
+								Layout
+							</legend>
 							<div class="radioBtns__wrapper--inner">
 								<label class="radioBtns__label">
 									<input
@@ -278,7 +280,7 @@
 							</div>
 						</fieldset>
 						<label slot="start" class="rangeUI__label">
-							<span>Border Curve </span>
+							<span class="absolute">Border Curve </span>
 							<ion-range
 								data-input="range"
 								min="0"
@@ -293,7 +295,7 @@
 					:style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
 				>
 					<div
-						class="card__container--front"
+						class="card__container card__container--front"
 						:class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
 					>
 						<div class="text__line--first row">
@@ -676,9 +678,9 @@ function hexToRGB(hex) {
 }
 
 import {
-	IonFab,
-	IonFabButton,
-	IonFabList,
+	//IonFab,
+	//IonFabButton,
+	//IonFabList,
 	IonHeader,
 	IonInput,
 	IonPage,
@@ -689,16 +691,19 @@ import {
 
 import CardBack from "./CardBack";
 
+//import ReOrder from "./frontcomponents/ReOrder";
+
 import Dragula from "dragula";
 
 export default {
 	name: "CardFront",
+
 	components: {
 		//Dragula,
 		CardBack,
-		IonFab,
-		IonFabButton,
-		IonFabList,
+		//IonFab,
+		//IonFabButton,
+		//IonFabList,
 		IonHeader,
 		IonInput,
 		IonRange,
@@ -722,7 +727,7 @@ export default {
 			},
 			cardDesign: {
 				playerImageBleedOrBoxed: "relative",
-				bgcf: "#ffffff",
+				bgcf: "#dddddd",
 				cardLayout: "one-one",
 				cardBrightness: 1,
 				cardSepia: 0,
@@ -888,7 +893,7 @@ export default {
 		// on desktop slidefactor works. Not on touch phone tho
 		Dragula(
 			dropzones
-			//, { slideFactorX: 100, slideFactorY: 100 }
+			//, { liftDelay: 700 }
 		);
 
 		console.log(Dragula);

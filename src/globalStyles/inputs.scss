@@ -113,7 +113,7 @@ select {
 
 .controls--l2 {
 	background-color: #ffffff;
-	padding: 0.8rem 0.4rem 0.4rem 0.4rem;
+	padding: 0.4rem;
 }
 
 .l2--front {
@@ -224,7 +224,7 @@ select {
 		display: flex;
 		flex-direction: column;
 		flex-wrap: nowrap;
-
+		position: relative;
 		// need to set this here otherwise itS going to inherit the coor change from the card itseld (oops, my bad)
 
 		color: #000;
