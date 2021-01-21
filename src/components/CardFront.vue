@@ -1283,8 +1283,10 @@ export default {
 
 .dropzone--logo {
 	position: absolute;
-	width: 7.2rem;
-	height: 7.2rem;
+	//width: 7.2rem;
+	//height: 7.2rem;
+	width: 50%;
+	height: 50%;
 	z-index: 9999;
 	&.top {
 		top: 0;
@@ -1297,6 +1299,10 @@ export default {
 	}
 	&.left {
 		left: 0;
+	}
+	.figure--logo {
+		right: inherit;
+		bottom: inherit;
 	}
 }
 </style>
