@@ -2,6 +2,10 @@
 
 ## To Do
 
+having zoom issues -- is that why the viewport was so hard coded before? Way too wasy to accidently zoom in and then next to pimpossible to zoom out
+
+gradugula start stop mouse stuff maybe a hdnler that makes body overflow hidden?
+
 app itself could use darkmode -- wouldnt' be too cmplicated...
 
 on iphone 5 front almost fits -- need to reduce controls touch targets i think to 4rem. Again for iphone5, Shorten L1 (and L2) to 48px
