@@ -24,7 +24,7 @@
 			@input="encodeImage"
 		/>
 		<ion-header>
-			<ion-toolbar color="primary">
+			<ion-toolbar color="primary" class="controls--l1">
 				<div class="tabsGood">
 					<div role="tablist" aria-label="Card Side">
 						<button
@@ -290,6 +290,8 @@
 						</label>
 					</div>
 				</div>
+
+				<!-- card front -->
 				<div
 					class="cardFront__wrapper--outermost"
 					:style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
@@ -299,9 +301,7 @@
 						:class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
 					>
 						<div class="text__line--first row">
-
 							<LineA></LineA>
-
 						</div>
 
 						<div
@@ -424,14 +424,14 @@
 								</figure>
 							</div>
 						</div>
-
-						<div class="text__line--second row">
-					<LineB></LineB>
-						<LineC></LineC>
 						
+						<div class="text__line--second row">
+							<LineB></LineB>
+							<LineC></LineC>
 						</div>
 					</div>
 				</div>
+				<!-- end card front-->
 			</div>
 			<div
 				id="panelCardBack"
@@ -511,6 +511,16 @@
 					:data-stats="numOfStats"
 				></CardBack>
 			</div>
+			<ion-button @click="openPopover()">Show Popover</ion-button>
+  <ion-popover
+    :is-open="popoverOpen"
+    css-class="my-custom-class"
+    :event="event"
+    :translucent="true"
+    @onDidDismiss="closePopover()"
+  >
+	hey
+  </ion-popover>
 		</ion-content>
 	</ion-page>
 </template>
@@ -534,12 +544,12 @@ import {
 	IonRange,
 	IonToolbar,
 	IonContent,
+	IonPopover
 } from "@ionic/vue";
 
 import LineA from "./frontcomponents/LineA";
 import LineB from "./frontcomponents/LineB";
 import LineC from "./frontcomponents/LineC";
-
 
 import CardBack from "./CardBack";
 
@@ -562,14 +572,16 @@ export default {
 		IonToolbar,
 		IonContent,
 		IonPage,
+		IonPopover,
 		LineA,
 		LineB,
-		LineC
+		LineC,
 	},
 	//setup(){
 	//},
 	data() {
 		return {
+			popoverOpen: false,
 			minYears: 0,
 			maxYears: 5,
 			minStats: 0,
@@ -596,7 +608,7 @@ export default {
 					position: "bottomRight",
 				},
 			},
-		
+
 			cardBackSettings: {
 				backOrient: "horizontal",
 				backgroundColor: "#9a8b7c",
@@ -670,6 +682,12 @@ export default {
 			if (this.numOfStats > this.minStats) {
 				return (this.numOfStats -= 1);
 			}
+		},
+		openPopover(event){
+			this.popoverOpen = true
+		},
+		closePopover(event){
+			this.popoverOpen = false
 		},
 		async sendData() {
 			const endpointURL = "https://reqres.in/api/users";

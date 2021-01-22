@@ -2,6 +2,10 @@
 
 ## To Do
 
+if painters tape is ok (seems maybe too much) then override ion custom properties because shadow dom 
+
+strip out ionrange in favor of good ol' range... 
+
 having zoom issues -- is that why the viewport was so hard coded before? Way too wasy to accidently zoom in and then next to pimpossible to zoom out
 
 gradugula start stop mouse stuff maybe a hdnler that makes body overflow hidden?

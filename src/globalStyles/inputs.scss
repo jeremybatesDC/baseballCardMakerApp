@@ -111,8 +111,15 @@ select {
 //  }
 //}
 
+.controls--l1 {
+	background-image: url(/assets/images/tapeblue.jpg);
+	background-size: cover;
+}
+
 .controls--l2 {
 	background-color: #ffffff;
+	background-image: url(/assets/images/cardboardwhite.jpg);
+	background-size: cover;
 	padding: 0.4rem;
 }
 
