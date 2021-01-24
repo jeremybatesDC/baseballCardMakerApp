@@ -1,5 +1,4 @@
 <template>
-
 	<h2 class="cf__h2" :style="cssTextLine1Props">
 		<input
 			class=""
@@ -15,43 +14,43 @@
 				<span
 					>Weight: <output :value="cardText.textLine1.fontWght"></output
 				></span>
-				<ion-range
+				<input
+					type="range"
 					min="100"
 					max="900"
 					v-model.number="cardText.textLine1.fontWght"
-				></ion-range>
+				/>
 			</label>
 			<label class="rangeUI__label">
 				<span
 					>Width: <output :value="cardText.textLine1.fontWidth"></output
 				></span>
-				<ion-range
+				<input
+					type="range"
 					min="75"
 					max="150"
 					v-model.number="cardText.textLine1.fontWidth"
-				></ion-range>
+				/>
 			</label>
 			<label class="rangeUI__label">
 				<span
 					>Slant: <output :value="cardText.textLine1.fontSlant"></output
 				></span>
-				<ion-range
+				<input
+					type="range"
 					min="-10"
 					max="0"
 					v-model.number="cardText.textLine1.fontSlant"
-				></ion-range>
+				/>
 			</label>
 		</div>
-		</h2>
+	</h2>
 </template>
 
 <script>
-
-import {IonRange} from "@ionic/vue"
-
 export default {
 	name: "yourMom",
-	components: {IonRange},
+	//components: {},
 	data() {
 		return {
 			cardText: {
@@ -74,7 +73,6 @@ export default {
 		},
 	},
 };
-
 </script>
 
 <style lang="scss"></style>

@@ -281,12 +281,13 @@
 						</fieldset>
 						<label slot="start" class="rangeUI__label">
 							<span class="absolute">Border Curve </span>
-							<ion-range
+							<input
+								type="range"
 								data-input="range"
 								min="0"
 								max="24"
 								v-model.number="cardDesign.borderInnerCurve"
-							></ion-range>
+							/>
 						</label>
 					</div>
 				</div>
@@ -424,7 +425,7 @@
 								</figure>
 							</div>
 						</div>
-						
+
 						<div class="text__line--second row">
 							<LineB></LineB>
 							<LineC></LineC>
@@ -511,16 +512,6 @@
 					:data-stats="numOfStats"
 				></CardBack>
 			</div>
-			<ion-button @click="openPopover()">Show Popover</ion-button>
-  <ion-popover
-    :is-open="popoverOpen"
-    css-class="my-custom-class"
-    :event="event"
-    :translucent="true"
-    @onDidDismiss="closePopover()"
-  >
-	hey
-  </ion-popover>
 		</ion-content>
 	</ion-page>
 </template>
@@ -541,10 +532,9 @@ import {
 	IonHeader,
 	//IonInput,
 	IonPage,
-	IonRange,
+	//IonRange,
 	IonToolbar,
 	IonContent,
-	IonPopover
 } from "@ionic/vue";
 
 import LineA from "./frontcomponents/LineA";
@@ -568,11 +558,10 @@ export default {
 		IonFabList,
 		IonHeader,
 		//IonInput,
-		IonRange,
+		//IonRange,
 		IonToolbar,
 		IonContent,
 		IonPage,
-		IonPopover,
 		LineA,
 		LineB,
 		LineC,
@@ -683,12 +672,7 @@ export default {
 				return (this.numOfStats -= 1);
 			}
 		},
-		openPopover(event){
-			this.popoverOpen = true
-		},
-		closePopover(event){
-			this.popoverOpen = false
-		},
+
 		async sendData() {
 			const endpointURL = "https://reqres.in/api/users";
 			const dataOpts = {
@@ -1039,6 +1023,7 @@ export default {
 	//pointer-events: none;
 	width: 7.2rem;
 	height: 7.2rem;
+	z-index: 9999;
 }
 
 .image--logo {
@@ -1107,6 +1092,7 @@ export default {
 .fab__button--imgFilters {
 	--background: transparent;
 	--box-shadow: none;
+	--border-radius: 0;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1114,6 +1100,7 @@ export default {
 	height: 100%;
 	border: none;
 	border-radius: 0;
+
 	// gross mix of ionic and my own styles ugh
 	&:not(.fab-button-close-active) {
 		opacity: 0;
@@ -1126,6 +1113,16 @@ export default {
 		border: none;
 		border-radius: 0;
 	}
+	// refactor
+	&.fab-button-close-active {
+		&,
+		&[hidden] {
+			display: block !important;
+			bottom: -100vh;
+			left: -100vw;
+			width: 300vw;
+		}
+	}
 }
 
 .dropzone--logo {
@@ -1134,7 +1131,7 @@ export default {
 	//height: 7.2rem;
 	width: 50%;
 	height: 50%;
-	z-index: 9999;
+	//z-index: 9999;
 	&.top {
 		top: 0;
 	}
@@ -1150,6 +1147,9 @@ export default {
 	.figure--logo {
 		right: inherit;
 		bottom: inherit;
+	}
+	.gu-unselectable & {
+		z-index: 9999;
 	}
 }
 </style>

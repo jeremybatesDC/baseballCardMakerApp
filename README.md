@@ -2,9 +2,23 @@
 
 ## To Do
 
-if painters tape is ok (seems maybe too much) then override ion custom properties because shadow dom 
+text sliders filters drag drop -- these all compete for the same box and maybe they should each ensure they're the only one open... if user selects a textbox while image filters are open, i don't just want everything to close -- and currently those steps end up with both of them open.
 
-strip out ionrange in favor of good ol' range... 
+tap highlight selected color on radio buttons image filters
+
+or a universal background button that forces any/all controls to close... hmmmm
+
+the fab button close i think could be forced into a full screen thing that you'd necessarl click uopn... Popovers come with a tad too much associated work, which is self -defeating
+
+the ion-popover sees pretty expensive in that itS adding/removing dom elements -- better just to toggle visibility (which I had been doing with fab button) and add click outside to close...
+
+if popover is open, prevent another one from opening... the inputs in the popover content are spawning thir own popovers
+
+z-index "logical" property classes like "nothingElseEverAbove" and "justBarelyEnough" or something...
+
+if painters tape is ok (seems maybe too much) then override ion custom properties because shadow dom
+
+strip out ionrange in favor of good ol' range...
 
 having zoom issues -- is that why the viewport was so hard coded before? Way too wasy to accidently zoom in and then next to pimpossible to zoom out
 

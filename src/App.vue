@@ -64,6 +64,7 @@ export default defineComponent({
 	font-variation-settings: var(--text-big-bold);
 	display: flex;
 
+color: #000;
 	//flex-grow: 1;
 
 	align-items: center;
@@ -109,6 +110,7 @@ export default defineComponent({
 		justify-content: flex-end;
 	}
 }
+
 
 .card__container {
 	filter: drop-shadow(0 0 0.8rem rgba(0, 0, 0, 0.8));
