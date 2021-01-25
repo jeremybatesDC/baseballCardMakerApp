@@ -324,93 +324,95 @@
 
 							<!-- make rounded corner optional -->
 							<!-- using css filter drop shadow could work -->
-							<ion-fab
-								vertical="top"
-								horizontal="end"
-								slot="fixed"
-								class="margin--0 top--0 left--0 width--100 height--100"
+
+							<button
+								id="imgFilters"
+								name="imgFilters"
+								class="absolute fab__button--imgFilters"
+								aria-label="Image Filters"
+								:aria-expanded="imgFiltersShowing"
+								@click="toggleImageFilters"
+							></button>
+
+							<span
+								id="imageFilterMenu"
+								class="absolute margin--0 width--100 height--100"
+								:hidden="!imgFiltersShowing"
+								aria-labelledby="imgFilters"
 							>
-								<ion-fab-button
-									hidden
-									name="imgFilters"
-									class="fab__button--imgFilters"
-									>Filters</ion-fab-button
+								<fieldset
+									class="radioBtns__fieldset radioBtns__fieldset--decadeFilters"
 								>
-
-								<ion-fab-list side="end" class="margin--0 height--100">
-									<fieldset
-										class="radioBtns__fieldset radioBtns__fieldset--decadeFilters"
+									<legend
+										class="radioBtns__legend radioBtns__legend--decadeFilters"
 									>
-										<legend
-											class="radioBtns__legend radioBtns__legend--decadeFilters"
+										Filters
+									</legend>
+									<div
+										class="radioBtns__wrapper--inner radioBtns__wrapper--decadeFilters"
+									>
+										<label
+											class="radioBtns__label radioBtns__label--decadeFilters"
 										>
-											Filters
-										</legend>
-										<div
-											class="radioBtns__wrapper--inner radioBtns__wrapper--decadeFilters"
+											<input
+												type="radio"
+												class="radioBtns__input hidden--visually"
+												v-model="cardDesign.playerImageFilterEffect"
+												value="noFilterEffect"
+											/>
+											<span>NONE</span>
+										</label>
+
+										<label
+											class="radioBtns__label radioBtns__label--decadeFilters"
 										>
-											<label
-												class="radioBtns__label radioBtns__label--decadeFilters"
-											>
-												<input
-													type="radio"
-													class="radioBtns__input hidden--visually"
-													v-model="cardDesign.playerImageFilterEffect"
-													value="noFilterEffect"
-												/>
-												<span>NONE</span>
-											</label>
+											<input
+												type="radio"
+												class="radioBtns__input hidden--visually"
+												v-model="cardDesign.playerImageFilterEffect"
+												value="filter1940s"
+											/>
+											<span class="decadeFilters__span">1940s</span>
+										</label>
 
-											<label
-												class="radioBtns__label radioBtns__label--decadeFilters"
-											>
-												<input
-													type="radio"
-													class="radioBtns__input hidden--visually"
-													v-model="cardDesign.playerImageFilterEffect"
-													value="filter1940s"
-												/>
-												<span class="decadeFilters__span">1940s</span>
-											</label>
+										<label
+											class="radioBtns__label radioBtns__label--decadeFilters"
+										>
+											<input
+												type="radio"
+												class="radioBtns__input hidden--visually"
+												v-model="cardDesign.playerImageFilterEffect"
+												value="filter1950s"
+											/>
+											<span class="decadeFilters__span">1950s</span>
+										</label>
 
-											<label
-												class="radioBtns__label radioBtns__label--decadeFilters"
-											>
-												<input
-													type="radio"
-													class="radioBtns__input hidden--visually"
-													v-model="cardDesign.playerImageFilterEffect"
-													value="filter1950s"
-												/>
-												<span class="decadeFilters__span">1950s</span>
-											</label>
-
-											<label
-												class="radioBtns__label radioBtns__label--decadeFilters"
-											>
-												<input
-													type="radio"
-													class="radioBtns__input hidden--visually"
-													v-model="cardDesign.playerImageFilterEffect"
-													value="filter1960s"
-												/>
-												<span class="decadeFilters__span">1960s</span>
-											</label>
-											<label
-												class="radioBtns__label radioBtns__label--decadeFilters"
-											>
-												<input
-													type="radio"
-													class="radioBtns__input hidden--visually"
-													v-model="cardDesign.playerImageFilterEffect"
-													value="filter1970s"
-												/>
-												<span class="decadeFilters__span">1970s</span>
-											</label>
-										</div>
-									</fieldset>
-								</ion-fab-list>
-							</ion-fab>
+										<label
+											class="radioBtns__label radioBtns__label--decadeFilters"
+										>
+											<input
+												type="radio"
+												class="radioBtns__input hidden--visually"
+												v-model="cardDesign.playerImageFilterEffect"
+												value="filter1960s"
+											/>
+											<span class="decadeFilters__span">1960s</span>
+										</label>
+										<label
+											class="radioBtns__label radioBtns__label--decadeFilters"
+										>
+											<input
+												type="radio"
+												class="radioBtns__input hidden--visually"
+												v-model="cardDesign.playerImageFilterEffect"
+												value="filter1970s"
+											/>
+											<span class="decadeFilters__span">1970s</span>
+										</label>
+									</div>
+								</fieldset>
+							</span>
+							<!--
 							<div id="dztl" class="dz dropzone--logo top left"></div>
 							<div id="dztr" class="dz dropzone--logo top right"></div>
 							<div id="dzbl" class="dz dropzone--logo bottom left"></div>
@@ -423,7 +425,7 @@
 									<canvas id="canvasLogo" class="image--logo logo--default">
 									</canvas>
 								</figure>
-							</div>
+							</div>-->
 						</div>
 
 						<div class="text__line--second row">
@@ -525,22 +527,11 @@ function hexToRGB(hex) {
 	];
 }
 
-import {
-	IonFab,
-	IonFabButton,
-	IonFabList,
-	IonHeader,
-	//IonInput,
-	IonPage,
-	//IonRange,
-	IonToolbar,
-	IonContent,
-} from "@ionic/vue";
+import { IonHeader, IonPage, IonToolbar, IonContent } from "@ionic/vue";
 
 import LineA from "./frontcomponents/LineA";
 import LineB from "./frontcomponents/LineB";
 import LineC from "./frontcomponents/LineC";
-
 import CardBack from "./CardBack";
 
 //import ReOrder from "./frontcomponents/ReOrder";
@@ -552,16 +543,11 @@ export default {
 
 	components: {
 		//Dragula,
-		CardBack,
-		IonFab,
-		IonFabButton,
-		IonFabList,
 		IonHeader,
-		//IonInput,
-		//IonRange,
 		IonToolbar,
 		IonContent,
 		IonPage,
+		CardBack,
 		LineA,
 		LineB,
 		LineC,
@@ -570,7 +556,7 @@ export default {
 	//},
 	data() {
 		return {
-			popoverOpen: false,
+			imgFiltersShowing: false,
 			minYears: 0,
 			maxYears: 5,
 			minStats: 0,
@@ -620,6 +606,18 @@ export default {
 				.removeAttribute("hidden");
 			//.classList.remove("rotated");
 		},
+		toggleImageFilters(event) {
+			if (!this.imgFiltersShowing) {
+				event.target.setAttribute("aria-expanded", true);
+				document.getElementById("imageFilterMenu").removeAttribute("hidden");
+				this.imgFiltersShowing = true;
+			} else {
+				event.target.setAttribute("aria-expanded", false);
+				document.getElementById("imageFilterMenu").setAttribute("hidden", "");
+				this.imgFiltersShowing = false;
+			}
+		},
+
 		async encodeImage(event) {
 			// maybe i should be using refs maybe here not IDs
 			const input = event.target;

@@ -2,6 +2,15 @@
 
 ## To Do
 
+is the app getting slow?
+
+doing show/hide button through the model ends up being pretty slow -- it hyfrates everything again... laggy experience...
+
+photograph grip of easton bat downstairs
+also maybe consider wood grain...
+
+position of char countesr
+
 text sliders filters drag drop -- these all compete for the same box and maybe they should each ensure they're the only one open... if user selects a textbox while image filters are open, i don't just want everything to close -- and currently those steps end up with both of them open.
 
 tap highlight selected color on radio buttons image filters
