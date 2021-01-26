@@ -8,49 +8,21 @@
 			maxlength="42"
 			spellcheck="false"
 		/>
-
-		<div data-soi class="soi--textSlider">
-			<label class="rangeUI__label">
-				<span
-					>Weight: <output :value="cardText.textLine1.fontWght"></output
-				></span>
-				<input
-					type="range"
-					min="100"
-					max="900"
-					v-model.number="cardText.textLine1.fontWght"
-				/>
-			</label>
-			<label class="rangeUI__label">
-				<span
-					>Width: <output :value="cardText.textLine1.fontWidth"></output
-				></span>
-				<input
-					type="range"
-					min="75"
-					max="150"
-					v-model.number="cardText.textLine1.fontWidth"
-				/>
-			</label>
-			<label class="rangeUI__label">
-				<span
-					>Slant: <output :value="cardText.textLine1.fontSlant"></output
-				></span>
-				<input
-					type="range"
-					min="-10"
-					max="0"
-					v-model.number="cardText.textLine1.fontSlant"
-				/>
-			</label>
-		</div>
+		<!-- much less complex than creating reactive obj i think -->
+		<TextSliders
+			v-model:fontWght="cardText.textLine1.fontWght"
+			v-model:fontWidth="cardText.textLine1.fontWidth"
+			v-model:fontSlant="cardText.textLine1.fontSlant"
+		></TextSliders>
 	</h2>
 </template>
 
 <script>
+import TextSliders from "./TextSliders";
+
 export default {
 	name: "yourMom",
-	//components: {},
+	components: { TextSliders },
 	data() {
 		return {
 			cardText: {
