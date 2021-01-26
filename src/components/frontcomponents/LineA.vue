@@ -13,15 +13,17 @@
 			v-model:fontWght="cardText.textLine1.fontWght"
 			v-model:fontWidth="cardText.textLine1.fontWidth"
 			v-model:fontSlant="cardText.textLine1.fontSlant"
+			:fontWghtMin="150"
+			:fontWidthMax="150"
 		></TextSliders>
 	</h2>
 </template>
 
 <script>
-import TextSliders from "./TextSliders";
+import TextSliders from "./../TextSliders";
 
 export default {
-	name: "yourMom",
+	name: "LineA",
 	components: { TextSliders },
 	data() {
 		return {

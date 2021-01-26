@@ -8,55 +8,22 @@
 			maxlength="48"
 			spellcheck="false"
 		/>
-		<div data-soi class="soi--textSlider">
-			<label class="rangeUI__label">
-				<span
-					>Weight: <output :value="cardText.textLine2.fontWght"></output
-				></span>
-
-				<input
-					class="rangeUI__input"
-					v-model.number="cardText.textLine2.fontWght"
-					type="range"
-					min="100"
-					max="900"
-				/>
-			</label>
-			<label class="rangeUI__label">
-				<span
-					>Width: <output :value="cardText.textLine2.fontWidth"></output
-				></span>
-				<input
-					class="rangeUI__input"
-					v-model.number="cardText.textLine2.fontWidth"
-					type="range"
-					min="75"
-					max="150"
-				/>
-			</label>
-
-			<label class="rangeUI__label">
-				<span
-					>Slant: <output :value="cardText.textLine2.fontSlant"></output
-				></span>
-				<input
-					class="rangeUI__input"
-					v-model.number="cardText.textLine2.fontSlant"
-					type="range"
-					min="-10"
-					max="0"
-				/>
-			</label>
-		</div>
+		<TextSliders
+			v-model:fontWght="cardText.textLine2.fontWght"
+			v-model:fontWidth="cardText.textLine2.fontWidth"
+			v-model:fontSlant="cardText.textLine2.fontSlant"
+			:fontWghtMin="150"
+			:fontWidthMax="125"
+		></TextSliders>
 	</h1>
 </template>
 
 <script>
-//import { IonRange } from "@ionic/vue";
+import TextSliders from "./../TextSliders";
 
 export default {
 	name: "LineB",
-	//components: { IonRange },
+	components: { TextSliders },
 	data() {
 		return {
 			cardText: {
@@ -80,5 +47,3 @@ export default {
 	},
 };
 </script>
-
-<style lang="scss"></style>

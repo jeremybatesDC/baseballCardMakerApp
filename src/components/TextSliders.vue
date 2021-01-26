@@ -4,8 +4,8 @@
 			<span>Weight: <output :value="fontWght"></output></span>
 			<input
 				type="range"
-				min="100"
-				max="900"
+				:min="fontWghtMin || 100"
+				:max="fontWghtMax || 900"
 				:value="fontWght"
 				@input="$emit('update:fontWght', $event.target.value)"
 			/>
@@ -14,8 +14,8 @@
 			<span>Width: <output :value="fontWidth"></output></span>
 			<input
 				type="range"
-				min="75"
-				max="150"
+				:min="fontWidthMin || 75"
+				:max="fontWidthMax || 150"
 				:value="fontWidth"
 				@input="$emit('update:fontWidth', $event.target.value)"
 			/>
@@ -35,9 +35,16 @@
 
 <script>
 export default {
-	props: ["fontWght", "fontWidth", "fontSlant"],
+	props: [
+		"fontWght",
+		"fontWidth",
+		"fontSlant",
+		"fontWghtMin",
+		"fontWghtMax",
+		"fontWidthMin",
+		"fontWidthMax",
+	],
 	emits: ["update:fontWght", "update:fontWidth", "update:fontSlant"],
-	//props: ["fontWght", "fontWidth", "fontSlant"],
 };
 </script>
 
