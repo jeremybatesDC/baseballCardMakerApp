@@ -120,7 +120,7 @@ select {
 	background-color: #ffffff;
 	background-image: url(/assets/images/cardboardwhite.jpg);
 	background-size: cover;
-	padding: 0.4rem;
+	padding: 0.4rem 0.4rem 0.4rem 2rem;
 }
 
 .l2--front {
@@ -137,6 +137,7 @@ select {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
+		position: relative;
 		.controls--l2 & {
 			flex-grow: 1;
 			flex-basis: 33.3333%;
@@ -261,14 +262,11 @@ select {
 
 			text-align: center;
 		}
+		&.text-vertical {
+			font-variation-settings: var(--text-something);
+		}
 	}
 	&__wrapper {
-		&--inner {
-			//background-color: var(--background-for-overlay-controls);
-			//.playerImage__controls & {
-			//	padding-top: 0.4rem;
-			//}
-		}
 		&--each {
 			display: flex;
 			&:last-of-type {
@@ -301,11 +299,6 @@ select {
 				box-shadow: -1px 0 rgba(0, 0, 0, 0.1);
 			}
 		}
-
-		//.playerImage__controls & {
-		//	width: var(--touch-target-large);
-		//	height: var(--touch-target-large);
-		//}
 	}
 	&__input {
 		+ span {

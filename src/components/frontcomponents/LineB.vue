@@ -1,17 +1,17 @@
 <template>
-	<h1 :style="cssTextLine2Props" class="cf__h1">
+	<h1 :style="fontAxes" class="cf__h1">
 		<input
 			class=""
-			v-model.trim="cardText.textLine2.playerName"
+			v-model.trim="words"
 			type="text"
 			placeholder
 			maxlength="48"
 			spellcheck="false"
 		/>
 		<TextSliders
-			v-model:fontWght="cardText.textLine2.fontWght"
-			v-model:fontWidth="cardText.textLine2.fontWidth"
-			v-model:fontSlant="cardText.textLine2.fontSlant"
+			v-model:fontWght="fontWght"
+			v-model:fontWidth="fontWidth"
+			v-model:fontSlant="fontSlant"
 			:fontWghtMin="150"
 			:fontWidthMax="125"
 		></TextSliders>
@@ -26,22 +26,18 @@ export default {
 	components: { TextSliders },
 	data() {
 		return {
-			cardText: {
-				textLine2: {
-					playerName: "Casey LeRoy",
-					fontWght: 200,
-					fontWidth: 100,
-					fontSlant: 0,
-				},
-			},
+			words: "Casey LeRoy",
+			fontWght: 200,
+			fontWidth: 100,
+			fontSlant: 0,
 		};
 	},
 	computed: {
-		cssTextLine2Props() {
+		fontAxes() {
 			return {
-				"--fontwght": this.cardText.textLine2.fontWght,
-				"--fontwidth": this.cardText.textLine2.fontWidth,
-				"--fontslant": this.cardText.textLine2.fontSlant,
+				"--fontwght": this.fontWght,
+				"--fontwidth": this.fontWidth,
+				"--fontslant": this.fontSlant,
 			};
 		},
 	},

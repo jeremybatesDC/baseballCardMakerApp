@@ -2,6 +2,16 @@
 
 ## To Do
 
+move stepper/incrementer to own component
+
+front default color is so close to active tab button color that they misleadingly appear to be actions
+
+move color picker to own component
+
+modularize l2 controls
+
+since need option to hide logo, i might need to retore the toggle menu like the one on the image...
+
 is the app getting slow?
 
 doing show/hide button through the model ends up being pretty slow -- it hyfrates everything again... laggy experience...

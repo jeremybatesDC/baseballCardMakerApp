@@ -29,11 +29,11 @@
 					<div role="tablist" aria-label="Card Side">
 						<button
 							role="tab"
-							aria-selected="true"
+							:aria-selected="frontShowing"
 							aria-controls="panelCardFront"
 							id="triggerFront"
 							aria-label="Front"
-							@click="chngTbz"
+							@click="frontShowing = true"
 						>
 							Card Front
 						</button>
@@ -91,11 +91,11 @@
 						</span>
 						<button
 							role="tab"
-							aria-selected="false"
+							:aria-selected="!frontShowing"
 							aria-controls="panelCardBack"
 							id="triggerBack"
 							aria-label="Back"
-							@click="chngTbz"
+							@click="frontShowing = false"
 						>
 							Card Back
 						</button>
@@ -225,62 +225,19 @@
 				</div>
 			</ion-toolbar>
 		</ion-header>
-		<ion-content class="contentWrapper">
+		<ion-content class="contentWrapper" fullscreen>
 			<div
 				id="panelCardFront"
 				role="tabpanel"
 				class="tabpanel--front"
 				aria-labelledby="triggerFront"
+				:hidden="!frontShowing"
 			>
 				<div class="controls--l2 l2--front">
 					<div class="row">
-						<fieldset slot="start" class="radioBtns__fieldset">
-							<legend class="radioBtns__legend text-left text-vertical">
-								Layout
-							</legend>
-							<div class="radioBtns__wrapper--inner">
-								<label class="radioBtns__label">
-									<input
-										type="radio"
-										class="radioBtns__input hidden--visually"
-										v-model="cardDesign.cardLayout"
-										value="one-one"
-									/>
-									<span
-										><svg width="32" height="32" viewBox="0 0 32 32">
-											<use xlink:href="#iconlayoutoneone"></use></svg
-									></span>
-								</label>
-
-								<label class="radioBtns__label">
-									<input
-										type="radio"
-										class="radioBtns__input hidden--visually"
-										v-model="cardDesign.cardLayout"
-										value="zero-two"
-									/>
-									<span
-										><svg viewBox="0 0 32 32" width="32" height="32">
-											<use xlink:href="#iconlayoutzerotwo"></use></svg
-									></span>
-								</label>
-
-								<label class="radioBtns__label">
-									<input
-										type="radio"
-										class="radioBtns__input hidden--visually"
-										v-model="cardDesign.cardLayout"
-										value="two-zero"
-									/>
-									<span
-										><svg viewBox="0 0 32 32" width="32" height="32">
-											<use xlink:href="#iconlayouttwozero"></use></svg
-									></span>
-								</label>
-							</div>
-						</fieldset>
+						<RadiosLayout v-model:frontLayout="frontLayout"></RadiosLayout>
 						<label slot="start" class="rangeUI__label">
-							<span class="absolute">Border Curve </span>
+							<span class="absolute text-vertical">Curve </span>
 							<input
 								type="range"
 								data-input="range"
@@ -299,7 +256,7 @@
 				>
 					<div
 						class="card__container card__container--front"
-						:class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
+						:class="[frontLayout, cardDesign.playerImageBleedOrBoxed]"
 					>
 						<div class="text__line--first row">
 							<LineA></LineA>
@@ -307,7 +264,7 @@
 
 						<div
 							:class="
-								`row--middle--forDesign row ${cardDesign.logoPosition} ${cardDesign.playerImageFilterEffect}`
+								`row--middle--forDesign row ${cardDesign.logoPosition} ${playerImageFilterEffect}`
 							"
 						>
 							<figure class="figure--player">
@@ -340,79 +297,11 @@
 								:hidden="!imgFiltersShowing"
 								aria-labelledby="imgFilters"
 							>
-								<fieldset
-									class="radioBtns__fieldset radioBtns__fieldset--decadeFilters"
-								>
-									<legend
-										class="radioBtns__legend radioBtns__legend--decadeFilters"
-									>
-										Filters
-									</legend>
-									<div
-										class="radioBtns__wrapper--inner radioBtns__wrapper--decadeFilters"
-									>
-										<label
-											class="radioBtns__label radioBtns__label--decadeFilters"
-										>
-											<input
-												type="radio"
-												class="radioBtns__input hidden--visually"
-												v-model="cardDesign.playerImageFilterEffect"
-												value="noFilterEffect"
-											/>
-											<span>NONE</span>
-										</label>
-
-										<label
-											class="radioBtns__label radioBtns__label--decadeFilters"
-										>
-											<input
-												type="radio"
-												class="radioBtns__input hidden--visually"
-												v-model="cardDesign.playerImageFilterEffect"
-												value="filter1940s"
-											/>
-											<span class="decadeFilters__span">1940s</span>
-										</label>
-
-										<label
-											class="radioBtns__label radioBtns__label--decadeFilters"
-										>
-											<input
-												type="radio"
-												class="radioBtns__input hidden--visually"
-												v-model="cardDesign.playerImageFilterEffect"
-												value="filter1950s"
-											/>
-											<span class="decadeFilters__span">1950s</span>
-										</label>
-
-										<label
-											class="radioBtns__label radioBtns__label--decadeFilters"
-										>
-											<input
-												type="radio"
-												class="radioBtns__input hidden--visually"
-												v-model="cardDesign.playerImageFilterEffect"
-												value="filter1960s"
-											/>
-											<span class="decadeFilters__span">1960s</span>
-										</label>
-										<label
-											class="radioBtns__label radioBtns__label--decadeFilters"
-										>
-											<input
-												type="radio"
-												class="radioBtns__input hidden--visually"
-												v-model="cardDesign.playerImageFilterEffect"
-												value="filter1970s"
-											/>
-											<span class="decadeFilters__span">1970s</span>
-										</label>
-									</div>
-								</fieldset>
+								<RadiosDecade
+									v-model:playerImageFilterEffect="playerImageFilterEffect"
+								></RadiosDecade>
 							</span>
-							<!--
+
 							<div id="dztl" class="dz dropzone--logo top left"></div>
 							<div id="dztr" class="dz dropzone--logo top right"></div>
 							<div id="dzbl" class="dz dropzone--logo bottom left"></div>
@@ -425,7 +314,7 @@
 									<canvas id="canvasLogo" class="image--logo logo--default">
 									</canvas>
 								</figure>
-							</div>-->
+							</div>
 						</div>
 
 						<div class="text__line--second row">
@@ -441,73 +330,22 @@
 				role="tabpanel"
 				class="tabpanel--back"
 				aria-labelledby="triggerBack"
-				hidden
+				:hidden="frontShowing"
 			>
 				<div class="controls--l2 l2--back">
 					<div class="row space-around height--100">
-						<fieldset class="radioBtns__fieldset">
-							<legend class="radioBtns__legend text-left">Orientation</legend>
-							<div class="radioBtns__wrapper--inner">
-								<label class="radioBtns__label">
-									<input
-										type="radio"
-										class="radioBtns__input hidden--visually"
-										name=""
-										v-model="cardBackSettings.backOrient"
-										value="horizontal"
-									/>
-									<span
-										><svg width="32" height="32" viewBox="0 0 32 32">
-											<use xlink:href="#iconorientationhorz"></use></svg
-									></span>
-								</label>
-
-								<label class="radioBtns__label">
-									<input
-										type="radio"
-										class="radioBtns__input hidden--visually"
-										name=""
-										v-model="cardBackSettings.backOrient"
-										value="vertical"
-									/>
-									<span
-										><svg width="32" height="32" viewBox="0 0 32 32">
-											<use xlink:href="#iconorientationvert"></use></svg
-									></span>
-								</label>
-							</div>
-						</fieldset>
-						<fieldset class="radioBtns__fieldset">
-							<legend class="radioBtns__legend text-left">Gum Stain</legend>
-							<div class="radioBtns__wrapper--inner">
-								<label class="radioBtns__label">
-									<input
-										type="radio"
-										class="radioBtns__input hidden--visually"
-										name="gumradio"
-										v-model="cardBackSettings.gumShowing"
-										value="gumShowing"
-									/>
-									<span>Show</span>
-								</label>
-
-								<label class="radioBtns__label">
-									<input
-										type="radio"
-										class="radioBtns__input hidden--visually"
-										name="gumradio"
-										v-model="cardBackSettings.gumShowing"
-										value="gumHidden"
-									/>
-									<span>Hide</span>
-								</label>
-							</div>
-						</fieldset>
+						<RadiosOrientation
+							v-model:backOrient="backOrient"
+						></RadiosOrientation>
+						<RadiosGum v-model:gumShowing="gumShowing"></RadiosGum>
 					</div>
 				</div>
 
+				<!-- 					v-bind="cardBackSettings" -->
+
 				<CardBack
-					v-bind="cardBackSettings"
+					:backOrient="backOrient"
+					:gumShowing="gumShowing"
 					:numOfYears="numOfYears"
 					:numOfStats="numOfStats"
 					:data-years="numOfYears"
@@ -533,7 +371,10 @@ import LineA from "./frontcomponents/LineA";
 import LineB from "./frontcomponents/LineB";
 import LineC from "./frontcomponents/LineC";
 import CardBack from "./CardBack";
-
+import RadiosDecade from "./frontcomponents/RadiosDecade";
+import RadiosLayout from "./frontcomponents/RadiosLayout";
+import RadiosOrientation from "./backcomponents/RadiosOrientation";
+import RadiosGum from "./backcomponents/RadiosGum";
 //import ReOrder from "./frontcomponents/ReOrder";
 
 import Dragula from "dragula";
@@ -551,12 +392,21 @@ export default {
 		LineA,
 		LineB,
 		LineC,
+		RadiosDecade,
+		RadiosLayout,
+		RadiosOrientation,
+		RadiosGum,
 	},
 	//setup(){
 	//},
 	data() {
 		return {
+			frontShowing: true,
+			frontLayout: "oneone",
+			backOrient: "horizontal",
+			gumShowing: "gumShowing",
 			imgFiltersShowing: false,
+			playerImageFilterEffect: "noFilterEffect",
 			minYears: 0,
 			maxYears: 5,
 			minStats: 0,
@@ -570,11 +420,11 @@ export default {
 			cardDesign: {
 				playerImageBleedOrBoxed: "relative",
 				bgcf: "#dddddd",
-				cardLayout: "one-one",
+				//cardLayout: "oneone",
 				cardBrightness: 1,
 				cardSepia: 0,
 				cardGrayScale: 0,
-				playerImageFilterEffect: "noFilterEffect",
+				//playerImageFilterEffect: "noFilterEffect",
 				borderInnerCurve: 0,
 				borderInnerWidth: 3,
 				logoPosition: "bottomRight",
@@ -585,27 +435,13 @@ export default {
 			},
 
 			cardBackSettings: {
-				backOrient: "horizontal",
+				//backOrient: "horizontal",
 				backgroundColor: "#9a8b7c",
-				gumShowing: "gumShowing",
+				//gumShowing: "gumShowing",
 			},
 		};
 	},
 	methods: {
-		chngTbz(e) {
-			document.body
-				.querySelector('[aria-selected="true"]')
-				.setAttribute("aria-selected", false);
-			e.target.setAttribute("aria-selected", true);
-			document.body
-				.querySelector('[role="tabpanel"]:not([hidden])')
-				.setAttribute("hidden", true);
-			//.classList.add("rotated");
-			document
-				.getElementById(e.target.getAttribute("aria-controls"))
-				.removeAttribute("hidden");
-			//.classList.remove("rotated");
-		},
 		toggleImageFilters(event) {
 			if (!this.imgFiltersShowing) {
 				event.target.setAttribute("aria-expanded", true);
@@ -650,7 +486,6 @@ export default {
 			};
 		},
 		add1year() {
-			console.log("add1");
 			if (this.numOfYears < this.maxYears) {
 				return (this.numOfYears += 1);
 			}
@@ -669,22 +504,6 @@ export default {
 			if (this.numOfStats > this.minStats) {
 				return (this.numOfStats -= 1);
 			}
-		},
-
-		async sendData() {
-			const endpointURL = "https://reqres.in/api/users";
-			const dataOpts = {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				// this refers to the data obj thanks to vue being sweet
-				body: JSON.stringify(this),
-			};
-
-			fetch(endpointURL, dataOpts)
-				.then((res) => res.json())
-				.then((res) => console.log(res));
 		},
 	},
 	computed: {
@@ -715,8 +534,6 @@ export default {
 		},
 	},
 	mounted() {
-		this.sendData();
-
 		const dropzones = [...document.querySelectorAll(".dz")];
 
 		// on desktop slidefactor works. Not on touch phone tho
@@ -724,8 +541,6 @@ export default {
 			dropzones
 			//, { liftDelay: 700 }
 		);
-
-		console.log(Dragula);
 	},
 };
 </script>
@@ -816,7 +631,7 @@ export default {
 	height: 100%;
 }
 
-.one-one {
+.oneone {
 	justify-content: space-between;
 	input {
 		&[type="text"] {
@@ -840,7 +655,7 @@ export default {
 		}
 	}
 }
-.zero-two {
+.zerotwo {
 	justify-content: flex-end;
 	//padding-top: 1.6rem;
 	padding-bottom: 0;
@@ -868,7 +683,7 @@ export default {
 		}
 	}
 }
-.two-zero {
+.twozero {
 	justify-content: flex-start;
 	padding-top: 0;
 	//padding-bottom: 1.6rem;
