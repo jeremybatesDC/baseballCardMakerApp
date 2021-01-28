@@ -100,117 +100,10 @@
 							Card Back
 						</button>
 						<span class="showOnlyForSelectedTab">
-							<fieldset class="step__fieldset">
-								<label for="hiddenNumInput" class="step__label"
-									>Years: <span>{{ numOfYears }}</span></label
-								>
-								<div class="step__wrapper--inner">
-									<button
-										type="button"
-										class="step__button"
-										:data-u-cant-click-me="numOfYears < 1"
-										data-minus-field="numOfYears"
-										@click="minus1year"
-									>
-										<svg
-											viewBox="0 0 32 32"
-											width="12"
-											height="12"
-											fill="none"
-											stroke="currentcolor"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="4"
-										>
-											<use xlink:href="#iconminus"></use>
-										</svg>
-									</button>
-									<input
-										id="hiddenYearsNumInput"
-										type="number"
-										class="hidden--visually"
-										min="0"
-										max="5"
-									/>
-									<!--<output class="step__output">{{ numOfYears }}</output>-->
-									<button
-										type="button"
-										class="step__button"
-										:data-u-cant-click-me="numOfYears > 4"
-										data-add-field="numOfYears"
-										@click="add1year"
-									>
-										<svg
-											viewBox="0 0 32 32"
-											width="12"
-											height="12"
-											fill="none"
-											stroke="currentcolor"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="4"
-										>
-											<use xlink:href="#iconplus"></use>
-										</svg>
-									</button>
-								</div>
-							</fieldset>
-							<fieldset class="step__fieldset">
-								<label for="hiddenStatsNumInput" class="step__label">
-									Stats: <span>{{ numOfStats }}</span>
-								</label>
-								<div class="step__wrapper--inner">
-									<button
-										type="button"
-										class="step__button"
-										:data-u-cant-click-me="numOfStats < 1"
-										data-minus-field="numOfStats"
-										@click="minus1stat"
-									>
-										<svg
-											viewBox="0 0 32 32"
-											width="12"
-											height="12"
-											fill="none"
-											stroke="currentcolor"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="4"
-										>
-											<use xlink:href="#iconminus"></use>
-										</svg>
-									</button>
-									<input
-										id="hiddenStatsNumInput"
-										type="number"
-										class="hidden--visually"
-										min="0"
-										max="5"
-									/>
-									<!--<output class="step__output"></output>-->
-
-									<button
-										type="button"
-										class="step__button"
-										:data-u-cant-click-me="numOfStats > 4"
-										data-add-field="numOfStats"
-										@click="add1stat"
-									>
-										<svg
-											viewBox="0 0 32 32"
-											width="12"
-											height="12"
-											fill="none"
-											stroke="currentcolor"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="4"
-										>
-											<use xlink:href="#iconplus"></use>
-										</svg>
-									</button>
-								</div>
-							</fieldset>
+							<StepperStats
+								v-model:numOfStats="numOfStats"
+								v-model:numOfYears="numOfYears"
+							></StepperStats>
 							<label
 								class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
 							>
@@ -293,7 +186,7 @@
 
 							<span
 								id="imageFilterMenu"
-								class="absolute margin--0 width--100 height--100"
+								class="row align-center absolute margin--0 width--100 height--100"
 								:hidden="!imgFiltersShowing"
 								aria-labelledby="imgFilters"
 							>
@@ -375,6 +268,7 @@ import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLayout from "./frontcomponents/RadiosLayout";
 import RadiosOrientation from "./backcomponents/RadiosOrientation";
 import RadiosGum from "./backcomponents/RadiosGum";
+import StepperStats from "./backcomponents/StepperStats";
 //import ReOrder from "./frontcomponents/ReOrder";
 
 import Dragula from "dragula";
@@ -396,6 +290,7 @@ export default {
 		RadiosLayout,
 		RadiosOrientation,
 		RadiosGum,
+		StepperStats,
 	},
 	//setup(){
 	//},
@@ -484,26 +379,6 @@ export default {
 				targetCanvas.classList.remove("logo--default", "player--default");
 				//targetCanvas.nextElementSibling.setAttribute("hidden", "true");
 			};
-		},
-		add1year() {
-			if (this.numOfYears < this.maxYears) {
-				return (this.numOfYears += 1);
-			}
-		},
-		minus1year() {
-			if (this.numOfYears > this.minYears) {
-				return (this.numOfYears -= 1);
-			}
-		},
-		add1stat() {
-			if (this.numOfStats < this.maxStats) {
-				return (this.numOfStats += 1);
-			}
-		},
-		minus1stat() {
-			if (this.numOfStats > this.minStats) {
-				return (this.numOfStats -= 1);
-			}
 		},
 	},
 	computed: {

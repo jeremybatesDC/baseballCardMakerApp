@@ -227,6 +227,10 @@ select {
 	//}
 }
 
+.imgFilters__wrapper {
+	display: flex;
+}
+
 .radioBtns {
 	&__fieldset {
 		display: flex;
@@ -258,9 +262,9 @@ select {
 			font-variation-settings: var(--text-narrower);
 			padding-top: 0.4rem;
 			background-color: var(--background-for-overlay-controls);
-			width: 100%;
+			//width: 100%;
 
-			text-align: center;
+			//text-align: center;
 		}
 		&.text-vertical {
 			font-variation-settings: var(--text-something);
