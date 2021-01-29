@@ -1,4 +1,10 @@
 <template>
+	<div class="controls--l2 l2--back">
+		<div class="row space-around height--100">
+			<RadiosOrientation :backOrient="backOrient"></RadiosOrientation>
+			<RadiosGum ref="radiosGumRef" :gumShowing="gumShowing"></RadiosGum>
+		</div>
+	</div>
 	<div class="cardBack__wrapper--outermost">
 		<div
 			class="card__container card-back"
@@ -16,11 +22,9 @@
 	</div>
 </template>
 
-<script lang="ts">
-//import { onMounted } from "vue";
-
-//import { set } from "idb-keyval";
-//import TextSlider from "./InputChildComponents/TextSlider.vue";
+<script>
+import RadiosOrientation from "./backcomponents/RadiosOrientation.vue";
+import RadiosGum from "./backcomponents/RadiosGum.vue";
 import TableStats from "./backcomponents/TableStats.vue";
 import BackHeader from "./backcomponents/BackHeader.vue";
 import BackFooter from "./backcomponents/BackFooter.vue";
@@ -33,6 +37,8 @@ export default {
 		BackHeader,
 		BackFooter,
 		AsideFacts,
+		RadiosOrientation,
+		RadiosGum,
 	},
 	props: ["gumShowing", "backOrient", "numOfYears", "numOfStats"],
 	//setup() {

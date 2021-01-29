@@ -36,5 +36,10 @@ export default {
 	name: "RadiosGum",
 	props: ["gumShowing"],
 	emits: ["update:gumShowing"],
+	inject: ["gum"],
+	mounted() {
+		console.log(this.gum);
+		console.log(this);
+	},
 };
 </script>

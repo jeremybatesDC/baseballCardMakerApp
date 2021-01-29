@@ -2,6 +2,8 @@
 
 ## To Do
 
+proving injecting all over the place so you don't have to think about tree is apparently slow, just like using \$root. My application is SUPER small though, and using Vuex for like 20 fields doesn't feel proprtionate to me.
+
 move stepper/incrementer to own component
 
 front default color is so close to active tab button color that they misleadingly appear to be actions

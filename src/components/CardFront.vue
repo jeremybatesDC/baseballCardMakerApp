@@ -225,16 +225,16 @@
 				aria-labelledby="triggerBack"
 				:hidden="frontShowing"
 			>
-				<div class="controls--l2 l2--back">
+				<!--<div class="controls--l2 l2--back">
 					<div class="row space-around height--100">
 						<RadiosOrientation
 							v-model:backOrient="backOrient"
 						></RadiosOrientation>
 						<RadiosGum v-model:gumShowing="gumShowing"></RadiosGum>
 					</div>
-				</div>
+				</div>-->
 
-				<!-- 					v-bind="cardBackSettings" -->
+				<!-- v-bind="cardBackSettings" -->
 
 				<CardBack
 					:backOrient="backOrient"
@@ -266,8 +266,7 @@ import LineC from "./frontcomponents/LineC";
 import CardBack from "./CardBack";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLayout from "./frontcomponents/RadiosLayout";
-import RadiosOrientation from "./backcomponents/RadiosOrientation";
-import RadiosGum from "./backcomponents/RadiosGum";
+
 import StepperStats from "./backcomponents/StepperStats";
 //import ReOrder from "./frontcomponents/ReOrder";
 
@@ -288,8 +287,6 @@ export default {
 		LineC,
 		RadiosDecade,
 		RadiosLayout,
-		RadiosOrientation,
-		RadiosGum,
 		StepperStats,
 	},
 	//setup(){
@@ -334,6 +331,11 @@ export default {
 				backgroundColor: "#9a8b7c",
 				//gumShowing: "gumShowing",
 			},
+		};
+	},
+	provide() {
+		return {
+			gum: this.gumShowing,
 		};
 	},
 	methods: {
