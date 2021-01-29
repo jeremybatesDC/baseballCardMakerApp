@@ -16,7 +16,7 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script>
 //import { onMounted } from "vue";
 
 //import { set } from "idb-keyval";
@@ -27,6 +27,7 @@ import BackFooter from "./backcomponents/BackFooter.vue";
 import AsideFacts from "./backcomponents/AsideFacts.vue";
 
 export default {
+	name: "CardBack",
 	components: {
 		//TextSlider,
 		TableStats,
@@ -47,6 +48,11 @@ export default {
 			//gumShowing: "gumShowing",
 			// },
 		};
+	},
+	mounted() {
+		console.log(this.$store.state.count);
+		this.$store.commit("increment");
+		console.log(this.$store.state.count);
 	},
 };
 </script>

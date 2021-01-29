@@ -1,6 +1,6 @@
 {
   "name": "BaseballCardMaker",
-  "version": "0.0.1",
+  "version": "5.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -15,7 +15,8 @@
     "@ionic/vue": "^5.4.0",
     "core-js": "^3.6.5",
     "dragula": "^3.7.3",
-    "vue": "^3.0.0-0"
+    "vue": "^3.0.0-0",
+    "vuex": "^4.0.0-rc.2"
   },
   "devDependencies": {
     "@capacitor/cli": "2.4.2",

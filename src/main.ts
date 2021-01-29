@@ -1,4 +1,6 @@
 import { createApp } from 'vue'
+import { createStore } from 'vuex'
+
 import App from './App.vue'
 //import router from './router';
 
@@ -22,12 +24,23 @@ import "./globalStyles/inputs.scss";
 import "./globalStyles/filters.scss";
 import "./globalStyles/animation.scss";
 
+const store = createStore({
+	state() {
+		return {
+			count: 0
+		}
+	},
+	mutations: {
+		increment(state: any) {
+			state.count++
+		}
+	}
+})
 
 
-const app = createApp(App).use(IonicVue);
-//.use(router);
+const app = createApp(App).use(IonicVue).use(store);
 
 app.mount('#app');
-  
+
 //router.isReady().then(() => {}
 //);
