@@ -24,16 +24,16 @@
 			@input="encodeImage"
 		/>
 		<ion-header>
-			<ion-toolbar color="primary">
+			<ion-toolbar color="primary" class="controls--l1">
 				<div class="tabsGood">
 					<div role="tablist" aria-label="Card Side">
 						<button
 							role="tab"
-							aria-selected="true"
+							:aria-selected="frontShowing"
 							aria-controls="panelCardFront"
 							id="triggerFront"
 							aria-label="Front"
-							@click="chngTbz"
+							@click="frontShowing = true"
 						>
 							Card Front
 						</button>
@@ -65,7 +65,8 @@
 								>
 									<use xlink:href="#iconportraitadd"></use>
 								</svg>
-								<span> Add<br />Pic</span>
+								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+								<span>Add <br />Pic</span>
 							</label>
 							<label
 								for="logoPic"
@@ -84,131 +85,25 @@
 								>
 									<use xlink:href="#iconlogoadd"></use>
 								</svg>
-								<span>Add<br />Logo</span>
+								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+								<span>Add <br />Logo</span>
 							</label>
 						</span>
 						<button
 							role="tab"
-							aria-selected="false"
+							:aria-selected="!frontShowing"
 							aria-controls="panelCardBack"
 							id="triggerBack"
 							aria-label="Back"
-							@click="chngTbz"
+							@click="frontShowing = false"
 						>
 							Card Back
 						</button>
 						<span class="showOnlyForSelectedTab">
-							<fieldset class="step__fieldset">
-								<label for="hiddenNumInput" class="step__label"
-									>Years: <span>{{ numOfYears }}</span></label
-								>
-								<div class="step__wrapper--inner">
-									<button
-										type="button"
-										class="step__button"
-										:data-u-cant-click-me="numOfYears < 1"
-										data-minus-field="numOfYears"
-										@click="minus1year"
-									>
-										<svg
-											viewBox="0 0 32 32"
-											width="12"
-											height="12"
-											fill="none"
-											stroke="currentcolor"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="4"
-										>
-											<use xlink:href="#iconminus"></use>
-										</svg>
-									</button>
-									<input
-										id="hiddenYearsNumInput"
-										type="number"
-										class="hidden--visually"
-										min="0"
-										max="5"
-									/>
-									<!--<output class="step__output">{{ numOfYears }}</output>-->
-									<button
-										type="button"
-										class="step__button"
-										:data-u-cant-click-me="numOfYears > 4"
-										data-add-field="numOfYears"
-										@click="add1year"
-									>
-										<svg
-											viewBox="0 0 32 32"
-											width="12"
-											height="12"
-											fill="none"
-											stroke="currentcolor"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="4"
-										>
-											<use xlink:href="#iconplus"></use>
-										</svg>
-									</button>
-								</div>
-							</fieldset>
-							<fieldset class="step__fieldset">
-								<label for="hiddenStatsNumInput" class="step__label">
-									Stats: <span>{{ numOfStats }}</span>
-								</label>
-								<div class="step__wrapper--inner">
-									<button
-										type="button"
-										class="step__button"
-										:data-u-cant-click-me="numOfStats < 1"
-										data-minus-field="numOfStats"
-										@click="minus1stat"
-									>
-										<svg
-											viewBox="0 0 32 32"
-											width="12"
-											height="12"
-											fill="none"
-											stroke="currentcolor"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="4"
-										>
-											<use xlink:href="#iconminus"></use>
-										</svg>
-									</button>
-									<input
-										id="hiddenStatsNumInput"
-										type="number"
-										class="hidden--visually"
-										min="0"
-										max="5"
-									/>
-									<!--<output class="step__output"></output>-->
-
-									<button
-										type="button"
-										class="step__button"
-										:data-u-cant-click-me="numOfStats > 4"
-										data-add-field="numOfStats"
-										@click="add1stat"
-									>
-										<svg
-											viewBox="0 0 32 32"
-											width="12"
-											height="12"
-											fill="none"
-											stroke="currentcolor"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="4"
-										>
-											<use xlink:href="#iconplus"></use>
-										</svg>
-									</button>
-								</div>
-							</fieldset>
+							<StepperStats
+								v-model:numOfStats="numOfStats"
+								v-model:numOfYears="numOfYears"
+							></StepperStats>
 							<label
 								class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
 							>
@@ -216,131 +111,53 @@
 								<input
 									class="colorPicker__input"
 									type="color"
-									v-model="cardDesign.bgcb"
+									v-model="cardBackSettings.backgroundColor"
 								/> </label
 						></span>
 					</div>
 				</div>
 			</ion-toolbar>
 		</ion-header>
-		<ion-content>
-			<div id="panelCardFront" role="tabpanel" aria-labelledby="triggerFront">
-				<div class="row">
-					<fieldset slot="start" class="radioBtns__fieldset">
-						<legend class="radioBtns__legend text-left">Layout</legend>
-						<div class="radioBtns__wrapper--inner">
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									v-model="cardDesign.cardLayout"
-									value="one-one"
-								/>
-								<span
-									><svg width="32" height="32" viewBox="0 0 32 32">
-										<use xlink:href="#iconlayoutoneone"></use></svg
-								></span>
-							</label>
-
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									v-model="cardDesign.cardLayout"
-									value="zero-two"
-								/>
-								<span
-									><svg viewBox="0 0 32 32" width="32" height="32">
-										<use xlink:href="#iconlayoutzerotwo"></use></svg
-								></span>
-							</label>
-
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									v-model="cardDesign.cardLayout"
-									value="two-zero"
-								/>
-								<span
-									><svg viewBox="0 0 32 32" width="32" height="32">
-										<use xlink:href="#iconlayouttwozero"></use></svg
-								></span>
-							</label>
-						</div>
-					</fieldset>
-					<label slot="start" class="rangeUI__label">
-						<span>Border Curve </span>
-						<ion-range
-							data-input="range"
-							min="0"
-							max="24"
-							v-model.number="cardDesign.borderInnerCurve"
-						></ion-range>
-					</label>
+		<ion-content class="contentWrapper" fullscreen>
+			<div
+				id="panelCardFront"
+				role="tabpanel"
+				class="tabpanel--front"
+				aria-labelledby="triggerFront"
+				:hidden="!frontShowing"
+			>
+				<div class="controls--l2 l2--front">
+					<div class="row">
+						<RadiosLayout v-model:frontLayout="frontLayout"></RadiosLayout>
+						<label slot="start" class="rangeUI__label">
+							<span class="absolute text-vertical">Curve </span>
+							<input
+								type="range"
+								data-input="range"
+								min="0"
+								max="24"
+								v-model.number="cardDesign.borderInnerCurve"
+							/>
+						</label>
+					</div>
 				</div>
 
+				<!-- card front -->
 				<div
 					class="cardFront__wrapper--outermost"
 					:style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
 				>
 					<div
-						class="card__container--front"
-						:class="[cardDesign.cardLayout, cardDesign.playerImageBleedOrBoxed]"
+						class="card__container card__container--front"
+						:class="[frontLayout, cardDesign.playerImageBleedOrBoxed]"
 					>
 						<div class="text__line--first row">
-							<h2 class="cf__h2" :style="cssTextLine1Props">
-								<ion-input
-									class=""
-									v-model.trim="cardText.textLine1.teamName"
-									type="text"
-									placeholder
-									maxlength="42"
-									spellcheck="false"
-								></ion-input>
-
-								<!-- hidden -->
-								<div data-soi class="soi--textSlider">
-									<label class="rangeUI__label">
-										<span
-											>Weight:
-											<output :value="cardText.textLine1.fontWght"></output
-										></span>
-										<ion-range
-											min="100"
-											max="900"
-											v-model.number="cardText.textLine1.fontWght"
-										></ion-range>
-									</label>
-									<label class="rangeUI__label">
-										<span
-											>Width:
-											<output :value="cardText.textLine1.fontWidth"></output
-										></span>
-										<ion-range
-											min="75"
-											max="150"
-											v-model.number="cardText.textLine1.fontWidth"
-										></ion-range>
-									</label>
-									<label class="rangeUI__label">
-										<span
-											>Slant:
-											<output :value="cardText.textLine1.fontSlant"></output
-										></span>
-										<ion-range
-											min="-10"
-											max="0"
-											v-model.number="cardText.textLine1.fontSlant"
-										></ion-range>
-									</label>
-								</div>
-							</h2>
+							<LineA></LineA>
 						</div>
 
 						<div
 							:class="
-								`row--middle--forDesign row ${cardDesign.logoPosition} ${cardDesign.playerImageFilterEffect}`
+								`row--middle--forDesign row ${cardDesign.logoPosition} ${playerImageFilterEffect}`
 							"
 						>
 							<figure class="figure--player">
@@ -348,217 +165,85 @@
 									class="figure--player__label"
 									for="inputTriggerFocusUI_0"
 								>
-									<canvas id="canvasPlayer" class="image--player"></canvas>
-									<img
-										width="328"
-										height="416"
-										loading="lazy"
-										class="image--player imagePlaceholder"
-										:src="images.playerPic"
-										alt="This default player looks great!"
-									/>
+									<canvas
+										id="canvasPlayer"
+										class="image--player player--default"
+									></canvas>
 								</label>
 							</figure>
 
 							<!-- make rounded corner optional -->
 							<!-- using css filter drop shadow could work -->
-							<figure
-								class="figure--logo"
-								v-show="cardDesign.logoPosition !== 'hideLogo'"
+
+							<button
+								id="imgFilters"
+								name="imgFilters"
+								class="absolute fab__button--imgFilters"
+								aria-label="Image Filters"
+								:aria-expanded="imgFiltersShowing"
+								@click="toggleImageFilters"
+							></button>
+
+							<span
+								id="imageFilterMenu"
+								class="row align-center absolute margin--0 width--100 height--100"
+								:hidden="!imgFiltersShowing"
+								aria-labelledby="imgFilters"
 							>
-								<canvas id="canvasLogo" class="image--logo"> </canvas>
-								<img
-									loading="lazy"
-									class="image--logo imagePlaceholder"
-									:src="images.logoPic"
-									alt="This default logo looks terrific!"
-								/>
-							</figure>
+								<RadiosDecade
+									v-model:playerImageFilterEffect="playerImageFilterEffect"
+								></RadiosDecade>
+							</span>
+
+							<div id="dztl" class="dz dropzone--logo top left"></div>
+							<div id="dztr" class="dz dropzone--logo top right"></div>
+							<div id="dzbl" class="dz dropzone--logo bottom left"></div>
+
+							<div id="dzbr" class="dz dropzone--logo bottom right">
+								<figure
+									class=" figure--logo"
+									v-show="cardDesign.logoPosition !== 'hideLogo'"
+								>
+									<canvas id="canvasLogo" class="image--logo logo--default">
+									</canvas>
+								</figure>
+							</div>
 						</div>
 
 						<div class="text__line--second row">
-							<h1 :style="cssTextLine2Props" class="cf__h1">
-								<input
-									class=""
-									v-model.trim="cardText.textLine2.playerName"
-									type="text"
-									placeholder
-									maxlength="48"
-									spellcheck="false"
-								/>
-								<div data-soi class="soi--textSlider" hidden>
-									<label class="rangeUI__label">
-										<span
-											>Weight:
-											<output :value="cardText.textLine2.fontWght"></output
-										></span>
-
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textLine2.fontWght"
-											type="range"
-											min="100"
-											max="900"
-										/>
-									</label>
-									<label class="rangeUI__label">
-										<span
-											>Width:
-											<output :value="cardText.textLine2.fontWidth"></output
-										></span>
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textLine2.fontWidth"
-											type="range"
-											min="75"
-											max="150"
-										/>
-									</label>
-
-									<label class="rangeUI__label">
-										<span
-											>Slant:
-											<output :value="cardText.textLine2.fontSlant"></output
-										></span>
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textLine2.fontSlant"
-											type="range"
-											min="-10"
-											max="0"
-										/>
-									</label>
-								</div>
-							</h1>
-							<h3 :style="cssTextPlayerPositionProps" class="cf__h3">
-								<input
-									class=""
-									v-model.trim="cardText.textPlayerPosition.playerPosition"
-									type="text"
-									placeholder
-									maxlength="48"
-									spellcheck="false"
-								/>
-								<div data-soi class="soi--textSlider" hidden>
-									<label class="rangeUI__label">
-										<span
-											>Weight:
-											<output
-												:value="cardText.textPlayerPosition.fontWght"
-											></output
-										></span>
-
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textPlayerPosition.fontWght"
-											type="range"
-											min="100"
-											max="900"
-										/>
-									</label>
-									<label class="rangeUI__label">
-										<span
-											>Width:
-											<output
-												:value="cardText.textPlayerPosition.fontWidth"
-											></output
-										></span>
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textPlayerPosition.fontWidth"
-											type="range"
-											min="75"
-											max="150"
-										/>
-									</label>
-
-									<label class="rangeUI__label">
-										<span
-											>Slant:
-											<output
-												:value="cardText.textPlayerPosition.fontSlant"
-											></output
-										></span>
-										<input
-											class="rangeUI__input"
-											v-model.number="cardText.textPlayerPosition.fontSlant"
-											type="range"
-											min="-10"
-											max="0"
-										/>
-									</label>
-								</div>
-							</h3>
+							<LineB></LineB>
+							<LineC></LineC>
 						</div>
 					</div>
 				</div>
+				<!-- end card front-->
 			</div>
 			<div
 				id="panelCardBack"
 				role="tabpanel"
+				class="tabpanel--back"
 				aria-labelledby="triggerBack"
-				hidden
+				:hidden="frontShowing"
 			>
-				<div class="row space-around height--100">
-					<fieldset class="radioBtns__fieldset">
-						<legend class="radioBtns__legend text-left">Orientation</legend>
-						<div class="radioBtns__wrapper--inner">
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									name=""
-									v-model="backOrient"
-									value="horizontal"
-								/>
-								<span
-									><svg width="32" height="32" viewBox="0 0 32 32">
-										<use xlink:href="#iconorientationhorz"></use></svg
-								></span>
-							</label>
+				<!--<div class="controls--l2 l2--back">
+					<div class="row space-around height--100">
+						<RadiosOrientation
+							v-model:backOrient="backOrient"
+						></RadiosOrientation>
+						<RadiosGum v-model:gumShowing="gumShowing"></RadiosGum>
+					</div>
+				</div>-->
 
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									name=""
-									v-model="backOrient"
-									value="vertical"
-								/>
-								<span
-									><svg width="32" height="32" viewBox="0 0 32 32">
-										<use xlink:href="#iconorientationvert"></use></svg
-								></span>
-							</label>
-						</div>
-					</fieldset>
-					<fieldset class="radioBtns__fieldset">
-						<legend class="radioBtns__legend text-left">Gum Stain</legend>
-						<div class="radioBtns__wrapper--inner">
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									name="gumradio"
-									v-model="gumShowing"
-									value="gumShowing"
-								/>
-								<span>Show</span>
-							</label>
+				<!-- v-bind="cardBackSettings" -->
 
-							<label class="radioBtns__label">
-								<input
-									type="radio"
-									class="radioBtns__input hidden--visually"
-									name="gumradio"
-									v-model="gumShowing"
-									value="gumHidden"
-								/>
-								<span>Hide</span>
-							</label>
-						</div>
-					</fieldset>
-				</div>
+				<CardBack
+					:backOrient="backOrient"
+					:gumShowing="gumShowing"
+					:numOfYears="numOfYears"
+					:numOfStats="numOfStats"
+					:data-years="numOfYears"
+					:data-stats="numOfStats"
+				></CardBack>
 			</div>
 		</ion-content>
 	</ion-page>
@@ -573,38 +258,65 @@ function hexToRGB(hex) {
 	];
 }
 
-import {
-	IonInput,
-	IonPage,
-	IonRange,
-	IonToolbar,
-	IonContent,
-} from "@ionic/vue";
+import { IonHeader, IonPage, IonToolbar, IonContent } from "@ionic/vue";
+
+import LineA from "./frontcomponents/LineA";
+import LineB from "./frontcomponents/LineB";
+import LineC from "./frontcomponents/LineC";
+import CardBack from "./CardBack";
+import RadiosDecade from "./frontcomponents/RadiosDecade";
+import RadiosLayout from "./frontcomponents/RadiosLayout";
+
+import StepperStats from "./backcomponents/StepperStats";
+//import ReOrder from "./frontcomponents/ReOrder";
+
+import Dragula from "dragula";
 
 export default {
 	name: "CardFront",
+
 	components: {
-		IonInput,
-		IonRange,
+		//Dragula,
+		IonHeader,
 		IonToolbar,
 		IonContent,
 		IonPage,
+		CardBack,
+		LineA,
+		LineB,
+		LineC,
+		RadiosDecade,
+		RadiosLayout,
+		StepperStats,
 	},
+	//setup(){
+	//},
 	data() {
 		return {
+			frontShowing: true,
+			frontLayout: "oneone",
+			backOrient: "horizontal",
+			gumShowing: "gumShowing",
+			imgFiltersShowing: false,
+			playerImageFilterEffect: "noFilterEffect",
+			minYears: 0,
+			maxYears: 5,
+			minStats: 0,
+			maxStats: 5,
+			numOfYears: 5,
+			numOfStats: 5,
 			images: {
 				playerPic: "/assets/images/leroy.jpg",
 				logoPic: "/assets/images/logo.svg",
 			},
 			cardDesign: {
 				playerImageBleedOrBoxed: "relative",
-				bgcf: "#ffffff",
-				bgcb: "#9a8b7c",
-				cardLayout: "one-one",
+				bgcf: "#dddddd",
+				//cardLayout: "oneone",
 				cardBrightness: 1,
 				cardSepia: 0,
 				cardGrayScale: 0,
-				playerImageFilterEffect: "noFilterEffect",
+				//playerImageFilterEffect: "noFilterEffect",
 				borderInnerCurve: 0,
 				borderInnerWidth: 3,
 				logoPosition: "bottomRight",
@@ -613,44 +325,32 @@ export default {
 					position: "bottomRight",
 				},
 			},
-			cardText: {
-				textLine1: {
-					teamName: "Mudville Madcats",
-					fontWght: 600,
-					fontWidth: 125,
-					fontSlant: 0,
-				},
-				textLine2: {
-					playerName: "Leroy Casey",
-					fontWght: 200,
-					fontWidth: 100,
-					fontSlant: 0,
-				},
-				textPlayerPosition: {
-					playerPosition: "Dad, Pitcher",
-					fontWght: 200,
-					fontWidth: 100,
-					fontSlant: -5,
-				},
+
+			cardBackSettings: {
+				//backOrient: "horizontal",
+				backgroundColor: "#9a8b7c",
+				//gumShowing: "gumShowing",
 			},
-			backOrient: "horizontal",
-			backgroundColor: "#9a8b7c",
-			gumShowing: "gumShowing",
+		};
+	},
+	provide() {
+		return {
+			gum: this.gumShowing,
 		};
 	},
 	methods: {
-		chngTbz(e) {
-			document.body
-				.querySelector('[aria-selected="true"]')
-				.setAttribute("aria-selected", false);
-			e.target.setAttribute("aria-selected", true);
-			document.body
-				.querySelector('[role="tabpanel"]:not([hidden])')
-				.setAttribute("hidden", true);
-			document
-				.getElementById(e.target.getAttribute("aria-controls"))
-				.removeAttribute("hidden");
+		toggleImageFilters(event) {
+			if (!this.imgFiltersShowing) {
+				event.target.setAttribute("aria-expanded", true);
+				document.getElementById("imageFilterMenu").removeAttribute("hidden");
+				this.imgFiltersShowing = true;
+			} else {
+				event.target.setAttribute("aria-expanded", false);
+				document.getElementById("imageFilterMenu").setAttribute("hidden", "");
+				this.imgFiltersShowing = false;
+			}
 		},
+
 		async encodeImage(event) {
 			// maybe i should be using refs maybe here not IDs
 			const input = event.target;
@@ -678,38 +378,12 @@ export default {
 				ctx.drawImage(oc, 0, 0, oc.width, oc.height, 0, 0, oc.width, oc.height);
 
 				// refactor
-				targetCanvas.nextElementSibling.setAttribute("hidden", "true");
+				targetCanvas.classList.remove("logo--default", "player--default");
+				//targetCanvas.nextElementSibling.setAttribute("hidden", "true");
 			};
-		},
-		add1year(e) {
-			if (this.numOfYears < this.maxYears) {
-				return (this.numOfYears += 1);
-			}
-		},
-		minus1year(e) {
-			if (this.numOfYears > this.minYears) {
-				return (this.numOfYears -= 1);
-			}
-		},
-		add1stat(e) {
-			if (this.numOfStats < this.maxStats) {
-				return (this.numOfStats += 1);
-			}
-		},
-		minus1stat(e) {
-			if (this.numOfStats > this.minStats) {
-				return (this.numOfStats -= 1);
-			}
 		},
 	},
 	computed: {
-		cssTextLine1Props() {
-			return {
-				"--fontwght": this.cardText.textLine1.fontWght,
-				"--fontwidth": this.cardText.textLine1.fontWidth,
-				"--fontslant": this.cardText.textLine1.fontSlant,
-			};
-		},
 		cssBorderInnerProps() {
 			return {
 				"--borderinnercurve": `${this.cardDesign.borderInnerCurve}px`,
@@ -727,7 +401,7 @@ export default {
 			};
 		},
 		colorContrastVarsBack() {
-			const theRGB = hexToRGB(this.cardDesign.bgcb);
+			const theRGB = hexToRGB(this.cardBackSettings.backgroundColor);
 			return {
 				"--bgcb": `rgb(${theRGB[0]},${theRGB[1]},${theRGB[2]})`,
 				"--redback": theRGB[0],
@@ -735,6 +409,15 @@ export default {
 				"--blueback": theRGB[2],
 			};
 		},
+	},
+	mounted() {
+		const dropzones = [...document.querySelectorAll(".dz")];
+
+		// on desktop slidefactor works. Not on touch phone tho
+		Dragula(
+			dropzones
+			//, { liftDelay: 700 }
+		);
 	},
 };
 </script>
@@ -769,7 +452,23 @@ export default {
 				-10000000%
 		)
 	);
+
+	--logo-default: `/assets/images/logo.svg`;
 }
+//
+//.fixed--fullWidth {
+//	top: 0;
+//	left: 0;
+//	width: 100%;
+//	height: 100%;
+//}
+
+[data-input="range"] {
+	--bar-background: royalblue;
+	--knob-background: royalblue;
+}
+
+// end vars
 
 .card__container--front {
 	position: relative;
@@ -809,7 +508,7 @@ export default {
 	height: 100%;
 }
 
-.one-one {
+.oneone {
 	justify-content: space-between;
 	input {
 		&[type="text"] {
@@ -833,9 +532,9 @@ export default {
 		}
 	}
 }
-.zero-two {
+.zerotwo {
 	justify-content: flex-end;
-	padding-top: 1.6rem;
+	//padding-top: 1.6rem;
 	padding-bottom: 0;
 	input {
 		&[type="text"] {
@@ -861,10 +560,10 @@ export default {
 		}
 	}
 }
-.two-zero {
+.twozero {
 	justify-content: flex-start;
 	padding-top: 0;
-	padding-bottom: 1.6rem;
+	//padding-bottom: 1.6rem;
 	input {
 		&[type="text"] {
 			height: 2.4rem;
@@ -891,6 +590,8 @@ export default {
 }
 
 .row--middle--forDesign {
+	height: 41.6rem;
+	max-height: 41.6rem;
 	display: flex;
 	//position: var(--playerimagebleedorboxed);
 	position: relative;
@@ -937,7 +638,9 @@ export default {
 	input {
 		&[type="text"] {
 			display: flex;
+			// why this
 			min-width: 0;
+			width: 100%;
 			font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
 				"slnt" var(--fontslant);
 			color: var(--calcColorFront);
@@ -1007,9 +710,10 @@ export default {
 
 .figure--logo {
 	position: absolute;
-	pointer-events: none;
+	//pointer-events: none;
 	width: 7.2rem;
 	height: 7.2rem;
+	z-index: 9999;
 }
 
 .image--logo {
@@ -1021,30 +725,45 @@ export default {
 	border-radius: var(--logoborderradius);
 	-webkit-tap-highlight-color: transparent;
 
-	.topLeft & {
+	.top.left & {
 		transform: translate(
 			calc(var(--borderinnercurve) / -3.5),
 			calc(var(--borderinnercurve) / -3.5)
 		);
 	}
-	.topRight & {
+	.top.right & {
 		transform: translate(
 			calc(var(--borderinnercurve) / 3.5),
 			calc(var(--borderinnercurve) / -3.5)
 		);
 	}
-	.bottomLeft & {
+	.bottom.left & {
 		transform: translate(
 			calc(var(--borderinnercurve) / -3.5),
 			calc(var(--borderinnercurve) / 3.5)
 		);
 	}
-	.bottomRight & {
+	.bottom.right & {
 		transform: translate(
 			calc(var(--borderinnercurve) / 3.5),
 			calc(var(--borderinnercurve) / 3.5)
 		);
 	}
+}
+
+.logo--default {
+	background-image: url(/assets/images/logo.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	box-shadow: inset 0 0 0 0.3rem var(--calcColorFront);
+}
+
+.player--default {
+	background-image: url(/assets/images/leroy.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 }
 
 .imagePlaceholder {
@@ -1060,61 +779,67 @@ export default {
 	}
 }
 
-[role="tablist"] {
-	display: flex;
-	justify-content: space-between;
-	background-color: royalblue;
+.fab__button--imgFilters {
+	--background: transparent;
+	--box-shadow: none;
+	--border-radius: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	border-radius: 0;
+
+	// gross mix of ionic and my own styles ugh
+	&:not(.fab-button-close-active) {
+		opacity: 0;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		--background: transparent;
+		--box-shadow: none;
+		border: none;
+		border-radius: 0;
+	}
+	// refactor
+	&.fab-button-close-active {
+		&,
+		&[hidden] {
+			display: block !important;
+			bottom: -100vh;
+			left: -100vw;
+			width: 300vw;
+		}
+	}
 }
 
-[role="tab"] {
-	font-size: 2rem;
-	line-height: 0.8;
-	font-variation-settings: var(--text-big-bold);
-	display: flex;
-
-	//flex-grow: 1;
-
-	align-items: center;
-	justify-content: center;
-	width: var(--touch-target-large);
-	height: var(--touch-target-large);
-	padding: 0;
-	text-transform: uppercase;
-	// in case ever have more than just 2 tabs
-	&:not(:first-child) {
-		//box-shadow: -1px 0 #000;
-		order: 99;
+.dropzone--logo {
+	position: absolute;
+	//width: 7.2rem;
+	//height: 7.2rem;
+	width: 50%;
+	height: 50%;
+	//z-index: 9999;
+	&.top {
+		top: 0;
 	}
-	&[aria-selected="true"] {
-		background: royalblue;
-		color: #fff;
-		pointer-events: none;
+	&.right {
+		right: 0;
 	}
-	&[aria-selected="false"] {
-		background: var(--grey-for-controls);
-		//color: #fff;
-		//pointer-events: none;
+	&.bottom {
+		bottom: 0;
 	}
-}
-
-[data-input="range"] {
-	padding-top: 0;
-	padding-bottom: 0;
-}
-
-.showOnlyForSelectedTab {
-	display: none;
-	align-items: center;
-	//flex-shrink: 0;
-	// after flex-grow 1 OR width 100% here, there is some gap thatS letting a tap click through and zoom on iOS... grrr
-	//flex-grow: 1;
-	//width: 100%;
-	background-color: royalblue;
-	[aria-selected="true"] + & {
-		display: flex;
+	&.left {
+		left: 0;
 	}
-	&:last-of-type {
-		justify-content: flex-end;
+	.figure--logo {
+		right: inherit;
+		bottom: inherit;
+	}
+	.gu-unselectable & {
+		z-index: 9999;
 	}
 }
 </style>

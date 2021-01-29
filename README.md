@@ -2,10 +2,186 @@
 
 ## To Do
 
-definitely redo the color picker with vanialla colorful: https://web-padawan.github.io/vanilla-colorful/
+proving injecting all over the place so you don't have to think about tree is apparently slow, just like using \$root. My application is SUPER small though, and using Vuex for like 20 fields doesn't feel proprtionate to me.
 
+move stepper/incrementer to own component
+
+front default color is so close to active tab button color that they misleadingly appear to be actions
+
+move color picker to own component
+
+modularize l2 controls
+
+since need option to hide logo, i might need to retore the toggle menu like the one on the image...
+
+is the app getting slow?
+
+doing show/hide button through the model ends up being pretty slow -- it hyfrates everything again... laggy experience...
+
+photograph grip of easton bat downstairs
+also maybe consider wood grain...
+
+position of char countesr
+
+text sliders filters drag drop -- these all compete for the same box and maybe they should each ensure they're the only one open... if user selects a textbox while image filters are open, i don't just want everything to close -- and currently those steps end up with both of them open.
+
+tap highlight selected color on radio buttons image filters
+
+or a universal background button that forces any/all controls to close... hmmmm
+
+the fab button close i think could be forced into a full screen thing that you'd necessarl click uopn... Popovers come with a tad too much associated work, which is self -defeating
+
+the ion-popover sees pretty expensive in that itS adding/removing dom elements -- better just to toggle visibility (which I had been doing with fab button) and add click outside to close...
+
+if popover is open, prevent another one from opening... the inputs in the popover content are spawning thir own popovers
+
+z-index "logical" property classes like "nothingElseEverAbove" and "justBarelyEnough" or something...
+
+if painters tape is ok (seems maybe too much) then override ion custom properties because shadow dom
+
+strip out ionrange in favor of good ol' range...
+
+having zoom issues -- is that why the viewport was so hard coded before? Way too wasy to accidently zoom in and then next to pimpossible to zoom out
+
+gradugula start stop mouse stuff maybe a hdnler that makes body overflow hidden?
+
+app itself could use darkmode -- wouldnt' be too cmplicated...
+
+on iphone 5 front almost fits -- need to reduce controls touch targets i think to 4rem. Again for iphone5, Shorten L1 (and L2) to 48px
+
+again how do i represent landscape orientation card on tight portrait screen like iphone 5?
+
+snimstion styles alraedy in place -- but hidden tho on tabs will have to be replaced pronto. It is a rewarding effect i think.
+rotation is cool and rewarding, but i don't want to get stuck on it right now i don't think
+
+char counter for textareas? Should be dead simple, even via focus psudeo element that gets its content from a data attr bound to that field's length
+
+qhat does 0 seasons and 0 stats look like?
+
+prevent click on logo so only long press works? Doesn't work. Oh well it was a bad idea anyway
+
+also it flashes -- i can improve this AND move the function to a parent to be shared by children. setTimeout is working and my first couple attempts at using nexttick haven't succeeded... Improve space replacement and also worst case stop importing nexttick. paste is actually working but it only applies to text that is already present... \*you can test this by pasting a coupe times -- you'll see previously pasted text gets its breaks removed. works on paste -- but on paste, maybe returns should be made into spaces insread of ignored. cyrrently on input event -- should it be only enter and paste? No maybe there's some other magic way to sneak in text...Lazy? Can I show user its not allowed?
+since i'm passing value through vue i should be able to do somehting to it indeed like with computed or a trim method or something
+should i consider disableing enter key? But wouldn't copy paste still do it? Yeah copy/paste does it anyway so...
+
+--5
+
+use v-model.lazy where snesible (not point updating the model every character right?)
+
+prune unused css vars, especially from index.html
+
+style aside text max-height by orieintation. Do it via a var scoped to horizontal.
+
+for aside textarea and footer textarea, can i make 280 chars work? That would allow tweets as content
+
+reconsider placeholder rather tahn content, you know? Less work for user.
+
+universal tightening down to phone x? For landscape orientation that is
+
+async await for data call
+
+splash images inflated this project by 400%. improve asap
+
+android icons i think are default capacitor/ionic and need to be changed via command line:
+
+grain _could_ be a slider
+
+do i need to use ion page? eventually i will want routes but for now?
+
+need to re-tabulate after addition/removal of years
+
+i need to sketch out card back layouts simple, imperatiev -- right now, i'm kinda stuggling against my own code -- heh
+
+not really using define component... just using options api
+
+removing stat columns can be done super hackily by just hiding.
+
+but for chainging number of years, the tabulation for a column need to factor out the "removed" year.
+
+and remember, avoiding a loop within a loop could be important because time complexity. Seems so tempting but for now keeping rows distinct has its simpicity advantage.
+
+So, since this will prob need a function anyway, maybe show/hiding columns with css is too lazy. What happens to the model? Yeah, don't delete or clear field. Just use attributes somehow (disabled or something?).
+
+range -=- make circle target bigger (and still thinking through whther to have that circle be a baseball (could also be route-based, football, baketball, etc.))
+
+on ios the columns are chaing width based on input -- eitther that's a specific thing to address, or maybe something i just screwed up when making those into loops
+
+center Career Highlights aside headline when horiztontal nowrap. I think. Maybe always and this should just stretch so the cetering looks complete... so yeah maybe undo that left align
+
+refactor/rename cardfront so CardBack is a proper sibling
+
+beers and pot cards.
+
+standardize card alignment across tabs. Because layout is different, styles are different. Standardize in practical way. Consider flip.
+
+the fab button might not haev been a well thought out choice because i want clicking outside of the card itself to close -- wasnt this my focus within? Ugh.
+POPOVER might be a better choice...
+
+can probably pass in belnd mode as argument to gain filterr so only need 1 filter... seems like a good Vueish task
+
+consider an additional poterization filter or two with more colors, represening printable gamut improvements
+
+hard to access all text sliders when keyboard is open, and we do want the keyboard to open. So tighten up vertical spcing and text eac row on each layout
+
+logo hide feature.
+
+random thought that may not be useful -- consider logo as a floating action button. One prob though i could see would be to drag it while it's open. Might be weird in transit (though i can keep specific hidden during drag)
+
+FAB now centered in middle design row, which is where it needs for layout purposes.
+
+filters:
+icon turn back clock?
+
+- grain from https://codepen.io/stoumann/pen/MWeNmyb
+- or dust from https://yoksel.github.io/svg-filters/#/presets/dust
+- old times from https://kazzkiq.github.io/svg-color-filter/
+- slight pixel shift as in https://codepen.io/inegoita/pen/WNQJyro
+
+mutlicolumn select (or whichever the exact ionic comonent is, could be perfect for stat type/year (although))
+
+for year(s), could be multi-select: Multiple Selection hmmm
+
+might be safer to use ionic vue's "Reorder" drag drop...
+maybe cobine with backdrop (even if transpparent) to prevent scroll while dragging
+
+ok on mobile safari, focusing input at bottom correctly scrolls down... Need more testing with native app maybe... need to sketch this out.
+
+Ideally, dragula wouldn't activate until that long press haptic -- it behaves correctly then...
+
+long press only for dragula? that's when it works best without intervention. Do I have browser level access to that event? i must...
+
+it's a bit fiddly adjusting font variations and text -- there is a focus within nconsistency perhaps.
+logo overlaps the focus ui
+
+height media queries so taller phones get bigger touch targets -- will help allow ficing the position i think/hope
+
+drag/drop scroll up down fix
+
+is there layout topRight stuff i can comment out now that drag and drop is in place?
+
+better maybe to write down layout & dimensions and re-write becasue the small thing i'm looking
+
+although culprit may be a combination of top padding and input height... still a refacotr, even with consistent explictness, might be less
+
+how to implement Hide logo? Maybe it's an option on click?
+
+it's row middle for design that changes heoght --
+
+from 416(good) to to 434 (bad)
 at present changing layout impacts image zoom/fir
-file upload buttons need their associated inputs in place (i may have snipped them), and handlers
+which should it be 504 or 520? 504 is correct
+
+dropzones work but need to set to 50%
+dragging logo works -- simplest to create drop zones? Maybe
+and is this Vue safe??? Sketch this out? dropzones should be quartered -- quadrant -- 4 and you only have to cross threshold for logo to be snapped into correct location
+
+async await-ify the fetch
+
+since main tagert is now apps, is the savings of Anybody worth more than some more perfect yet larger variable typeface (iuncluding ones previously used in this project)
+
+migrate the fetch api function(s) / with dummy endpoint
+
+definitely redo the color picker with vanialla colorful: https://web-padawan.github.io/vanilla-colorful/
 
 on larger screens, background could be a plastic sheet of cards
 
@@ -80,14 +256,9 @@ focus styles on the cardfront/cardback buttons
 
 slight gap in image editing fielset legends
 
-work on filters -- for instances, faded doesnt do anything i don't think on a photo user uploads -- seems broken...
-and 1920 -- is that accurate? Can I offer at least 2 decacde filters? Maybe using more svgs than css filters, although...
-
 if overlay color picker with same texture it'll match: if top were 44 and L2 60 -- that saves lkike 18px and we're halfway there... But can't quite get all the way there, user may have to scroll anyway and effort to achieve questionable benefit for subset of users with tiny screens who resent scrolling? Not a good use of time... Scrolling is good and fine... Maybe sticky could be cool...
 
 on iphone 5, for instance, any way we can ensure the bottommost text row shows? We're short like 48 px
-
-nov 6 demo 2 (if people are in good mood after election)
 
 be wary of current color on placeholder logo until you're ready to offer that deature to user (might not want to default to it since a user's logo may already have its own border) -- would be a good feature but v2? I really like the effect though. If...
 
@@ -240,6 +411,16 @@ after editing career highlights, sometimes hard ot click table stats without tri
 ---
 
 ### Notes
+
+wrning not error:
+
+WARNING Compiled with 1 warnings 5:18:40 AM
+
+warning in ./node_modules/@ionic/vue/dist/index.js
+
+"export 'useRoute' was not found in 'vue-router'
+
+to remove router from dependencies must i drop ion page? hmmm...
 
 The Anybody font is a HUGE win. Credit goes to etceteratype and to the github commit's of sursly (https://github.com/sursly). Saved 881kb and now my overall proj is down to like 230 kb before images, or down to 120kbb bortli before images...
 
@@ -479,7 +660,6 @@ consider extending thead and tfoot (if possible) so there's no visual margin bet
   -- school photo option ( cash money )
   -- birth announcements
 
---> improve filters with before and after
 -- reduce CLS (see notes)
 
 --> and do i really need to be passing props the way I am in terms of binding :stlye? Well, for scoping reasons it makes sense, for instance with text fields that can be independtly named but we want json to be same. But for some universal variables at the card top, is that inline style actually required? Reactivity i believe is already being achieved.
@@ -565,8 +745,6 @@ some font options look kinda frail... plus grade and weight aren't orthogonal...
 
 --> can we move delete image(s) option to v2?
 
--> the buttons for filters could be previews of the larger image with th filters applied. That would be really cool and throetically not hard to do as long as it could be performant
-
 - for imperfections, look at the card condition rating service details
 
 -- could offer duotone filter
@@ -584,13 +762,6 @@ stats should allow year range like 1997-2009
 --> image editing controls (and others) could "take-over" the 1st & 2nd level control area (either via overlay or actual live region)
 
 --> ability to save card easily and load so you can make multiple without losing work
-
---> re-consider whther filters should be applied to logo and player images SEPARATELY, or together. TOGETHER I thinK for v1.
-
---> more CSS filters like Instagram: http://www.cssco.co/
-https://una.im/CSSgram/
-
---> texture paper: https://yoksel.github.io/svg-filters/#/presets/paper
 
 --> consider hashes/routes to preserve the Back-button functionality some users rely on to escape a menu.
 
