@@ -17,10 +17,7 @@
 </template>
 
 <script>
-//import { onMounted } from "vue";
-
 //import { set } from "idb-keyval";
-//import TextSlider from "./InputChildComponents/TextSlider.vue";
 import TableStats from "./backcomponents/TableStats.vue";
 import BackHeader from "./backcomponents/BackHeader.vue";
 import BackFooter from "./backcomponents/BackFooter.vue";
@@ -29,31 +26,12 @@ import AsideFacts from "./backcomponents/AsideFacts.vue";
 export default {
 	name: "CardBack",
 	components: {
-		//TextSlider,
 		TableStats,
 		BackHeader,
 		BackFooter,
 		AsideFacts,
 	},
 	props: ["gumShowing", "backOrient", "numOfYears", "numOfStats"],
-	//setup() {
-	//  setFunc();
-	// return { setFunc };
-	//},
-	data() {
-		return {
-			//optsBack: {
-			//backOrient: "horizontal",
-			//backgroundColor: "#9a8b7c",
-			//gumShowing: "gumShowing",
-			// },
-		};
-	},
-	mounted() {
-		console.log(this.$store.state.count);
-		this.$store.commit("increment");
-		console.log(this.$store.state.count);
-	},
 };
 </script>
 

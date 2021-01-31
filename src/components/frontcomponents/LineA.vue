@@ -2,7 +2,7 @@
 	<h2 class="cf__h2" :style="fontAxes">
 		<input
 			class=""
-			v-model.trim="words"
+			v-model.trim.lazy="words"
 			type="text"
 			placeholder
 			maxlength="42"
@@ -10,9 +10,9 @@
 		/>
 		<!-- much less complex than creating reactive obj i think -->
 		<TextSliders
-			v-model:fontWght="fontWght"
-			v-model:fontWidth="fontWidth"
-			v-model:fontSlant="fontSlant"
+			v-model:fontWght.lazy="fontWght"
+			v-model:fontWidth.lazy="fontWidth"
+			v-model:fontSlant.lazy="fontSlant"
 			:fontWghtMin="150"
 			:fontWidthMax="150"
 		></TextSliders>
@@ -27,7 +27,7 @@ export default {
 	components: { TextSliders },
 	data() {
 		return {
-			words: "Mudville Madcats",
+			//words: "Mudville Madcats",
 			fontWght: 600,
 			fontWidth: 125,
 			fontSlant: 0,
@@ -40,6 +40,15 @@ export default {
 				"--fontwidth": this.fontWidth,
 				"--fontslant": this.fontSlant,
 			};
+		},
+		words: {
+			get() {
+				return this.$store.state.kwijibo;
+			},
+			set(payload) {
+				this.$store.commit("update", payload);
+				console.log(this.$store.state.kwijibo);
+			},
 		},
 	},
 };

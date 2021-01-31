@@ -84,8 +84,8 @@ export default defineComponent({
 		pointer-events: none;
 	}
 	&[aria-selected="false"] {
-		background: var(--grey-for-controls);
-		//color: #fff;
+		background: #fff;
+		color: royalblue;
 		//pointer-events: none;
 	}
 }

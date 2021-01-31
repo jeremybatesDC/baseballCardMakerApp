@@ -27,10 +27,14 @@ import "./globalStyles/animation.scss";
 const store = createStore({
 	state() {
 		return {
-			count: 0
+			count: 0,
+			kwijibo: "Homer"
 		}
 	},
 	mutations: {
+		update(state: any, payloadString: string) {
+			state.kwijibo = payloadString
+		},
 		increment(state: any) {
 			state.count++
 		}

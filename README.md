@@ -2,6 +2,14 @@
 
 ## To Do
 
+since lazy seems to be working in LineA -- confirm and use on other Lines -- and consider if that organization still makes sense given simplifed data flow with vuex
+
+the get/set pattern i'm using in LineA seems pretty darn straightforawrd -- not sure why it's not the first approach the vuex docs recommend (rather than jus tbeing mentioned at bottom of https://next.vuex.vuejs.org/guide/forms.html)
+
+best practice for v-model lazy or whatever in child component with store. Computed i think is recommended?
+
+my main file -- is it locked in as ts? It's fine as long as i didn't do that remanimg myself thinking i was actually going to embrace ts...
+
 move stepper/incrementer to own component
 
 front default color is so close to active tab button color that they misleadingly appear to be actions
