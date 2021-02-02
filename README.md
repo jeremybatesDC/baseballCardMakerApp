@@ -2,6 +2,8 @@
 
 ## To Do
 
+advantage vuex brings in terms of ability to reason about data is huge and really i think here the deciding factor for me.
+
 i think what makse things slow is dev tools and/or vue dev toosl in particular? When i closed them this became quick again
 
 radio buttons for front layout now flow through Vuex. Maybe slower?
