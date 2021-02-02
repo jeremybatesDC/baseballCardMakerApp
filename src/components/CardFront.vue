@@ -128,7 +128,7 @@
 			>
 				<div class="controls--l2 l2--front">
 					<div class="row">
-						<RadiosLayout v-model:frontLayout="frontLayout"></RadiosLayout>
+						<RadiosLayout></RadiosLayout>
 						<label slot="start" class="rangeUI__label">
 							<span class="absolute text-vertical">Curve </span>
 							<input
@@ -149,7 +149,10 @@
 				>
 					<div
 						class="card__container card__container--front"
-						:class="[frontLayout, cardDesign.playerImageBleedOrBoxed]"
+						:class="[
+							this.$store.state.layoutFront,
+							cardDesign.playerImageBleedOrBoxed,
+						]"
 					>
 						<div class="text__line--first row">
 							<LineA></LineA>
@@ -297,7 +300,7 @@ export default {
 	data() {
 		return {
 			frontShowing: true,
-			frontLayout: "oneone",
+
 			backOrient: "horizontal",
 			gumShowing: "gumShowing",
 			imgFiltersShowing: false,

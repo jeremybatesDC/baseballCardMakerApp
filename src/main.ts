@@ -28,12 +28,31 @@ const store = createStore({
 	state() {
 		return {
 			count: 0,
-			kwijibo: "Homer"
+			layoutFront: "oneone",
+			textLineA: "Burger King Rangers",
+			textLineB: "Jeremy Bates",
+			textLineC: "Dad, Pitcher",
+			lineAfontWght: 600
+
 		}
 	},
 	mutations: {
-		update(state: any, payloadString: string) {
-			state.kwijibo = payloadString
+		updateLineA(state: any, payload: string) {
+			state.textLineA = payload
+		},
+		updateLineB(state: any, payload: string) {
+			state.textLineB = payload
+		},
+		updateLineC(state: any, payload: string) {
+			state.textLineC = payload
+		},
+		updateLayoutFront(state: any, payload: string) {
+			state.layoutFront = payload
+			console.log(state.layoutFront)
+		},
+		updateLineX(state: any, payload: any) {
+			console.log(payload)
+			state[`${payload.fieldname}`] = payload.fieldname
 		},
 		increment(state: any) {
 			state.count++

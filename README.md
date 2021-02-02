@@ -2,6 +2,16 @@
 
 ## To Do
 
+i think what makse things slow is dev tools and/or vue dev toosl in particular? When i closed them this became quick again
+
+radio buttons for front layout now flow through Vuex. Maybe slower?
+
+toggling image filters can be done now same way as tabs -- using :attrs in the html -- no need for a function at all
+
+is this just my chrome dev environment that slows down? laggy sliders are a deal breaker
+
+ok is there a sensible time to save text slider values? A dead lock with the store seems like a TON of work that can be avoided. User can achieve visual style, and maybe even after LAZY (like on blur, or just every 30 seconds or whatever) -- and then app can save that field's data to store while user has moved to next thing
+
 since lazy seems to be working in LineA -- confirm and use on other Lines -- and consider if that organization still makes sense given simplifed data flow with vuex
 
 the get/set pattern i'm using in LineA seems pretty darn straightforawrd -- not sure why it's not the first approach the vuex docs recommend (rather than jus tbeing mentioned at bottom of https://next.vuex.vuejs.org/guide/forms.html)

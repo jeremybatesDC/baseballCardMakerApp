@@ -2,16 +2,16 @@
 	<h3 :style="fontAxes" class="cf__h3">
 		<input
 			class=""
-			v-model.trim="words"
+			v-model.trim.lazy="words"
 			type="text"
 			placeholder
 			maxlength="48"
 			spellcheck="false"
 		/>
 		<TextSliders
-			v-model:fontWght="fontWght"
-			v-model:fontWidth="fontWidth"
-			v-model:fontSlant="fontSlant"
+			v-model:fontWght.number="fontWght"
+			v-model:fontWidth.number="fontWidth"
+			v-model:fontSlant.number="fontSlant"
 			:fontWidthMax="90"
 			:fontWghtMin="150"
 		></TextSliders>
@@ -26,7 +26,6 @@ export default {
 	components: { TextSliders },
 	data() {
 		return {
-			words: "Dad, Pitcher",
 			fontWght: 250,
 			fontWidth: 85,
 			fontSlant: -5,
@@ -39,6 +38,14 @@ export default {
 				"--fontwidth": this.fontWidth,
 				"--fontslant": this.fontSlant,
 			};
+		},
+		words: {
+			get() {
+				return this.$store.state.textLineC;
+			},
+			set(payload) {
+				this.$store.commit("updateLineC", payload);
+			},
 		},
 	},
 };

@@ -4,15 +4,13 @@
 			Layout
 		</legend>
 		<div class="radioBtns__wrapper--inner">
-			<!-- CAREFUL OF THIS HACKY MANUAL CHECKED -->
 			<label class="radioBtns__label">
 				<input
 					type="radio"
-					checked
 					class="radioBtns__input hidden--visually"
 					value="oneone"
 					name="frontLayout"
-					@change="$emit('update:frontLayout', $event.target.value)"
+					v-model="layoutFront"
 				/>
 				<span
 					><svg width="32" height="32" viewBox="0 0 32 32">
@@ -26,7 +24,7 @@
 					class="radioBtns__input hidden--visually"
 					value="zerotwo"
 					name="frontLayout"
-					@change="$emit('update:frontLayout', $event.target.value)"
+					v-model="layoutFront"
 				/>
 				<span
 					><svg viewBox="0 0 32 32" width="32" height="32">
@@ -40,7 +38,7 @@
 					class="radioBtns__input hidden--visually"
 					value="twozero"
 					name="frontLayout"
-					@change="$emit('update:frontLayout', $event.target.value)"
+					v-model="layoutFront"
 				/>
 				<span
 					><svg viewBox="0 0 32 32" width="32" height="32">
@@ -53,8 +51,15 @@
 
 <script>
 export default {
-	name: "RadiosLayout",
-	props: ["frontLayout"],
-	emits: ["update:frontLayout"],
+	computed: {
+		layoutFront: {
+			get() {
+				return this.$store.state.layoutFront;
+			},
+			set(payload) {
+				this.$store.commit("updateLayoutFront", payload);
+			},
+		},
+	},
 };
 </script>

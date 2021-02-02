@@ -10,9 +10,9 @@
 		/>
 		<!-- much less complex than creating reactive obj i think -->
 		<TextSliders
-			v-model:fontWght.lazy="fontWght"
-			v-model:fontWidth.lazy="fontWidth"
-			v-model:fontSlant.lazy="fontSlant"
+			v-model:fontWght.number="fontWght"
+			v-model:fontWidth.number="fontWidth"
+			v-model:fontSlant.number="fontSlant"
 			:fontWghtMin="150"
 			:fontWidthMax="150"
 		></TextSliders>
@@ -27,7 +27,6 @@ export default {
 	components: { TextSliders },
 	data() {
 		return {
-			//words: "Mudville Madcats",
 			fontWght: 600,
 			fontWidth: 125,
 			fontSlant: 0,
@@ -43,11 +42,10 @@ export default {
 		},
 		words: {
 			get() {
-				return this.$store.state.kwijibo;
+				return this.$store.state.textLineA;
 			},
 			set(payload) {
-				this.$store.commit("update", payload);
-				console.log(this.$store.state.kwijibo);
+				this.$store.commit("updateLineA", payload);
 			},
 		},
 	},
