@@ -1,11 +1,13 @@
 <template>
 	<ion-app>
-		<CardFront></CardFront>
+		<ion-page data-page>
+			<CardFront></CardFront>
+		</ion-page>
 	</ion-app>
 </template>
 
 <script>
-import { IonApp } from "@ionic/vue";
+import { IonApp, IonPage } from "@ionic/vue";
 import CardFront from "./components/CardFront";
 import { defineComponent } from "vue";
 
@@ -13,6 +15,8 @@ export default defineComponent({
 	name: "App",
 	components: {
 		IonApp,
+		IonPage,
+
 		CardFront,
 	},
 	data() {

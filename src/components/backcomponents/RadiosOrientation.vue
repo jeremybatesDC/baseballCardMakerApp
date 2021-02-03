@@ -12,7 +12,7 @@
 					class="radioBtns__input hidden--visually"
 					name="backOrient"
 					value="horizontal"
-					@change="$emit('update:backOrient', $event.target.value)"
+					v-model="layoutBack"
 				/>
 				<span
 					><svg width="32" height="32" viewBox="0 0 32 32">
@@ -26,7 +26,7 @@
 					class="radioBtns__input hidden--visually"
 					name="backOrient"
 					value="vertical"
-					@change="$emit('update:backOrient', $event.target.value)"
+					v-model="layoutBack"
 				/>
 				<span
 					><svg width="32" height="32" viewBox="0 0 32 32">
@@ -39,15 +39,15 @@
 
 <script>
 export default {
-	name: "RadiosOrientation",
-	//components: {  },
-	//data() {
-	//	return {
-	//
-	//	};
-	//},
-	props: ["backOrient"],
-	emits: ["update:backOrient"],
-	//computed: {},
+	computed: {
+		layoutBack: {
+			get() {
+				return this.$store.state.layoutFront;
+			},
+			set(payload) {
+				this.$store.commit("updateLayoutBack", payload);
+			},
+		},
+	},
 };
 </script>

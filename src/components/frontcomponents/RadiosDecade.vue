@@ -10,9 +10,9 @@
 					checked
 					type="radio"
 					class="radioBtns__input hidden--visually"
-					@change="$emit('update:playerImageFilterEffect', $event.target.value)"
 					name="playerImageFilterEffect"
 					value="noFilterEffect"
+					v-model="decade"
 				/>
 				<span>NONE</span>
 			</label>
@@ -21,9 +21,9 @@
 				<input
 					type="radio"
 					class="radioBtns__input hidden--visually"
-					@change="$emit('update:playerImageFilterEffect', $event.target.value)"
 					name="playerImageFilterEffect"
 					value="filter1940s"
+					v-model="decade"
 				/>
 				<span class="decadeFilters__span">1940s</span>
 			</label>
@@ -32,9 +32,9 @@
 				<input
 					type="radio"
 					class="radioBtns__input hidden--visually"
-					@change="$emit('update:playerImageFilterEffect', $event.target.value)"
 					name="playerImageFilterEffect"
 					value="filter1950s"
+					v-model="decade"
 				/>
 				<span class="decadeFilters__span">1950s</span>
 			</label>
@@ -43,9 +43,9 @@
 				<input
 					type="radio"
 					class="radioBtns__input hidden--visually"
-					@change="$emit('update:playerImageFilterEffect', $event.target.value)"
 					name="playerImageFilterEffect"
 					value="filter1960s"
+					v-model="decade"
 				/>
 				<span class="decadeFilters__span">1960s</span>
 			</label>
@@ -53,9 +53,9 @@
 				<input
 					type="radio"
 					class="radioBtns__input hidden--visually"
-					@change="$emit('update:playerImageFilterEffect', $event.target.value)"
 					name="playerImageFilterEffect"
 					value="filter1970s"
+					v-model="decade"
 				/>
 				<span class="decadeFilters__span">1970s</span>
 			</label>
@@ -65,8 +65,15 @@
 
 <script>
 export default {
-	name: "RadiosDecade",
-	props: ["playerImageFilterEffect"],
-	emits: ["update:playerImageFilterEffect"],
+	computed: {
+		decade: {
+			get() {
+				return this.$store.state.decadeFilter;
+			},
+			set(payload) {
+				this.$store.commit("updateDecadeFilter", payload);
+			},
+		},
+	},
 };
 </script>

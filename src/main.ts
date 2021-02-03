@@ -29,14 +29,20 @@ const store = createStore({
 		return {
 			count: 0,
 			layoutFront: "oneone",
+			decadeFilter: "",
 			textLineA: "Burger King Rangers",
 			textLineB: "Jeremy Bates",
 			textLineC: "Dad, Pitcher",
-			lineAfontWght: 600
+			lineAfontWght: 600,
+			gumShowing: "gumShowing",
+			layoutBack: "horizontal",
 
 		}
 	},
 	mutations: {
+		updateDecadeFiler(state: any, payload: string) {
+			state.decadeFilter = payload
+		},
 		updateLineA(state: any, payload: string) {
 			state.textLineA = payload
 		},
@@ -48,15 +54,14 @@ const store = createStore({
 		},
 		updateLayoutFront(state: any, payload: string) {
 			state.layoutFront = payload
-			console.log(state.layoutFront)
 		},
-		updateLineX(state: any, payload: any) {
-			console.log(payload)
-			state[`${payload.fieldname}`] = payload.fieldname
+		updateLayoutBack(state: any, payload: string) {
+			state.layoutBack = payload
 		},
-		increment(state: any) {
-			state.count++
-		}
+		updateGumShowing(state: any, payload: string) {
+			console.log(payload);
+			state.gumShowing = payload
+		},
 	}
 })
 

@@ -8,11 +8,10 @@
 				<!-- hacky checked -->
 				<input
 					type="radio"
-					checked
 					class="radioBtns__input hidden--visually"
 					name="gumradio"
 					value="gumShowing"
-					@change="$emit('update:gumShowing', $event.target.value)"
+					v-model="gum"
 				/>
 				<span>Show</span>
 			</label>
@@ -23,7 +22,7 @@
 					class="radioBtns__input hidden--visually"
 					name="gumradio"
 					value="gumHidden"
-					@change="$emit('update:gumShowing', $event.target.value)"
+					v-model="gum"
 				/>
 				<span>Hide</span>
 			</label>
@@ -33,8 +32,15 @@
 
 <script>
 export default {
-	name: "RadiosGum",
-	props: ["gumShowing"],
-	emits: ["update:gumShowing"],
+	computed: {
+		gum: {
+			get() {
+				return this.$store.state.gumShowing;
+			},
+			set(payload) {
+				this.$store.commit("updateGumShowing", payload);
+			},
+		},
+	},
 };
 </script>

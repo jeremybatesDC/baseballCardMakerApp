@@ -1,10 +1,16 @@
 <template>
+	<div class="controls--l2 l2--back">
+		<div class="row space-around height--100">
+			<RadiosOrientation></RadiosOrientation>
+			<RadiosGum></RadiosGum>
+		</div>
+	</div>
 	<div class="cardBack__wrapper--outermost">
 		<div
 			class="card__container card-back"
-			:data-card-back-orientation="backOrient"
+			:data-card-back-orientation="orientation"
 		>
-			<article :data-gum="gumShowing" class="card-back__article">
+			<article :data-gum="gum" class="card-back__article">
 				<BackHeader />
 				<section class="card-back__section">
 					<TableStats :numOfYears="numOfYears" :numOfStats="numOfStats" />
@@ -22,6 +28,8 @@ import TableStats from "./backcomponents/TableStats.vue";
 import BackHeader from "./backcomponents/BackHeader.vue";
 import BackFooter from "./backcomponents/BackFooter.vue";
 import AsideFacts from "./backcomponents/AsideFacts.vue";
+import RadiosOrientation from "./backcomponents/RadiosOrientation";
+import RadiosGum from "./backcomponents/RadiosGum";
 
 export default {
 	name: "CardBack",
@@ -30,8 +38,22 @@ export default {
 		BackHeader,
 		BackFooter,
 		AsideFacts,
+		RadiosOrientation,
+		RadiosGum,
 	},
-	props: ["gumShowing", "backOrient", "numOfYears", "numOfStats"],
+	props: ["backOrient", "numOfYears", "numOfStats"],
+	computed: {
+		gum: {
+			get() {
+				return this.$store.state.gumShowing;
+			},
+		},
+		orientation: {
+			get() {
+				return this.$store.state.layoutBack;
+			},
+		},
+	},
 };
 </script>
 

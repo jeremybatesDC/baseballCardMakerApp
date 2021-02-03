@@ -1,5 +1,5 @@
 <template>
-	<ion-page :style="[colorContrastVarsFront, colorContrastVarsBack]" data-page>
+	<span :style="[colorContrastVarsFront, colorContrastVarsBack]" data-page>
 		<input
 			id="playerPic"
 			ref="playerPic"
@@ -160,7 +160,7 @@
 
 						<div
 							:class="
-								`row--middle--forDesign row ${cardDesign.logoPosition} ${playerImageFilterEffect}`
+								`row--middle--forDesign row ${cardDesign.logoPosition} ${decade}`
 							"
 						>
 							<figure class="figure--player">
@@ -193,9 +193,7 @@
 								:hidden="!imgFiltersShowing"
 								aria-labelledby="imgFilters"
 							>
-								<RadiosDecade
-									v-model:playerImageFilterEffect="playerImageFilterEffect"
-								></RadiosDecade>
+								<RadiosDecade></RadiosDecade>
 							</span>
 
 							<div id="dztl" class="dz dropzone--logo top left"></div>
@@ -228,20 +226,8 @@
 				aria-labelledby="triggerBack"
 				:hidden="frontShowing"
 			>
-				<div class="controls--l2 l2--back">
-					<div class="row space-around height--100">
-						<RadiosOrientation
-							v-model:backOrient="backOrient"
-						></RadiosOrientation>
-						<RadiosGum v-model:gumShowing="gumShowing"></RadiosGum>
-					</div>
-				</div>
-
-				<!-- 					v-bind="cardBackSettings" -->
-
 				<CardBack
 					:backOrient="backOrient"
-					:gumShowing="gumShowing"
 					:numOfYears="numOfYears"
 					:numOfStats="numOfStats"
 					:data-years="numOfYears"
@@ -249,7 +235,7 @@
 				></CardBack>
 			</div>
 		</ion-content>
-	</ion-page>
+	</span>
 </template>
 
 <script>
@@ -269,8 +255,6 @@ import LineC from "./frontcomponents/LineC";
 import CardBack from "./CardBack";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLayout from "./frontcomponents/RadiosLayout";
-import RadiosOrientation from "./backcomponents/RadiosOrientation";
-import RadiosGum from "./backcomponents/RadiosGum";
 import StepperStats from "./backcomponents/StepperStats";
 //import ReOrder from "./frontcomponents/ReOrder";
 
@@ -284,15 +268,12 @@ export default {
 		IonHeader,
 		IonToolbar,
 		IonContent,
-		IonPage,
 		CardBack,
 		LineA,
 		LineB,
 		LineC,
 		RadiosDecade,
 		RadiosLayout,
-		RadiosOrientation,
-		RadiosGum,
 		StepperStats,
 	},
 	//setup(){
@@ -301,10 +282,7 @@ export default {
 		return {
 			frontShowing: true,
 
-			backOrient: "horizontal",
-			gumShowing: "gumShowing",
 			imgFiltersShowing: false,
-			playerImageFilterEffect: "noFilterEffect",
 			minYears: 0,
 			maxYears: 5,
 			minStats: 0,
@@ -322,7 +300,6 @@ export default {
 				cardBrightness: 1,
 				cardSepia: 0,
 				cardGrayScale: 0,
-				//playerImageFilterEffect: "noFilterEffect",
 				borderInnerCurve: 0,
 				borderInnerWidth: 3,
 				logoPosition: "bottomRight",
@@ -385,6 +362,11 @@ export default {
 		},
 	},
 	computed: {
+		decade: {
+			get() {
+				return this.$store.state.decadeFilter;
+			},
+		},
 		cssBorderInnerProps() {
 			return {
 				"--borderinnercurve": `${this.cardDesign.borderInnerCurve}px`,

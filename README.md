@@ -2,6 +2,17 @@
 
 ## To Do
 
+do a round maybe on applyin classes closer to target elements to limit reflows
+
+looks like my question is why the layoutfront one works without a get method in the computed... ok
+
+also difference binding data attr instead of class -- maybe just make it class dunno
+gum radios working but there's there's some subtle difference from the lradios layout ( i think because thre's another child relationshopi) -- so it needs refactor
+
+gum shouldn't have to flow through cardfront.
+
+why radios gum not working like radio layout? The binding in the template isn't updating... does it need to be computed?
+
 advantage vuex brings in terms of ability to reason about data is huge and really i think here the deciding factor for me.
 
 i think what makse things slow is dev tools and/or vue dev toosl in particular? When i closed them this became quick again
