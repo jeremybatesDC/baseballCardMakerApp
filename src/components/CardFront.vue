@@ -1,241 +1,180 @@
 <template>
-	<span :style="[colorContrastVarsFront, colorContrastVarsBack]" data-page>
-		<input
-			id="playerPic"
-			ref="playerPic"
-			name="playerPic"
-			data-which-canvas="canvasPlayer"
-			data-canvas-width="640"
-			class="hidden--visually filePicker__input"
-			type="file"
-			accept="image/*"
-			@input="encodeImage"
-		/>
-
-		<input
-			id="logoPic"
-			ref="logoPic"
-			name="logoPic"
-			data-which-canvas="canvasLogo"
-			data-canvas-width="144"
-			class="hidden--visually filePicker__input"
-			type="file"
-			accept="image/*"
-			@input="encodeImage"
-		/>
-		<ion-header>
-			<ion-toolbar color="primary" class="controls--l1">
-				<div class="tabsGood">
-					<div role="tablist" aria-label="Card Side">
-						<button
-							role="tab"
-							:aria-selected="frontShowing"
-							aria-controls="panelCardFront"
-							id="triggerFront"
-							aria-label="Front"
-							@click="frontShowing = true"
-						>
-							Card Front
-						</button>
-						<span class="showOnlyForSelectedTab">
-							<label
-								class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
-							>
-								<span>Front Color</span>
-								<input
-									class="colorPicker__input"
-									type="color"
-									v-model="cardDesign.bgcf"
-								/>
-							</label>
-							<label
-								for="playerPic"
-								class="filePicker__label filePicker__label--addPic"
-								aria-label="Upload Image"
-							>
-								<svg
-									viewBox="0 0 32 32"
-									width="32"
-									height="32"
-									fill="none"
-									stroke="currentcolor"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-								>
-									<use xlink:href="#iconportraitadd"></use>
-								</svg>
-								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
-								<span>Add <br />Pic</span>
-							</label>
-							<label
-								for="logoPic"
-								class="filePicker__label filePicker__label--addLogo"
-								aria-label="Upload Logo Image"
-							>
-								<svg
-									viewBox="0 0 32 32"
-									width="32"
-									height="32"
-									fill="none"
-									stroke="currentcolor"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-								>
-									<use xlink:href="#iconlogoadd"></use>
-								</svg>
-								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
-								<span>Add <br />Logo</span>
-							</label>
-						</span>
-						<button
-							role="tab"
-							:aria-selected="!frontShowing"
-							aria-controls="panelCardBack"
-							id="triggerBack"
-							aria-label="Back"
-							@click="frontShowing = false"
-						>
-							Card Back
-						</button>
-						<span class="showOnlyForSelectedTab">
-							<StepperStats
-								v-model:numOfStats="numOfStats"
-								v-model:numOfYears="numOfYears"
-							></StepperStats>
-							<label
-								class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
-							>
-								<span>Back Color</span>
-								<input
-									class="colorPicker__input"
-									type="color"
-									v-model="cardBackSettings.backgroundColor"
-								/> </label
-						></span>
-					</div>
-				</div>
-			</ion-toolbar>
-		</ion-header>
-		<ion-content class="contentWrapper" fullscreen>
-			<div
-				id="panelCardFront"
-				role="tabpanel"
-				class="tabpanel--front"
-				aria-labelledby="triggerFront"
-				:hidden="!frontShowing"
-			>
-				<div class="controls--l2 l2--front">
-					<div class="row">
-						<RadiosLayout></RadiosLayout>
-						<label slot="start" class="rangeUI__label">
-							<span class="absolute text-vertical">Curve </span>
-							<input
-								type="range"
-								data-input="range"
-								min="0"
-								max="24"
-								v-model.number="cardDesign.borderInnerCurve"
-							/>
-						</label>
-					</div>
-				</div>
-
-				<!-- card front -->
-				<div
-					class="cardFront__wrapper--outermost"
-					:style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
+	<div :style="[colorContrastVarsFront]" data-front>
+		<div class="controls--l1">
+			<div class="row">
+				<!--<span class="showOnlyForSelectedTab">-->
+				<label
+					class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
 				>
-					<div
-						class="card__container card__container--front"
-						:class="[
-							this.$store.state.layoutFront,
-							cardDesign.playerImageBleedOrBoxed,
-						]"
+					<span>Front Color</span>
+					<input
+						class="colorPicker__input"
+						type="color"
+						v-model="cardDesign.bgcf"
+					/>
+				</label>
+				<label
+					for="playerPic"
+					class="filePicker__label filePicker__label--addPic"
+					aria-label="Upload Image"
+				>
+					<svg
+						viewBox="0 0 32 32"
+						width="32"
+						height="32"
+						fill="none"
+						stroke="currentcolor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
 					>
-						<div class="text__line--first row">
-							<LineA></LineA>
-						</div>
+						<use xlink:href="#iconportraitadd"></use>
+					</svg>
+					<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+					<span>Add <br />Pic</span>
+				</label>
+				<label
+					for="logoPic"
+					class="filePicker__label filePicker__label--addLogo"
+					aria-label="Upload Logo Image"
+				>
+					<svg
+						viewBox="0 0 32 32"
+						width="32"
+						height="32"
+						fill="none"
+						stroke="currentcolor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+					>
+						<use xlink:href="#iconlogoadd"></use>
+					</svg>
+					<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+					<span>Add <br />Logo</span>
+				</label>
+				<!--</span> -->
+			</div>
+		</div>
 
-						<div
-							:class="
-								`row--middle--forDesign row ${cardDesign.logoPosition} ${decade}`
-							"
+		<div class="tabpanel--front" aria-labelledby="triggerFront">
+			<div class="controls--l2 l2--front">
+				<div class="row">
+					<RadiosLayout></RadiosLayout>
+					<label slot="start" class="rangeUI__label">
+						<span class="absolute text-vertical">Curve </span>
+						<input
+							type="range"
+							data-input="range"
+							min="0"
+							max="24"
+							v-model.number="cardDesign.borderInnerCurve"
+						/>
+					</label>
+				</div>
+			</div>
+
+			<!-- card front -->
+			<div
+				class="cardFront__wrapper--outermost"
+				:style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
+			>
+				<div
+					class="card__container card__container--front"
+					:class="[
+						this.$store.state.layoutFront,
+						cardDesign.playerImageBleedOrBoxed,
+					]"
+				>
+					<div class="text__line--first row">
+						<LineA></LineA>
+					</div>
+
+					<div
+						:class="
+							`row--middle--forDesign row ${cardDesign.logoPosition} ${decade}`
+						"
+					>
+						<figure class="figure--player">
+							<label class="figure--player__label" for="inputTriggerFocusUI_0">
+								<canvas
+									id="canvasPlayer"
+									class="image--player player--default"
+								></canvas>
+							</label>
+						</figure>
+
+						<!-- make rounded corner optional -->
+						<!-- using css filter drop shadow could work -->
+
+						<button
+							id="imgFilters"
+							name="imgFilters"
+							class="absolute fab__button--imgFilters"
+							aria-label="Image Filters"
+							:aria-expanded="imgFiltersShowing"
+							@click="toggleImageFilters"
+						></button>
+
+						<span
+							id="imageFilterMenu"
+							class="row align-center absolute margin--0 width--100 height--100"
+							:hidden="!imgFiltersShowing"
+							aria-labelledby="imgFilters"
 						>
-							<figure class="figure--player">
-								<label
-									class="figure--player__label"
-									for="inputTriggerFocusUI_0"
-								>
-									<canvas
-										id="canvasPlayer"
-										class="image--player player--default"
-									></canvas>
-								</label>
-							</figure>
+							<RadiosDecade></RadiosDecade>
+						</span>
 
-							<!-- make rounded corner optional -->
-							<!-- using css filter drop shadow could work -->
+						<div id="dztl" class="dz dropzone--logo top left"></div>
+						<div id="dztr" class="dz dropzone--logo top right"></div>
+						<div id="dzbl" class="dz dropzone--logo bottom left"></div>
 
-							<button
-								id="imgFilters"
-								name="imgFilters"
-								class="absolute fab__button--imgFilters"
-								aria-label="Image Filters"
-								:aria-expanded="imgFiltersShowing"
-								@click="toggleImageFilters"
-							></button>
-
-							<span
-								id="imageFilterMenu"
-								class="row align-center absolute margin--0 width--100 height--100"
-								:hidden="!imgFiltersShowing"
-								aria-labelledby="imgFilters"
+						<div id="dzbr" class="dz dropzone--logo bottom right">
+							<figure
+								class=" figure--logo"
+								v-show="cardDesign.logoPosition !== 'hideLogo'"
 							>
-								<RadiosDecade></RadiosDecade>
-							</span>
-
-							<div id="dztl" class="dz dropzone--logo top left"></div>
-							<div id="dztr" class="dz dropzone--logo top right"></div>
-							<div id="dzbl" class="dz dropzone--logo bottom left"></div>
-
-							<div id="dzbr" class="dz dropzone--logo bottom right">
-								<figure
-									class=" figure--logo"
-									v-show="cardDesign.logoPosition !== 'hideLogo'"
-								>
-									<canvas id="canvasLogo" class="image--logo logo--default">
-									</canvas>
-								</figure>
-							</div>
-						</div>
-
-						<div class="text__line--second row">
-							<LineB></LineB>
-							<LineC></LineC>
+								<canvas id="canvasLogo" class="image--logo logo--default">
+								</canvas>
+							</figure>
 						</div>
 					</div>
+
+					<div class="text__line--second row">
+						<LineB></LineB>
+						<LineC></LineC>
+					</div>
 				</div>
-				<!-- end card front-->
 			</div>
-			<div
-				id="panelCardBack"
-				role="tabpanel"
-				class="tabpanel--back"
-				aria-labelledby="triggerBack"
-				:hidden="frontShowing"
-			>
-				<CardBack
-					:backOrient="backOrient"
-					:numOfYears="numOfYears"
-					:numOfStats="numOfStats"
-					:data-years="numOfYears"
-					:data-stats="numOfStats"
-				></CardBack>
-			</div>
-		</ion-content>
-	</span>
+			<!-- end card front-->
+		</div>
+
+		<span class="hidden--visually">
+			<input
+				id="playerPic"
+				ref="playerPic"
+				name="playerPic"
+				data-which-canvas="canvasPlayer"
+				data-canvas-width="640"
+				class="hidden--visually filePicker__input"
+				type="file"
+				accept="image/*"
+				@input="encodeImage"
+			/>
+
+			<input
+				id="logoPic"
+				ref="logoPic"
+				name="logoPic"
+				data-which-canvas="canvasLogo"
+				data-canvas-width="144"
+				class="hidden--visually filePicker__input"
+				type="file"
+				accept="image/*"
+				@input="encodeImage"
+			/>
+		</span>
+	</div>
 </template>
 
 <script>
@@ -247,15 +186,13 @@ function hexToRGB(hex) {
 	];
 }
 
-import { IonHeader, IonPage, IonToolbar, IonContent } from "@ionic/vue";
+//import {  } from "@ionic/vue";
 
 import LineA from "./frontcomponents/LineA";
 import LineB from "./frontcomponents/LineB";
 import LineC from "./frontcomponents/LineC";
-import CardBack from "./CardBack";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLayout from "./frontcomponents/RadiosLayout";
-import StepperStats from "./backcomponents/StepperStats";
 //import ReOrder from "./frontcomponents/ReOrder";
 
 import Dragula from "dragula";
@@ -265,16 +202,11 @@ export default {
 
 	components: {
 		//Dragula,
-		IonHeader,
-		IonToolbar,
-		IonContent,
-		CardBack,
 		LineA,
 		LineB,
 		LineC,
 		RadiosDecade,
 		RadiosLayout,
-		StepperStats,
 	},
 	//setup(){
 	//},
@@ -383,15 +315,6 @@ export default {
 				"--bluefront": theRGB[2],
 			};
 		},
-		colorContrastVarsBack() {
-			const theRGB = hexToRGB(this.cardBackSettings.backgroundColor);
-			return {
-				"--bgcb": `rgb(${theRGB[0]},${theRGB[1]},${theRGB[2]})`,
-				"--redback": theRGB[0],
-				"--greenback": theRGB[1],
-				"--blueback": theRGB[2],
-			};
-		},
 	},
 	mounted() {
 		const dropzones = [...document.querySelectorAll(".dz")];
@@ -406,7 +329,7 @@ export default {
 </script>
 
 <style lang="scss">
-[data-page] {
+[data-front] {
 	--rfront: calc(var(--redfront) * 0.2126);
 	--gfront: calc(var(--greenfront) * 0.7152);
 	--bfront: calc(var(--bluefront) * 0.0722);
@@ -421,6 +344,8 @@ export default {
 				-10000000%
 		)
 	);
+}
+[data-back] {
 	--rback: calc(var(--redback) * 0.2126);
 	--gback: calc(var(--greenback) * 0.7152);
 	--bback: calc(var(--blueback) * 0.0722);
@@ -438,13 +363,6 @@ export default {
 
 	--logo-default: `/assets/images/logo.svg`;
 }
-//
-//.fixed--fullWidth {
-//	top: 0;
-//	left: 0;
-//	width: 100%;
-//	height: 100%;
-//}
 
 [data-input="range"] {
 	--bar-background: royalblue;

@@ -1,27 +1,77 @@
 <template>
 	<ion-app>
 		<ion-page data-page>
-			<CardFront></CardFront>
+			<ion-header>
+				<ion-toolbar color="primary" class="controls--l1">
+					<div role="tablist" aria-label="Card Side">
+						<button
+							role="tab"
+							:aria-selected="cardFrontShowing"
+							aria-controls="tabFront"
+							id="buttonShowFront"
+							aria-label="Front"
+							@click="cardFrontShowing = true"
+						>
+							Card Front
+						</button>
+						<button
+							role="tab"
+							:aria-selected="!cardFrontShowing"
+							aria-controls="tabBack"
+							id="buttonShowBack"
+							aria-label="Back"
+							@click="cardFrontShowing = false"
+						>
+							Card Back
+						</button>
+					</div>
+				</ion-toolbar>
+			</ion-header>
+			<ion-content class="contentWrapper">
+				<CardFront
+					id="tabFront"
+					role="tabpanel"
+					class="tabpanel tabpanel--front"
+					aria-labelledby="buttonShowFront"
+					:hidden="!cardFrontShowing"
+				></CardFront>
+				<CardBack
+					id="tabBack"
+					role="tabpanel"
+					class="tabpanel tabpanel--back"
+					aria-labelledby="triggerBack"
+					:hidden="cardFrontShowing"
+					:backOrient="backOrient"
+					:numOfYears="numOfYears"
+					:numOfStats="numOfStats"
+					:data-years="numOfYears"
+					:data-stats="numOfStats"
+				></CardBack>
+			</ion-content>
 		</ion-page>
 	</ion-app>
 </template>
 
 <script>
-import { IonApp, IonPage } from "@ionic/vue";
+import { IonApp, IonContent, IonHeader, IonToolbar, IonPage } from "@ionic/vue";
 import CardFront from "./components/CardFront";
-import { defineComponent } from "vue";
+import CardBack from "./components/CardBack";
 
-export default defineComponent({
+export default {
 	name: "App",
 	components: {
 		IonApp,
+		IonContent,
+		IonHeader,
+		IonToolbar,
 		IonPage,
-
 		CardFront,
+		CardBack,
 	},
 	data() {
 		return {
 			meow: "mix",
+			cardFrontShowing: true,
 		};
 	},
 	methods: {
@@ -44,14 +94,12 @@ export default defineComponent({
 	mounted() {
 		this.sendData();
 	},
-});
+};
 </script>
 
 <style lang="scss">
-#panelCardFront,
-#panelCardBack {
+[role="tabpanel"] {
 	min-height: 100%;
-	background-size: cover;
 }
 
 [role="tablist"] {

@@ -1,23 +1,40 @@
 <template>
-	<div class="controls--l2 l2--back">
-		<div class="row space-around height--100">
-			<RadiosOrientation></RadiosOrientation>
-			<RadiosGum></RadiosGum>
+	<div :style="[colorContrastVarsBack]" data-back>
+		<div class="controls--l1">
+			<div class="row">
+				<StepperStats />
+				<label
+					class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
+				>
+					<span>Back Color</span>
+					<input
+						class="colorPicker__input"
+						type="color"
+						v-model="cardBackSettings.backgroundColor"
+					/>
+				</label>
+			</div>
 		</div>
-	</div>
-	<div class="cardBack__wrapper--outermost">
-		<div
-			class="card__container card-back"
-			:data-card-back-orientation="orientation"
-		>
-			<article :data-gum="gum" class="card-back__article">
-				<BackHeader />
-				<section class="card-back__section">
-					<TableStats :numOfYears="numOfYears" :numOfStats="numOfStats" />
-					<AsideFacts />
-				</section>
-				<BackFooter />
-			</article>
+		<div class="controls--l2 l2--back">
+			<div class="row space-around height--100">
+				<RadiosOrientation />
+				<RadiosGum />
+			</div>
+		</div>
+		<div class="cardBack__wrapper--outermost">
+			<div
+				class="card__container card-back"
+				:data-card-back-orientation="orientation"
+			>
+				<article :data-gum="gum" class="card-back__article">
+					<BackHeader />
+					<section class="card-back__section">
+						<TableStats />
+						<AsideFacts />
+					</section>
+					<BackFooter />
+				</article>
+			</div>
 		</div>
 	</div>
 </template>
@@ -30,6 +47,15 @@ import BackFooter from "./backcomponents/BackFooter.vue";
 import AsideFacts from "./backcomponents/AsideFacts.vue";
 import RadiosOrientation from "./backcomponents/RadiosOrientation";
 import RadiosGum from "./backcomponents/RadiosGum";
+import StepperStats from "./backcomponents/StepperStats";
+
+function hexToRGB(hex) {
+	return [
+		parseInt("0x" + hex[1] + hex[2]),
+		parseInt("0x" + hex[3] + hex[4]),
+		parseInt("0x" + hex[5] + hex[6]),
+	];
+}
 
 export default {
 	name: "CardBack",
@@ -40,6 +66,16 @@ export default {
 		AsideFacts,
 		RadiosOrientation,
 		RadiosGum,
+		StepperStats,
+	},
+	data() {
+		return {
+			cardBackSettings: {
+				//backOrient: "horizontal",
+				backgroundColor: "#9a8b7c",
+				//gumShowing: "gumShowing",
+			},
+		};
 	},
 	props: ["backOrient", "numOfYears", "numOfStats"],
 	computed: {
@@ -52,6 +88,15 @@ export default {
 			get() {
 				return this.$store.state.layoutBack;
 			},
+		},
+		colorContrastVarsBack() {
+			const theRGB = hexToRGB(this.cardBackSettings.backgroundColor);
+			return {
+				"--bgcb": `rgb(${theRGB[0]},${theRGB[1]},${theRGB[2]})`,
+				"--redback": theRGB[0],
+				"--greenback": theRGB[1],
+				"--blueback": theRGB[2],
+			};
 		},
 	},
 };

@@ -2,6 +2,25 @@
 
 ## To Do
 
+need to share hexToRGB function
+also need to share the textarea stuff i think
+
+stat steppers working now too
+
+year steppers working -- stats is a bit different -- and don't i just hide it with CSS? Reason is want to avoid mixing v-if and v-for -- def not supposed to put an if inside a for.
+
+steppers: prevent slight resize based on char with -- use tabular font formatting at least, then maybe a minumum with of 2ch or something
+
+i think in a couple places i might not be using vuex correctly
+
+use vuex with functions (increment is the first example in the docs so is all good)
+
+card size is indeed still a bit inconsistent between front/back as best seen by vertical
+
+get steppers working now -- and then work on slottin gor whatever to RE-COOLAPSE top controls into 2 rows (exapnded to 3 rows at present for sake of organizing components)
+
+color pickers funcitoning now -- maybe blur is the appropriate event to commit to the store
+
 do a round maybe on applyin classes closer to target elements to limit reflows
 
 looks like my question is why the layoutfront one works without a get method in the computed... ok

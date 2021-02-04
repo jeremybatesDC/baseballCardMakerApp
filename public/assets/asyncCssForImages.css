@@ -1,4 +1,4 @@
-#panelCardFront,
-#panelCardBack {
+[role="tabpanel"] {
 	background-image: url(./images/cardboard.jpg);
+	background-size: cover;
 }

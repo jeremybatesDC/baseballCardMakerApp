@@ -1,16 +1,14 @@
 <template>
 	<fieldset class="step__fieldset">
 		<label for="hiddenNumInput" class="step__label"
-			>Years: <span>{{ numOfYears }}</span></label
+			>Years: <span>{{ numYears }}</span></label
 		>
 		<div class="step__wrapper--inner">
 			<button
 				type="button"
 				class="step__button"
-				:data-u-cant-click-me="numOfYears < 1"
-				data-minus-field="numOfYears"
-				@click="$emit('update:numOfYears', numOfYears - 1)"
-				:disabled="numOfYears < 1"
+				:disabled="numYears < 1"
+				@click="decrementYears"
 			>
 				<svg
 					viewBox="0 0 32 32"
@@ -29,10 +27,8 @@
 			<button
 				type="button"
 				class="step__button"
-				:data-u-cant-click-me="numOfYears > 4"
-				data-add-field="numOfYears"
-				@click="$emit('update:numOfYears', numOfYears + 1)"
-				:disabled="numOfYears > 4"
+				:disabled="numYears > 4"
+				@click="incrementYears"
 			>
 				<svg
 					viewBox="0 0 32 32"
@@ -51,16 +47,14 @@
 	</fieldset>
 	<fieldset class="step__fieldset">
 		<label for="hiddenStatsNumInput" class="step__label">
-			Stats: <span>{{ numOfStats }}</span>
+			Stats: <span>{{ numStats }}</span>
 		</label>
 		<div class="step__wrapper--inner">
 			<button
 				type="button"
 				class="step__button"
-				:data-u-cant-click-me="numOfStats < 1"
-				data-minus-field="numOfStats"
-				@click="$emit('update:numOfStats', numOfStats - 1)"
-				:disabled="numOfStats < 1"
+				:disabled="numStats < 1"
+				@click="decrementStats"
 			>
 				<svg
 					viewBox="0 0 32 32"
@@ -79,10 +73,8 @@
 			<button
 				type="button"
 				class="step__button"
-				:data-u-cant-click-me="numOfStats > 4"
-				data-add-field="numOfStats"
-				@click="$emit('update:numOfStats', numOfStats + 1)"
-				:disabled="numOfStats > 4"
+				:disabled="numStats > 4"
+				@click="incrementStats"
 			>
 				<svg
 					viewBox="0 0 32 32"
@@ -103,8 +95,31 @@
 
 <script>
 export default {
-	name: "StepperStats",
-	props: ["numOfYears", "numOfStats"],
-	emits: ["update:numOfYears", "update:numOfStats"],
+	computed: {
+		numStats: {
+			get() {
+				return this.$store.state.numOfStats;
+			},
+		},
+		numYears: {
+			get() {
+				return this.$store.state.numOfYears;
+			},
+		},
+	},
+	methods: {
+		decrementYears() {
+			this.$store.commit("decrementYears");
+		},
+		incrementYears() {
+			this.$store.commit("incrementYears");
+		},
+		decrementStats() {
+			this.$store.commit("decrementStats");
+		},
+		incrementStats() {
+			this.$store.commit("incrementStats");
+		},
+	},
 };
 </script>

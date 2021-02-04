@@ -1,7 +1,7 @@
 <template>
 	<div class="stats__wrapper--outer" @focusin="putCursorAtEnd">
 		<form class="stats__form">
-			<table class="stats__table">
+			<table class="stats__table" :data-stats="numStats">
 				<!--<caption>Career Stats</caption>-->
 				<thead class="thead--stats">
 					<tr data-row="0" class="thead__tr--stats">
@@ -19,7 +19,7 @@
 					</tr>
 				</thead>
 				<tbody class="tbody--stats">
-					<tr v-if="numOfYears > 0" data-row="1">
+					<tr v-if="numYears > 0" data-row="1">
 						<!-- making first col a TH scope row -->
 						<th scope="row" data-col="0">
 							<input
@@ -54,7 +54,7 @@
 							/>
 						</td>
 					</tr>
-					<tr v-if="numOfYears > 1" data-row="2">
+					<tr v-if="numYears > 1" data-row="2">
 						<th scope="row" data-col="0">
 							<input
 								type="tel"
@@ -90,7 +90,7 @@
 							/>
 						</td>
 					</tr>
-					<tr v-if="numOfYears > 2" data-row="3">
+					<tr v-if="numYears > 2" data-row="3">
 						<th scope="row" data-col="0">
 							<input
 								type="tel"
@@ -126,7 +126,7 @@
 							/>
 						</td>
 					</tr>
-					<tr v-if="numOfYears > 3" data-row="4">
+					<tr v-if="numYears > 3" data-row="4">
 						<th scope="row" data-col="0">
 							<input
 								type="tel"
@@ -162,7 +162,7 @@
 							/>
 						</td>
 					</tr>
-					<tr v-if="numOfYears > 4" data-row="5">
+					<tr v-if="numYears > 4" data-row="5">
 						<th scope="row" data-col="0">
 							<input
 								type="tel"
@@ -317,8 +317,18 @@ export default {
 			},
 		};
 	},
-	props: ["numOfYears", "numOfStats"],
-
+	computed: {
+		numStats: {
+			get() {
+				return this.$store.state.numOfStats;
+			},
+		},
+		numYears: {
+			get() {
+				return this.$store.state.numOfYears;
+			},
+		},
+	},
 	methods: {
 		tabulate(sumOrAvg, statCol) {
 			const rdcrSum = (acum, curVal) => {

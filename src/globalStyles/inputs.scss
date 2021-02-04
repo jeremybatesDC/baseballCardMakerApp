@@ -112,6 +112,7 @@ select {
 //}
 
 .controls--l1 {
+	background-color: royalblue;
 	//background-image: url(/assets/images/tapeblue.jpg);
 	//background-size: cover;
 }
@@ -598,14 +599,5 @@ select {
 				}
 			}
 		}
-	}
-}
-
-// but i need to disable the ENTER functionality too right?? so...
-[data-u-cant-click-me="true"] {
-	// pointer events none allows zoom
-	// pointer-events: none;
-	svg {
-		stroke: rgba(200, 200, 200, 0.5);
 	}
 }

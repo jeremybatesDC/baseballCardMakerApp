@@ -36,6 +36,9 @@ const store = createStore({
 			lineAfontWght: 600,
 			gumShowing: "gumShowing",
 			layoutBack: "horizontal",
+			bgColorBack: "#9a8b7c",
+			numOfYears: 3,
+			numOfStats: 3,
 
 		}
 	},
@@ -58,9 +61,28 @@ const store = createStore({
 		updateLayoutBack(state: any, payload: string) {
 			state.layoutBack = payload
 		},
+		updateBgColorBack(state: any, payload: any) {
+			state.bgColorBack = payload
+		},
 		updateGumShowing(state: any, payload: string) {
-			console.log(payload);
 			state.gumShowing = payload
+		},
+		decrementYears(state: any, payload: string) {
+			state.numOfYears -= 1;
+			console.log(state.numOfYears);
+		},
+		incrementYears(state: any, payload: string) {
+			state.numOfYears += 1;
+			console.log(state.numOfYears);
+
+		},
+		decrementStats(state: any, payload: string) {
+			state.numOfStats -= 1;
+			console.log(state.numOfStats);
+		},
+		incrementStats(state: any, payload: string) {
+			state.numOfStats += 1;
+			console.log(state.numOfStats);
 		},
 	}
 })
@@ -69,6 +91,3 @@ const store = createStore({
 const app = createApp(App).use(IonicVue).use(store);
 
 app.mount('#app');
-
-//router.isReady().then(() => {}
-//);
