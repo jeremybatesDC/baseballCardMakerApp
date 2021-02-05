@@ -33,7 +33,18 @@ const store = createStore({
 			textLineA: "Burger King Rangers",
 			textLineB: "Jeremy Bates",
 			textLineC: "Dad, Pitcher",
-			lineAfontWght: 600,
+			aWght: 600,
+			aWdth: 125,
+			aSlnt: 0,
+			bWght: 200,
+			bWdth: 100,
+			bSlnt: 0,
+			cWght: 250,
+			cWdth: 85,
+			cSlnt: -5,
+			dWght: 800,
+			dWdth: 90,
+			dSlnt: -10,
 			gumShowing: "gumShowing",
 			layoutBack: "horizontal",
 			bgColorBack: "#9a8b7c",
@@ -47,7 +58,8 @@ const store = createStore({
 			state.decadeFilter = payload
 		},
 		updateLineA(state: any, payload: string) {
-			state.textLineA = payload
+			state.textLineA = payload;
+			console.log(state.textLineA);
 		},
 		updateLineB(state: any, payload: string) {
 			state.textLineB = payload
@@ -84,6 +96,10 @@ const store = createStore({
 			state.numOfStats += 1;
 			console.log(state.numOfStats);
 		},
+		updateAwght(state: any, payload: number) {
+			state.aWght = payload
+			console.log(state.aWght);
+		}
 	}
 })
 

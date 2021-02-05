@@ -2,6 +2,22 @@
 
 ## To Do
 
+the text slot thing actually seems to work... pretty cool that it can accept a chunck of html
+
+put lines A, B, C, back into Card Front -- no longer makes sense now that text sliders are configuratble
+
+use mapmutations to refactor some of the redundant computed get/set -- kinda manually named simiallry anyway so shouldn't be hard right
+
+text sliders -- use local state (local to the text slider? There are 4 slider sets with 3 options so 12 overall -- i could keep that in the slider yeah.
+
+good use case for mapstate? I think it is yes.
+
+time i think to do the decade filter menu... Restore logo position radios...
+
+can app pass front l2 and back l2 into a slot in the toolbar? hmmmm
+
+do i really need a reduce function for average?
+
 need to share hexToRGB function
 also need to share the textarea stuff i think
 

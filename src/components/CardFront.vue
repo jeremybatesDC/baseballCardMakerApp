@@ -87,7 +87,19 @@
 					]"
 				>
 					<div class="text__line--first row">
-						<LineA></LineA>
+						<!-- using  slot here because it makes sense to apss html to this component. -->
+						<h2 class="cf__h2">
+							<TextSlidersVuex :fontWghtMin="150" :fontWghtMax="800">
+								<input
+									class="cf__h2__input"
+									v-model.trim.lazy="textLineA"
+									type="text"
+									placeholder
+									maxlength="42"
+									spellcheck="false"
+								/>
+							</TextSlidersVuex>
+						</h2>
 					</div>
 
 					<div
@@ -118,16 +130,16 @@
 
 						<span
 							id="imageFilterMenu"
-							class="row align-center absolute margin--0 width--100 height--100"
+							class="row align-center absolute left--0 margin--0 height--100"
 							:hidden="!imgFiltersShowing"
 							aria-labelledby="imgFilters"
 						>
 							<RadiosDecade></RadiosDecade>
 						</span>
 
-						<div id="dztl" class="dz dropzone--logo top left"></div>
+						<!--<div id="dztl" class="dz dropzone--logo top left"></div>
 						<div id="dztr" class="dz dropzone--logo top right"></div>
-						<div id="dzbl" class="dz dropzone--logo bottom left"></div>
+						<div id="dzbl" class="dz dropzone--logo bottom left"></div>-->
 
 						<div id="dzbr" class="dz dropzone--logo bottom right">
 							<figure
@@ -188,7 +200,7 @@ function hexToRGB(hex) {
 
 //import {  } from "@ionic/vue";
 
-import LineA from "./frontcomponents/LineA";
+import TextSlidersVuex from "./TextSlidersVuex";
 import LineB from "./frontcomponents/LineB";
 import LineC from "./frontcomponents/LineC";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
@@ -202,7 +214,7 @@ export default {
 
 	components: {
 		//Dragula,
-		LineA,
+		TextSlidersVuex,
 		LineB,
 		LineC,
 		RadiosDecade,
@@ -213,7 +225,6 @@ export default {
 	data() {
 		return {
 			frontShowing: true,
-
 			imgFiltersShowing: false,
 			minYears: 0,
 			maxYears: 5,
@@ -250,6 +261,7 @@ export default {
 	},
 	methods: {
 		toggleImageFilters(event) {
+			console;
 			if (!this.imgFiltersShowing) {
 				event.target.setAttribute("aria-expanded", true);
 				document.getElementById("imageFilterMenu").removeAttribute("hidden");
@@ -294,6 +306,14 @@ export default {
 		},
 	},
 	computed: {
+		textLineA: {
+			get() {
+				return this.$store.state.textLineA;
+			},
+			set(payload) {
+				this.$store.commit("updateLineA", payload);
+			},
+		},
 		decade: {
 			get() {
 				return this.$store.state.decadeFilter;
