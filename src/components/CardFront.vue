@@ -89,7 +89,14 @@
 					<div class="text__line--first row">
 						<!-- using  slot here because it makes sense to apss html to this component. -->
 						<h2 class="cf__h2">
-							<TextSlidersVuex :fontWghtMin="150" :fontWghtMax="800">
+							<TextSlidersVuex
+								whichLine="A"
+								wghtProp="600"
+								wdthProp="125"
+								slantProp="0"
+								:fontWghtMin="150"
+								:fontWghtMax="800"
+							>
 								<input
 									class="cf__h2__input"
 									v-model.trim.lazy="textLineA"

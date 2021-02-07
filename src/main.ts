@@ -99,6 +99,14 @@ const store = createStore({
 		updateAwght(state: any, payload: number) {
 			state.aWght = payload
 			console.log(state.aWght);
+		},
+		updateAwdth(state: any, payload: number) {
+			state.aWdth = payload
+			console.log(state.aWdth);
+		},
+		updateAslnt(state: any, payload: number) {
+			state.aSlnt = payload
+			console.log(state.aSlnt);
 		}
 	}
 })
