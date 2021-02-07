@@ -97,6 +97,7 @@ const store = createStore({
 			console.log(state.numOfStats);
 		},
 		updateAwght(state: any, payload: number) {
+			console.log("payload", payload);
 			state.aWght = payload
 			console.log(state.aWght);
 		},
