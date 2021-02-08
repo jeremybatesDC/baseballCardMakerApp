@@ -2,38 +2,25 @@
 
 ## To Do
 
-the text slot thing actually seems to work... pretty cool that it can accept a chunck of html
-
-put lines A, B, C, back into Card Front -- no longer makes sense now that text sliders are configuratble
-
-use mapmutations to refactor some of the redundant computed get/set -- kinda manually named simiallry anyway so shouldn't be hard right
-
-text sliders -- use local state (local to the text slider? There are 4 slider sets with 3 options so 12 overall -- i could keep that in the slider yeah.
-
-good use case for mapstate? I think it is yes.
-
+refactor decade filter via Vue way like tabs have been
 time i think to do the decade filter menu... Restore logo position radios...
 
-can app pass front l2 and back l2 into a slot in the toolbar? hmmmm
+put mutations into separate file -- used main.ts becauase was easy -- plus actually isnce it's a TS file already (and both should be and needs to be i think b/c build), maybe leave them... ?
+But I could try and i thnink modules would be the way
+
+use mapmutations to refactor some of the redundant computed get/set -- kinda manually named simiallry anyway so shouldn't be hard right
+good use case for mapstate? I think it is yes.
+
+can app pass front l2 and back l2 into a slot in the toolbar? hmmmm. RE-COOLAPSE top controls into 2 rows (exapnded to 3 rows at present for sake of organizing components)
 
 do i really need a reduce function for average?
 
 need to share hexToRGB function
 also need to share the textarea stuff i think
 
-stat steppers working now too
-
-year steppers working -- stats is a bit different -- and don't i just hide it with CSS? Reason is want to avoid mixing v-if and v-for -- def not supposed to put an if inside a for.
-
 steppers: prevent slight resize based on char with -- use tabular font formatting at least, then maybe a minumum with of 2ch or something
 
-i think in a couple places i might not be using vuex correctly
-
-use vuex with functions (increment is the first example in the docs so is all good)
-
 card size is indeed still a bit inconsistent between front/back as best seen by vertical
-
-get steppers working now -- and then work on slottin gor whatever to RE-COOLAPSE top controls into 2 rows (exapnded to 3 rows at present for sake of organizing components)
 
 color pickers funcitoning now -- maybe blur is the appropriate event to commit to the store
 

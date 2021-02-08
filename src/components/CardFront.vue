@@ -292,12 +292,6 @@ export default {
 					position: "bottomRight",
 				},
 			},
-
-			cardBackSettings: {
-				//backOrient: "horizontal",
-				backgroundColor: "#9a8b7c",
-				//gumShowing: "gumShowing",
-			},
 		};
 	},
 	methods: {
@@ -423,24 +417,6 @@ export default {
 				-10000000%
 		)
 	);
-}
-[data-back] {
-	--rback: calc(var(--redback) * 0.2126);
-	--gback: calc(var(--greenback) * 0.7152);
-	--bback: calc(var(--blueback) * 0.0722);
-	--sumback: calc(var(--rback) + var(--gback) + var(--bback));
-	--perceived-lightness-back: calc(var(--sumback) / 255);
-
-	--calcColorBack: hsl(
-		0,
-		0%,
-		calc(
-			(var(--perceived-lightness-back) - var(--contrast-threshold-for-card)) *
-				-10000000%
-		)
-	);
-
-	--logo-default: `/assets/images/logo.svg`;
 }
 
 [data-input="range"] {

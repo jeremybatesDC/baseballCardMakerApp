@@ -105,6 +105,23 @@ export default {
 <style lang="scss">
 // if can keep square stats table, will allow switch between vert and horz
 
+[data-back] {
+	--rback: calc(var(--redback) * 0.2126);
+	--gback: calc(var(--greenback) * 0.7152);
+	--bback: calc(var(--blueback) * 0.0722);
+	--sumback: calc(var(--rback) + var(--gback) + var(--bback));
+	--perceived-lightness-back: calc(var(--sumback) / 255);
+
+	--calcColorBack: hsl(
+		0,
+		0%,
+		calc(
+			(var(--perceived-lightness-back) - var(--contrast-threshold-for-card)) *
+				-10000000%
+		)
+	);
+}
+
 .card-back {
 	display: flex;
 	position: relative;
