@@ -98,7 +98,7 @@
 								:fontWghtMax="800"
 							>
 								<input
-									class="cf__h2__input"
+									class="cf__h2__input textControlledBySliders"
 									v-model.trim.lazy="textLineA"
 									type="text"
 									placeholder
@@ -160,8 +160,46 @@
 					</div>
 
 					<div class="text__line--second row">
-						<LineB></LineB>
-						<LineC></LineC>
+						<h1 class="cf__h1">
+							<TextSlidersVuex
+								whichLine="B"
+								wghtProp="200"
+								wdthProp="100"
+								slantProp="0"
+								:fontWghtMin="150"
+								:fontWghtMax="800"
+								:fontWidthMax="125"
+							>
+								<input
+									class="textControlledBySliders"
+									v-model.trim.lazy="textLineB"
+									type="text"
+									placeholder
+									maxlength="48"
+									spellcheck="false"
+								/>
+							</TextSlidersVuex>
+						</h1>
+						<h3 class="cf__h3">
+							<TextSlidersVuex
+								whichLine="C"
+								wghtProp="250"
+								wdthProp="85"
+								slantProp="-5"
+								:fontWghtMin="150"
+								:fontWghtMax="800"
+								:fontWidthMax="90"
+							>
+								<input
+									class="textControlledBySliders"
+									v-model.trim.lazy="textLineC"
+									type="text"
+									placeholder
+									maxlength="48"
+									spellcheck="false"
+								/>
+							</TextSlidersVuex>
+						</h3>
 					</div>
 				</div>
 			</div>
@@ -208,8 +246,6 @@ function hexToRGB(hex) {
 //import {  } from "@ionic/vue";
 
 import TextSlidersVuex from "./TextSlidersVuex";
-import LineB from "./frontcomponents/LineB";
-import LineC from "./frontcomponents/LineC";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLayout from "./frontcomponents/RadiosLayout";
 //import ReOrder from "./frontcomponents/ReOrder";
@@ -222,8 +258,6 @@ export default {
 	components: {
 		//Dragula,
 		TextSlidersVuex,
-		LineB,
-		LineC,
 		RadiosDecade,
 		RadiosLayout,
 	},
@@ -267,6 +301,7 @@ export default {
 		};
 	},
 	methods: {
+		// this should be done the vue way -- might not even need a method if done like tabs are
 		toggleImageFilters(event) {
 			console;
 			if (!this.imgFiltersShowing) {
@@ -321,6 +356,23 @@ export default {
 				this.$store.commit("updateLineA", payload);
 			},
 		},
+		textLineB: {
+			get() {
+				return this.$store.state.textLineB;
+			},
+			set(payload) {
+				this.$store.commit("updateLineB", payload);
+			},
+		},
+		textLineC: {
+			get() {
+				return this.$store.state.textLineC;
+			},
+			set(payload) {
+				this.$store.commit("updateLineC", payload);
+			},
+		},
+
 		decade: {
 			get() {
 				return this.$store.state.decadeFilter;

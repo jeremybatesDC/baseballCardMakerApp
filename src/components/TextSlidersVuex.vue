@@ -69,17 +69,9 @@ export default {
 
 	// need a way to handle 4 lines, 12 fileds, without exploding this file...
 	methods: {
-		// switch case is kind of poor form these days but i want a clear way to accept a whole bunch or args... Prob an array up top then a loop maybe...
 		storeDis(lineXfieldY) {
-			console.log(lineXfieldY);
 			const mutationname = `update${this.theLine}${lineXfieldY}`;
-
-			console.log("mutationname", mutationname);
-
 			const localFieldName = `local${lineXfieldY}`;
-
-			console.log(localFieldName);
-
 			this.$store.commit(mutationname, this[localFieldName]);
 		},
 	},
@@ -91,7 +83,7 @@ export default {
 	display: contents;
 }
 
-.cf__h2__input {
+.textControlledBySliders {
 	font-variation-settings: "wght" var(--wght), "wdth" var(--wdth),
 		"slnt" var(--slnt) !important;
 }

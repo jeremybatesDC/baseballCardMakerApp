@@ -97,18 +97,33 @@ const store = createStore({
 			console.log(state.numOfStats);
 		},
 		updateAwght(state: any, payload: number) {
-			console.log("payload", payload);
 			state.aWght = payload
-			console.log(state.aWght);
 		},
 		updateAwdth(state: any, payload: number) {
 			state.aWdth = payload
-			console.log(state.aWdth);
 		},
 		updateAslnt(state: any, payload: number) {
 			state.aSlnt = payload
-			console.log(state.aSlnt);
+		},
+		updateBwght(state: any, payload: number) {
+			state.bWght = payload
+		},
+		updateBwdth(state: any, payload: number) {
+			state.bWdth = payload
+		},
+		updateBslnt(state: any, payload: number) {
+			state.bSlnt = payload
+		},
+		updateCwght(state: any, payload: number) {
+			state.cWght = payload
+		},
+		updateCwdth(state: any, payload: number) {
+			state.cWdth = payload
+		},
+		updateCslnt(state: any, payload: number) {
+			state.cSlnt = payload;
 		}
+
 	}
 })
 
