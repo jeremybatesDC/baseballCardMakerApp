@@ -41,6 +41,8 @@
 
 <script>
 //import { set } from "idb-keyval";
+import { hexToRGB } from "./../globalScripts/hexToRGB";
+
 import TableStats from "./backcomponents/TableStats.vue";
 import BackHeader from "./backcomponents/BackHeader.vue";
 import BackFooter from "./backcomponents/BackFooter.vue";
@@ -48,14 +50,6 @@ import AsideFacts from "./backcomponents/AsideFacts.vue";
 import RadiosOrientation from "./backcomponents/RadiosOrientation";
 import RadiosGum from "./backcomponents/RadiosGum";
 import StepperStats from "./backcomponents/StepperStats";
-
-function hexToRGB(hex) {
-	return [
-		parseInt("0x" + hex[1] + hex[2]),
-		parseInt("0x" + hex[3] + hex[4]),
-		parseInt("0x" + hex[5] + hex[6]),
-	];
-}
 
 export default {
 	name: "CardBack",

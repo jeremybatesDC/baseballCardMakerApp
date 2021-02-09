@@ -235,20 +235,11 @@
 </template>
 
 <script>
-function hexToRGB(hex) {
-	return [
-		parseInt("0x" + hex[1] + hex[2]),
-		parseInt("0x" + hex[3] + hex[4]),
-		parseInt("0x" + hex[5] + hex[6]),
-	];
-}
-
-//import {  } from "@ionic/vue";
+import { hexToRGB } from "./../globalScripts/hexToRGB";
 
 import TextSlidersVuex from "./TextSlidersVuex";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLayout from "./frontcomponents/RadiosLayout";
-//import ReOrder from "./frontcomponents/ReOrder";
 
 import Dragula from "dragula";
 
@@ -286,7 +277,6 @@ export default {
 	methods: {
 		// this should be done the vue way -- might not even need a method if done like tabs are
 		toggleImageFilters(event) {
-			console;
 			if (!this.imgFiltersShowing) {
 				event.target.setAttribute("aria-expanded", true);
 				document.getElementById("imageFilterMenu").removeAttribute("hidden");

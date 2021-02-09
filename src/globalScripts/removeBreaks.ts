@@ -8,3 +8,5 @@ async function removeBreaks(theText: any) {
 		return daText
 	}, 1);
 }
+
+export { removeBreaks }
