@@ -3,6 +3,7 @@
 ## To Do
 
 refactor decade filter via Vue way like tabs have been
+
 time i think to do the decade filter menu... Restore logo position radios...
 
 put mutations into separate file -- used main.ts becauase was easy -- plus actually isnce it's a TS file already (and both should be and needs to be i think b/c build), maybe leave them... ?

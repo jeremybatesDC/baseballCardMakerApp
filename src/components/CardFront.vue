@@ -129,7 +129,7 @@
 						<button
 							id="imgFilters"
 							name="imgFilters"
-							class="absolute fab__button--imgFilters"
+							class="absolute button--imgFilters"
 							aria-label="Image Filters"
 							:aria-expanded="imgFiltersShowing"
 							@click="toggleImageFilters"
@@ -267,12 +267,6 @@ export default {
 		return {
 			frontShowing: true,
 			imgFiltersShowing: false,
-			minYears: 0,
-			maxYears: 5,
-			minStats: 0,
-			maxStats: 5,
-			numOfYears: 5,
-			numOfStats: 5,
 			images: {
 				playerPic: "/assets/images/leroy.jpg",
 				logoPic: "/assets/images/logo.svg",
@@ -280,17 +274,12 @@ export default {
 			cardDesign: {
 				playerImageBleedOrBoxed: "relative",
 				bgcf: "#dddddd",
-				//cardLayout: "oneone",
 				cardBrightness: 1,
 				cardSepia: 0,
 				cardGrayScale: 0,
 				borderInnerCurve: 0,
 				borderInnerWidth: 3,
 				logoPosition: "bottomRight",
-
-				logo: {
-					position: "bottomRight",
-				},
 			},
 		};
 	},
@@ -735,7 +724,7 @@ export default {
 	}
 }
 
-.fab__button--imgFilters {
+.button--imgFilters {
 	--background: transparent;
 	--box-shadow: none;
 	--border-radius: 0;
