@@ -80,11 +80,9 @@
 				:style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
 			>
 				<div
-					class="card__container card__container--front"
-					:class="[
-						this.$store.state.layoutFront,
-						cardDesign.playerImageBleedOrBoxed,
-					]"
+					:class="
+						`${layoutFront} card__container card__container--front relative`
+					"
 				>
 					<div class="text__line--first row">
 						<!-- using  slot here because it makes sense to apss html to this component. -->
@@ -263,7 +261,6 @@ export default {
 				logoPic: "/assets/images/logo.svg",
 			},
 			cardDesign: {
-				playerImageBleedOrBoxed: "relative",
 				bgcf: "#dddddd",
 				cardBrightness: 1,
 				cardSepia: 0,
@@ -349,6 +346,11 @@ export default {
 		decade: {
 			get() {
 				return this.$store.state.decadeFilter;
+			},
+		},
+		layoutFront: {
+			get() {
+				return this.$store.state.layoutFront;
 			},
 		},
 		cssBorderInnerProps() {
@@ -528,7 +530,6 @@ export default {
 	height: 41.6rem;
 	max-height: 41.6rem;
 	display: flex;
-	//position: var(--playerimagebleedorboxed);
 	position: relative;
 	flex-grow: 1;
 	border-width: var(--borderinnerwidth);

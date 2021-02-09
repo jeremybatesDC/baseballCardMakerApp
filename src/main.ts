@@ -1,19 +1,13 @@
 import { createApp } from 'vue'
 import { createStore } from 'vuex'
+import { IonicVue } from '@ionic/vue';
 
 import App from './App.vue'
 
-import { IonicVue } from '@ionic/vue';
-
 /* Theme variables */
 import './globalStyles/variables.css';
-
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
-
-
-
 /* Basic CSS for apps built with Ionic */
 import "./globalStyles/reset.scss";
 import "./globalStyles/utilities.scss";
@@ -124,7 +118,6 @@ const store = createStore({
 
 	}
 })
-
 
 const app = createApp(App).use(IonicVue).use(store);
 

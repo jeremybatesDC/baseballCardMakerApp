@@ -59,8 +59,6 @@
 
 //import { nextTick } from "vue";
 
-// import { removeBreaks } from "./../../globalScripts/removeBreaks";
-
 export default {
 	data() {
 		return {

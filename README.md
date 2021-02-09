@@ -2,6 +2,8 @@
 
 ## To Do
 
+paste/remove breaks has a slight skip... see what can do? I don't think safari lets me edit clipboard or something... Right apple seems to allow writing to clipboard but not reading it... security prob i guess
+
 refactor decade filter via Vue way like tabs have been
 
 time i think to do the decade filter menu... Restore logo position radios...
