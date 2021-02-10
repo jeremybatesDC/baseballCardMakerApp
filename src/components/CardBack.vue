@@ -41,7 +41,7 @@
 
 <script>
 //import { set } from "idb-keyval";
-import { hexToRGB } from "./../globalScripts/hexToRGB";
+import { hexToRGB } from "./../globalScripts/hexToRGB.ts";
 
 import TableStats from "./backcomponents/TableStats.vue";
 import BackHeader from "./backcomponents/BackHeader.vue";

@@ -124,13 +124,14 @@
 						<!-- make rounded corner optional -->
 						<!-- using css filter drop shadow could work -->
 
+						<!-- could prob do a v-if and just have 2 diff buttons to show at different times. Then no need for event this -->
 						<button
 							id="imgFilters"
 							name="imgFilters"
 							class="absolute button--imgFilters"
 							aria-label="Image Filters"
 							:aria-expanded="imgFiltersShowing"
-							@click="toggleImageFilters"
+							@click="this.imgFiltersShowing = !this.imgFiltersShowing"
 						></button>
 
 						<span
@@ -233,7 +234,7 @@
 </template>
 
 <script>
-import { hexToRGB } from "./../globalScripts/hexToRGB";
+import { hexToRGB } from "./../globalScripts/hexToRGB.ts";
 
 import TextSlidersVuex from "./TextSlidersVuex";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
@@ -272,19 +273,6 @@ export default {
 		};
 	},
 	methods: {
-		// this should be done the vue way -- might not even need a method if done like tabs are
-		toggleImageFilters(event) {
-			if (!this.imgFiltersShowing) {
-				event.target.setAttribute("aria-expanded", true);
-				document.getElementById("imageFilterMenu").removeAttribute("hidden");
-				this.imgFiltersShowing = true;
-			} else {
-				event.target.setAttribute("aria-expanded", false);
-				document.getElementById("imageFilterMenu").setAttribute("hidden", "");
-				this.imgFiltersShowing = false;
-			}
-		},
-
 		async encodeImage(event) {
 			// maybe i should be using refs maybe here not IDs
 			const input = event.target;

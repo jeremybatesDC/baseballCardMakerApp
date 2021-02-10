@@ -1,4 +1,4 @@
-function hexToRGB(hex) {
+function hexToRGB(hex: string) {
 	return [
 		parseInt("0x" + hex[1] + hex[2]),
 		parseInt("0x" + hex[3] + hex[4]),

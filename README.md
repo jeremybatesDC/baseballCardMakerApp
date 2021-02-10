@@ -2,7 +2,18 @@
 
 ## To Do
 
-paste/remove breaks has a slight skip... see what can do? I don't think safari lets me edit clipboard or something... Right apple seems to allow writing to clipboard but not reading it... security prob i guess
+do i want/need v-cloak?
+
+oof spent way too much time on clipboard quirks...
+kinda got half of copy working -- a promise is returned -- https://codepen.io/cfjedimaster/pen/rNVGeXa shows how to use that with await i think
+
+i don't mind my global scripts being typescript because, just like in my store, i really only have to think about it in one place -- which gives me a modest level of typescript safety while freeing me from writing a whole bunch of interface glue code that makes me sad on a personal projects
+
+are text sliders overly circuitous? Do i actually need local data as opposed to be cleaner with a conmpted? I think maybe the challange was whether sibling computed functions work ok on same data or something something
+
+dunno if i love this, but using font-style italic can extend the impact of slant -- something like if slant = -10 then make it font-style-italic next maybe -- could attach an event to make that possible -- it's either this or make it a toggle because it's pretty subtle -- too subtle prob for many users' expectations
+
+paste/remove breaks has a slight skip... see what can do? I don't think safari lets me edit clipboard or something... Right apple seems to allow writing to clipboard but not reading it... security prob i guess -- I THINK I CAN JUST DO LIKE THIS: https://developer.mozilla.org/en-US/docs/Web/API/Element/paste_event
 
 refactor decade filter via Vue way like tabs have been
 
