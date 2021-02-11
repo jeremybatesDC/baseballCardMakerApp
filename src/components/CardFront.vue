@@ -117,6 +117,7 @@
 								<canvas
 									id="canvasPlayer"
 									class="image--player player--default"
+									:data-canvas-dirty="canvasPlayerDirty"
 								></canvas>
 							</label>
 						</figure>
@@ -131,7 +132,7 @@
 							class="absolute button--imgFilters"
 							aria-label="Image Filters"
 							:aria-expanded="imgFiltersShowing"
-							@click="this.imgFiltersShowing = !this.imgFiltersShowing"
+							@click="imgFiltersShowing = !imgFiltersShowing"
 						></button>
 
 						<span
@@ -152,7 +153,11 @@
 								class=" figure--logo"
 								v-show="cardDesign.logoPosition !== 'hideLogo'"
 							>
-								<canvas id="canvasLogo" class="image--logo logo--default">
+								<canvas
+									id="canvasLogo"
+									class="image--logo logo--default"
+									:data-canvas-dirty="canvasLogoDirty"
+								>
 								</canvas>
 							</figure>
 						</div>
@@ -235,7 +240,6 @@
 
 <script>
 import { hexToRGB } from "./../globalScripts/hexToRGB.ts";
-
 import TextSlidersVuex from "./TextSlidersVuex";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLayout from "./frontcomponents/RadiosLayout";
@@ -244,7 +248,6 @@ import Dragula from "dragula";
 
 export default {
 	name: "CardFront",
-
 	components: {
 		//Dragula,
 		TextSlidersVuex,
@@ -257,6 +260,8 @@ export default {
 		return {
 			frontShowing: true,
 			imgFiltersShowing: false,
+			canvasPlayerDirty: false,
+			canvasLogoDirty: false,
 			images: {
 				playerPic: "/assets/images/leroy.jpg",
 				logoPic: "/assets/images/logo.svg",
@@ -276,7 +281,8 @@ export default {
 		async encodeImage(event) {
 			// maybe i should be using refs maybe here not IDs
 			const input = event.target;
-			const targetCanvas = document.getElementById(input.dataset.whichCanvas);
+			const whichCanvas = input.dataset.whichCanvas;
+			const targetCanvas = document.getElementById(whichCanvas);
 			const ctx = targetCanvas.getContext("2d");
 			const reader = new FileReader();
 			const image = new Image();
@@ -300,8 +306,10 @@ export default {
 				ctx.drawImage(oc, 0, 0, oc.width, oc.height, 0, 0, oc.width, oc.height);
 
 				// refactor
-				targetCanvas.classList.remove("logo--default", "player--default");
-				//targetCanvas.nextElementSibling.setAttribute("hidden", "true");
+				const fieldname = `${whichCanvas}Dirty`;
+				console.log(fieldname);
+				this[fieldname] = true;
+				//targetCanvas.classList.remove("logo--default", "player--default");
 			};
 		},
 	},
@@ -676,18 +684,22 @@ export default {
 }
 
 .logo--default {
-	background-image: url(/assets/images/logo.svg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
-	box-shadow: inset 0 0 0 0.3rem var(--calcColorFront);
+	&[data-canvas-dirty="false"] {
+		background-image: url(/assets/images/logo.svg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		box-shadow: inset 0 0 0 0.3rem var(--calcColorFront);
+	}
 }
 
 .player--default {
-	background-image: url(/assets/images/leroy.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
+	&[data-canvas-dirty="false"] {
+		background-image: url(/assets/images/leroy.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+	}
 }
 
 .imagePlaceholder {
