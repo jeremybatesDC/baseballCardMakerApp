@@ -1,79 +1,22 @@
 <template>
 	<div :style="[colorContrastVarsFront]" data-front>
-		<div class="controls--l1">
+		<div class="controls--l2">
 			<div class="row">
-				<!--<span class="showOnlyForSelectedTab">-->
-				<label
-					class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
-				>
-					<span>Front Color</span>
+				<RadiosLayout></RadiosLayout>
+				<label slot="start" class="rangeUI__label">
+					<span class="absolute text-vertical">Curve </span>
 					<input
-						class="colorPicker__input"
-						type="color"
-						v-model="cardDesign.bgcf"
+						type="range"
+						data-input="range"
+						min="0"
+						max="24"
+						v-model.number="cardDesign.borderInnerCurve"
 					/>
 				</label>
-				<label
-					for="playerPic"
-					class="filePicker__label filePicker__label--addPic"
-					aria-label="Upload Image"
-				>
-					<svg
-						viewBox="0 0 32 32"
-						width="32"
-						height="32"
-						fill="none"
-						stroke="currentcolor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-					>
-						<use xlink:href="#iconportraitadd"></use>
-					</svg>
-					<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
-					<span>Add <br />Pic</span>
-				</label>
-				<label
-					for="logoPic"
-					class="filePicker__label filePicker__label--addLogo"
-					aria-label="Upload Logo Image"
-				>
-					<svg
-						viewBox="0 0 32 32"
-						width="32"
-						height="32"
-						fill="none"
-						stroke="currentcolor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-					>
-						<use xlink:href="#iconlogoadd"></use>
-					</svg>
-					<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
-					<span>Add <br />Logo</span>
-				</label>
-				<!--</span> -->
 			</div>
 		</div>
 
 		<div class="tabpanel--front" aria-labelledby="triggerFront">
-			<div class="controls--l2 l2--front">
-				<div class="row">
-					<RadiosLayout></RadiosLayout>
-					<label slot="start" class="rangeUI__label">
-						<span class="absolute text-vertical">Curve </span>
-						<input
-							type="range"
-							data-input="range"
-							min="0"
-							max="24"
-							v-model.number="cardDesign.borderInnerCurve"
-						/>
-					</label>
-				</div>
-			</div>
-
 			<!-- card front -->
 			<div
 				class="cardFront__wrapper--outermost"
@@ -267,7 +210,6 @@ export default {
 				logoPic: "/assets/images/logo.svg",
 			},
 			cardDesign: {
-				bgcf: "#dddddd",
 				cardBrightness: 1,
 				cardSepia: 0,
 				cardGrayScale: 0,
@@ -277,6 +219,7 @@ export default {
 			},
 		};
 	},
+	props: ["bgcf"],
 	methods: {
 		async encodeImage(event) {
 			// maybe i should be using refs maybe here not IDs
@@ -357,7 +300,7 @@ export default {
 		},
 		// can we combine into single function? try composition API here
 		colorContrastVarsFront() {
-			const theRGB = hexToRGB(this.cardDesign.bgcf);
+			const theRGB = hexToRGB(this.bgcf);
 			return {
 				"--bgcf": `rgb(${theRGB[0]},${theRGB[1]},${theRGB[2]})`,
 				"--redfront": theRGB[0],

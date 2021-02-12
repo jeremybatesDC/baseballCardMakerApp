@@ -14,6 +14,59 @@
 						>
 							Card Front
 						</button>
+						<span class="showOnlyForSelectedTab">
+							<label
+								class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
+							>
+								<span>Front Color</span>
+								<input
+									id="colorPickerFront"
+									class="colorPicker__input"
+									type="color"
+									v-model="bgcf"
+								/>
+							</label>
+							<label
+								for="playerPic"
+								class="filePicker__label filePicker__label--addPic"
+								aria-label="Upload Image"
+							>
+								<svg
+									viewBox="0 0 32 32"
+									width="32"
+									height="32"
+									fill="none"
+									stroke="currentcolor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+								>
+									<use xlink:href="#iconportraitadd"></use>
+								</svg>
+								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+								<span>Add <br />Pic</span>
+							</label>
+							<label
+								for="logoPic"
+								class="filePicker__label filePicker__label--addLogo"
+								aria-label="Upload Logo Image"
+							>
+								<svg
+									viewBox="0 0 32 32"
+									width="32"
+									height="32"
+									fill="none"
+									stroke="currentcolor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+								>
+									<use xlink:href="#iconlogoadd"></use>
+								</svg>
+								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+								<span>Add <br />Logo</span>
+							</label>
+						</span>
 						<button
 							role="tab"
 							:aria-selected="!cardFrontShowing"
@@ -24,6 +77,15 @@
 						>
 							Card Back
 						</button>
+						<span class="showOnlyForSelectedTab">
+							<StepperStats />
+							<label
+								class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
+							>
+								<span>Back Color</span>
+								<input class="colorPicker__input" type="color" v-model="bgcb" />
+							</label>
+						</span>
 					</div>
 				</ion-toolbar>
 			</ion-header>
@@ -33,6 +95,7 @@
 					role="tabpanel"
 					class="tabpanel tabpanel--front"
 					aria-labelledby="buttonShowFront"
+					:bgcf="bgcf"
 					:hidden="!cardFrontShowing"
 				></CardFront>
 				<CardBack
@@ -40,6 +103,7 @@
 					role="tabpanel"
 					class="tabpanel tabpanel--back"
 					aria-labelledby="triggerBack"
+					:bgcb="bgcb"
 					:hidden="cardFrontShowing"
 					:backOrient="backOrient"
 					:numOfYears="numOfYears"
@@ -56,6 +120,7 @@
 import { IonApp, IonContent, IonHeader, IonToolbar, IonPage } from "@ionic/vue";
 import CardFront from "./components/CardFront";
 import CardBack from "./components/CardBack";
+import StepperStats from "./components/backcomponents/StepperStats";
 
 export default {
 	name: "App",
@@ -67,11 +132,14 @@ export default {
 		IonPage,
 		CardFront,
 		CardBack,
+		StepperStats,
 	},
 	data() {
 		return {
 			meow: "mix",
 			cardFrontShowing: true,
+			bgcf: "#dddddd",
+			bgcb: "#9a8b7c",
 		};
 	},
 	methods: {
