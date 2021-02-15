@@ -147,7 +147,7 @@ export default {
 		font-size: 1.6rem;
 		//width: 100%;
 		text-align: center;
-		font-variation-settings: var(--text-short-wide);
+		font-variation-settings: var(--text-headline-impact);
 	}
 }
 
@@ -208,7 +208,6 @@ export default {
 	font-size: 1.6rem;
 	width: 100%;
 	//padding-top: 0.4rem;
-	font-variation-settings: var(--text-shortest-wide);
 
 	input[type="text"] {
 		// width here is needed prob becuase of nested absolute positioning

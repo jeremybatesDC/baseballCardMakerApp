@@ -45,7 +45,9 @@
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	font-variation-settings: var(--text-narrower);
+
+	// i disklike the important -- on the other hand it IS a utility class
+	font-variation-settings: var(--text-controls-bold) !important;
 	//writing-mode: vertical-lr;
 	transform: rotate(-90deg);
 	transform-origin: bottom left;

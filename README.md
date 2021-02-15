@@ -2,6 +2,8 @@
 
 ## To Do
 
+go back to ROBOTO FLEX -- made my selection now implement it
+
 do i want/need v-cloak?
 
 oof spent way too much time on clipboard quirks...
@@ -718,6 +720,7 @@ consider extending thead and tfoot (if possible) so there's no visual margin bet
 
 - birthday cards
   -- untappt cards
+  -- cannabis/leafly cards (sell them to cannabis retailers -- collect for reward -- super gamified)
   -- github cards
   -- genealogy cards
   -- PRESIDENTS & politicians

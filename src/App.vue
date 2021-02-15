@@ -181,7 +181,7 @@ export default {
 [role="tab"] {
 	font-size: 2rem;
 	line-height: 0.85;
-	font-variation-settings: var(--text-big-bold);
+	font-variation-settings: var(--text-controls-bold-narrow);
 	display: flex;
 
 	color: #000;
@@ -255,7 +255,7 @@ export default {
 .grow-wrap::after {
 	word-break: break-word;
 	font-size: 1.6rem;
-	font-variation-settings: var(--text-tight);
+	font-variation-settings: var(--text-textarea);
 	line-height: 0.8;
 	//max-height: 15.4rem;
 	padding: 0.8rem 0 0 0;

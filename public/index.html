@@ -26,7 +26,9 @@
 	<style>
 		@font-face {
 			font-family: "VariableFont";
-			src: url("<%= BASE_URL %>assets/fonts/Anybody-VF.woff2");
+			/*src: url("<%= BASE_URL %>assets/fonts/Anybody-VF.woff2");*/
+			src: url("<%= BASE_URL %>assets/fonts/RobotoFlex.ttf");
+
 		}
 
 		:root {
@@ -52,16 +54,22 @@
 			--min-touch-target-height: 4.4rem;
 			--min-touch-target-height-half: 2.2rem;
 			--touch-target-large: 4.8rem;
-			--text-narrow: "wght"450, "wdth"90, "slnt"0;
-			--text-narrower: "wght"400, "wdth"80, "slnt"0;
-			--text-short-wide: "wght"400, "wdth"100, "slnt"0;
-			--text-shortest-wide: "wght"400, "wdth"100, "slnt"0;
-			--text-squeeze: "wght"200, "wdth"75, "slnt"0;
-			--text-something: "wght"400, "wdth"85, "slnt"0;
-			--text-big-bold: "wght"400, "wdth"75, "slnt"0;
-			--text-tight: "wght"240, "wdth"82, "slnt"0;
-			--text-tighter: "wght"220, "wdth"50, "slnt"0;
-			--text-thin-wide: "wght"266, "wdth"100, "slnt"0;
+
+
+			/*refactored roboto flex vars*/
+			--text-controls-bold: "wght"425, "grad"1, "wdth"25, "slnt"0, "opsz"25;
+			--text-controls-bold-narrow: "wght"400, "grad"1, "wdth"25, "slnt"0, "opsz"33;
+			--text-textarea: "wght"250, "grad"0, "wdth"50, "slnt"0, "opsz"25;
+			--text-headline-impact: "wght"500, "grad"1, "wdth"66, "slnt"0, "opsz"25;
+			--text-table-headers: "wght"400, "grad"1, "wdth"25, "slnt"0, "opsz"25;
+			--text-table-stats: "wght"400, "grad"1, "wdth"25, "slnt"0, "opsz"25;
+
+
+
+			/*end refactored ROBOTO*/
+
+
+
 			--logoborderradius: 50%;
 			--contrast-threshold-for-card: 0.4;
 			--contrast-threshold-for-controls: 0.9;

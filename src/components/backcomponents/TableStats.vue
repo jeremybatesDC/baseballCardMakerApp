@@ -453,7 +453,7 @@ th {
 		display: flex;
 
 		input[type="text"] {
-			font-variation-settings: "wght" 400, "wdth" 75, "slnt" 0;
+			font-variation-settings: var(--text-table-headers);
 			line-height: 1.1;
 			display: flex;
 			// removing this absolute positioinig has bad effects on iOS (didn't see in chrome dev tools)
@@ -468,7 +468,7 @@ th {
 
 .tbody--stats {
 	//box-shadow: 0 1px #000;
-	font-variation-settings: "wght" 300, "wdth" 75, "slnt" 0;
+	font-variation-settings: var(--text-table-stats);
 	background: rgba(255, 255, 255, 0.1);
 
 	td,
@@ -500,7 +500,7 @@ th {
 }
 
 .tfoot--stats {
-	font-variation-settings: "wght" 450, "wdth" 75, "slnt" 0;
+	font-variation-settings: var(--text-table-headers);
 	background: rgba(0, 0, 0, 0.05);
 	td,
 	th {

@@ -152,7 +152,7 @@ export default {
 
 	padding: 0 1.6rem;
 	input {
-		font-variation-settings: "wght" 400, "wdth" 75, "slnt" 0;
+		font-variation-settings: var(--text-headline-impact);
 		text-transform: uppercase;
 	}
 	label {

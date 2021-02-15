@@ -149,7 +149,7 @@ select {
 			display: flex;
 			line-height: 0.8;
 			text-transform: uppercase;
-			font-variation-settings: var(--text-narrow);
+			font-variation-settings: var(--text-controls-bold);
 			//padding-bottom: 0.4rem;
 		}
 		//output {
@@ -183,7 +183,6 @@ select {
 	&__label {
 		display: flex;
 		font-size: 1.6rem;
-		font-variation-settings: var(--text-short-wide);
 		//flex-direction: column;
 		width: var(--min-touch-target);
 		height: var(--min-touch-target);
@@ -212,7 +211,7 @@ select {
 			padding: 0;
 			color: inherit;
 			transform: translateY(-50%);
-			font-variation-settings: var(--text-big-bold);
+			font-variation-settings: var(--text-controls-bold-narrow);
 		}
 	}
 
@@ -255,20 +254,17 @@ select {
 		font-size: 1.6rem;
 		line-height: 0.8;
 
-		font-variation-settings: var(--text-narrow);
+		font-variation-settings: var(--text-controls-bold);
 		//color: royalblue;
 		text-transform: uppercase;
 
 		&--decadeFilters {
-			font-variation-settings: var(--text-narrower);
+			font-variation-settings: var(--text-controls-bold-narrow);
 			padding-top: 0.4rem;
 			background-color: var(--background-for-overlay-controls);
 			//width: 100%;
 
 			//text-align: center;
-		}
-		&.text-vertical {
-			font-variation-settings: var(--text-something);
 		}
 	}
 	&__wrapper {
@@ -312,7 +308,7 @@ select {
 			justify-content: center;
 			align-items: center;
 			text-transform: uppercase;
-			font-variation-settings: var(--text-narrower);
+			font-variation-settings: var(--text-controls-bold-narrow);
 		}
 		&:checked {
 			+ span {
@@ -375,8 +371,6 @@ select {
 	}
 	&__legend {
 		display: flex;
-		font-variation-settings: var(--text-short-wide);
-
 		text-transform: uppercase;
 	}
 
@@ -405,7 +399,7 @@ select {
 
 		span {
 			line-height: 0.9;
-			font-variation-settings: var(--text-narrower);
+			font-variation-settings: var(--text-controls-bold-narrow);
 			max-width: 3.6rem;
 			//border-right: 1px solid #fff;
 			//text-align: center;
@@ -454,7 +448,7 @@ select {
 
 	&__label {
 		font-size: 1.6rem;
-		font-variation-settings: var(--text-thin-wide);
+		font-variation-settings: var(--text-controls-bold);
 		position: absolute;
 		top: 0;
 		left: 0rem;
