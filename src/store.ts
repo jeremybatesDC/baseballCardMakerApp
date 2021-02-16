@@ -6,7 +6,7 @@ const store: any = createStore({
 			count: 0,
 			layoutFront: "oneone",
 			decadeFilter: "",
-			textLineA: "Burger King Rangers",
+			textLineA: "",
 			textLineB: "Jeremy Bates",
 			textLineC: "Dad, Pitcher",
 			aWght: 600,

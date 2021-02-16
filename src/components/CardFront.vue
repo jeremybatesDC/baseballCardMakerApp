@@ -42,10 +42,12 @@
 									class="cf__h2__input textControlledBySliders"
 									v-model.trim.lazy="textLineA"
 									type="text"
-									placeholder
+									:placeholder="localPlaceholderA"
 									maxlength="42"
 									spellcheck="false"
 								/>
+
+								<!--@blur="localPlaceholderA = ''"-->
 							</TextSlidersVuex>
 						</h2>
 					</div>
@@ -205,6 +207,7 @@ export default {
 			imgFiltersShowing: false,
 			canvasPlayerDirty: false,
 			canvasLogoDirty: false,
+			localPlaceholderA: "Casey LeRoy",
 			images: {
 				playerPic: "/assets/images/leroy.jpg",
 				logoPic: "/assets/images/logo.svg",
@@ -520,6 +523,11 @@ export default {
 				"slnt" var(--fontslant);
 			color: var(--calcColorFront);
 			padding: 0;
+			&::placeholder {
+				font: inherit !important;
+				font-variation-settings: inherit !important;
+				color: inherit !important;
+			}
 		}
 	}
 
