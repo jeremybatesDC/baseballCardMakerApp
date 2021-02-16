@@ -55,11 +55,13 @@
 </template>
 
 <script>
-//import optsBack from "/json/default-settings-back.json";
-
 //import { nextTick } from "vue";
+import { removeBreaks } from "./../../globalScripts/removeBreaks.ts";
 
 export default {
+	setup() {
+		return { removeBreaks };
+	},
 	data() {
 		return {
 			footerText:
@@ -73,11 +75,14 @@ export default {
 	},
 	methods: {
 		// might not actually want this to be async
-		async removeLineBreaks() {
+		async removeLineBreaks(event) {
 			//this.$nextTick(() => {
 			// this triggers a browser permission request
 			// console.log(navigator.clipboard.readText());
 			//});
+
+			//const clipboardContent = event.clipboardData;
+			//console.log(clipboardContent);
 
 			setTimeout(() => {
 				let fText = this.footerText;
@@ -118,7 +123,6 @@ export default {
 
 .cb__footer__textarea {
 	//min-height: var(--min-touch-target);
-	font-variation-settings: var(--text-tight);
 	line-height: 0.8;
 	//padding-top: 0.4rem;
 }

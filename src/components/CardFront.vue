@@ -46,7 +46,7 @@
 									v-model.trim.lazy="textLineA"
 									:placeholder="localPlaceholderA"
 									:data-dirty="textLineADirty"
-									@focus.once="textLineADirty = true"
+									@change.once="textLineADirty = true"
 								/>
 							</TextSlidersVuex>
 						</h2>
@@ -127,7 +127,7 @@
 									spellcheck="false"
 									:placeholder="localPlaceholderB"
 									:data-dirty="textLineBDirty"
-									@focus.once="textLineBDirty = true"
+									@change.once="textLineBDirty = true"
 								/>
 							</TextSlidersVuex>
 						</h1>
@@ -149,7 +149,7 @@
 									spellcheck="false"
 									:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
-									@focus.once="textLineCDirty = true"
+									@change.once="textLineCDirty = true"
 								/>
 							</TextSlidersVuex>
 						</h3>
