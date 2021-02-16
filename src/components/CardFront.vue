@@ -40,14 +40,14 @@
 							>
 								<input
 									class="cf__h2__input textControlledBySliders"
-									v-model.trim.lazy="textLineA"
 									type="text"
-									:placeholder="localPlaceholderA"
 									maxlength="42"
 									spellcheck="false"
+									v-model.trim.lazy="textLineA"
+									:placeholder="localPlaceholderA"
+									:data-dirty="textLineADirty"
+									@focus.once="textLineADirty = true"
 								/>
-
-								<!--@blur="localPlaceholderA = ''"-->
 							</TextSlidersVuex>
 						</h2>
 					</div>
@@ -123,9 +123,11 @@
 									class="textControlledBySliders"
 									v-model.trim.lazy="textLineB"
 									type="text"
-									placeholder
 									maxlength="48"
 									spellcheck="false"
+									:placeholder="localPlaceholderB"
+									:data-dirty="textLineBDirty"
+									@focus.once="textLineBDirty = true"
 								/>
 							</TextSlidersVuex>
 						</h1>
@@ -143,9 +145,11 @@
 									class="textControlledBySliders"
 									v-model.trim.lazy="textLineC"
 									type="text"
-									placeholder
 									maxlength="48"
 									spellcheck="false"
+									:placeholder="localPlaceholderC"
+									:data-dirty="textLineCDirty"
+									@focus.once="textLineCDirty = true"
 								/>
 							</TextSlidersVuex>
 						</h3>
@@ -207,7 +211,12 @@ export default {
 			imgFiltersShowing: false,
 			canvasPlayerDirty: false,
 			canvasLogoDirty: false,
-			localPlaceholderA: "Casey LeRoy",
+			localPlaceholderA: "Mudville Spiders",
+			textLineADirty: false,
+			localPlaceholderB: "Casey LeRoy",
+			textLineBDirty: false,
+			localPlaceholderC: "Dad, Utility Infielder",
+			textLineCDirty: false,
 			images: {
 				playerPic: "/assets/images/leroy.jpg",
 				logoPic: "/assets/images/logo.svg",
@@ -527,6 +536,11 @@ export default {
 				font: inherit !important;
 				font-variation-settings: inherit !important;
 				color: inherit !important;
+			}
+			&[data-dirty="true"] {
+				&::placeholder {
+					color: transparent !important;
+				}
 			}
 		}
 	}

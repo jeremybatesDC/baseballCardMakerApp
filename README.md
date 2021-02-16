@@ -2,6 +2,8 @@
 
 ## To Do
 
+can blue event bubble up? Could save code for text sliders
+
 go back to ROBOTO FLEX -- made my selection now implement it
 
 do i want/need v-cloak?
