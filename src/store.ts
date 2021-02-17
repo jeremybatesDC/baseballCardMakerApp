@@ -40,10 +40,12 @@ const store: any = createStore({
 			console.log(state.textLineA);
 		},
 		updateLineB(state: any, payload: string) {
-			state.textLineB = payload
+			state.textLineB = payload;
+			console.log(state.textLineB);
 		},
 		updateLineC(state: any, payload: string) {
-			state.textLineC = payload
+			state.textLineC = payload;
+			console.log(state.textLineC);
 		},
 		updateLineD(state: any, payload: string) {
 			state.textLineD = payload

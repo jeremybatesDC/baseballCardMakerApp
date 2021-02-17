@@ -2,6 +2,10 @@
 
 ## To Do
 
+totally forgot about the emoty pseudo selector... maybe can combine with valid/invalid to leverage hidden dirty attr
+
+for text if lazy is an issue because placeholder stuff, then consider a local field and a blur handler
+
 --> I can use an invalid class that takes advantage of shadow-y dirty attr
 
 on ios in app that bug persists so i need a slightly differnt approach ...

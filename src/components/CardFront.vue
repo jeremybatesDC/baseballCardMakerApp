@@ -43,9 +43,12 @@
 									type="text"
 									maxlength="42"
 									spellcheck="false"
-									v-model.trim="textLineA"
+									v-model.trim="localLineA"
+									data-line="A"
 									:placeholder="localPlaceholderA"
 									:data-dirty="textLineADirty"
+									@focus.once="makeFieldDirty"
+									@blur="storeDis('A')"
 								/>
 							</TextSlidersVuex>
 						</h2>
@@ -120,12 +123,15 @@
 							>
 								<input
 									class="textControlledBySliders"
-									v-model.trim.lazy="textLineB"
+									v-model.trim="localLineB"
 									type="text"
 									maxlength="48"
 									spellcheck="false"
+									data-line="B"
 									:placeholder="localPlaceholderB"
 									:data-dirty="textLineBDirty"
+									@focus.once="makeFieldDirty"
+									@blur="storeDis('B')"
 								/>
 							</TextSlidersVuex>
 						</h1>
@@ -141,12 +147,15 @@
 							>
 								<input
 									class="textControlledBySliders"
-									v-model.trim.lazy="textLineC"
+									v-model.trim="localLineC"
 									type="text"
 									maxlength="48"
 									spellcheck="false"
+									data-line="C"
 									:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
+									@focus.once="makeFieldDirty"
+									@blur="storeDis('C')"
 								/>
 							</TextSlidersVuex>
 						</h3>
@@ -208,10 +217,13 @@ export default {
 			imgFiltersShowing: false,
 			canvasPlayerDirty: false,
 			canvasLogoDirty: false,
+			localLineA: "",
 			localPlaceholderA: "Mudville Spiders",
 			textLineADirty: false,
+			localLineB: "",
 			localPlaceholderB: "Casey LeRoy",
 			textLineBDirty: false,
+			localLineC: "",
 			localPlaceholderC: "Dad, Utility Infielder",
 			textLineCDirty: false,
 			images: {
@@ -264,8 +276,16 @@ export default {
 				//targetCanvas.classList.remove("logo--default", "player--default");
 			};
 		},
-		makeFieldDirty(fieldToMakeDirty) {
+		makeFieldDirty(event) {
+			// need to make this caseINsensitive with to uppercase or something
+			const fieldToMakeDirty = `textLine${event.target.dataset.line}Dirty`;
 			this[fieldToMakeDirty] = true;
+		},
+		// i could say asycn but ultimately mutations are synchronous
+		storeDis(line) {
+			const mutationname = `updateLine${line}`;
+			const localFieldName = `localLine${line}`;
+			this.$store.commit(mutationname, this[localFieldName]);
 		},
 	},
 	computed: {
@@ -275,7 +295,6 @@ export default {
 			},
 			set(payload) {
 				this.$store.commit("updateLineA", payload);
-				this.makeFieldDirty("textLineADirty");
 			},
 		},
 		textLineB: {
@@ -284,7 +303,6 @@ export default {
 			},
 			set(payload) {
 				this.$store.commit("updateLineB", payload);
-				this.makeFieldDirty("textLineBDirty");
 			},
 		},
 		textLineC: {
@@ -293,7 +311,6 @@ export default {
 			},
 			set(payload) {
 				this.$store.commit("updateLineC", payload);
-				this.makeFieldDirty("textLineCDirty");
 			},
 		},
 
