@@ -43,7 +43,7 @@
 									type="text"
 									maxlength="42"
 									spellcheck="false"
-									v-model.trim.lazy="textLineA"
+									v-model.trim="textLineA"
 									:placeholder="localPlaceholderA"
 									:data-dirty="textLineADirty"
 								/>
