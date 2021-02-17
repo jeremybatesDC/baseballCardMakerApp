@@ -46,7 +46,6 @@
 									v-model.trim.lazy="textLineA"
 									:placeholder="localPlaceholderA"
 									:data-dirty="textLineADirty"
-									@change.once="textLineADirty = true"
 								/>
 							</TextSlidersVuex>
 						</h2>
@@ -127,7 +126,6 @@
 									spellcheck="false"
 									:placeholder="localPlaceholderB"
 									:data-dirty="textLineBDirty"
-									@change.once="textLineBDirty = true"
 								/>
 							</TextSlidersVuex>
 						</h1>
@@ -149,7 +147,6 @@
 									spellcheck="false"
 									:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
-									@change.once="textLineCDirty = true"
 								/>
 							</TextSlidersVuex>
 						</h3>
@@ -267,6 +264,9 @@ export default {
 				//targetCanvas.classList.remove("logo--default", "player--default");
 			};
 		},
+		makeFieldDirty(fieldToMakeDirty) {
+			this[fieldToMakeDirty] = true;
+		},
 	},
 	computed: {
 		textLineA: {
@@ -275,6 +275,7 @@ export default {
 			},
 			set(payload) {
 				this.$store.commit("updateLineA", payload);
+				this.makeFieldDirty("textLineADirty");
 			},
 		},
 		textLineB: {
@@ -283,6 +284,7 @@ export default {
 			},
 			set(payload) {
 				this.$store.commit("updateLineB", payload);
+				this.makeFieldDirty("textLineBDirty");
 			},
 		},
 		textLineC: {
@@ -291,6 +293,7 @@ export default {
 			},
 			set(payload) {
 				this.$store.commit("updateLineC", payload);
+				this.makeFieldDirty("textLineCDirty");
 			},
 		},
 
@@ -741,6 +744,12 @@ export default {
 	}
 	.gu-unselectable & {
 		z-index: 9999;
+	}
+}
+
+.textControlledBySliders {
+	&:invalid {
+		border: 5px solid red;
 	}
 }
 </style>

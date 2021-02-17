@@ -2,6 +2,10 @@
 
 ## To Do
 
+--> I can use an invalid class that takes advantage of shadow-y dirty attr
+
+on ios in app that bug persists so i need a slightly differnt approach ...
+
 can blue event bubble up? Could save code for text sliders
 
 go back to ROBOTO FLEX -- made my selection now implement it

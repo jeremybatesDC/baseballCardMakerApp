@@ -9,6 +9,8 @@ const store: any = createStore({
 			textLineA: "",
 			textLineB: "",
 			textLineC: "",
+			// text line D is top back
+			textLineD: "",
 			aWght: 600,
 			aWdth: 125,
 			aSlnt: 0,
@@ -42,6 +44,9 @@ const store: any = createStore({
 		},
 		updateLineC(state: any, payload: string) {
 			state.textLineC = payload
+		},
+		updateLineD(state: any, payload: string) {
+			state.textLineD = payload
 		},
 		updateLayoutFront(state: any, payload: string) {
 			state.layoutFront = payload
