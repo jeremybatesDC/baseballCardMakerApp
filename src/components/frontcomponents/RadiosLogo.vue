@@ -4,7 +4,7 @@
 			Logo
 		</legend>
 		<div class="radioBtns__wrapper--inner radioBtns__wrapper--logoPosition">
-			<label class="radioBtns__label--logoPosition">
+			<label class="radioBtns__label radioBtns__label--logoPosition">
 				<input
 					type="radio"
 					class="radioBtns__input hidden--visually"
@@ -24,7 +24,7 @@
 				</span>
 			</label>
 
-			<label class="radioBtns__label--logoPosition">
+			<label class="radioBtns__label radioBtns__label--logoPosition">
 				<input
 					type="radio"
 					class="radioBtns__input hidden--visually"
@@ -44,7 +44,7 @@
 				</span>
 			</label>
 
-			<label class="radioBtns__label--logoPosition">
+			<label class="radioBtns__label radioBtns__label--logoPosition">
 				<input
 					type="radio"
 					class="radioBtns__input hidden--visually"
@@ -64,7 +64,7 @@
 				</span>
 			</label>
 
-			<label class="radioBtns__label--logoPosition">
+			<label class="radioBtns__label radioBtns__label--logoPosition">
 				<input
 					type="radio"
 					class="radioBtns__input hidden--visually"
@@ -84,7 +84,7 @@
 				</span>
 			</label>
 
-			<label class="radioBtns__label--logoPosition">
+			<label class="radioBtns__label radioBtns__label--logoPosition">
 				<input
 					type="radio"
 					class="radioBtns__input hidden--visually"

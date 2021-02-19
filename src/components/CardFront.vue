@@ -54,11 +54,7 @@
 						</h2>
 					</div>
 
-					<div
-						:class="
-							`row--middle--forDesign row ${cardDesign.logoPosition} ${decade}`
-						"
-					>
+					<div :class="`row--middle--forDesign row ${decade}`">
 						<figure class="figure--player">
 							<label class="figure--player__label" for="inputTriggerFocusUI_0">
 								<canvas
@@ -84,11 +80,18 @@
 
 						<span
 							id="imageFilterMenu"
-							class="row align-center absolute left--0 margin--0 height--100"
+							class="row align-center space-between absolute left--0 margin--0 height--100 width--100"
 							:hidden="!imgFiltersShowing"
 							aria-labelledby="imgFilters"
 						>
 							<RadiosDecade></RadiosDecade>
+							<button
+								aria-label="Close Image Filters"
+								:aria-expanded="imgFiltersShowing"
+								@click="imgFiltersShowing = !imgFiltersShowing"
+							>
+								CLOSE
+							</button>
 							<RadiosLogo></RadiosLogo>
 						</span>
 
@@ -591,11 +594,11 @@ export default {
 }
 
 .figure--logo {
-	position: absolute;
+	//position: absolute;
 	//pointer-events: none;
 	width: 7.2rem;
 	height: 7.2rem;
-	z-index: 9999;
+	//z-index: 9999;
 }
 
 .image--logo {
@@ -607,25 +610,25 @@ export default {
 	border-radius: var(--logoborderradius);
 	-webkit-tap-highlight-color: transparent;
 
-	.top.left & {
+	.topLeft & {
 		transform: translate(
 			calc(var(--borderinnercurve) / -3.5),
 			calc(var(--borderinnercurve) / -3.5)
 		);
 	}
-	.top.right & {
+	.topRight & {
 		transform: translate(
 			calc(var(--borderinnercurve) / 3.5),
 			calc(var(--borderinnercurve) / -3.5)
 		);
 	}
-	.bottom.left & {
+	.bottomLeft & {
 		transform: translate(
 			calc(var(--borderinnercurve) / -3.5),
 			calc(var(--borderinnercurve) / 3.5)
 		);
 	}
-	.bottom.right & {
+	.bottomRight & {
 		transform: translate(
 			calc(var(--borderinnercurve) / 3.5),
 			calc(var(--borderinnercurve) / 3.5)

@@ -42,7 +42,7 @@ export default {
 	computed: {
 		layoutBack: {
 			get() {
-				return this.$store.state.layoutFront;
+				return this.$store.state.layoutBack;
 			},
 			set(payload) {
 				this.$store.commit("updateLayoutBack", payload);
