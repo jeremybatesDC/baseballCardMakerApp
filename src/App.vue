@@ -1,6 +1,9 @@
 <template>
 	<ion-app>
-		<ion-page data-page>
+		<ion-page
+			data-page
+			:style="[colorContrastVarsFront, colorContrastVarsBack]"
+		>
 			<ion-header>
 				<ion-toolbar color="primary" class="controls--l1">
 					<div role="tablist" aria-label="Card Side">
@@ -18,7 +21,9 @@
 							<label
 								class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
 							>
-								<span>Front Color</span>
+								<span class="colorPicker__label__span" data-side="front"
+									>Front Color</span
+								>
 								<input
 									id="colorPickerFront"
 									class="colorPicker__input"
@@ -82,7 +87,8 @@
 							<label
 								class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
 							>
-								<span>Back Color</span>
+								<span data-side="back">Back Color</span>
+
 								<input class="colorPicker__input" type="color" v-model="bgcb" />
 							</label>
 						</span>
@@ -95,7 +101,6 @@
 					role="tabpanel"
 					class="tabpanel tabpanel--front"
 					aria-labelledby="buttonShowFront"
-					:bgcf="bgcf"
 					:hidden="!cardFrontShowing"
 				></CardFront>
 				<CardBack
@@ -103,7 +108,6 @@
 					role="tabpanel"
 					class="tabpanel tabpanel--back"
 					aria-labelledby="triggerBack"
-					:bgcb="bgcb"
 					:hidden="cardFrontShowing"
 					:backOrient="backOrient"
 					:numOfYears="numOfYears"
@@ -120,6 +124,7 @@
 import { IonApp, IonContent, IonHeader, IonToolbar, IonPage } from "@ionic/vue";
 import CardFront from "./components/CardFront";
 import CardBack from "./components/CardBack";
+import { hexToRGB } from "./globalScripts/hexToRGB.ts";
 import StepperStats from "./components/backcomponents/StepperStats";
 
 export default {
@@ -136,7 +141,6 @@ export default {
 	},
 	data() {
 		return {
-			meow: "mix",
 			cardFrontShowing: true,
 			bgcf: "#dddddd",
 			bgcb: "#9a8b7c",
@@ -159,6 +163,27 @@ export default {
 				.then((res) => console.log(res));
 		},
 	},
+	computed: {
+		// refactor
+		colorContrastVarsFront() {
+			const theRGB = hexToRGB(this.bgcf);
+			return {
+				"--bgcf": `rgb(${theRGB[0]},${theRGB[1]},${theRGB[2]})`,
+				"--redfront": theRGB[0],
+				"--greenfront": theRGB[1],
+				"--bluefront": theRGB[2],
+			};
+		},
+		colorContrastVarsBack() {
+			const theRGB = hexToRGB(this.bgcb);
+			return {
+				"--bgcb": `rgb(${theRGB[0]},${theRGB[1]},${theRGB[2]})`,
+				"--redback": theRGB[0],
+				"--greenback": theRGB[1],
+				"--blueback": theRGB[2],
+			};
+		},
+	},
 	mounted() {
 		this.sendData();
 	},
@@ -166,6 +191,51 @@ export default {
 </script>
 
 <style lang="scss">
+[data-page] {
+	--rfront: calc(var(--redfront) * 0.2126);
+	--gfront: calc(var(--greenfront) * 0.7152);
+	--bfront: calc(var(--bluefront) * 0.0722);
+	--sumfront: calc(var(--rfront) + var(--gfront) + var(--bfront));
+	--perceived-lightness-front: calc(var(--sumfront) / 255);
+
+	--calcColorFront: hsl(
+		0,
+		0%,
+		calc(
+			(var(--perceived-lightness-front) - var(--contrast-threshold-for-card)) *
+				-10000000%
+		)
+	);
+
+	--rback: calc(var(--redback) * 0.2126);
+	--gback: calc(var(--greenback) * 0.7152);
+	--bback: calc(var(--blueback) * 0.0722);
+	--sumback: calc(var(--rback) + var(--gback) + var(--bback));
+	--perceived-lightness-back: calc(var(--sumback) / 255);
+
+	--calcColorBack: hsl(
+		0,
+		0%,
+		calc(
+			(var(--perceived-lightness-back) - var(--contrast-threshold-for-card)) *
+				-10000000%
+		)
+	);
+}
+
+[data-side] {
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+[data-side="front"] {
+	color: var(--calcColorFront);
+}
+
+[data-side="back"] {
+	color: var(--calcColorBack);
+}
+
 [role="tabpanel"] {
 	min-height: 100%;
 }

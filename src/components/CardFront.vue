@@ -1,5 +1,5 @@
 <template>
-	<div :style="[colorContrastVarsFront]" data-front>
+	<div data-front>
 		<div class="controls--l2">
 			<div class="row">
 				<RadiosLayout></RadiosLayout>
@@ -89,16 +89,13 @@
 							aria-labelledby="imgFilters"
 						>
 							<RadiosDecade></RadiosDecade>
+							<RadiosLogo></RadiosLogo>
 						</span>
 
-						<!--<div id="dztl" class="dz dropzone--logo top left"></div>
-						<div id="dztr" class="dz dropzone--logo top right"></div>
-						<div id="dzbl" class="dz dropzone--logo bottom left"></div>-->
-
-						<div id="dzbr" class="dz dropzone--logo bottom right">
+						<span :class="`figure--logoWrapper ${logoPosition}`">
 							<figure
 								class=" figure--logo"
-								v-show="cardDesign.logoPosition !== 'hideLogo'"
+								v-show="logoPosition !== 'hideLogo'"
 							>
 								<canvas
 									id="canvasLogo"
@@ -107,7 +104,7 @@
 								>
 								</canvas>
 							</figure>
-						</div>
+						</span>
 					</div>
 
 					<div class="text__line--second row">
@@ -194,20 +191,19 @@
 </template>
 
 <script>
-import { hexToRGB } from "./../globalScripts/hexToRGB.ts";
 import TextSlidersVuex from "./TextSlidersVuex";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
-import RadiosLayout from "./frontcomponents/RadiosLayout";
+import RadiosLogo from "./frontcomponents/RadiosLogo";
 
-import Dragula from "dragula";
+import RadiosLayout from "./frontcomponents/RadiosLayout";
 
 export default {
 	name: "CardFront",
 	components: {
-		//Dragula,
 		TextSlidersVuex,
 		RadiosDecade,
 		RadiosLayout,
+		RadiosLogo,
 	},
 	//setup(){
 	//},
@@ -240,7 +236,7 @@ export default {
 			},
 		};
 	},
-	props: ["bgcf"],
+	//props: ["bgcf"],
 	methods: {
 		async encodeImage(event) {
 			// maybe i should be using refs maybe here not IDs
@@ -324,53 +320,22 @@ export default {
 				return this.$store.state.layoutFront;
 			},
 		},
+		logoPosition: {
+			get() {
+				return this.$store.state.logoPosition;
+			},
+		},
 		cssBorderInnerProps() {
 			return {
 				"--borderinnercurve": `${this.cardDesign.borderInnerCurve}px`,
 				"--borderinnerwidth": `${this.cardDesign.borderInnerWidth}px`,
 			};
 		},
-		// can we combine into single function? try composition API here
-		colorContrastVarsFront() {
-			const theRGB = hexToRGB(this.bgcf);
-			return {
-				"--bgcf": `rgb(${theRGB[0]},${theRGB[1]},${theRGB[2]})`,
-				"--redfront": theRGB[0],
-				"--greenfront": theRGB[1],
-				"--bluefront": theRGB[2],
-			};
-		},
-	},
-	mounted() {
-		const dropzones = [...document.querySelectorAll(".dz")];
-
-		// on desktop slidefactor works. Not on touch phone tho
-		Dragula(
-			dropzones
-			//, { liftDelay: 700 }
-		);
 	},
 };
 </script>
 
 <style lang="scss">
-[data-front] {
-	--rfront: calc(var(--redfront) * 0.2126);
-	--gfront: calc(var(--greenfront) * 0.7152);
-	--bfront: calc(var(--bluefront) * 0.0722);
-	--sumfront: calc(var(--rfront) + var(--gfront) + var(--bfront));
-	--perceived-lightness-front: calc(var(--sumfront) / 255);
-
-	--calcColorFront: hsl(
-		0,
-		0%,
-		calc(
-			(var(--perceived-lightness-front) - var(--contrast-threshold-for-card)) *
-				-10000000%
-		)
-	);
-}
-
 [data-input="range"] {
 	--bar-background: royalblue;
 	--knob-background: royalblue;
@@ -713,9 +678,7 @@ export default {
 	border-radius: 0;
 
 	// gross mix of ionic and my own styles ugh
-	&:not(.fab-button-close-active) {
-		opacity: 0;
-	}
+
 	&:hover,
 	&:focus,
 	&:active {
@@ -723,44 +686,32 @@ export default {
 		--box-shadow: none;
 		border: none;
 		border-radius: 0;
-	}
-	// refactor
-	&.fab-button-close-active {
-		&,
-		&[hidden] {
-			display: block !important;
-			bottom: -100vh;
-			left: -100vw;
-			width: 300vw;
-		}
+		outline: none;
 	}
 }
-
-.dropzone--logo {
+.figure--logoWrapper {
 	position: absolute;
-	//width: 7.2rem;
-	//height: 7.2rem;
-	width: 50%;
-	height: 50%;
+	width: 7.2rem;
+	height: 7.2rem;
+	//width: 50%;
+	//height: 50%;
 	//z-index: 9999;
-	&.top {
+	&.topLeft {
 		top: 0;
-	}
-	&.right {
-		right: 0;
-	}
-	&.bottom {
-		bottom: 0;
-	}
-	&.left {
 		left: 0;
 	}
-	.figure--logo {
-		right: inherit;
-		bottom: inherit;
+	&.topRight {
+		top: 0;
+		right: 0;
 	}
-	.gu-unselectable & {
-		z-index: 9999;
+
+	&.bottomLeft {
+		bottom: 0;
+		left: 0;
+	}
+	&.bottomRight {
+		bottom: 0;
+		right: 0;
 	}
 }
 

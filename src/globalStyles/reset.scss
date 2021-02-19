@@ -119,4 +119,6 @@ button {
 	padding: 0;
 	box-shadow: none;
 	touch-action: manipulation;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
 }

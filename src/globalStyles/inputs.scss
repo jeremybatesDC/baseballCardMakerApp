@@ -139,6 +139,8 @@ select {
 		flex-direction: column;
 		flex-grow: 1;
 		position: relative;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
 		.controls--l2 & {
 			flex-grow: 1;
 			flex-basis: 33.3333%;
@@ -192,14 +194,12 @@ select {
 		text-transform: uppercase;
 		position: relative;
 
-		&--front {
-			color: var(--calcColorFront);
-			//margin-left: 1rem;
-		}
-		&--back {
-			color: var(--calcColorBack);
-			//margin-right: 1rem;
-		}
+		//&--front {
+		//	color: var(--calcColorFront);
+		//}
+		//&--back {
+		//	color: var(--calcColorBack);
+		//}
 
 		span {
 			position: absolute;
@@ -209,7 +209,7 @@ select {
 			width: var(--min-touch-target);
 			line-height: 0.9;
 			padding: 0;
-			color: inherit;
+			//color: inherit;
 			transform: translateY(-50%);
 			font-variation-settings: var(--text-controls-bold-narrow);
 		}
@@ -257,14 +257,15 @@ select {
 		font-variation-settings: var(--text-controls-bold);
 		//color: royalblue;
 		text-transform: uppercase;
-
-		&--decadeFilters {
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+		&--decadeFilters,
+		&--logoPosition {
 			font-variation-settings: var(--text-controls-bold-narrow);
 			padding-top: 0.4rem;
 			background-color: var(--background-for-overlay-controls);
-			//width: 100%;
-
-			//text-align: center;
+			width: 100%;
+			text-align: center;
 		}
 	}
 	&__wrapper {
@@ -281,17 +282,19 @@ select {
 		width: var(--min-touch-target);
 		height: var(--min-touch-target);
 		background: var(--background-for-overlay-controls);
-
 		padding: 0;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
 		.controls--l2 & {
 			padding: 0;
 		}
 
-		&--decadeFilters {
+		&--decadeFilters,
+		&--logoPosition {
 			display: flex;
 			box-shadow: 0 -1px rgba(0, 0, 0, 0.1);
 			text-transform: none;
-			.decadeFilters__span {
+			span {
 				text-transform: none;
 			}
 		}
@@ -396,6 +399,8 @@ select {
 		color: #fff;
 		//box-shadow: -1px 0 #fff, 1px 0 #fff;
 		cursor: pointer;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
 
 		span {
 			line-height: 0.9;

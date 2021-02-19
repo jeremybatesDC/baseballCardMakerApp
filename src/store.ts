@@ -6,6 +6,7 @@ const store: any = createStore({
 			count: 0,
 			layoutFront: "oneone",
 			decadeFilter: "",
+			logoPosition: "bottomRight",
 			textLineA: "",
 			textLineB: "",
 			textLineC: "",
@@ -34,6 +35,10 @@ const store: any = createStore({
 	mutations: {
 		updateDecadeFilter(state: any, payload: string) {
 			state.decadeFilter = payload
+		},
+		updateLogoPosition(state: any, payload: string) {
+			state.logoPosition = payload;
+			console.log(state.logoPosition);
 		},
 		updateLineA(state: any, payload: string) {
 			state.textLineA = payload;
