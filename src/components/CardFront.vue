@@ -85,13 +85,13 @@
 							aria-labelledby="imgFilters"
 						>
 							<RadiosDecade></RadiosDecade>
-							<button
+							<!--<button
 								aria-label="Close Image Filters"
 								:aria-expanded="imgFiltersShowing"
 								@click="imgFiltersShowing = !imgFiltersShowing"
 							>
 								CLOSE
-							</button>
+							</button>-->
 							<RadiosLogo></RadiosLogo>
 						</span>
 

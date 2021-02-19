@@ -2,6 +2,8 @@
 
 ## To Do
 
+there was a weird zoom bug on iOS -- hmmmmmmmmmmm -- maybe too many asbolutrly positioned things if i were to surmise...
+
 totally forgot about the emoty pseudo selector... maybe can combine with valid/invalid to leverage hidden dirty attr
 
 for text if lazy is an issue because placeholder stuff, then consider a local field and a blur handler
