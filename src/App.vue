@@ -237,6 +237,7 @@ export default {
 }
 
 [role="tabpanel"] {
+	position: relative;
 	min-height: 100%;
 }
 

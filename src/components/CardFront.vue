@@ -22,6 +22,12 @@
 				class="cardFront__wrapper--outermost"
 				:style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
 			>
+				<button
+					v-show="imgFiltersShowing"
+					class="button--closeAll absolute width--100 height--100"
+					tabindex="-1"
+					@click="closeAll()"
+				></button>
 				<div
 					:class="
 						`${layoutFront} card__container card__container--front relative`
@@ -80,18 +86,18 @@
 
 						<span
 							id="imageFilterMenu"
-							class="row align-center space-between absolute left--0 margin--0 height--100 width--100"
+							class="imageFilterMenu row align-center space-between absolute left--0 margin--0 height--100 width--100"
 							:hidden="!imgFiltersShowing"
 							aria-labelledby="imgFilters"
 						>
-							<RadiosDecade></RadiosDecade>
-							<!--<button
+							<button
+								class="absolute left--0 margin--0 height--100 width--100"
 								aria-label="Close Image Filters"
 								:aria-expanded="imgFiltersShowing"
 								@click="imgFiltersShowing = !imgFiltersShowing"
-							>
-								CLOSE
-							</button>-->
+							></button>
+							<RadiosDecade></RadiosDecade>
+
 							<RadiosLogo></RadiosLogo>
 						</span>
 
@@ -241,6 +247,10 @@ export default {
 	},
 	//props: ["bgcf"],
 	methods: {
+		closeAll() {
+			console.log("close all");
+			this.imgFiltersShowing = false;
+		},
 		async encodeImage(event) {
 			// maybe i should be using refs maybe here not IDs
 			const input = event.target;
@@ -346,6 +356,10 @@ export default {
 
 // end vars
 
+.cardFront__wrapper--outermost {
+	position: relative;
+	padding-top: 1.6rem;
+}
 .card__container--front {
 	position: relative;
 	display: flex;
@@ -382,6 +396,10 @@ export default {
 
 .playerImage__controls {
 	height: 100%;
+}
+
+.imageFilterMenu {
+	z-index: 0;
 }
 
 .oneone {
@@ -679,7 +697,7 @@ export default {
 	height: 100%;
 	border: none;
 	border-radius: 0;
-
+	outline: none;
 	// gross mix of ionic and my own styles ugh
 
 	&:hover,
