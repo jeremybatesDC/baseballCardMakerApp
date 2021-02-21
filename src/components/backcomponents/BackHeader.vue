@@ -7,9 +7,10 @@
 					<input
 						type="text"
 						class=""
-						v-model="playerName"
-						placeholder="Firstname Lastname"
+						v-model.trim="playerName"
 						spellcheck="false"
+						:placeholder="localPlaceholderD"
+						:data-dirty="textLineDDirty"
 					/>
 					<div data-soi class="soi--textSlider">
 						<label class="rangeUI__label">
@@ -102,7 +103,9 @@ export default {
 	data() {
 		return {
 			defaultFacts,
-			playerName: "Casey LeRoy",
+			playerName: "",
+			localPlaceholderD: "Casey LeRoy",
+			textLineDDirty: false,
 			textLineA: {
 				fontWght: 800,
 				fontWidth: 90,
@@ -152,8 +155,18 @@ export default {
 
 	padding: 0 1.6rem;
 	input {
-		font-variation-settings: var(--text-headline-impact);
+		font-variation-settings: var(--text-headline-impact-smaller);
 		text-transform: uppercase;
+		&::placeholder {
+			font: inherit !important;
+			font-variation-settings: inherit !important;
+			color: inherit !important;
+		}
+		&[data-dirty="true"] {
+			&::placeholder {
+				color: transparent !important;
+			}
+		}
 	}
 	label {
 		display: flex;

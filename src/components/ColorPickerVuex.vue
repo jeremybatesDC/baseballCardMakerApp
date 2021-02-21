@@ -1,4 +1,5 @@
 <template>
+<span class="wakawaka" :style="" >
 	<label
 		class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
 	>
@@ -8,9 +9,11 @@
 			class="colorPicker__input"
 			type="color"
 			v-model="localcolor"
+			@blur="storeDis(localcolor)"
 		/>
 		<!--@blur="storeDis(localcolor)"-->
 	</label>
+
 </template>
 
 <script>
@@ -23,16 +26,7 @@ export default {
 	},
 	props: ["colorProp"],
 	computed: {
-		fontAxes() {
-			return {
-				"--wght": this.localwght,
-				"--wdth": this.localwdth,
-				"--slnt": this.localslnt,
-			};
-		},
-		theLine() {
-			return this.whichLine;
-		},
+	
 	},
 
 	// need a way to handle 4 lines, 12 fileds, without exploding this file...
@@ -48,4 +42,11 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+
+
+.wakawaka {
+	display: contents;
+}
+
+</style>

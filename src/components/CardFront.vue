@@ -22,12 +22,12 @@
 				class="cardFront__wrapper--outermost"
 				:style="[cssCardDesignProps, cssLogoProps, cssBorderInnerProps]"
 			>
-				<button
+				<!--<button
 					v-show="imgFiltersShowing"
 					class="button--closeAll absolute width--100 height--100"
 					tabindex="-1"
 					@click="closeAll()"
-				></button>
+				></button>-->
 				<div
 					:class="
 						`${layoutFront} card__container card__container--front relative`
