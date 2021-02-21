@@ -489,10 +489,6 @@ export default {
 	display: flex;
 	position: relative;
 	flex-grow: 1;
-	border-width: var(--borderinnerwidth);
-	border-style: solid;
-	border-color: var(--calcColorFront);
-	border-radius: var(--borderinnercurve);
 
 	&.topLeft {
 		justify-content: flex-start;
@@ -575,6 +571,12 @@ export default {
 	}
 }
 
+//.figure--player,
+//.figure--player__label,
+//.image--player [
+//
+//]
+
 .figure--player {
 	position: absolute;
 	top: 0;
@@ -582,8 +584,11 @@ export default {
 	bottom: 0;
 	left: 0;
 	display: flex;
-	border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
-	overflow: hidden;
+	border-width: var(--borderinnerwidth);
+	border-style: solid;
+	border-color: var(--calcColorFront);
+	border-radius: var(--borderinnercurve);
+
 	//.static & {
 	//  border-radius: 0;
 	//  z-index: -1;
@@ -592,14 +597,14 @@ export default {
 .figure--player__label {
 	flex-grow: 1;
 	position: relative;
-	overflow: hidden;
 }
 
 .image--player {
 	object-fit: cover;
 	object-position: center;
-	border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
 	-webkit-tap-highlight-color: transparent;
+	border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
+	//overflow: hidden;
 
 	&:not(.imagePlaceholder) {
 		max-width: 100%;

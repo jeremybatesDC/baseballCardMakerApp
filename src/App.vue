@@ -252,7 +252,7 @@ export default {
 [role="tab"] {
 	font-size: 2rem;
 	line-height: 0.85;
-	font-variation-settings: var(--text-controls-bold-narrow);
+	font-variation-settings: var(--text-controls-impact);
 	display: flex;
 
 	color: #000;
