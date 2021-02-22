@@ -54,8 +54,9 @@
 									:placeholder="localPlaceholderA"
 									:data-dirty="textLineADirty"
 									@focus.once="makeFieldDirty"
-									@blur="storeDis('A')"
 								/>
+
+								<!--	@blur="storeDis('A')" -->
 							</TextSlidersVuex>
 						</h2>
 					</div>
@@ -571,40 +572,26 @@ export default {
 	}
 }
 
-//.figure--player,
-//.figure--player__label,
-//.image--player [
-//
-//]
-
 .figure--player {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
 	display: flex;
+	flex-grow: 1;
+}
+.figure--player__label {
+	flex-grow: 1;
+	//position: relative;
 	border-width: var(--borderinnerwidth);
 	border-style: solid;
 	border-color: var(--calcColorFront);
 	border-radius: var(--borderinnercurve);
-
-	//.static & {
-	//  border-radius: 0;
-	//  z-index: -1;
-	//}
-}
-.figure--player__label {
-	flex-grow: 1;
-	position: relative;
+	overflow: hidden;
 }
 
 .image--player {
 	object-fit: cover;
 	object-position: center;
 	-webkit-tap-highlight-color: transparent;
-	border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
-	//overflow: hidden;
+	//border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
+	overflow: hidden;
 
 	&:not(.imagePlaceholder) {
 		max-width: 100%;
