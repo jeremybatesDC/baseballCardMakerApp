@@ -573,16 +573,20 @@ export default {
 }
 
 .figure--player {
+	position: relative;
 	display: flex;
 	flex-grow: 1;
-}
-.figure--player__label {
-	flex-grow: 1;
-	//position: relative;
 	border-width: var(--borderinnerwidth);
 	border-style: solid;
 	border-color: var(--calcColorFront);
 	border-radius: var(--borderinnercurve);
+	overflow: hidden;
+}
+.figure--player__label {
+	flex-grow: 1;
+	//position: relative;
+	//border-radius: var(--borderinnercurve) + var(--borderinnerwidth);
+
 	overflow: hidden;
 }
 
@@ -590,12 +594,24 @@ export default {
 	object-fit: cover;
 	object-position: center;
 	-webkit-tap-highlight-color: transparent;
-	//border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
+
+	//this is fucking weird -- is border radiuus not valid on canvas? i think when it returns canvas it stops caring about curves?
+
+	//border-radius: var(--borderinnercurve) + var(--borderinnerwidth);
 	overflow: hidden;
 
 	&:not(.imagePlaceholder) {
 		max-width: 100%;
 		min-height: 100%;
+	}
+}
+
+.player--default {
+	&[data-canvas-dirty="false"] {
+		background-image: url(/assets/images/leroy.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
 	}
 }
 
@@ -653,15 +669,6 @@ export default {
 		background-size: cover;
 		background-position: center center;
 		box-shadow: inset 0 0 0 0.3rem var(--calcColorFront);
-	}
-}
-
-.player--default {
-	&[data-canvas-dirty="false"] {
-		background-image: url(/assets/images/leroy.jpg);
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center center;
 	}
 }
 
