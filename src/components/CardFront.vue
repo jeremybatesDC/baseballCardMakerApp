@@ -53,10 +53,9 @@
 									data-line="A"
 									:placeholder="localPlaceholderA"
 									:data-dirty="textLineADirty"
+									@blur="storeDis('A')"
 									@focus.once="makeFieldDirty"
 								/>
-
-								<!--	@blur="storeDis('A')" -->
 							</TextSlidersVuex>
 						</h2>
 					</div>
