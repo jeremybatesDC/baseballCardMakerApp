@@ -359,6 +359,7 @@ export default {
 .cardFront__wrapper--outermost {
 	position: relative;
 	padding-top: 1.6rem;
+	overflow: hidden;
 }
 .card__container--front {
 	position: relative;
@@ -513,10 +514,10 @@ export default {
 	justify-content: space-between;
 	align-items: center;
 	.cf__h1 {
-		width: 66.6666%;
+		width: 60%;
 	}
 	.cf__h3 {
-		width: 33.3333%;
+		width: 40%;
 	}
 }
 
@@ -542,6 +543,12 @@ export default {
 			&[data-dirty="true"] {
 				&::placeholder {
 					color: transparent !important;
+				}
+			}
+			&:placeholder-shown {
+				+ [data-soi] {
+					display: none !important;
+					visibility: hidden !important;
 				}
 			}
 		}
@@ -731,12 +738,6 @@ export default {
 	&.bottomRight {
 		bottom: 0;
 		right: 0;
-	}
-}
-
-.textControlledBySliders {
-	&:invalid {
-		border: 5px solid red;
 	}
 }
 </style>
