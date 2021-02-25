@@ -555,6 +555,10 @@ export default {
 	}
 
 	&:focus-within {
+		input[type="text"] {
+			outline: 2px solid royalblue;
+			//outline-offset: -2px;
+		}
 		[data-soi] {
 			visibility: visible;
 		}
