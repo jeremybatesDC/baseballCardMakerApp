@@ -13,7 +13,7 @@
 					value="gumShowing"
 					v-model="gum"
 				/>
-				<span>Show</span>
+				<span>SHOW</span>
 			</label>
 
 			<label class="radioBtns__label">
@@ -24,7 +24,7 @@
 					value="gumHidden"
 					v-model="gum"
 				/>
-				<span>Hide</span>
+				<span>HIDE</span>
 			</label>
 		</div>
 	</fieldset>

@@ -5,30 +5,23 @@
 	<meta charset="utf-8" />
 	<title>Baseball Card Maker</title>
 	<base href="/" />
-
 	<meta name="color-scheme" content="light dark" />
 	<meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="msapplication-tap-highlight" content="no" />
-
 	<link rel="shortcut icon" type="image/png" href="<%= BASE_URL %>assets/icon/favicon.ico" />
-
 	<!-- add to homescreen for ios -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-title" content="Ionic App" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
 	<link rel="stylesheet" href="<%= BASE_URL %>assets/asyncCssForImages.css" media="print" onload="this.media='all'">
-
 </head>
 
 <body>
 	<style>
 		@font-face {
 			font-family: "VariableFont";
-			/*src: url("<%= BASE_URL %>assets/fonts/Anybody-VF.woff2");*/
 			src: url("<%= BASE_URL %>assets/fonts/RobotoFlex.ttf");
-
 		}
 
 		:root {
@@ -53,23 +46,14 @@
 			--min-touch-target-height-half: 2.2rem;
 			--touch-target-large: 4.8rem;
 
-
-			/*refactored roboto flex vars*/
 			--text-controls-bold: "wght"425, "grad"1, "wdth"25, "slnt"0, "opsz"25;
 			--text-controls-impact: "wght"550, "grad"1, "wdth"20, "slnt"0, "opsz"29;
 			--text-controls-bold-narrow: "wght"400, "grad"1, "wdth"25, "slnt"0, "opsz"33;
 			--text-textarea: "wght"250, "grad"0, "wdth"50, "slnt"0, "opsz"25;
 			--text-headline-impact: "wght"500, "grad"1, "wdth"66, "slnt"0, "opsz"25;
 			--text-headline-impact-smaller: "wght"500, "grad"1, "wdth"66, "slnt"0, "opsz"50;
-
 			--text-table-headers: "wght"400, "grad"1, "wdth"25, "slnt"0, "opsz"25;
 			--text-table-stats: "wght"300, "grad".5, "wdth"50, "slnt"0, "opsz"40, "YTFI"667;
-
-
-
-			/*end refactored ROBOTO*/
-
-
 
 			--logoborderradius: 50%;
 			--contrast-threshold-for-card: 0.4;
@@ -77,6 +61,7 @@
 			--border-threshold: 0.8;
 			--grey-for-controls: #c7c7c7;
 			--background-for-overlay: rgba(0, 0, 0, 0.75);
+			--radio-controls-shadow: rgba(0, 0, 0, 0.1);
 			--background-for-overlay-controls: rgba(175, 175, 175, 0.95);
 			--imgEditControlsOffset: 0;
 

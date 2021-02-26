@@ -244,15 +244,21 @@ select {
 		// need to set this here otherwise itS going to inherit the coor change from the card itseld (oops, my bad)
 
 		color: #000;
+
+		&--decadeFilters,
+		&--logoPosition {
+			//box-shadow: -1px 0 1px var(--radio-controls-shadow),
+			//	1px 0 1px var(--radio-controls-shadow),
+			//	0 -1px 1px var(--radio-controls-shadow),
+			//	0 1px 1px var(--radio-controls-shadow);
+			filter: drop-shadow(0 0 4px var(--radio-controls-shadow))
+				drop-shadow(-1px 0 4px var(--radio-controls-shadow))
+				drop-shadow(0 1px 4px var(--radio-controls-shadow))
+				drop-shadow(0 -1px 4px var(--radio-controls-shadow));
+		}
 		.controls--l2 & {
 			width: 50%;
 		}
-		//.playerImage__controls & {
-		//	max-width: var(--touch-target-large);
-		//	padding-top: 0.4rem;
-		//	text-align: center;
-		//	overflow: hidden;
-		//}
 	}
 	&__legend {
 		font-size: 1.6rem;
@@ -265,11 +271,12 @@ select {
 		-webkit-tap-highlight-color: transparent;
 		&--decadeFilters,
 		&--logoPosition {
-			font-variation-settings: var(--text-controls-bold-narrow);
-			padding-top: 0.4rem;
+			font-variation-settings: var(--text-headline-impact-smaller);
+			padding: 0.4rem 0;
 			background-color: var(--background-for-overlay-controls);
 			width: 100%;
 			text-align: center;
+			box-shadow: inset 0 -1px #000;
 		}
 	}
 	&__wrapper {
@@ -314,7 +321,7 @@ select {
 			flex-grow: 1;
 			justify-content: center;
 			align-items: center;
-			text-transform: uppercase;
+			//text-transform: uppercase;
 			font-variation-settings: var(--text-controls-bold-narrow);
 		}
 		&:checked {

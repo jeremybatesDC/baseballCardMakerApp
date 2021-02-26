@@ -2,6 +2,9 @@
 
 ## To Do
 
+cool API...
+https://images.psacard.com/s3/cu-psa/psacard/images/photograde/mantle311_2xl.jpg
+
 there was a weird zoom bug on iOS -- hmmmmmmmmmmm -- maybe too many asbolutrly positioned things if i were to surmise...
 
 totally forgot about the emoty pseudo selector... maybe can combine with valid/invalid to leverage hidden dirty attr
