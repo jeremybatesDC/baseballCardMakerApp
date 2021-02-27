@@ -38,6 +38,7 @@
 						<h2 class="cf__h2">
 							<TextSlidersVuex
 								whichLine="A"
+								gradProp="0"
 								wghtProp="600"
 								wdthProp="125"
 								slantProp="0"
@@ -120,6 +121,7 @@
 						<h1 class="cf__h1">
 							<TextSlidersVuex
 								whichLine="B"
+								gradProp="0"
 								wghtProp="200"
 								wdthProp="100"
 								slantProp="0"
@@ -144,6 +146,7 @@
 						<h3 class="cf__h3">
 							<TextSlidersVuex
 								whichLine="C"
+								gradProp="0"
 								wghtProp="250"
 								wdthProp="85"
 								slantProp="-5"
@@ -531,8 +534,8 @@ export default {
 			// why this
 			min-width: 0;
 			width: 100%;
-			font-variation-settings: "wght" var(--fontwght), "wdth" var(--fontwidth),
-				"slnt" var(--fontslant);
+			font-variation-settings: "GRAD" var(--fontgrad), "wght" var(--fontwght),
+				"wdth" var(--fontwidth), "slnt" var(--fontslant);
 			color: var(--calcColorFront);
 			padding: 0;
 			&::placeholder {
