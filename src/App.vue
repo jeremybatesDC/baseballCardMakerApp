@@ -114,8 +114,8 @@
 				></CardBack>
 			</div>
 		</div>
+		<input type="text" />
 	</ion-app>
-	<input type="text" />
 </template>
 
 <script>
@@ -233,7 +233,7 @@ export default {
 
 [role="tabpanel"] {
 	position: relative;
-	min-height: 100%;
+	min-height: 100vh;
 }
 
 [role="tablist"] {
