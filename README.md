@@ -2,6 +2,8 @@
 
 ## To Do
 
+consider longpressing logo and image to trigger uploads, too?
+
 cool API...
 https://images.psacard.com/s3/cu-psa/psacard/images/photograde/mantle311_2xl.jpg
 
