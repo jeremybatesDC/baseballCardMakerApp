@@ -1,98 +1,98 @@
 <template>
 	<ion-app>
 		<div data-page :style="[colorContrastVarsFront, colorContrastVarsBack]">
-			<!--<ion-header>-->
-			<div class="controls--l1">
-				<div role="tablist" aria-label="Card Side">
-					<button
-						role="tab"
-						:aria-selected="cardFrontShowing"
-						aria-controls="tabFront"
-						id="buttonShowFront"
-						aria-label="Front"
-						@click="cardFrontShowing = true"
-					>
-						Card Front
-					</button>
-					<span class="showOnlyForSelectedTab">
-						<label
-							class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
+			<ion-header>
+				<ion-toolbar color="primary" class="controls--l1">
+					<div role="tablist" aria-label="Card Side">
+						<button
+							role="tab"
+							:aria-selected="cardFrontShowing"
+							aria-controls="tabFront"
+							id="buttonShowFront"
+							aria-label="Front"
+							@click="cardFrontShowing = true"
 						>
-							<span class="colorPicker__label__span" data-side="front"
-								>Front Color</span
+							Card Front
+						</button>
+						<span class="showOnlyForSelectedTab">
+							<label
+								class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
 							>
-							<input
-								id="colorPickerFront"
-								class="colorPicker__input"
-								type="color"
-								v-model="bgcf"
-							/>
-						</label>
-						<label
-							for="playerPic"
-							class="filePicker__label filePicker__label--addPic"
-							aria-label="Upload Image"
-						>
-							<svg
-								viewBox="0 0 32 32"
-								width="32"
-								height="32"
-								fill="none"
-								stroke="currentcolor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
+								<span class="colorPicker__label__span" data-side="front"
+									>Front Color</span
+								>
+								<input
+									id="colorPickerFront"
+									class="colorPicker__input"
+									type="color"
+									v-model="bgcf"
+								/>
+							</label>
+							<label
+								for="playerPic"
+								class="filePicker__label filePicker__label--addPic"
+								aria-label="Upload Image"
 							>
-								<use xlink:href="#iconportraitadd"></use>
-							</svg>
-							<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
-							<span>Add <br />Pic</span>
-						</label>
-						<label
-							for="logoPic"
-							class="filePicker__label filePicker__label--addLogo"
-							aria-label="Upload Logo Image"
-						>
-							<svg
-								viewBox="0 0 32 32"
-								width="32"
-								height="32"
-								fill="none"
-								stroke="currentcolor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
+								<svg
+									viewBox="0 0 32 32"
+									width="32"
+									height="32"
+									fill="none"
+									stroke="currentcolor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+								>
+									<use xlink:href="#iconportraitadd"></use>
+								</svg>
+								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+								<span>Add <br />Pic</span>
+							</label>
+							<label
+								for="logoPic"
+								class="filePicker__label filePicker__label--addLogo"
+								aria-label="Upload Logo Image"
 							>
-								<use xlink:href="#iconlogoadd"></use>
-							</svg>
-							<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
-							<span>Add <br />Logo</span>
-						</label>
-					</span>
-					<button
-						role="tab"
-						:aria-selected="!cardFrontShowing"
-						aria-controls="tabBack"
-						id="buttonShowBack"
-						aria-label="Back"
-						@click="cardFrontShowing = false"
-					>
-						Card Back
-					</button>
-					<span class="showOnlyForSelectedTab">
-						<StepperStats />
-						<label
-							class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
+								<svg
+									viewBox="0 0 32 32"
+									width="32"
+									height="32"
+									fill="none"
+									stroke="currentcolor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+								>
+									<use xlink:href="#iconlogoadd"></use>
+								</svg>
+								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+								<span>Add <br />Logo</span>
+							</label>
+						</span>
+						<button
+							role="tab"
+							:aria-selected="!cardFrontShowing"
+							aria-controls="tabBack"
+							id="buttonShowBack"
+							aria-label="Back"
+							@click="cardFrontShowing = false"
 						>
-							<span data-side="back">Back Color</span>
+							Card Back
+						</button>
+						<span class="showOnlyForSelectedTab">
+							<StepperStats />
+							<label
+								class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
+							>
+								<span data-side="back">Back Color</span>
 
-							<input class="colorPicker__input" type="color" v-model="bgcb" />
-						</label>
-					</span>
-				</div>
-			</div>
-			<!--</ion-header>-->
-			<div class="contentWrapper">
+								<input class="colorPicker__input" type="color" v-model="bgcb" />
+							</label>
+						</span>
+					</div>
+				</ion-toolbar>
+			</ion-header>
+			<ion-content class="contentWrapper">
 				<CardFront
 					id="tabFront"
 					role="tabpanel"
@@ -112,14 +112,13 @@
 					:data-years="numOfYears"
 					:data-stats="numOfStats"
 				></CardBack>
-			</div>
+			</ion-content>
 		</div>
-		<input type="text" />
 	</ion-app>
 </template>
 
 <script>
-import { IonApp } from "@ionic/vue";
+import { IonApp, IonContent, IonHeader, IonToolbar } from "@ionic/vue";
 import CardFront from "./components/CardFront";
 import CardBack from "./components/CardBack";
 import { hexToRGB } from "./globalScripts/hexToRGB.ts";
@@ -129,7 +128,9 @@ export default {
 	name: "App",
 	components: {
 		IonApp,
-
+		IonContent,
+		IonHeader,
+		IonToolbar,
 		CardFront,
 		CardBack,
 		StepperStats,
@@ -233,7 +234,7 @@ export default {
 
 [role="tabpanel"] {
 	position: relative;
-	min-height: 100vh;
+	min-height: 100%;
 }
 
 [role="tablist"] {
@@ -274,6 +275,11 @@ export default {
 		color: royalblue;
 		//pointer-events: none;
 	}
+}
+
+.tabpanel--front,
+.tabpanel--back {
+	min-height: 100vh;
 }
 
 [data-input="range"] {
@@ -322,6 +328,10 @@ export default {
 		pointer-events: none;
 		user-select: none;
 	}*/
+}
+
+.contentWrapper {
+	min-height: 100vh;
 }
 
 .grow-wrap {

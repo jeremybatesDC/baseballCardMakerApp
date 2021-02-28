@@ -12,7 +12,7 @@ import './globalStyles/utilities.scss';
 import './globalStyles/grid.scss';
 import './globalStyles/inputs.scss';
 import './globalStyles/filters.scss';
-import './globalStyles/animation.scss';
+//import './globalStyles/animation.scss';
 
 
 const app = createApp(App).use(IonicVue).use(store);

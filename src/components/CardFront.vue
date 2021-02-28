@@ -154,6 +154,7 @@
 								:fontWghtMax="800"
 								:fontWidthMax="90"
 							>
+								<!-- 	@focus.once="makeFieldDirty" -->
 								<input
 									class="textControlledBySliders"
 									v-model.trim="localLineC"
@@ -163,7 +164,6 @@
 									data-line="C"
 									:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
-									@focus.once="makeFieldDirty"
 									@blur="storeDis('C')"
 								/>
 							</TextSlidersVuex>
