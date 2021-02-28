@@ -1,101 +1,98 @@
 <template>
 	<ion-app>
-		<ion-page
-			data-page
-			:style="[colorContrastVarsFront, colorContrastVarsBack]"
-		>
-			<ion-header>
-				<ion-toolbar color="primary" class="controls--l1">
-					<div role="tablist" aria-label="Card Side">
-						<button
-							role="tab"
-							:aria-selected="cardFrontShowing"
-							aria-controls="tabFront"
-							id="buttonShowFront"
-							aria-label="Front"
-							@click="cardFrontShowing = true"
+		<div data-page :style="[colorContrastVarsFront, colorContrastVarsBack]">
+			<!--<ion-header>-->
+			<div class="controls--l1">
+				<div role="tablist" aria-label="Card Side">
+					<button
+						role="tab"
+						:aria-selected="cardFrontShowing"
+						aria-controls="tabFront"
+						id="buttonShowFront"
+						aria-label="Front"
+						@click="cardFrontShowing = true"
+					>
+						Card Front
+					</button>
+					<span class="showOnlyForSelectedTab">
+						<label
+							class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
 						>
-							Card Front
-						</button>
-						<span class="showOnlyForSelectedTab">
-							<label
-								class="colorPicker__label colorPicker__label--front colorPicker__label--textOverlap align-self-center"
+							<span class="colorPicker__label__span" data-side="front"
+								>Front Color</span
 							>
-								<span class="colorPicker__label__span" data-side="front"
-									>Front Color</span
-								>
-								<input
-									id="colorPickerFront"
-									class="colorPicker__input"
-									type="color"
-									v-model="bgcf"
-								/>
-							</label>
-							<label
-								for="playerPic"
-								class="filePicker__label filePicker__label--addPic"
-								aria-label="Upload Image"
-							>
-								<svg
-									viewBox="0 0 32 32"
-									width="32"
-									height="32"
-									fill="none"
-									stroke="currentcolor"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-								>
-									<use xlink:href="#iconportraitadd"></use>
-								</svg>
-								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
-								<span>Add <br />Pic</span>
-							</label>
-							<label
-								for="logoPic"
-								class="filePicker__label filePicker__label--addLogo"
-								aria-label="Upload Logo Image"
-							>
-								<svg
-									viewBox="0 0 32 32"
-									width="32"
-									height="32"
-									fill="none"
-									stroke="currentcolor"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-								>
-									<use xlink:href="#iconlogoadd"></use>
-								</svg>
-								<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
-								<span>Add <br />Logo</span>
-							</label>
-						</span>
-						<button
-							role="tab"
-							:aria-selected="!cardFrontShowing"
-							aria-controls="tabBack"
-							id="buttonShowBack"
-							aria-label="Back"
-							@click="cardFrontShowing = false"
+							<input
+								id="colorPickerFront"
+								class="colorPicker__input"
+								type="color"
+								v-model="bgcf"
+							/>
+						</label>
+						<label
+							for="playerPic"
+							class="filePicker__label filePicker__label--addPic"
+							aria-label="Upload Image"
 						>
-							Card Back
-						</button>
-						<span class="showOnlyForSelectedTab">
-							<StepperStats />
-							<label
-								class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
+							<svg
+								viewBox="0 0 32 32"
+								width="32"
+								height="32"
+								fill="none"
+								stroke="currentcolor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
 							>
-								<span data-side="back">Back Color</span>
+								<use xlink:href="#iconportraitadd"></use>
+							</svg>
+							<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+							<span>Add <br />Pic</span>
+						</label>
+						<label
+							for="logoPic"
+							class="filePicker__label filePicker__label--addLogo"
+							aria-label="Upload Logo Image"
+						>
+							<svg
+								viewBox="0 0 32 32"
+								width="32"
+								height="32"
+								fill="none"
+								stroke="currentcolor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+							>
+								<use xlink:href="#iconlogoadd"></use>
+							</svg>
+							<!-- this br inside of a flex botton with text of uncertain length is in this case more declarative and reduces complexity -->
+							<span>Add <br />Logo</span>
+						</label>
+					</span>
+					<button
+						role="tab"
+						:aria-selected="!cardFrontShowing"
+						aria-controls="tabBack"
+						id="buttonShowBack"
+						aria-label="Back"
+						@click="cardFrontShowing = false"
+					>
+						Card Back
+					</button>
+					<span class="showOnlyForSelectedTab">
+						<StepperStats />
+						<label
+							class="colorPicker__label colorPicker__label--back colorPicker__label--textOverlap"
+						>
+							<span data-side="back">Back Color</span>
 
-								<input class="colorPicker__input" type="color" v-model="bgcb" />
-							</label>
-						</span>
-					</div>
-				</ion-toolbar>
-			</ion-header>
-			<ion-content class="contentWrapper">
+							<input class="colorPicker__input" type="color" v-model="bgcb" />
+						</label>
+					</span>
+				</div>
+			</div>
+			<!--</ion-header>-->
+			<div class="contentWrapper">
 				<CardFront
 					id="tabFront"
 					role="tabpanel"
@@ -115,13 +112,14 @@
 					:data-years="numOfYears"
 					:data-stats="numOfStats"
 				></CardBack>
-			</ion-content>
-		</ion-page>
+			</div>
+		</div>
 	</ion-app>
+	<input type="text" />
 </template>
 
 <script>
-import { IonApp, IonContent, IonHeader, IonToolbar, IonPage } from "@ionic/vue";
+import { IonApp } from "@ionic/vue";
 import CardFront from "./components/CardFront";
 import CardBack from "./components/CardBack";
 import { hexToRGB } from "./globalScripts/hexToRGB.ts";
@@ -131,10 +129,7 @@ export default {
 	name: "App",
 	components: {
 		IonApp,
-		IonContent,
-		IonHeader,
-		IonToolbar,
-		IonPage,
+
 		CardFront,
 		CardBack,
 		StepperStats,
@@ -303,7 +298,30 @@ export default {
 }
 
 .card__container {
+	position: relative;
 	filter: drop-shadow(0 0 0.8rem rgba(0, 0, 0, 0.8));
+
+	/*&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: -33%;
+		//right: -3.2rem;
+		height: 100%;
+		width: 100%;
+		//background-color: red;
+		//box-shadow: 1px 0 red;
+		//transform: rotate(-25deg);
+		//transform-origin: top center;
+		background-image: url(/assets/images/creaseCorner.png);
+		background-size: 100%;
+		background-repeat: no-repeat;
+		filter: drop-shadow(1px 1px 1px 1px rgba(0, 0, 0, 0.66));
+		//opacity: 0.25;
+		//mix-blend-mode: color-dodge;
+		pointer-events: none;
+		user-select: none;
+	}*/
 }
 
 .grow-wrap {
