@@ -363,6 +363,9 @@ export default {
 	position: relative;
 	padding-top: 1.6rem;
 	overflow: hidden;
+
+	// TEST TEST TEST
+	min-height: 2000px;
 }
 .card__container--front {
 	position: relative;
