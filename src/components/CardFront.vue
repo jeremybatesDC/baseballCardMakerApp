@@ -365,7 +365,7 @@ export default {
 	overflow: hidden;
 
 	// TEST TEST TEST
-	// min-height: 2000px;
+	min-height: 100vh;
 }
 .card__container--front {
 	position: relative;
@@ -376,7 +376,7 @@ export default {
 	//yes, hard height here because
 	height: 50.4rem;
 	// test
-	margin: 0 auto 50rem auto;
+	margin: 0 auto 4.8rem auto;
 	//padding: 0 1.6rem;
 	color: var(--calcColorFront, #000);
 	background-color: var(--bgcf, #fefefe);
@@ -561,15 +561,14 @@ export default {
 		}
 	}
 
-	// TEST
-	//&:focus-within {
-	//	input[type="text"] {
-	//		outline: 2px solid royalblue;
-	//	}
-	//	[data-soi] {
-	//		visibility: visible;
-	//	}
-	//}
+	&:focus-within {
+		input[type="text"] {
+			outline: 2px solid royalblue;
+		}
+		[data-soi] {
+			visibility: visible;
+		}
+	}
 }
 
 .cf__h1 {

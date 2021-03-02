@@ -1,5 +1,5 @@
 <template>
-	<ion-app>
+	<ion-app data-app>
 		<div data-page :style="[colorContrastVarsFront, colorContrastVarsBack]">
 			<ion-header>
 				<ion-toolbar color="primary" class="controls--l1">
@@ -187,6 +187,12 @@ export default {
 </script>
 
 <style lang="scss">
+[data-app] {
+	position: relative !important;
+	overflow: unset !important;
+	min-height: 100vh;
+}
+
 [data-page] {
 	--rfront: calc(var(--redfront) * 0.2126);
 	--gfront: calc(var(--greenfront) * 0.7152);
