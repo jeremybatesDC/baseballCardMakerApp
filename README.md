@@ -2,6 +2,8 @@
 
 ## To Do
 
+main class="inner-scroll scroll-y" part="scroll" in the shadow root seems like a stupid knot too
+
 so keyboard scrolls beneath input but only after first character entered (not on focus... Can I address that?)
 https://stackoverflow.com/questions/56421280/how-do-fix-the-white-keyboard-space-that-shows-whenever-i-use-keyboardawareview
 
