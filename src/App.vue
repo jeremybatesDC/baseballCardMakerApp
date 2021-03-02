@@ -280,7 +280,6 @@ export default {
 .tabpanel--front,
 .tabpanel--back {
 	min-height: 100vh;
-	min-height: -webkit-fill-available;
 }
 
 [data-input="range"] {
@@ -333,7 +332,6 @@ export default {
 
 .contentWrapper {
 	min-height: 100vh;
-	min-height: -webkit-fill-available;
 }
 
 .grow-wrap {
