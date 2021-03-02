@@ -625,6 +625,7 @@ export default {
 
 .player--default {
 	&[data-canvas-dirty="false"] {
+		background-color: red;
 		background-image: url(/assets/images/leroy.jpg);
 		background-repeat: no-repeat;
 		background-size: cover;
