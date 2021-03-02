@@ -2,6 +2,8 @@
 
 ## To Do
 
+so keyboard scrolls beneath input but only after first character entered (not on focus... Can I address that?)
+
 SUPER buggy with placeholder sachale page image -- playing with text controls and stuff leaves half of default player image white and blank -- have not yet observed that behavior after a custom image is placed...
 
 consider longpressing logo and image to trigger uploads, too?

@@ -365,7 +365,7 @@ export default {
 	overflow: hidden;
 
 	// TEST TEST TEST
-	min-height: 2000px;
+	// min-height: 2000px;
 }
 .card__container--front {
 	position: relative;
@@ -375,7 +375,8 @@ export default {
 	max-width: 32.8rem;
 	//yes, hard height here because
 	height: 50.4rem;
-	margin: 0 auto;
+	// test
+	margin: 0 auto 50rem auto;
 	//padding: 0 1.6rem;
 	color: var(--calcColorFront, #000);
 	background-color: var(--bgcf, #fefefe);
