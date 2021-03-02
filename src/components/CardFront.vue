@@ -561,15 +561,15 @@ export default {
 		}
 	}
 
-	&:focus-within {
-		input[type="text"] {
-			outline: 2px solid royalblue;
-			//outline-offset: -2px;
-		}
-		[data-soi] {
-			visibility: visible;
-		}
-	}
+	// TEST
+	//&:focus-within {
+	//	input[type="text"] {
+	//		outline: 2px solid royalblue;
+	//	}
+	//	[data-soi] {
+	//		visibility: visible;
+	//	}
+	//}
 }
 
 .cf__h1 {

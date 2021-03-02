@@ -3,6 +3,7 @@
 ## To Do
 
 so keyboard scrolls beneath input but only after first character entered (not on focus... Can I address that?)
+https://stackoverflow.com/questions/56421280/how-do-fix-the-white-keyboard-space-that-shows-whenever-i-use-keyboardawareview
 
 SUPER buggy with placeholder sachale page image -- playing with text controls and stuff leaves half of default player image white and blank -- have not yet observed that behavior after a custom image is placed...
 
