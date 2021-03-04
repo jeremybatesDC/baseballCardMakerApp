@@ -2,6 +2,8 @@
 
 ## To Do
 
+this is twitchy and jitter AF right now a tad discouraged
+
 main class="inner-scroll scroll-y" part="scroll" in the shadow root seems like a stupid knot too
 
 so keyboard scrolls beneath input but only after first character entered (not on focus... Can I address that?)

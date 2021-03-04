@@ -1,6 +1,9 @@
 <template>
-	<ion-app data-app>
-		<div data-page :style="[colorContrastVarsFront, colorContrastVarsBack]">
+	<ion-app>
+		<ion-page
+			data-page
+			:style="[colorContrastVarsFront, colorContrastVarsBack]"
+		>
 			<ion-header>
 				<ion-toolbar color="primary" class="controls--l1">
 					<div role="tablist" aria-label="Card Side">
@@ -113,12 +116,12 @@
 					:data-stats="numOfStats"
 				></CardBack>
 			</ion-content>
-		</div>
+		</ion-page>
 	</ion-app>
 </template>
 
 <script>
-import { IonApp, IonContent, IonHeader, IonToolbar } from "@ionic/vue";
+import { IonApp, IonContent, IonHeader, IonToolbar, IonPage } from "@ionic/vue";
 import CardFront from "./components/CardFront";
 import CardBack from "./components/CardBack";
 import { hexToRGB } from "./globalScripts/hexToRGB.ts";
@@ -131,6 +134,7 @@ export default {
 		IonContent,
 		IonHeader,
 		IonToolbar,
+		IonPage,
 		CardFront,
 		CardBack,
 		StepperStats,
@@ -187,12 +191,6 @@ export default {
 </script>
 
 <style lang="scss">
-[data-app] {
-	position: relative !important;
-	overflow: unset !important;
-	min-height: 100vh;
-}
-
 [data-page] {
 	--rfront: calc(var(--redfront) * 0.2126);
 	--gfront: calc(var(--greenfront) * 0.7152);
@@ -283,11 +281,6 @@ export default {
 	}
 }
 
-.tabpanel--front,
-.tabpanel--back {
-	min-height: 100vh;
-}
-
 [data-input="range"] {
 	padding-top: 0;
 	padding-bottom: 0;
@@ -310,34 +303,7 @@ export default {
 }
 
 .card__container {
-	position: relative;
 	filter: drop-shadow(0 0 0.8rem rgba(0, 0, 0, 0.8));
-
-	/*&:after {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: -33%;
-		//right: -3.2rem;
-		height: 100%;
-		width: 100%;
-		//background-color: red;
-		//box-shadow: 1px 0 red;
-		//transform: rotate(-25deg);
-		//transform-origin: top center;
-		background-image: url(/assets/images/creaseCorner.png);
-		background-size: 100%;
-		background-repeat: no-repeat;
-		filter: drop-shadow(1px 1px 1px 1px rgba(0, 0, 0, 0.66));
-		//opacity: 0.25;
-		//mix-blend-mode: color-dodge;
-		pointer-events: none;
-		user-select: none;
-	}*/
-}
-
-.contentWrapper {
-	min-height: 100vh;
 }
 
 .grow-wrap {
