@@ -589,7 +589,7 @@ export default {
 }
 
 .figure--player {
-	position: relative;
+	//position: relative;
 	display: flex;
 	flex-grow: 1;
 	border-width: var(--borderinnerwidth);
@@ -602,7 +602,10 @@ export default {
 }
 .figure--player__label {
 	flex-grow: 1;
-	position: relative;
+
+	// this position relative contirbutes so default player image clipping ion ios no?
+	//position: relative;
+
 	border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
 
 	overflow: hidden;
