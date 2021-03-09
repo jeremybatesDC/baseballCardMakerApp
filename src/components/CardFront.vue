@@ -603,7 +603,7 @@ export default {
 .figure--player__label {
 	flex-grow: 1;
 	//position: relative;
-	//border-radius: var(--borderinnercurve) + var(--borderinnerwidth);
+	border-radius: calc(var(--borderinnercurve) - var(--borderinnerwidth));
 
 	overflow: hidden;
 }
