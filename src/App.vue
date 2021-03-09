@@ -191,6 +191,10 @@ export default {
 </script>
 
 <style lang="scss">
+.contentWrapper.hydrated.ios {
+	--keyboard-offset: 0px !important;
+}
+
 [data-page] {
 	--rfront: calc(var(--redfront) * 0.2126);
 	--gfront: calc(var(--greenfront) * 0.7152);

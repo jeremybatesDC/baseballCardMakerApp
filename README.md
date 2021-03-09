@@ -8,14 +8,14 @@ main class="inner-scroll scroll-y" part="scroll" in the shadow root seems like a
 
 so keyboard scrolls beneath input but only after first character entered (not on focus... Can I address that?)
 https://stackoverflow.com/questions/56421280/how-do-fix-the-white-keyboard-space-that-shows-whenever-i-use-keyboardawareview
-
-SUPER buggy with placeholder sachale page image -- playing with text controls and stuff leaves half of default player image white and blank -- have not yet observed that behavior after a custom image is placed...
+https://stackoverflow.com/questions/44174160/blank-space-coming-between-keyboard-and-uivew-in-ios
 
 consider longpressing logo and image to trigger uploads, too?
 
 cool API...
 https://images.psacard.com/s3/cu-psa/psacard/images/photograde/mantle311_2xl.jpg
 
+DID i kill this?
 there was a weird zoom bug on iOS -- hmmmmmmmmmmm -- maybe too many asbolutrly positioned things if i were to surmise...
 
 totally forgot about the emoty pseudo selector... maybe can combine with valid/invalid to leverage hidden dirty attr
@@ -27,8 +27,6 @@ for text if lazy is an issue because placeholder stuff, then consider a local fi
 on ios in app that bug persists so i need a slightly differnt approach ...
 
 can blue event bubble up? Could save code for text sliders
-
-go back to ROBOTO FLEX -- made my selection now implement it
 
 do i want/need v-cloak?
 
@@ -77,15 +75,7 @@ gum shouldn't have to flow through cardfront.
 
 why radios gum not working like radio layout? The binding in the template isn't updating... does it need to be computed?
 
-advantage vuex brings in terms of ability to reason about data is huge and really i think here the deciding factor for me.
-
-i think what makse things slow is dev tools and/or vue dev toosl in particular? When i closed them this became quick again
-
-radio buttons for front layout now flow through Vuex. Maybe slower?
-
-toggling image filters can be done now same way as tabs -- using :attrs in the html -- no need for a function at all
-
-is this just my chrome dev environment that slows down? laggy sliders are a deal breaker
+advantage vuex brings in terms of ability to reason about data is huge and really
 
 ok is there a sensible time to save text slider values? A dead lock with the store seems like a TON of work that can be avoided. User can achieve visual style, and maybe even after LAZY (like on blur, or just every 30 seconds or whatever) -- and then app can save that field's data to store while user has moved to next thing
 
