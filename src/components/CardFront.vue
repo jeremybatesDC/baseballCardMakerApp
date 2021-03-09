@@ -365,7 +365,7 @@ export default {
 	overflow: hidden;
 
 	// TEST TEST TEST
-	min-height: 100vh;
+	// min-height: 100vh;
 }
 .card__container--front {
 	position: relative;
@@ -596,7 +596,9 @@ export default {
 	border-style: solid;
 	border-color: var(--calcColorFront);
 	border-radius: var(--borderinnercurve);
-	overflow: hidden;
+
+	// yah this
+	//overflow: hidden;
 }
 .figure--player__label {
 	flex-grow: 1;

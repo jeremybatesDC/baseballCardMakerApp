@@ -1,5 +1,5 @@
 <template>
-	<ion-app>
+	<ion-app data-app>
 		<ion-page
 			data-page
 			:style="[colorContrastVarsFront, colorContrastVarsBack]"

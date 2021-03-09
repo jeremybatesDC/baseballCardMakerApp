@@ -2,6 +2,12 @@
 
 ## To Do
 
+okay -- i think i recall -- it's the overflow hidden n the figure-player -- but we need something like that to contain sharp corners from overflowing curve -- much more minor issue and i think i solved it previously
+
+on desktop safari i can reprodue canvas scroll clipping issue with default image
+
+maybe treat the default canvas image as an actualcanvas image rather than background image...
+
 i squashed the keyboard gap propblem! huzzah!!!
 the visual clipping of the default player iage has returned -- check last few commits of v5vuex because i think i solved it right?
 
