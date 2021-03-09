@@ -2,6 +2,8 @@
 
 ## To Do
 
+scrolling on ios isn't smooth -- it skips and jumps a bit
+
 okay -- i think i recall -- it's the overflow hidden n the figure-player -- but we need something like that to contain sharp corners from overflowing curve -- much more minor issue and i think i solved it previously
 
 on desktop safari i can reprodue canvas scroll clipping issue with default image

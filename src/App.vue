@@ -95,7 +95,7 @@
 					</div>
 				</ion-toolbar>
 			</ion-header>
-			<ion-content class="contentWrapper">
+			<ion-content class="contentWrapper" overflow-scroll="true">
 				<CardFront
 					id="tabFront"
 					role="tabpanel"
