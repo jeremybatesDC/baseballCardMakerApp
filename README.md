@@ -2,6 +2,9 @@
 
 ## To Do
 
+i squashed the keyboard gap propblem! huzzah!!!
+the visual clipping of the default player iage has returned -- check last few commits of v5vuex because i think i solved it right?
+
 this is twitchy and jitter AF right now a tad discouraged
 
 main class="inner-scroll scroll-y" part="scroll" in the shadow root seems like a stupid knot too
