@@ -1,6 +1,6 @@
 <template>
 	<div data-front>
-		<div class="controls--l2">
+		<!--<div class="controls--l2">
 			<div class="row space-around height--100">
 				<RadiosLayout></RadiosLayout>
 				<label class="rangeUI__label">
@@ -14,7 +14,7 @@
 					/>
 				</label>
 			</div>
-		</div>
+		</div>-->
 
 		<div class="tabpanel--front" aria-labelledby="triggerFront">
 			<!-- card front -->
@@ -207,14 +207,14 @@ import TextSlidersVuex from "./TextSlidersVuex";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLogo from "./frontcomponents/RadiosLogo";
 
-import RadiosLayout from "./frontcomponents/RadiosLayout";
+//import RadiosLayout from "./frontcomponents/RadiosLayout";
 
 export default {
 	name: "CardFront",
 	components: {
 		TextSlidersVuex,
 		RadiosDecade,
-		RadiosLayout,
+		//RadiosLayout,
 		RadiosLogo,
 	},
 	//setup(){
