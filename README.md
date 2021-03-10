@@ -2,6 +2,16 @@
 
 ## To Do
 
+can the hacky checked REALLY be the reason this doesn't skip?
+
+iisue seems to be radio layout -- specifically the legned????
+
+<!--<legend class="radioBtns__legend text-left text-vertical">
+			Layout
+		</legend>-->
+
+ditched stray slots that couldn't have been helping -- there is still jumping on front particularly visible on l2 controls
+
 jitteriness not happening on back side
 
 very jittery still but nothing clipped: do i want -- JITTERINESS IS VISIBLR ON MOBILE BROWSER

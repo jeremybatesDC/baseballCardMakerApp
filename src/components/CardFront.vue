@@ -1,7 +1,7 @@
 <template>
 	<div data-front>
 		<div class="controls--l2">
-			<div class="row">
+			<div class="row space-around height--100">
 				<RadiosLayout></RadiosLayout>
 				<label class="rangeUI__label">
 					<span class="absolute text-vertical">Curve </span>

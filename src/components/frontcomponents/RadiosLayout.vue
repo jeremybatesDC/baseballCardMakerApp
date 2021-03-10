@@ -1,12 +1,16 @@
 <template>
 	<fieldset class="radioBtns__fieldset">
-		<legend class="radioBtns__legend text-left text-vertical">
-			Layout
+		<!-- radioBtns__legend text-left  -->
+		<legend class="text-vertical">
+			LAYOUT
 		</legend>
 		<div class="radioBtns__wrapper--inner">
 			<label class="radioBtns__label">
+				<!-- HACKY MANUAL CHECKED -->
+
 				<input
 					type="radio"
+					checked
 					class="radioBtns__input hidden--visually"
 					value="oneone"
 					name="frontLayout"
