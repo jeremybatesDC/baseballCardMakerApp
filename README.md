@@ -2,6 +2,8 @@
 
 ## To Do
 
+if i hook up back header to vuex version of text slider will this change anything? Reason is slots, which i've obeseved to be jumpy when not needed
+
 can the hacky checked REALLY be the reason this doesn't skip?
 
 iisue seems to be radio layout -- specifically the legned????
