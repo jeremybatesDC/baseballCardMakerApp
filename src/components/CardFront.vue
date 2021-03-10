@@ -2,7 +2,7 @@
 	<div data-front>
 		<div class="controls--l2">
 			<div class="row space-around height--100">
-				<RadiosLayout></RadiosLayout>
+				<!--<RadiosLayout></RadiosLayout>-->
 				<label class="rangeUI__label">
 					<span class="absolute text-vertical">Curve </span>
 					<input
@@ -207,14 +207,14 @@ import TextSlidersVuex from "./TextSlidersVuex";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLogo from "./frontcomponents/RadiosLogo";
 
-import RadiosLayout from "./frontcomponents/RadiosLayout";
+//import RadiosLayout from "./frontcomponents/RadiosLayout";
 
 export default {
 	name: "CardFront",
 	components: {
 		TextSlidersVuex,
 		RadiosDecade,
-		RadiosLayout,
+		//RadiosLayout,
 		RadiosLogo,
 	},
 	//setup(){
