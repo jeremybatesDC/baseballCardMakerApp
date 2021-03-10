@@ -3,7 +3,7 @@
 		<div class="controls--l2">
 			<div class="row">
 				<RadiosLayout></RadiosLayout>
-				<label slot="start" class="rangeUI__label">
+				<label class="rangeUI__label">
 					<span class="absolute text-vertical">Curve </span>
 					<input
 						type="range"

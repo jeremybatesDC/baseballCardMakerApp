@@ -2,6 +2,11 @@
 
 ## To Do
 
+jitteriness not happening on back side
+
+very jittery still but nothing clipped: do i want -- JITTERINESS IS VISIBLR ON MOBILE BROWSER
+-webkit-overflow-scrolling: touch
+
 scrolling on ios isn't smooth -- it skips and jumps a bit
 
 okay -- i think i recall -- it's the overflow hidden n the figure-player -- but we need something like that to contain sharp corners from overflowing curve -- much more minor issue and i think i solved it previously

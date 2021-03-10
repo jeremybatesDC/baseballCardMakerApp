@@ -1,5 +1,5 @@
 <template>
-	<fieldset slot="start" class="radioBtns__fieldset">
+	<fieldset class="radioBtns__fieldset">
 		<legend class="radioBtns__legend text-left text-vertical">
 			Layout
 		</legend>
