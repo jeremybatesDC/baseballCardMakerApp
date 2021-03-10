@@ -1,6 +1,6 @@
 <template>
 	<div data-front>
-		<!--<div class="controls--l2">
+		<div class="controls--l2">
 			<div class="row space-around height--100">
 				<RadiosLayout></RadiosLayout>
 				<label class="rangeUI__label">
@@ -14,7 +14,7 @@
 					/>
 				</label>
 			</div>
-		</div>-->
+		</div>
 
 		<div class="tabpanel--front" aria-labelledby="triggerFront">
 			<!-- card front -->
@@ -62,7 +62,7 @@
 					</div>
 
 					<div :class="`row--middle--forDesign row ${decade}`">
-						<figure class="figure--player">
+						<!--<figure class="figure--player">
 							<label class="figure--player__label" for="inputTriggerFocusUI_0">
 								<canvas
 									id="canvasPlayer"
@@ -70,7 +70,7 @@
 									:data-canvas-dirty="canvasPlayerDirty"
 								></canvas>
 							</label>
-						</figure>
+						</figure>-->
 
 						<!-- make rounded corner optional -->
 						<!-- using css filter drop shadow could work -->
@@ -207,14 +207,14 @@ import TextSlidersVuex from "./TextSlidersVuex";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLogo from "./frontcomponents/RadiosLogo";
 
-//import RadiosLayout from "./frontcomponents/RadiosLayout";
+import RadiosLayout from "./frontcomponents/RadiosLayout";
 
 export default {
 	name: "CardFront",
 	components: {
 		TextSlidersVuex,
 		RadiosDecade,
-		//RadiosLayout,
+		RadiosLayout,
 		RadiosLogo,
 	},
 	//setup(){
