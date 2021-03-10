@@ -36,7 +36,7 @@
 					<div class="text__line--first row">
 						<!-- using  slot here because it makes sense to apss html to this component. -->
 						<h2 class="cf__h2">
-							<TextSlidersVuex
+							<!--<TextSlidersVuex
 								whichLine="A"
 								gradProp="0"
 								wghtProp="600"
@@ -57,12 +57,12 @@
 									@blur="storeDis('A')"
 									@focus.once="makeFieldDirty"
 								/>
-							</TextSlidersVuex>
+							</TextSlidersVuex>-->
 						</h2>
 					</div>
 
 					<div :class="`row--middle--forDesign row ${decade}`">
-						<!--<figure class="figure--player">
+						<figure class="figure--player">
 							<label class="figure--player__label" for="inputTriggerFocusUI_0">
 								<canvas
 									id="canvasPlayer"
@@ -70,7 +70,7 @@
 									:data-canvas-dirty="canvasPlayerDirty"
 								></canvas>
 							</label>
-						</figure>-->
+						</figure>
 
 						<!-- make rounded corner optional -->
 						<!-- using css filter drop shadow could work -->
@@ -119,7 +119,7 @@
 
 					<div class="text__line--second row">
 						<h1 class="cf__h1">
-							<TextSlidersVuex
+							<!--<TextSlidersVuex
 								whichLine="B"
 								gradProp="0"
 								wghtProp="200"
@@ -141,10 +141,10 @@
 									@focus.once="makeFieldDirty"
 									@blur="storeDis('B')"
 								/>
-							</TextSlidersVuex>
+							</TextSlidersVuex>-->
 						</h1>
 						<h3 class="cf__h3">
-							<TextSlidersVuex
+							<!--<TextSlidersVuex
 								whichLine="C"
 								gradProp="0"
 								wghtProp="250"
@@ -166,7 +166,7 @@
 									@focus.once="makeFieldDirty"
 									@blur="storeDis('C')"
 								/>
-							</TextSlidersVuex>
+							</TextSlidersVuex>-->
 						</h3>
 					</div>
 				</div>
@@ -203,7 +203,7 @@
 </template>
 
 <script>
-import TextSlidersVuex from "./TextSlidersVuex";
+//import TextSlidersVuex from "./TextSlidersVuex";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLogo from "./frontcomponents/RadiosLogo";
 
@@ -212,7 +212,7 @@ import RadiosLayout from "./frontcomponents/RadiosLayout";
 export default {
 	name: "CardFront",
 	components: {
-		TextSlidersVuex,
+		//TextSlidersVuex,
 		RadiosDecade,
 		RadiosLayout,
 		RadiosLogo,
