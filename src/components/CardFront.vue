@@ -36,7 +36,7 @@
 					<div class="text__line--first row">
 						<!-- using  slot here because it makes sense to apss html to this component. -->
 						<h2 class="cf__h2">
-							<!--<TextSlidersVuex
+							<TextSlidersVuex
 								whichLine="A"
 								gradProp="0"
 								wghtProp="600"
@@ -44,9 +44,9 @@
 								slantProp="0"
 								:fontWghtMin="150"
 								:fontWghtMax="800"
-							> -->
-							<input type="text" />
-							<!--<input
+							>
+								<input type="text" />
+								<!--<input
 								class="cf__h2__input textControlledBySliders"
 								type="text"
 								maxlength="42"
@@ -58,7 +58,7 @@
 								@blur="storeDis('A')"
 								@focus.once="makeFieldDirty"
 							/>-->
-							<!-- </TextSlidersVuex> -->
+							</TextSlidersVuex>
 						</h2>
 					</div>
 
@@ -120,7 +120,7 @@
 
 					<div class="text__line--second row">
 						<h1 class="cf__h1">
-							<!--<TextSlidersVuex
+							<TextSlidersVuex
 								whichLine="B"
 								gradProp="0"
 								wghtProp="200"
@@ -129,9 +129,9 @@
 								:fontWghtMin="150"
 								:fontWghtMax="800"
 								:fontWidthMax="125"
-							> -->
-							<input type="text" />
-							<!--<input
+							>
+								<input type="text" />
+								<!--<input
 								class="textControlledBySliders"
 								v-model.trim="localLineB"
 								type="text"
@@ -143,10 +143,10 @@
 								@focus.once="makeFieldDirty"
 								@blur="storeDis('B')"
 							/>-->
-							<!--	</TextSlidersVuex>-->
+							</TextSlidersVuex>
 						</h1>
 						<h3 class="cf__h3">
-							<!--<TextSlidersVuex
+							<TextSlidersVuex
 								whichLine="C"
 								gradProp="0"
 								wghtProp="250"
@@ -155,9 +155,9 @@
 								:fontWghtMin="150"
 								:fontWghtMax="800"
 								:fontWidthMax="90"
-							> -->
-							<input type="text" />
-							<!--<input
+							>
+								<input type="text" />
+								<!--<input
 								class="textControlledBySliders"
 								v-model.trim="localLineC"
 								type="text"
@@ -169,7 +169,7 @@
 								@focus.once="makeFieldDirty"
 								@blur="storeDis('C')"
 							/>-->
-							<!-- 	</TextSlidersVuex>-->
+							</TextSlidersVuex>
 						</h3>
 					</div>
 				</div>
@@ -206,7 +206,7 @@
 </template>
 
 <script>
-//import TextSlidersVuex from "./TextSlidersVuex";
+import TextSlidersVuex from "./TextSlidersVuex";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLogo from "./frontcomponents/RadiosLogo";
 
@@ -215,7 +215,7 @@ import RadiosLayout from "./frontcomponents/RadiosLayout";
 export default {
 	name: "CardFront",
 	components: {
-		//TextSlidersVuex,
+		TextSlidersVuex,
 		RadiosDecade,
 		RadiosLayout,
 		RadiosLogo,
