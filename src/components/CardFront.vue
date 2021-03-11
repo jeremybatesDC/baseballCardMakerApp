@@ -45,7 +45,8 @@
 								:fontWghtMin="150"
 								:fontWghtMax="800"
 							> -->
-							<input
+							<input type="text" />
+							<!--<input
 								class="cf__h2__input textControlledBySliders"
 								type="text"
 								maxlength="42"
@@ -56,7 +57,7 @@
 								:data-dirty="textLineADirty"
 								@blur="storeDis('A')"
 								@focus.once="makeFieldDirty"
-							/>
+							/>-->
 							<!-- </TextSlidersVuex> -->
 						</h2>
 					</div>
@@ -129,7 +130,8 @@
 								:fontWghtMax="800"
 								:fontWidthMax="125"
 							> -->
-							<input
+							<input type="text" />
+							<!--<input
 								class="textControlledBySliders"
 								v-model.trim="localLineB"
 								type="text"
@@ -140,7 +142,7 @@
 								:data-dirty="textLineBDirty"
 								@focus.once="makeFieldDirty"
 								@blur="storeDis('B')"
-							/>
+							/>-->
 							<!--	</TextSlidersVuex>-->
 						</h1>
 						<h3 class="cf__h3">
@@ -154,7 +156,8 @@
 								:fontWghtMax="800"
 								:fontWidthMax="90"
 							> -->
-							<input
+							<input type="text" />
+							<!--<input
 								class="textControlledBySliders"
 								v-model.trim="localLineC"
 								type="text"
@@ -165,7 +168,7 @@
 								:data-dirty="textLineCDirty"
 								@focus.once="makeFieldDirty"
 								@blur="storeDis('C')"
-							/>
+							/>-->
 							<!-- 	</TextSlidersVuex>-->
 						</h3>
 					</div>
