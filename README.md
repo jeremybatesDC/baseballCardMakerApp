@@ -2,6 +2,9 @@
 
 ## To Do
 
+looks like the class is fine... so maybe data-line? or handlers... But i'm optimisitic
+
+YEAH ITS TEXST SLIDER VUEX (it's smooth now on ios app when this is commented) -- thinkging its slots but maybe there's repainiting going on... I think I can fix this.
 if i hook up back header to vuex version of text slider will this change anything? Reason is slots, which i've obeseved to be jumpy when not needed
 
 can the hacky checked REALLY be the reason this doesn't skip?

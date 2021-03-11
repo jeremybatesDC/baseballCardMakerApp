@@ -49,6 +49,8 @@
 									type="text"
 									v-model.trim="localLineA"
 									class="textControlledBySliders"
+									maxlength="42"
+									spellcheck="false"
 								/>
 								<!--<input
 								class="cf__h2__input textControlledBySliders"
@@ -138,6 +140,8 @@
 									type="text"
 									v-model.trim="localLineB"
 									class="textControlledBySliders"
+									maxlength="48"
+									spellcheck="false"
 								/>
 								<!--<input
 								class="textControlledBySliders"
@@ -168,6 +172,8 @@
 									type="text"
 									v-model.trim="localLineC"
 									class="textControlledBySliders"
+									maxlength="48"
+									spellcheck="false"
 								/>
 								<!--<input
 								class="textControlledBySliders"
