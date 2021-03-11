@@ -44,20 +44,20 @@
 								slantProp="0"
 								:fontWghtMin="150"
 								:fontWghtMax="800"
-							>
-								<input
-									class="cf__h2__input textControlledBySliders"
-									type="text"
-									maxlength="42"
-									spellcheck="false"
-									v-model.trim="localLineA"
-									data-line="A"
-									:placeholder="localPlaceholderA"
-									:data-dirty="textLineADirty"
-									@blur="storeDis('A')"
-									@focus.once="makeFieldDirty"
-								/>
-							</TextSlidersVuex>-->
+							> -->
+							<input
+								class="cf__h2__input textControlledBySliders"
+								type="text"
+								maxlength="42"
+								spellcheck="false"
+								v-model.trim="localLineA"
+								data-line="A"
+								:placeholder="localPlaceholderA"
+								:data-dirty="textLineADirty"
+								@blur="storeDis('A')"
+								@focus.once="makeFieldDirty"
+							/>
+							<!-- </TextSlidersVuex> -->
 						</h2>
 					</div>
 
@@ -128,20 +128,20 @@
 								:fontWghtMin="150"
 								:fontWghtMax="800"
 								:fontWidthMax="125"
-							>
-								<input
-									class="textControlledBySliders"
-									v-model.trim="localLineB"
-									type="text"
-									maxlength="48"
-									spellcheck="false"
-									data-line="B"
-									:placeholder="localPlaceholderB"
-									:data-dirty="textLineBDirty"
-									@focus.once="makeFieldDirty"
-									@blur="storeDis('B')"
-								/>
-							</TextSlidersVuex>-->
+							> -->
+							<input
+								class="textControlledBySliders"
+								v-model.trim="localLineB"
+								type="text"
+								maxlength="48"
+								spellcheck="false"
+								data-line="B"
+								:placeholder="localPlaceholderB"
+								:data-dirty="textLineBDirty"
+								@focus.once="makeFieldDirty"
+								@blur="storeDis('B')"
+							/>
+							<!--	</TextSlidersVuex>-->
 						</h1>
 						<h3 class="cf__h3">
 							<!--<TextSlidersVuex
@@ -153,20 +153,20 @@
 								:fontWghtMin="150"
 								:fontWghtMax="800"
 								:fontWidthMax="90"
-							>
-								<input
-									class="textControlledBySliders"
-									v-model.trim="localLineC"
-									type="text"
-									maxlength="48"
-									spellcheck="false"
-									data-line="C"
-									:placeholder="localPlaceholderC"
-									:data-dirty="textLineCDirty"
-									@focus.once="makeFieldDirty"
-									@blur="storeDis('C')"
-								/>
-							</TextSlidersVuex>-->
+							> -->
+							<input
+								class="textControlledBySliders"
+								v-model.trim="localLineC"
+								type="text"
+								maxlength="48"
+								spellcheck="false"
+								data-line="C"
+								:placeholder="localPlaceholderC"
+								:data-dirty="textLineCDirty"
+								@focus.once="makeFieldDirty"
+								@blur="storeDis('C')"
+							/>
+							<!-- 	</TextSlidersVuex>-->
 						</h3>
 					</div>
 				</div>
