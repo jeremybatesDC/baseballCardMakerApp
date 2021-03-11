@@ -45,7 +45,11 @@
 								:fontWghtMin="150"
 								:fontWghtMax="800"
 							>
-								<input type="text" v-model.trim="localLineA" />
+								<input
+									type="text"
+									v-model.trim="localLineA"
+									class="textControlledBySliders"
+								/>
 								<!--<input
 								class="cf__h2__input textControlledBySliders"
 								type="text"
@@ -130,7 +134,11 @@
 								:fontWghtMax="800"
 								:fontWidthMax="125"
 							>
-								<input type="text" v-model.trim="localLineB" />
+								<input
+									type="text"
+									v-model.trim="localLineB"
+									class="textControlledBySliders"
+								/>
 								<!--<input
 								class="textControlledBySliders"
 								v-model.trim="localLineB"
@@ -156,7 +164,11 @@
 								:fontWghtMax="800"
 								:fontWidthMax="90"
 							>
-								<input type="text" v-model.trim="localLineC" />
+								<input
+									type="text"
+									v-model.trim="localLineC"
+									class="textControlledBySliders"
+								/>
 								<!--<input
 								class="textControlledBySliders"
 								v-model.trim="localLineC"
