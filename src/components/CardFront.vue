@@ -162,9 +162,15 @@
 								:fontWghtMax="800"
 								:fontWidthMax="90"
 							>
-								<input type="text" v-model.trim="localLineC"
-								class="textControlledBySliders" maxlength="48"
-								spellcheck="false" data-line="C" @blur="storeDis('C')" / >
+								<input
+									type="text"
+									v-model.trim="localLineC"
+									class="textControlledBySliders"
+									maxlength="48"
+									spellcheck="false"
+									data-line="C"
+									@blur="storeDis('C')"
+								/>
 								<!--<input
 								placeholder="Dad, Utility Infielder"
 								:placeholder="localPlaceholderC"
