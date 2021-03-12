@@ -52,10 +52,11 @@
 									maxlength="42"
 									spellcheck="false"
 									data-line="A"
+									:placeholder="localPlaceholderA"
+									:data-dirty="textLineADirty"
 								/>
 								<!--<input
-								:placeholder="localPlaceholderA"
-								:data-dirty="textLineADirty"
+								
 								@blur="storeDis('A')"
 								@focus.once="makeFieldDirty"
 							/>-->
@@ -138,11 +139,12 @@
 									maxlength="48"
 									spellcheck="false"
 									data-line="B"
+									:placeholder="localPlaceholderB"
+									:data-dirty="textLineBDirty"
 								/>
 								<!--<input
 							
-								:placeholder="localPlaceholderB"
-								:data-dirty="textLineBDirty"
+							
 								@focus.once="makeFieldDirty"
 								@blur="storeDis('B')"
 							/>-->
@@ -166,10 +168,11 @@
 									maxlength="48"
 									spellcheck="false"
 									data-line="C"
+									:placeholder="localPlaceholderC"
+									:data-dirty="textLineCDirty"
 								/>
 								<!--<input
-								:placeholder="localPlaceholderC"
-								:data-dirty="textLineCDirty"
+							
 								@focus.once="makeFieldDirty"
 								@blur="storeDis('C')"
 							/>-->
