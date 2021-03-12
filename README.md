@@ -2,6 +2,8 @@
 
 ## To Do
 
+:placeholder was at least part of the skipping issue...
+
 blur handler seems ok -- maybe there's some circular stuff going on with placeholder, data-dirty AND the css classes...
 
 okay so it appears to be

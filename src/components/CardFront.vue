@@ -56,6 +56,7 @@
 									placeholder="Mudville Spiders"
 								/>
 								<!--<input
+								:placeholder="localPlaceholderA"
 									:data-dirty="textLineADirty"
 								@focus.once="makeFieldDirty"
 							/>-->
@@ -143,6 +144,7 @@
 								/>
 								<!--<input
 							
+							:placeholder="localPlaceholderB"
 									:data-dirty="textLineBDirty"
 								@focus.once="makeFieldDirty"
 								
@@ -171,6 +173,7 @@
 									placeholder="Dad, Utility Infielder"
 								/>
 								<!--<input
+								:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
 								@focus.once="makeFieldDirty"
 							
@@ -561,12 +564,12 @@ export default {
 					color: transparent !important;
 				}
 			}
-			&:placeholder-shown {
-				+ [data-soi] {
-					display: none !important;
-					visibility: hidden !important;
-				}
-			}
+			//&:placeholder-shown {
+			//	+ [data-soi] {
+			//		display: none !important;
+			//		visibility: hidden !important;
+			//	}
+			//}
 		}
 	}
 
