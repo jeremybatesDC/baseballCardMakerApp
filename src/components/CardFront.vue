@@ -51,6 +51,9 @@
 									class="textControlledBySliders"
 									maxlength="42"
 									spellcheck="false"
+									data-line="A"
+									:placeholder="localPlaceholderA"
+									:data-dirty="textLineADirty"
 								/>
 								<!--<input
 								class="cf__h2__input textControlledBySliders"
@@ -142,6 +145,9 @@
 									class="textControlledBySliders"
 									maxlength="48"
 									spellcheck="false"
+									data-line="B"
+									:placeholder="localPlaceholderB"
+									:data-dirty="textLineBDirty"
 								/>
 								<!--<input
 								class="textControlledBySliders"
@@ -174,6 +180,9 @@
 									class="textControlledBySliders"
 									maxlength="48"
 									spellcheck="false"
+									data-line="C"
+									:placeholder="localPlaceholderC"
+									:data-dirty="textLineCDirty"
 								/>
 								<!--<input
 								class="textControlledBySliders"
