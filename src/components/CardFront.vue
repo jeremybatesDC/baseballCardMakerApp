@@ -52,16 +52,8 @@
 									maxlength="42"
 									spellcheck="false"
 									data-line="A"
-									:placeholder="localPlaceholderA"
-									:data-dirty="textLineADirty"
 								/>
 								<!--<input
-								class="cf__h2__input textControlledBySliders"
-								type="text"
-								maxlength="42"
-								spellcheck="false"
-								v-model.trim="localLineA"
-								data-line="A"
 								:placeholder="localPlaceholderA"
 								:data-dirty="textLineADirty"
 								@blur="storeDis('A')"
@@ -146,16 +138,9 @@
 									maxlength="48"
 									spellcheck="false"
 									data-line="B"
-									:placeholder="localPlaceholderB"
-									:data-dirty="textLineBDirty"
 								/>
 								<!--<input
-								class="textControlledBySliders"
-								v-model.trim="localLineB"
-								type="text"
-								maxlength="48"
-								spellcheck="false"
-								data-line="B"
+							
 								:placeholder="localPlaceholderB"
 								:data-dirty="textLineBDirty"
 								@focus.once="makeFieldDirty"
@@ -181,16 +166,8 @@
 									maxlength="48"
 									spellcheck="false"
 									data-line="C"
-									:placeholder="localPlaceholderC"
-									:data-dirty="textLineCDirty"
 								/>
 								<!--<input
-								class="textControlledBySliders"
-								v-model.trim="localLineC"
-								type="text"
-								maxlength="48"
-								spellcheck="false"
-								data-line="C"
 								:placeholder="localPlaceholderC"
 								:data-dirty="textLineCDirty"
 								@focus.once="makeFieldDirty"
