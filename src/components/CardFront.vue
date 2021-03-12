@@ -53,9 +53,9 @@
 									spellcheck="false"
 									data-line="A"
 									@blur="storeDis('A')"
-									placeholder="Mudville Spiders"
 								/>
 								<!--<input
+								placeholder="Mudville Spiders"
 								:placeholder="localPlaceholderA"
 									:data-dirty="textLineADirty"
 								@focus.once="makeFieldDirty"
@@ -140,11 +140,11 @@
 									spellcheck="false"
 									data-line="B"
 									@blur="storeDis('B')"
-									placeholder="Casey LeRoy"
 								/>
 								<!--<input
 							
 							:placeholder="localPlaceholderB"
+							placeholder="Casey LeRoy"
 									:data-dirty="textLineBDirty"
 								@focus.once="makeFieldDirty"
 								
@@ -162,17 +162,11 @@
 								:fontWghtMax="800"
 								:fontWidthMax="90"
 							>
-								<input
-									type="text"
-									v-model.trim="localLineC"
-									class="textControlledBySliders"
-									maxlength="48"
-									spellcheck="false"
-									data-line="C"
-									@blur="storeDis('C')"
-									placeholder="Dad, Utility Infielder"
-								/>
+								<input type="text" v-model.trim="localLineC"
+								class="textControlledBySliders" maxlength="48"
+								spellcheck="false" data-line="C" @blur="storeDis('C')" / >
 								<!--<input
+								placeholder="Dad, Utility Infielder"
 								:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
 								@focus.once="makeFieldDirty"
