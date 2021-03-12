@@ -53,7 +53,7 @@
 									spellcheck="false"
 									data-line="A"
 									@blur="storeDis('A')"
-									:placeholder="localPlaceholderA"
+									placeholder="Mudville Spiders"
 								/>
 								<!--<input
 									:data-dirty="textLineADirty"
@@ -139,7 +139,7 @@
 									spellcheck="false"
 									data-line="B"
 									@blur="storeDis('B')"
-									:placeholder="localPlaceholderB"
+									placeholder="Casey LeRoy"
 								/>
 								<!--<input
 							
@@ -168,7 +168,7 @@
 									spellcheck="false"
 									data-line="C"
 									@blur="storeDis('C')"
-									:placeholder="localPlaceholderC"
+									placeholder="Dad, Utility Infielder"
 								/>
 								<!--<input
 									:data-dirty="textLineCDirty"
