@@ -53,9 +53,9 @@
 									spellcheck="false"
 									data-line="A"
 									@blur="storeDis('A')"
+									:placeholder="localPlaceholderA"
 								/>
 								<!--<input
-								:placeholder="localPlaceholderA"
 									:data-dirty="textLineADirty"
 								@focus.once="makeFieldDirty"
 							/>-->
@@ -139,10 +139,10 @@
 									spellcheck="false"
 									data-line="B"
 									@blur="storeDis('B')"
+									:placeholder="localPlaceholderB"
 								/>
 								<!--<input
 							
-							:placeholder="localPlaceholderB"
 									:data-dirty="textLineBDirty"
 								@focus.once="makeFieldDirty"
 								
@@ -168,9 +168,9 @@
 									spellcheck="false"
 									data-line="C"
 									@blur="storeDis('C')"
+									:placeholder="localPlaceholderC"
 								/>
 								<!--<input
-								:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
 								@focus.once="makeFieldDirty"
 							
