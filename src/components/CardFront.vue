@@ -52,12 +52,11 @@
 									maxlength="42"
 									spellcheck="false"
 									data-line="A"
-									:placeholder="localPlaceholderA"
-									:data-dirty="textLineADirty"
+									@blur="storeDis('A')"
 								/>
 								<!--<input
-								
-								@blur="storeDis('A')"
+								:placeholder="localPlaceholderA"
+									:data-dirty="textLineADirty"
 								@focus.once="makeFieldDirty"
 							/>-->
 							</TextSlidersVuex>
@@ -139,14 +138,14 @@
 									maxlength="48"
 									spellcheck="false"
 									data-line="B"
-									:placeholder="localPlaceholderB"
-									:data-dirty="textLineBDirty"
+									@blur="storeDis('B')"
 								/>
 								<!--<input
 							
-							
+							:placeholder="localPlaceholderB"
+									:data-dirty="textLineBDirty"
 								@focus.once="makeFieldDirty"
-								@blur="storeDis('B')"
+								
 							/>-->
 							</TextSlidersVuex>
 						</h1>
@@ -168,13 +167,13 @@
 									maxlength="48"
 									spellcheck="false"
 									data-line="C"
-									:placeholder="localPlaceholderC"
-									:data-dirty="textLineCDirty"
+									@blur="storeDis('C')"
 								/>
 								<!--<input
-							
+								:placeholder="localPlaceholderC"
+									:data-dirty="textLineCDirty"
 								@focus.once="makeFieldDirty"
-								@blur="storeDis('C')"
+							
 							/>-->
 							</TextSlidersVuex>
 						</h3>

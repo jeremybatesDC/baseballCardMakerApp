@@ -2,6 +2,11 @@
 
 ## To Do
 
+okay so it appears to be
+:placeholder="localPlaceholderB"
+and/or
+:data-dirty="textLineBDirty"
+
 on the first input there was also a stray class but i don't think that mattered because i can't find any associated css...
 
 looks like the class is fine... so maybe data-line? or handlers... But i'm optimisitic
