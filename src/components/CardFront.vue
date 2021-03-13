@@ -145,7 +145,7 @@
 								<!--<input
 							
 							:placeholder="localPlaceholderB"
-							
+							placeholder="Casey LeRoy"
 									:data-dirty="textLineBDirty"
 								@focus.once="makeFieldDirty"
 								
@@ -171,10 +171,9 @@
 									spellcheck="false"
 									data-line="C"
 									@blur="storeDis('C')"
-									placeholder="Dad, Utility Infielder"
 								/>
 								<!--<input
-								
+								placeholder="Dad, Utility Infielder"
 								:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
 								@focus.once="makeFieldDirty"
