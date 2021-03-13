@@ -53,9 +53,10 @@
 									spellcheck="false"
 									data-line="A"
 									@blur="storeDis('A')"
+									placeholder="Mudville Spiders"
 								/>
 								<!--<input
-								placeholder="Mudville Spiders"
+							
 								:placeholder="localPlaceholderA"
 									:data-dirty="textLineADirty"
 								@focus.once="makeFieldDirty"
@@ -370,6 +371,11 @@ export default {
 }
 
 // end vars
+
+.input-ios.cloned-input[text-right] {
+	padding-right: 1.6rem !important;
+	margin-left: 0 !important;
+}
 
 .cardFront__wrapper--outermost {
 	position: relative;
