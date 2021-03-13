@@ -144,7 +144,6 @@
 								/>
 								<!--<input
 							
-							placeholder="Casey LeRoy"
 							:placeholder="localPlaceholderB"
 							
 									:data-dirty="textLineBDirty"
@@ -175,8 +174,7 @@
 									placeholder="Dad, Utility Infielder"
 								/>
 								<!--<input
-																	placeholder="Dad, Utility Infielder"
-
+								
 								:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
 								@focus.once="makeFieldDirty"
