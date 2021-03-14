@@ -171,10 +171,11 @@
 									spellcheck="false"
 									data-line="C"
 									@blur="storeDis('C')"
+									placeholder="Dad, Utility Infielder"
 								/>
 								<!--<input
 								
-								placeholder="Dad, Utility Infielder"
+								
 								:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
 								@focus.once="makeFieldDirty"
@@ -374,7 +375,10 @@ export default {
 // end vars
 
 .cloned-input {
+	display: contents !important;
 	top: unset !important;
+	opacity: 0;
+	isolation: isolate;
 	&[text-right] {
 		padding-right: 1.6rem !important;
 		margin-left: 0 !important;
