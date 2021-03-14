@@ -42,6 +42,7 @@
 								wghtProp="600"
 								wdthProp="125"
 								slantProp="0"
+								placeholderProp="Mudville Spiders"
 								:fontWghtMin="150"
 								:fontWghtMax="800"
 							>
@@ -53,7 +54,6 @@
 									spellcheck="false"
 									data-line="A"
 									@blur="storeDis('A')"
-									placeholder="Mudville Spiders"
 								/>
 								<!--<input
 							
@@ -122,13 +122,14 @@
 					</div>
 
 					<div class="text__line--second row">
-						<h1 class="cf__h1" data-placeholder="Casey Leroy">
+						<h1 class="cf__h1">
 							<TextSlidersVuex
 								whichLine="B"
 								gradProp="0"
 								wghtProp="200"
 								wdthProp="100"
 								slantProp="0"
+								placeholderProp="Casey Leroy"
 								:fontWghtMin="150"
 								:fontWghtMax="800"
 								:fontWidthMax="125"
@@ -152,13 +153,14 @@
 							/>-->
 							</TextSlidersVuex>
 						</h1>
-						<h3 class="cf__h3" data-placeholder="Dad, Utility Infielder">
+						<h3 class="cf__h3">
 							<TextSlidersVuex
 								whichLine="C"
 								gradProp="0"
 								wghtProp="250"
 								wdthProp="85"
 								slantProp="-5"
+								placeholderProp="Dad, Utility Infielder"
 								:fontWghtMin="150"
 								:fontWghtMax="800"
 								:fontWidthMax="90"
@@ -553,12 +555,7 @@ export default {
 .cf__h2,
 .cf__h3 {
 	display: flex;
-	&:after {
-		content: attr(data-placeholder);
-		position: absolute;
-		pointer-events: none;
-		z-index: -9;
-	}
+
 	input {
 		&[type="text"] {
 			display: flex;

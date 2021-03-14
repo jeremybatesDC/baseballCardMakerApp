@@ -1,5 +1,10 @@
 <template>
-	<span class="wakawaka" :style="fontAxes" :data-text-line="theLine">
+	<span
+		class="wakawaka"
+		:style="fontAxes"
+		:data-text-line="theLine"
+		:data-placeholder="placeholderProp"
+	>
 		<slot></slot>
 		<div data-soi class="soi--textSlider">
 			<label class="rangeUI__label">
@@ -61,6 +66,7 @@ export default {
 		"slantProp",
 		"fontWghtMin",
 		"fontWghtMax",
+		"placeholderProp",
 	],
 	computed: {
 		fontAxes() {
@@ -90,6 +96,13 @@ export default {
 <style lang="scss">
 .wakawaka {
 	display: contents;
+	&:after {
+		content: attr(data-placeholder);
+		position: absolute;
+		pointer-events: none;
+		user-select: none;
+		z-index: -9;
+	}
 }
 
 .textControlledBySliders {
