@@ -377,6 +377,9 @@ export default {
 	height: 4.4rem;
 	padding: 0 !important;
 	margin: 0 !important;
+	opacity: 0;
+	position: absolute;
+	z-index: -9;
 }
 //
 //.cloned-input[text-right] {
