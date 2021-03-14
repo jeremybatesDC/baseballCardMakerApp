@@ -191,8 +191,18 @@ export default {
 </script>
 
 <style lang="scss">
+// ion fixes
+
 .contentWrapper.hydrated.ios {
 	--keyboard-offset: 0px !important;
+}
+
+.cloned-input {
+	top: unset !important;
+	&[text-right] {
+		padding-right: 1.6rem !important;
+		margin-left: 0 !important;
+	}
 }
 
 [data-page] {
