@@ -174,6 +174,7 @@
 									placeholder="Dad, Utility Infielder"
 								/>
 								<!--<input
+								placeholder="Dad, Utility Infielder"
 								:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
 								@focus.once="makeFieldDirty"
@@ -372,22 +373,6 @@ export default {
 
 // end vars
 
-//test
-.cloned-input {
-	display: contents !important;
-	height: 4.4rem;
-	padding: 0 !important;
-	margin: 0 !important;
-	opacity: 0 !important;
-	position: absolute !important;
-	z-index: -9 !important;
-}
-//
-//.cloned-input[text-right] {
-//	padding-right: 1.6rem !important;
-//	margin-left: 0 !important;
-//}
-//
 .cardFront__wrapper--outermost {
 	position: relative;
 	padding-top: 1.6rem;
