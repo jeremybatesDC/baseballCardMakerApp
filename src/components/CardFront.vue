@@ -374,12 +374,13 @@ export default {
 
 //test
 .cloned-input {
+	display: contents !important;
 	height: 4.4rem;
 	padding: 0 !important;
 	margin: 0 !important;
-	opacity: 0;
-	position: absolute;
-	z-index: -9;
+	opacity: 0 !important;
+	position: absolute !important;
+	z-index: -9 !important;
 }
 //
 //.cloned-input[text-right] {
