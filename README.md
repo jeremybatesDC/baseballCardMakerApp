@@ -2,6 +2,13 @@
 
 ## To Do
 
+https://github.com/ionic-team/ionic-framework/blob/0182014fe5166fed044e80fe98889648c9a65456/src/components/input/input.ios.scss
+
+more: https://github.com/ionic-team/ionic-v3/issues/113
+
+can i CONFIGURE my way out if canT css way out? oof -- pretty scared to upgrade anything
+i also don't want to revert to ionic input which might actually address some behavior on ios
+
 :placeholder was at least part of the skipping issue...
 
 blur handler seems ok -- maybe there's some circular stuff going on with placeholder, data-dirty AND the css classes...

@@ -122,7 +122,7 @@
 					</div>
 
 					<div class="text__line--second row">
-						<h1 class="cf__h1">
+						<h1 class="cf__h1" data-placeholder="Casey Leroy">
 							<TextSlidersVuex
 								whichLine="B"
 								gradProp="0"
@@ -152,7 +152,7 @@
 							/>-->
 							</TextSlidersVuex>
 						</h1>
-						<h3 class="cf__h3">
+						<h3 class="cf__h3" data-placeholder="Dad, Utility Infielder">
 							<TextSlidersVuex
 								whichLine="C"
 								gradProp="0"
@@ -171,11 +171,9 @@
 									spellcheck="false"
 									data-line="C"
 									@blur="storeDis('C')"
-									placeholder="Dad, Utility Infielder"
 								/>
 								<!--<input
-								
-								
+								placeholder="Dad, Utility Infielder"
 								:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
 								@focus.once="makeFieldDirty"
@@ -375,15 +373,7 @@ export default {
 // end vars
 
 .cloned-input {
-	display: none !important;
-	position: absolute !important;
 	top: unset !important;
-	opacity: 0 !important;
-	isolation: isolate !important;
-	transform: translateX(-999px) !important;
-	z-index: -9 !important;
-	pointer-events: none !important;
-	visibility: hidden !important;
 	&[text-right] {
 		padding-right: 1.6rem !important;
 		margin-left: 0 !important;
@@ -563,6 +553,12 @@ export default {
 .cf__h2,
 .cf__h3 {
 	display: flex;
+	&:after {
+		content: attr(data-placeholder);
+		position: absolute;
+		pointer-events: none;
+		z-index: -9;
+	}
 	input {
 		&[type="text"] {
 			display: flex;
