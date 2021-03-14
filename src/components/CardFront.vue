@@ -377,8 +377,8 @@ export default {
 .cloned-input {
 	display: contents !important;
 	top: unset !important;
-	opacity: 0;
-	isolation: isolate;
+	opacity: 0 !important;
+	isolation: isolate !important;
 	&[text-right] {
 		padding-right: 1.6rem !important;
 		margin-left: 0 !important;
