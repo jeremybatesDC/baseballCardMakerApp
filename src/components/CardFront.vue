@@ -379,6 +379,9 @@ export default {
 	top: unset !important;
 	opacity: 0 !important;
 	isolation: isolate !important;
+	transform: translateX(-999px) !important;
+	z-index: -9 !important;
+	pointer-events: none !important;
 	&[text-right] {
 		padding-right: 1.6rem !important;
 		margin-left: 0 !important;
