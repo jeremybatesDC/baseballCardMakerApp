@@ -197,14 +197,6 @@ export default {
 	--keyboard-offset: 0px !important;
 }
 
-.cloned-input {
-	top: unset !important;
-	&[text-right] {
-		padding-right: 1.6rem !important;
-		margin-left: 0 !important;
-	}
-}
-
 [data-page] {
 	--rfront: calc(var(--redfront) * 0.2126);
 	--gfront: calc(var(--greenfront) * 0.7152);

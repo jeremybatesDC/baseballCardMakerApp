@@ -171,9 +171,9 @@
 									spellcheck="false"
 									data-line="C"
 									@blur="storeDis('C')"
-									placeholder="Dad, Utility Infielder"
 								/>
 								<!--<input
+								
 								placeholder="Dad, Utility Infielder"
 								:placeholder="localPlaceholderC"
 									:data-dirty="textLineCDirty"
@@ -372,6 +372,14 @@ export default {
 }
 
 // end vars
+
+.cloned-input {
+	top: unset !important;
+	&[text-right] {
+		padding-right: 1.6rem !important;
+		margin-left: 0 !important;
+	}
+}
 
 .cardFront__wrapper--outermost {
 	position: relative;
