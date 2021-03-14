@@ -372,8 +372,10 @@ export default {
 
 // end vars
 
+//test
 .cloned-input {
-	padding: 0 0.8rem !important;
+	height: 4.4rem;
+	padding: 0 !important;
 	margin: 0 !important;
 }
 //
