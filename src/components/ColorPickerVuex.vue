@@ -42,11 +42,5 @@ export default {
 };
 </script>
 
-<style lang="scss">
 
-
-.wakawaka {
-	display: contents;
-}
-
-</style>
+<!-- <style lang="scss"></style> -->

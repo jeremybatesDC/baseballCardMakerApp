@@ -1,6 +1,6 @@
 <template>
 	<span
-		class="wakawaka"
+		class="wakawaka wakawaka--textSlidersVuex"
 		:style="fontAxes"
 		:data-text-line="theLine"
 		:data-placeholder="placeholderProp"
@@ -95,13 +95,29 @@ export default {
 
 <style lang="scss">
 .wakawaka {
-	display: contents;
-	&:after {
-		content: attr(data-placeholder);
-		position: absolute;
-		pointer-events: none;
-		user-select: none;
-		z-index: -9;
+	&--textSlidersVuex {
+		font-variation-settings: "GRAD" var(--grad), "wght" var(--wght),
+			"wdth" var(--wdth), "slnt" var(--slnt) !important;
+
+		&:after {
+			[data-dirty="false"] & {
+				content: attr(data-placeholder);
+				display: flex;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 100%;
+				height: 2.4rem;
+				pointer-events: none;
+				user-select: none;
+				z-index: -9;
+			}
+		}
+		//&:focus-within {
+		//	&:after {
+		//		content: "";
+		//	}
+		//}
 	}
 }
 

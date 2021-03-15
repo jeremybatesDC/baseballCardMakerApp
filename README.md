@@ -2,6 +2,10 @@
 
 ## To Do
 
+0-2 and 2-0 textsliders too low
+
+make field dirty function dynamic rather than current hardcode first draft
+
 https://github.com/ionic-team/ionic-framework/blob/0182014fe5166fed044e80fe98889648c9a65456/src/components/input/input.ios.scss
 
 more: https://github.com/ionic-team/ionic-v3/issues/113

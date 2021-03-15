@@ -35,7 +35,7 @@
 				>
 					<div class="text__line--first row">
 						<!-- using  slot here because it makes sense to apss html to this component. -->
-						<h2 class="cf__h2">
+						<h2 class="cf__headline cf__h2 " :data-dirty="textLineADirty">
 							<TextSlidersVuex
 								whichLine="A"
 								gradProp="0"
@@ -54,13 +54,8 @@
 									spellcheck="false"
 									data-line="A"
 									@blur="storeDis('A')"
+									@focus.once="makeFieldDirty"
 								/>
-								<!--<input
-							
-								:placeholder="localPlaceholderA"
-									:data-dirty="textLineADirty"
-								@focus.once="makeFieldDirty"
-							/>-->
 							</TextSlidersVuex>
 						</h2>
 					</div>
@@ -122,7 +117,7 @@
 					</div>
 
 					<div class="text__line--second row">
-						<h1 class="cf__h1">
+						<h1 class="cf__headline cf__h1" :data-dirty="textLineBDirty">
 							<TextSlidersVuex
 								whichLine="B"
 								gradProp="0"
@@ -142,18 +137,11 @@
 									spellcheck="false"
 									data-line="B"
 									@blur="storeDis('B')"
+									@focus.once="makeFieldDirty"
 								/>
-								<!--<input
-							
-							:placeholder="localPlaceholderB"
-							placeholder="Casey LeRoy"
-									:data-dirty="textLineBDirty"
-								@focus.once="makeFieldDirty"
-								
-							/>-->
 							</TextSlidersVuex>
 						</h1>
-						<h3 class="cf__h3">
+						<h3 class="cf__headline cf__h3" :data-dirty="textLineCDirty">
 							<TextSlidersVuex
 								whichLine="C"
 								gradProp="0"
@@ -173,14 +161,8 @@
 									spellcheck="false"
 									data-line="C"
 									@blur="storeDis('C')"
+									@focus.once="makeFieldDirty"
 								/>
-								<!--<input
-								placeholder="Dad, Utility Infielder"
-								:placeholder="localPlaceholderC"
-									:data-dirty="textLineCDirty"
-								@focus.once="makeFieldDirty"
-							
-							/>-->
 							</TextSlidersVuex>
 						</h3>
 					</div>
@@ -305,6 +287,11 @@ export default {
 		},
 		makeFieldDirty(event) {
 			// need to make this caseINsensitive with to uppercase or something
+			console.log("dirty");
+			//this.textLineADirty = true;
+
+			//const parentHeadline = event.target.closest(".cf__headline");
+			//parentHeadline.classList.remove("fieldClean");
 			const fieldToMakeDirty = `textLine${event.target.dataset.line}Dirty`;
 			this[fieldToMakeDirty] = true;
 		},
@@ -433,6 +420,12 @@ export default {
 	z-index: 0;
 }
 
+.text__line--first,
+.text__line--second,
+.text__line--third {
+	position: relative;
+}
+
 .oneone {
 	justify-content: space-between;
 	input {
@@ -555,7 +548,6 @@ export default {
 .cf__h2,
 .cf__h3 {
 	display: flex;
-
 	input {
 		&[type="text"] {
 			display: flex;
