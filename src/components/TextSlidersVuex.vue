@@ -107,7 +107,8 @@ export default {
 				top: 50%;
 				transform: translateY(-50%);
 				width: 100%;
-				height: 2.4rem;
+				height: 100%;
+				align-items: center;
 				pointer-events: none;
 				user-select: none;
 				z-index: -9;

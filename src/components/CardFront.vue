@@ -49,7 +49,7 @@
 								<input
 									type="text"
 									v-model.trim="localLineA"
-									class="textControlledBySliders"
+									class="cf__input--text textControlledBySliders"
 									maxlength="42"
 									spellcheck="false"
 									data-line="A"
@@ -132,7 +132,7 @@
 								<input
 									type="text"
 									v-model.trim="localLineB"
-									class="textControlledBySliders"
+									class="cf__input--text textControlledBySliders"
 									maxlength="48"
 									spellcheck="false"
 									data-line="B"
@@ -156,7 +156,7 @@
 								<input
 									type="text"
 									v-model.trim="localLineC"
-									class="textControlledBySliders"
+									class="cf__input--text textControlledBySliders"
 									maxlength="48"
 									spellcheck="false"
 									data-line="C"
@@ -203,7 +203,6 @@
 import TextSlidersVuex from "./TextSlidersVuex";
 import RadiosDecade from "./frontcomponents/RadiosDecade";
 import RadiosLogo from "./frontcomponents/RadiosLogo";
-
 import RadiosLayout from "./frontcomponents/RadiosLayout";
 
 export default {
@@ -293,7 +292,7 @@ export default {
 			//const parentHeadline = event.target.closest(".cf__headline");
 			//parentHeadline.classList.remove("fieldClean");
 			const fieldToMakeDirty = `textLine${event.target.dataset.line}Dirty`;
-			this[fieldToMakeDirty] = true;
+			//this[fieldToMakeDirty] = true;
 		},
 		// i could say asycn but ultimately mutations are synchronous
 		storeDis(line) {
@@ -385,9 +384,9 @@ export default {
 	max-width: 32.8rem;
 	//yes, hard height here because
 	height: 50.4rem;
+	padding: 1.6rem 0;
 	// test
 	margin: 0 auto 4.8rem auto;
-	//padding: 0 1.6rem;
 	color: var(--calcColorFront, #000);
 	background-color: var(--bgcf, #fefefe);
 	box-shadow: -1.6rem 0 var(--bgcf, #fefefe), 1.6rem 0 var(--bgcf, #fefefe);
@@ -421,57 +420,61 @@ export default {
 }
 
 .text__line--first,
-.text__line--second,
-.text__line--third {
+.text__line--second {
 	position: relative;
+	//padding-top: 0.4rem;
+	//padding-bottom: 0.4rem;
+}
+
+.cf__input--text {
+	height: 2.4rem;
+}
+
+.row--middle--forDesign {
+	.oneone & {
+		order: 0;
+	}
+	.zerotwo & {
+		order: -1;
+	}
+	.twozero & {
+		order: 1;
+	}
 }
 
 .oneone {
 	justify-content: space-between;
-	input {
-		&[type="text"] {
-			height: var(--min-touch-target);
-		}
-	}
-	.row--middle--forDesign {
-		order: 0;
-	}
+	//padding: 1.6rem 0;
+
 	.text__line--first {
+		//padding-bottom: 0.8rem;
 		[data-soi] {
-			top: var(--min-touch-target);
+			top: 3.2rem;
 			bottom: auto;
 		}
 	}
 
 	.text__line--second {
+		//padding-top: 0.8rem;
 		[data-soi] {
 			top: auto;
-			bottom: var(--min-touch-target);
+			bottom: 3.2rem;
 		}
 	}
 }
 .zerotwo {
-	justify-content: flex-end;
+	justify-content: space-between;
+
 	//padding-top: 1.6rem;
-	padding-bottom: 0;
-	input {
-		&[type="text"] {
-			height: 2.4rem;
-		}
-	}
-	.row--middle--forDesign {
-		order: -1;
-	}
+	//padding-bottom: 1.4rem;
 
 	.text__line--first {
-		padding-top: 0.8rem;
 		[data-soi] {
 			top: auto;
-			bottom: 6.4rem;
+			bottom: 3.2rem;
 		}
 	}
 	.text__line--second {
-		padding-bottom: 0.8rem;
 		[data-soi] {
 			top: auto;
 			bottom: 6.4rem;
@@ -479,29 +482,16 @@ export default {
 	}
 }
 .twozero {
-	justify-content: flex-start;
-	padding-top: 0;
-	//padding-bottom: 1.6rem;
-	input {
-		&[type="text"] {
-			height: 2.4rem;
-		}
-	}
-	.row--middle--forDesign {
-		order: 1;
-	}
-
+	justify-content: space-between;
 	.text__line--first {
-		padding-top: 0.8rem;
 		[data-soi] {
-			top: 6.4rem;
+			top: 5.6rem;
 			bottom: auto;
 		}
 	}
 	.text__line--second {
-		padding-bottom: 0.8rem;
 		[data-soi] {
-			top: 6.4rem;
+			top: 3.2rem;
 			bottom: auto;
 		}
 	}
