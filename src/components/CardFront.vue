@@ -380,6 +380,8 @@ export default {
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
+
 	width: 100%;
 	max-width: 32.8rem;
 	//yes, hard height here because
@@ -431,73 +433,6 @@ export default {
 }
 
 .row--middle--forDesign {
-	.oneone & {
-		order: 0;
-	}
-	.zerotwo & {
-		order: -1;
-	}
-	.twozero & {
-		order: 1;
-	}
-}
-
-.oneone {
-	justify-content: space-between;
-	//padding: 1.6rem 0;
-
-	.text__line--first {
-		//padding-bottom: 0.8rem;
-		[data-soi] {
-			top: 3.2rem;
-			bottom: auto;
-		}
-	}
-
-	.text__line--second {
-		//padding-top: 0.8rem;
-		[data-soi] {
-			top: auto;
-			bottom: 3.2rem;
-		}
-	}
-}
-.zerotwo {
-	justify-content: space-between;
-
-	//padding-top: 1.6rem;
-	//padding-bottom: 1.4rem;
-
-	.text__line--first {
-		[data-soi] {
-			top: auto;
-			bottom: 3.2rem;
-		}
-	}
-	.text__line--second {
-		[data-soi] {
-			top: auto;
-			bottom: 6.4rem;
-		}
-	}
-}
-.twozero {
-	justify-content: space-between;
-	.text__line--first {
-		[data-soi] {
-			top: 5.6rem;
-			bottom: auto;
-		}
-	}
-	.text__line--second {
-		[data-soi] {
-			top: 3.2rem;
-			bottom: auto;
-		}
-	}
-}
-
-.row--middle--forDesign {
 	height: 41.6rem;
 	max-height: 41.6rem;
 	display: flex;
@@ -521,10 +456,69 @@ export default {
 		justify-content: flex-end;
 		align-items: flex-end;
 	}
+	.oneone & {
+		order: 0;
+	}
+	.zerotwo & {
+		order: -1;
+	}
+	.twozero & {
+		order: 1;
+	}
+}
+
+.oneone {
+	//padding: 1.6rem 0;
+
+	.text__line--first {
+		//padding-bottom: 0.8rem;
+		[data-soi] {
+			top: 3.2rem;
+			bottom: auto;
+		}
+	}
+
+	.text__line--second {
+		//padding-top: 0.8rem;
+		[data-soi] {
+			top: auto;
+			bottom: 3.2rem;
+		}
+	}
+}
+.zerotwo {
+	//padding-top: 1.6rem;
+	//padding-bottom: 1.4rem;
+
+	.text__line--first {
+		[data-soi] {
+			top: auto;
+			bottom: 3.2rem;
+		}
+	}
+	.text__line--second {
+		[data-soi] {
+			top: auto;
+			bottom: 6.4rem;
+		}
+	}
+}
+.twozero {
+	.text__line--first {
+		[data-soi] {
+			top: 5.6rem;
+			bottom: auto;
+		}
+	}
+	.text__line--second {
+		[data-soi] {
+			top: 3.2rem;
+			bottom: auto;
+		}
+	}
 }
 
 .text__line--second {
-	justify-content: space-between;
 	align-items: center;
 	.cf__h1 {
 		width: 60%;
