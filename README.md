@@ -2,6 +2,8 @@
 
 ## To Do
 
+try line-height or padding inside inputs -- stop scribbling
+
 0-2 and 2-0 textsliders too low
 
 make field dirty function dynamic rather than current hardcode first draft
