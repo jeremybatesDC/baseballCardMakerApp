@@ -292,7 +292,7 @@ export default {
 			//const parentHeadline = event.target.closest(".cf__headline");
 			//parentHeadline.classList.remove("fieldClean");
 			const fieldToMakeDirty = `textLine${event.target.dataset.line}Dirty`;
-			//this[fieldToMakeDirty] = true;
+			this[fieldToMakeDirty] = true;
 		},
 		// i could say asycn but ultimately mutations are synchronous
 		storeDis(line) {
@@ -386,7 +386,7 @@ export default {
 	max-width: 32.8rem;
 	//yes, hard height here because
 	height: 50.4rem;
-	padding: 1.6rem 0;
+	//padding: 1.6rem 0;
 	// test
 	margin: 0 auto 4.8rem auto;
 	color: var(--calcColorFront, #000);
@@ -429,7 +429,7 @@ export default {
 }
 
 .cf__input--text {
-	height: 2.4rem;
+	height: 3.2rem;
 }
 
 .row--middle--forDesign {
@@ -468,18 +468,21 @@ export default {
 }
 
 .oneone {
-	//padding: 1.6rem 0;
+	padding-top: 0.8rem;
+	padding-bottom: 0.8rem;
 
 	.text__line--first {
-		//padding-bottom: 0.8rem;
+		//height: var(--min-touch-target);
+		align-items: center;
 		[data-soi] {
-			top: 3.2rem;
+			top: 3.6rem;
 			bottom: auto;
 		}
 	}
 
 	.text__line--second {
-		//padding-top: 0.8rem;
+		//height: var(--min-touch-target);
+		align-items: center;
 		[data-soi] {
 			top: auto;
 			bottom: 3.2rem;
@@ -487,8 +490,8 @@ export default {
 	}
 }
 .zerotwo {
-	//padding-top: 1.6rem;
-	//padding-bottom: 1.4rem;
+	padding-top: 1.6rem;
+	padding-bottom: 1.2rem;
 
 	.text__line--first {
 		[data-soi] {
@@ -504,9 +507,11 @@ export default {
 	}
 }
 .twozero {
+	padding-top: 1rem;
+	padding-bottom: 1.6rem;
 	.text__line--first {
 		[data-soi] {
-			top: 5.6rem;
+			top: 6.4rem;
 			bottom: auto;
 		}
 	}
