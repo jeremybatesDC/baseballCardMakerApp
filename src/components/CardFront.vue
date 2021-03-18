@@ -287,10 +287,6 @@ export default {
 		makeFieldDirty(event) {
 			// need to make this caseINsensitive with to uppercase or something
 			console.log("dirty");
-			//this.textLineADirty = true;
-
-			//const parentHeadline = event.target.closest(".cf__headline");
-			//parentHeadline.classList.remove("fieldClean");
 			const fieldToMakeDirty = `textLine${event.target.dataset.line}Dirty`;
 			this[fieldToMakeDirty] = true;
 		},
@@ -428,10 +424,6 @@ export default {
 	//padding-bottom: 0.4rem;
 }
 
-.cf__input--text {
-	height: 3.2rem;
-}
-
 .row--middle--forDesign {
 	height: 41.6rem;
 	max-height: 41.6rem;
@@ -469,49 +461,57 @@ export default {
 
 .oneone {
 	padding-top: 0.8rem;
-	padding-bottom: 0.8rem;
-
+	padding-bottom: 1rem;
+	.cf__input--text {
+		height: 3.2rem;
+	}
 	.text__line--first {
-		//height: var(--min-touch-target);
 		align-items: center;
 		[data-soi] {
 			top: 3.6rem;
 			bottom: auto;
 		}
 	}
-
 	.text__line--second {
-		//height: var(--min-touch-target);
 		align-items: center;
 		[data-soi] {
 			top: auto;
-			bottom: 3.2rem;
+			bottom: 3.6rem;
 		}
 	}
 }
 .zerotwo {
 	padding-top: 1.6rem;
-	padding-bottom: 1.2rem;
-
+	padding-bottom: 1.6rem;
+	.cf__input--text {
+		height: 2.4rem;
+	}
 	.text__line--first {
 		[data-soi] {
 			top: auto;
-			bottom: 3.2rem;
+			bottom: 2.8rem;
 		}
 	}
 	.text__line--second {
 		[data-soi] {
 			top: auto;
-			bottom: 6.4rem;
+			bottom: 5.6rem;
 		}
 	}
 }
+
 .twozero {
-	padding-top: 1rem;
+	padding-top: 1.2rem;
 	padding-bottom: 1.6rem;
+	.cf__input--text {
+		height: 2.4rem;
+	}
 	.text__line--first {
+		.cf__input--text {
+			//padding-top: 0.8rem;
+		}
 		[data-soi] {
-			top: 6.4rem;
+			top: 6.2rem;
 			bottom: auto;
 		}
 	}

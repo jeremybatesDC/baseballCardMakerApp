@@ -18,16 +18,6 @@
 				/>
 				<!-- 	@blur="storeDis(`GRAD`)" -->
 			</label>
-
-			<!--<label class="rangeUI__label">
-				<span>OLDWeight: <output :value="localwght"></output></span>
-				<input
-					type="range"
-					:min="fontWghtMin || 100"
-					:max="fontWghtMax || 900"
-					v-model.number="localwght"
-				/>
-			</label>-->
 			<label class="rangeUI__label">
 				<span>Width: <output :value="localwdth"></output></span>
 				<input
@@ -40,8 +30,7 @@
 			<label class="rangeUI__label">
 				<span>Slant: <output :value="localslnt"></output></span>
 				<input type="range" min="-10" max="0" v-model.number="localslnt" />
-
-				<!-- 					@blur="storeDis('slnt')"  -->
+				<!-- 	@blur="storeDis('slnt')"  -->
 			</label>
 		</div>
 	</span>
@@ -49,7 +38,6 @@
 
 <script>
 export default {
-	// ATTACH the INPUTS' v-model to a COMPUTED. like thisLine
 	data() {
 		return {
 			localgrad: this.gradProp,
@@ -81,8 +69,6 @@ export default {
 			return this.whichLine;
 		},
 	},
-
-	// need a way to handle 4 lines, 12 fileds, without exploding this file...
 	methods: {
 		storeDis(lineXfieldY) {
 			const mutationname = `update${this.theLine}${lineXfieldY}`;
@@ -98,7 +84,6 @@ export default {
 	&--textSlidersVuex {
 		font-variation-settings: "GRAD" var(--grad), "wght" var(--wght),
 			"wdth" var(--wdth), "slnt" var(--slnt) !important;
-
 		&:after {
 			[data-dirty="false"] & {
 				content: attr(data-placeholder);
@@ -114,16 +99,6 @@ export default {
 				z-index: -9;
 			}
 		}
-		//&:focus-within {
-		//	&:after {
-		//		content: "";
-		//	}
-		//}
 	}
-}
-
-.textControlledBySliders {
-	font-variation-settings: "GRAD" var(--grad), "wght" var(--wght),
-		"wdth" var(--wdth), "slnt" var(--slnt) !important;
 }
 </style>
